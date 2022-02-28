@@ -77,11 +77,11 @@ Format: `help`
 
 Adds a contact to the address book.
 
-Format: 
+Format:
 
 Applicant Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION`
 
-Employer Format:  `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING`
+Employer Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Each applicant can only apply for 1 job in the company and each employer can only be recruiting for 1 job.
