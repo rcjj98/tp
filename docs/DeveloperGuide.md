@@ -270,14 +270,17 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​           | I want to …​                                                                   | So that I can…​                                                              |
+|----------|-------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| `*`      | Tech HR Recruiter | share information with other recruiters                                        | easily liaise with them                                                      |
+| `* * *`  | Tech HR Recruiter | rank applicants                                                                | find out who to contact in the event the top few applicants reject the offer |
+| `* * *`  | Tech HR Recruiter | categorize employers by the job position they are hiring for                   | find out who to contact regarding a specific job position                    |
+| `*`      | Tech HR Recruiter | utilise a task list                                                            | keep track of my daily schedule                                              |
+| `*`      | Tech HR Recruiter | schedule meetings/interviews between employers and applicants                  | help them progress in the application process                                |
+| `* *`    | Tech HR Recruiter | easily view the details of a contact without needing to click on their profile | skim through my contacts quickly                                             |
+| `* *`    | Tech HR Recruiter | send applicant details to respective employers                                 | delegate information seamlessly                                              |
+| `*`      | Tech HR Recruiter | easily view the applicants social media page                                   | gain some insight into how they carry themselves                             |
+| `* * *`  | Tech HR Recruiter | sort contacts by name                                                          | find the right contact easily                                                |
 
 *{More to be added}*
 
