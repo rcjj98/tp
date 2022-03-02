@@ -105,18 +105,29 @@ Format: `list`
 
 Edits an existing person in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Applicant Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`
+
+Employer Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* The `CATEGORY` field must be provided.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+* Editing applicant: `edit 1 c/A p/91234567 j/2`
+  
+  Edits the phone number and job ID of the 1st **applicant** to be `91234567` and `2` respectively.
+
+
+* Editing applicant: `edit 3 c/A n/Betsy Crower s/Interview` 
+
+  Edits the name and stage of application of the 2nd **applicant** to be `Betsy Crower` and `Interview` respectively. 
+
+
+* Editing employer: `edit 1 c/E e/johndoe@gmail.com j/3` 
+
+  Edits the email and job ID of the 1st **employer** to be `johndoe@gmail.com` and `3` respectively.
 
 ### Locating persons by name: `find`
 
@@ -194,7 +205,7 @@ Action | Format, Examples
 **Add** |Applicant: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION` <br> e.g., `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`<br><br>Employer: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING` <br> e.g., `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`<br> e.g.,`edit 2 c/A n/Jane Doe s/Interview` <br> <br> `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`<br> e.g.,`edit 2 c/E n/James Lee p/9891 3445` 
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
