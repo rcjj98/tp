@@ -255,7 +255,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Tech HR Recruiters
 
 * has a need to manage a significant number of contacts
 * prefer desktop apps over other types
@@ -263,30 +263,66 @@ _{Explain here how the data archiving feature will be implemented}_
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
-
+**Value proposition**:
+* manage contacts faster than a typical mouse/GUI driven app
+* categorize applicants based on job role they are interested in & current stage of application process
+* consolidate/group applicants and employers of relevant department together
+* keep track of applicant's interviews/upcoming calls
+* task list for themselves to keep track of miscellaneous things
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​           | I want to …​                                                                   | So that I can…​                                                              |
-|----------|-------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| `*`      | Tech HR Recruiter | share information with other recruiters                                        | easily liaise with them                                                      |
-| `* * *`  | Tech HR Recruiter | rank applicants                                                                | find out who to contact in the event the top few applicants reject the offer |
-| `* * *`  | Tech HR Recruiter | categorize employers by the job position they are hiring for                   | find out who to contact regarding a specific job position                    |
-| `*`      | Tech HR Recruiter | utilise a task list                                                            | keep track of my daily schedule                                              |
-| `*`      | Tech HR Recruiter | schedule meetings/interviews between employers and applicants                  | help them progress in the application process                                |
-| `* *`    | Tech HR Recruiter | easily view the details of a contact without needing to click on their profile | skim through my contacts quickly                                             |
-| `* *`    | Tech HR Recruiter | send applicant details to respective employers                                 | delegate information seamlessly                                              |
-| `*`      | Tech HR Recruiter | easily view the applicants social media page                                   | gain some insight into how they carry themselves                             |
-| `* * *`  | Tech HR Recruiter | sort contacts by name                                                          | find the right contact easily                                                |
+| Priority | As a …​           | I want to …​                                                                   | So that I can…​                                                                                     |
+|----------|-------------------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `*`      | Tech HR Recruiter | share information with other recruiters                                        | easily liaise with them                                                                             |
+| `* * *`  | Tech HR Recruiter | rank applicants                                                                | find out who to contact in the event the top few applicants reject the offer                        |
+| `* * *`  | Tech HR Recruiter | categorize employers by the job position they are hiring for                   | find out who to contact regarding a specific job position                                           | 
+| `*`      | Tech HR Recruiter | utilise a task list                                                            | keep track of my daily schedule                                                                     |
+| `*`      | Tech HR Recruiter | schedule meetings/interviews between employers and applicants                  | help them progress in the application process                                                       |
+| `* *`    | Tech HR Recruiter | easily view the details of a contact without needing to click on their profile | skim through my contacts quickly                                                                    |
+| `* *`    | Tech HR Recruiter | send applicant details to respective employers                                 | delegate information seamlessly                                                                     |
+| `*`      | Tech HR Recruiter | easily view the applicants social media page                                   | gain some insight into how they carry themselves                                                    |
+| `* * *`  | Tech HR Recruiter | sort contacts by name                                                          | find the right contact easily                                                                       |
+| `* * *`  | tech HR recruiter | list all the applicants and employers that are in my address book.             |                                                                                                     |
+| `* * *`  | tech HR recruiter | add an applicant's contact information in my address book                      | keep track of who might be a suitable applicant                                                     |
+| `* * *`  | tech HR recruiter | add an employer's contact information in my address book                       | keep track of who is currently looking for people to hire                                           |
+| `* * *`  | tech HR recruiter | delete applicants or employers from my address book                            | remove unnecessary data                                                                             |
+| `* * *`  | tech HR recruiter | update applicants or employers contact in my address book                      | easily edit their contact details without needing to delete them                                    |
+| `* * *`  | tech HR recruiter | search up an applicant or an employer easily                                   | view all their details and information quickly instead of needing to scroll through the entire list |
+| `* `     | tech HR recruiter | send an email to any contact                                                   | easily communicate anything                                                                         |
 
 *{More to be added}*
 
 ### Use cases
 
 (For all use cases below, the **System** is the `HRConnect` and the **Actor** is the `Tech HR Recruiter`, unless specified otherwise)
+
+
+**Use case: Add a person**
+
+**MSS**
+
+1. User requests to add an applicant or employer in the address book
+2. AddressBook adds the contact
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The category is invalid.
+
+  * 2a1. AddressBook shows an error message.
+
+    Use case only adds contact with category field 'A' or 'E'.
+
+* 2b. The job ID is invalid.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only adds contact with valid job ID.
+    
 
 **Use case: Edit a person's particulars**
 
@@ -313,17 +349,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4. Should only be used by Tech HR Recruiters
 
 *{More to be added}*
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
+
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Tech HR Recruiter**: A HR recruiter working in a tech company
+
+* **Tech HR Recruiters**: a Human Resource specialist that assists in the proper staffing of technical positions within an organization
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**

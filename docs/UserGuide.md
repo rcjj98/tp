@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+HRConnect is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, HRConnect can get your contact management tasks done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -14,7 +14,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `HRConnect.jar` from [here](https://github.com/AY2122S2-CS2103T-W11-2/tp/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
 
@@ -26,7 +26,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add`**`c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened` : Adds a applicant named `John Doe` to the Address Book who is applying for the job with job ID `1` and his current application status is `Resume Screened`.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -75,17 +75,25 @@ Format: `help`
 
 ### Adding a person: `add`
 
-Adds a person to the address book.
+Adds a contact to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format:
+
+Applicant Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION`
+
+Employer Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
+Each applicant can only apply for 1 job in the company and each employer can only be recruiting for 1 job.
+</div>
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+When first added into the address book, each applicant's stage of application is `Resume Screened`.
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* Add Applicant: `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`
+* Add Employer: `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
 
 ### Listing all persons : `list`
 
@@ -194,7 +202,7 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+**Add** |Applicant: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION` <br> e.g., `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`<br><br>Employer: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING` <br> e.g., `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`<br> e.g.,`edit 2 c/A n/Jane Doe s/Interview` <br> <br> `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`<br> e.g.,`edit 2 c/E n/James Lee p/9891 3445` 

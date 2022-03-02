@@ -9,15 +9,17 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 
 ## Project team
 
-### Prof Damith 
+### Brigitte Puteri Santoso
 
-<img src="images/johndoe.png" width="200px">
+
+<img src="images/brigittesantoso.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/brigittesantoso)]
+[[portfolio](team/brigittesantoso.md)]
 
-* Role: Project Advisor
+* Role: Developer
+* Responsibilities: tbc
 
 ### Ryan Chang
 
@@ -27,7 +29,7 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 [[portfolio](team/rcjj98.md)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: tbc
 
 ### Johnny Doe
 
