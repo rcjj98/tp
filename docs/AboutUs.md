@@ -5,11 +5,11 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+You can reach us at the email `e0544350@comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Prof Damith 
 
 <img src="images/johndoe.png" width="200px">
 
@@ -19,14 +19,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Project Advisor
 
-### Jane Doe
+### Ryan Chang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/rcjj98.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/rcjj98)]
+[[portfolio](team/rcjj98.md)]
 
-* Role: Team Lead
+* Role: Developer
 * Responsibilities: UI
 
 ### Johnny Doe
