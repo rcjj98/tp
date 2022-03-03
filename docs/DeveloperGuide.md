@@ -317,11 +317,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case only adds contact with category field 'A' or 'E'.
 
-* 2b. The job ID is invalid.
+* 2b. The job position is invalid.
 
     * 2b1. AddressBook shows an error message.
 
-      Use case only adds contact with valid job ID.
+      Use case only adds contact with valid job position.
     
 
 **Use case: Edit a person's particulars**
