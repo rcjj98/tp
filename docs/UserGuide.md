@@ -131,21 +131,14 @@ Examples:
 
 ### Locating persons by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds a contact from the address book.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] etc…`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+* `find n/john` returns `John`, `John Lee`, `John Yeo`
+* `find n/john p/123456 e/johnlee@gmail.com` returns `John Lee`<br>
 
 ### Deleting a person : `delete`
 
