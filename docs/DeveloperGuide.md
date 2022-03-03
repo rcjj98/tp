@@ -291,14 +291,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | tech HR recruiter | delete applicants or employers from my address book                                                                     | remove unnecessary data                                                                             |
 | `* * *`  | tech HR recruiter | update applicants or employers contact in my address book                                                               | easily edit their contact details without needing to delete them                                    |
 | `* * *`  | tech HR recruiter | search up an applicant or an employer easily                                                                            | view all their details and information quickly instead of needing to scroll through the entire list |
-| `* `     | tech HR recruiter | send an email to any contact                                                                                            | easily communicate anything                                                                         |
-| `* `     | tech HR recruiter | view which applicants have required but missing information                                                             | quickly contact them to request it                                                                  |
-| `* `     | tech HR recruiter | sort the applicants into different containers based on their job application                                            | easily find who are the potential candidates for that job role                                      |
-| `* `     | tech HR recruiter | sort the applicants into different containers based on their current application process                                | easily identify what is the next stage in their application                                         |
-| `* `     | tech HR recruiter | parse the information of the applicants                                                                                 | easily understand the strengths and weaknesses of the applicants                                    |
-| `* `     | tech HR recruiter | sort job descriptions based on priority levels (based on date deadline)                                                 | settle more urgent job descriptions first                                                           |
-| `* `     | tech HR recruiter | select multiple contacts to group together                                                                              | easily create a group with the desired contacts                                                     |
-| `* `     | tech HR recruiter | consolidate similar job descriptions to the job role that the applicant has applied for and push them out to applicants | mass send job openings to applicants                                                                |
+| `*`     | tech HR recruiter | send an email to any contact                                                                                             | easily communicate anything                                                                         |
+| `*`     | tech HR recruiter | view which applicants have required but missing information                                                              | quickly contact them to request it                                                                  |
+| `*`     | tech HR recruiter | sort the applicants into different containers based on their job application                                             | easily find who are the potential candidates for that job role                                      |
+| `*`     | tech HR recruiter | sort the applicants into different containers based on their current application process                                 | easily identify what is the next stage in their application                                         |
+| `*`     | tech HR recruiter | parse the information of the applicants                                                                                  | easily understand the strengths and weaknesses of the applicants                                    |
+| `*`     | tech HR recruiter | sort job descriptions based on priority levels (based on date deadline)                                                  | settle more urgent job descriptions first                                                           |
+| `*`     | tech HR recruiter | select multiple contacts to group together                                                                               | easily create a group with the desired contacts                                                     |
+| `*`     | tech HR recruiter | consolidate similar job descriptions to the job role that the applicant has applied for and push them out to applicants  | mass send job openings to applicants  
+| `*`     | tech HR recruiter | I can send an email to multiple contacts at a time                                                                       | can easily broadcast anything.
+| `*`     | tech HR recruiter, I can reach out to other recruiters in my network                                                                         | can connect with them.
+| `* * *`     | tech HR recruiter, I can easily view the status of the applicant’s application process                                                   | can follow up on it.
+|
+| `* * *`     | tech HR recruiter, I can automatically remove applicants who already successfully found a job                                            | can keep the list of applicants well updated.                |
+| `*`     | tech HR recruiter, I can find applicants who are taking too long to move to the next stage of the application process                        | can follow up on it 
+|
+| `* * *`     |  tech HR recruiter, I can favorite contacts                                                                                              | can easily see who to take note of.                          |
+| `*`     |  tech HR recruiter, I can set up meetings/HR calls with the potential applicants                                                             | can easily reach out to the applicants.                      |
 
 
 *{More to be added}*
