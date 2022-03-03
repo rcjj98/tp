@@ -31,7 +31,7 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: tbc
 
-### Johnny Doe
+### Emmanuel Mok
 
 <img src="images/eman-kom.png" width="200px">
 
@@ -41,11 +41,11 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: tbc
 
-### Jean Doe
+### Imraj Singh Sandhu
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/imrajsinghsandhu.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/imrajsinghsandhu)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
