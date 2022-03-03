@@ -46,6 +46,7 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 <img src="images/imrajsinghsandhu.png" width="200px">
 
 [[github](http://github.com/imrajsinghsandhu)]
+[[portfolio](team/imrajsinghsandhu.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: tbc
