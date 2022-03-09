@@ -55,8 +55,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
-        parseApplicationsForEdit(argMultimap.getAllValues(PREFIX_APPLICATION)).
-                ifPresent(editPersonDescriptor::setApplications);
+        parseApplicationsForEdit(argMultimap.getAllValues(PREFIX_APPLICATION))
+                .ifPresent(editPersonDescriptor::setApplications);
 
         if (!editPersonDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
@@ -76,8 +76,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (applications.isEmpty()) {
             return Optional.empty();
         }
-        Collection<String> applicationSet = applications.size() == 1 && applications.contains("") ?
-                Collections.emptySet() : applications;
+        Collection<String> applicationSet = applications.size() == 1 && applications.contains("")
+                ? Collections.emptySet() : applications;
         return Optional.of(ParserUtil.parseApplications(applicationSet));
     }
 
