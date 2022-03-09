@@ -194,7 +194,8 @@ public class ParserUtilTest {
         Set<Application> actualApplicationSet = ParserUtil.parseApplications(Arrays
                 .asList(VALID_APPLICATION_1, VALID_APPLICATION_2));
         Set<Application> expectedApplicationSet = new HashSet<Application>(Arrays
-                .asList(new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS), new Application(new Job(VALID_APPLICATION_2), Stage.INPROGRESS)));
+                .asList(new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS), new Application(
+                        new Job(VALID_APPLICATION_2), Stage.INPROGRESS)));
 
         assertEquals(expectedApplicationSet, actualApplicationSet);
     }
