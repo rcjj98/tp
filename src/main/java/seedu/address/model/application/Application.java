@@ -40,7 +40,8 @@ public class Application {
         if (other == this) {
             return true;
         }
-        seedu.address.model.application.Application otherApplication = (seedu.address.model.application.Application) other;
+        seedu.address.model.application.Application otherApplication =
+                (seedu.address.model.application.Application) other;
         return otherApplication == this;
     }
 
