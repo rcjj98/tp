@@ -1,35 +1,35 @@
 package seedu.address.logic.commands;
 
-//import static java.util.Objects.requireNonNull;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_APPLICATION;
-//import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_APPLICATION;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
-//import java.util.Collections;
-//import java.util.HashSet;
-//import java.util.List;
-//import java.util.Optional;
-//import java.util.Set;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
-//import seedu.address.commons.core.Messages;
-//import seedu.address.commons.core.index.Index;
-//import seedu.address.commons.util.CollectionUtil;
-//import seedu.address.logic.commands.exceptions.CommandException;
-//import seedu.address.model.Model;
-//import seedu.address.model.person.Address;
-//import seedu.address.model.person.Email;
-//import seedu.address.model.person.Name;
-//import seedu.address.model.person.Person;
-//import seedu.address.model.person.Phone;
-//import seedu.address.model.tag.Tag;
+import seedu.address.commons.core.Messages;
+import seedu.address.commons.core.index.Index;
+import seedu.address.commons.util.CollectionUtil;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.Model;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.tag.Tag;
 
-///**
-// * Edits the details of an existing person in the address book.
-//*/
-/*public class EditCommand extends Command {
+/**
+ * Edits the details of an existing person in the address book.
+*/
+public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
@@ -57,7 +57,7 @@ package seedu.address.logic.commands;
      * @param index of the person in the filtered person list to edit
      * @param editPersonDescriptor details to edit the person with
      */
-  /*  public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
+    public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
         requireNonNull(editPersonDescriptor);
 
@@ -90,7 +90,7 @@ package seedu.address.logic.commands;
      * Creates and returns a {@code Person} with the details of {@code personToEdit}
      * edited with {@code editPersonDescriptor}.
      */
-    /*private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
+    private static Person createEditedPerson(Person personToEdit, EditPersonDescriptor editPersonDescriptor) {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
@@ -124,7 +124,7 @@ package seedu.address.logic.commands;
      * Stores the details to edit the person with. Each non-empty field value will replace the
      * corresponding field value of the person.
      */
-    /*public static class EditPersonDescriptor {
+    public static class EditPersonDescriptor {
         private Name name;
         private Phone phone;
         private Email email;
@@ -137,7 +137,7 @@ package seedu.address.logic.commands;
          * Copy constructor.
          * A defensive copy of {@code tags} is used internally.
          */
-      /*  public EditPersonDescriptor(EditPersonDescriptor toCopy) {
+        public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
@@ -148,7 +148,7 @@ package seedu.address.logic.commands;
         /**
          * Returns true if at least one field is edited.
          */
-        /*public boolean isAnyFieldEdited() {
+        public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
         }
 
@@ -188,7 +188,7 @@ package seedu.address.logic.commands;
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
          */
-        /*public void setTags(Set<Tag> tags) {
+        public void setTags(Set<Tag> tags) {
             this.tags = (tags != null) ? new HashSet<>(tags) : null;
         }
 
@@ -197,7 +197,7 @@ package seedu.address.logic.commands;
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
-        /*public Optional<Set<Tag>> getTags() {
+        public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
@@ -224,4 +224,4 @@ package seedu.address.logic.commands;
         }
     }
 }
-*/
+
