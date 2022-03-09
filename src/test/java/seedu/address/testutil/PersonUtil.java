@@ -34,7 +34,7 @@ public class PersonUtil {
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         //person.getApplications().stream().forEach(
-            //s -> sb.append(PREFIX_APPLICATION + s.tagName + " ")
+        //s -> sb.append(PREFIX_APPLICATION + s.tagName + " ")
         //);
         return sb.toString();
     }
@@ -51,9 +51,9 @@ public class PersonUtil {
         if (descriptor.getApplications().isPresent()) {
             Set<Application> tags = descriptor.getApplications().get();
             if (tags.isEmpty()) {
-           //     sb.append(PREFIX_TAG);
+                //sb.append(PREFIX_TAG);
             } else {
-             //   tags.forEach(s -> sb.append(PREFIX_TAG).append(s.tagName).append(" "));
+                //tags.forEach(s -> sb.append(PREFIX_TAG).append(s.tagName).append(" "));
             }
         }
         return sb.toString();

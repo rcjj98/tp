@@ -14,13 +14,13 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.application.Application;
+import seedu.address.model.application.Job;
 import seedu.address.model.application.Stage;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
-import seedu.address.model.application.Application;
-import seedu.address.model.application.Job;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
@@ -180,7 +180,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseApplications_collectionWithInvalidApplications_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseApplications(Arrays.asList(VALID_APPLICATION_1, INVALID_APPLICATION)));
+        assertThrows(ParseException.class, () -> ParserUtil.parseApplications(Arrays
+                .asList(VALID_APPLICATION_1, INVALID_APPLICATION)));
     }
 
     @Test
@@ -190,8 +191,10 @@ public class ParserUtilTest {
 
     @Test
     public void parseTags_collectionWithValidTags_returnsTagSet() throws Exception {
-        Set<Application> actualApplicationSet = ParserUtil.parseApplications(Arrays.asList(VALID_APPLICATION_1, VALID_APPLICATION_2));
-        Set<Application> expectedApplicationSet = new HashSet<Application>(Arrays.asList(new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS), new Application(new Job(VALID_APPLICATION_2), Stage.INPROGRESS)));
+        Set<Application> actualApplicationSet = ParserUtil.parseApplications(Arrays
+                .asList(VALID_APPLICATION_1, VALID_APPLICATION_2));
+        Set<Application> expectedApplicationSet = new HashSet<Application>(Arrays
+                .asList(new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS), new Application(new Job(VALID_APPLICATION_2), Stage.INPROGRESS)));
 
         assertEquals(expectedApplicationSet, actualApplicationSet);
     }

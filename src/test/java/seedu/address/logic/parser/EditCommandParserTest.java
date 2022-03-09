@@ -3,27 +3,27 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.APPLICATION_DESC_FRIEND;
+import static seedu.address.logic.commands.CommandTestUtil.APPLICATION_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_APPLICATION_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_APPLICATION_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.APPLICATION_DESC_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.APPLICATION_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPLICATION_FRIEND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_APPLICATION_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_APPLICATION_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_APPLICATION_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_APPLICATION;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -96,9 +96,12 @@ public class EditCommandParserTest {
 
         // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
         // parsing it together with a valid tag results in error
-        assertParseFailure(parser, "1" + APPLICATION_DESC_FRIEND + APPLICATION_DESC_HUSBAND + TAG_EMPTY, Job.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + APPLICATION_DESC_FRIEND + TAG_EMPTY + APPLICATION_DESC_HUSBAND, Job.MESSAGE_CONSTRAINTS);
-        assertParseFailure(parser, "1" + TAG_EMPTY + APPLICATION_DESC_FRIEND + APPLICATION_DESC_HUSBAND, Job.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + APPLICATION_DESC_FRIEND + APPLICATION_DESC_HUSBAND
+                + TAG_EMPTY, Job.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + APPLICATION_DESC_FRIEND + TAG_EMPTY
+                + APPLICATION_DESC_HUSBAND, Job.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + TAG_EMPTY + APPLICATION_DESC_FRIEND
+                + APPLICATION_DESC_HUSBAND, Job.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_AMY + VALID_PHONE_AMY,
@@ -169,11 +172,13 @@ public class EditCommandParserTest {
     public void parse_multipleRepeatedFields_acceptsLast() {
         Index targetIndex = INDEX_FIRST_PERSON;
         String userInput = targetIndex.getOneBased() + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY
-                + APPLICATION_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + APPLICATION_DESC_FRIEND
+                + APPLICATION_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY
+                + EMAIL_DESC_AMY + APPLICATION_DESC_FRIEND
                 + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + APPLICATION_DESC_HUSBAND;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB)
-                .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withApplications(VALID_APPLICATION_FRIEND, VALID_APPLICATION_HUSBAND)
+                .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+                .withApplications(VALID_APPLICATION_FRIEND, VALID_APPLICATION_HUSBAND)
                 .build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 

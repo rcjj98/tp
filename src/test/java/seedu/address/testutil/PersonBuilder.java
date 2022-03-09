@@ -9,7 +9,6 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -59,7 +58,8 @@ public class PersonBuilder {
     }
 
     /**
-     * Parses the {@code applications} into a {@code Set<Application>} and set it to the {@code Person} that we are building.
+     * Parses the {@code applications} into a {@code Set<Application>}
+     * and set it to the {@code Person} that we are building.
      */
     public PersonBuilder withApplications(String ... applications) {
         this.applications = SampleDataUtil.getApplicationSet(applications);
