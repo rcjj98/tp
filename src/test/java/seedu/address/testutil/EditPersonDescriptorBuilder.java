@@ -1,5 +1,8 @@
 package seedu.address.testutil;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.application.Application;
 import seedu.address.model.application.Job;
@@ -9,9 +12,6 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
