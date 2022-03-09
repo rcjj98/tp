@@ -274,21 +274,48 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​           | I want to …​                                                       | So that I can…​                                                                                     |
-|----------|-------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `* * *`  | tech HR recruiter | list all the applicants and employers that are in my address book. |                                                                                                     |
-| `* * *`  | tech HR recruiter | add an applicant's contact information in my address book          | keep track of who might be a suitable applicant                                                     |
-| `* * *`  | tech HR recruiter | add an employer's contact information in my address book           | keep track of who is currently looking for people to hire                                           |
-| `* * *`  | tech HR recruiter | delete applicants or employers from my address book                | remove unnecessary data                                                                             |
-| `* * *`  | tech HR recruiter | update applicants or employers contact in my address book          | easily edit their contact details without needing to delete them                                    |
-| `* * *`  | tech HR recruiter | search up an applicant or an employer easily                       | view all their details and information quickly instead of needing to scroll through the entire list |
-| `* `     | tech HR recruiter | send an email to any contact                                       | easily communicate anything                                                                         |
+| Priority | As a …​           | I want to …​                                                                                                            | So that I can…​                                                                                     |
+|----------|-------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `*`      | Tech HR Recruiter | share information with other recruiters                                                                                 | easily liaise with them                                                                             |
+| `* * *`  | Tech HR Recruiter | rank applicants                                                                                                         | find out who to contact in the event the top few applicants reject the offer                        |
+| `* * *`  | Tech HR Recruiter | categorize employers by the job position they are hiring for                                                            | find out who to contact regarding a specific job position                                           | 
+| `*`      | Tech HR Recruiter | utilise a task list                                                                                                     | keep track of my daily schedule                                                                     |
+| `*`      | Tech HR Recruiter | schedule meetings/interviews between employers and applicants                                                           | help them progress in the application process                                                       |
+| `* *`    | Tech HR Recruiter | easily view the details of a contact without needing to click on their profile                                          | skim through my contacts quickly                                                                    |
+| `* *`    | Tech HR Recruiter | send applicant details to respective employers                                                                          | delegate information seamlessly                                                                     |
+| `*`      | Tech HR Recruiter | easily view the applicants social media page                                                                            | gain some insight into how they carry themselves                                                    |
+| `* * *`  | Tech HR Recruiter | sort contacts by name                                                                                                   | find the right contact easily                                                                       |
+| `* * *`  | tech HR recruiter | list all the applicants and employers that are in my address book.                                                      |                                                                                                     |
+| `* * *`  | tech HR recruiter | add an applicant's contact information in my address book                                                               | keep track of who might be a suitable applicant                                                     |
+| `* * *`  | tech HR recruiter | add an employer's contact information in my address book                                                                | keep track of who is currently looking for people to hire                                           |
+| `* * *`  | tech HR recruiter | delete applicants or employers from my address book                                                                     | remove unnecessary data                                                                             |
+| `* * *`  | tech HR recruiter | update applicants or employers contact in my address book                                                               | easily edit their contact details without needing to delete them                                    |
+| `* * *`  | tech HR recruiter | search up an applicant or an employer easily                                                                            | view all their details and information quickly instead of needing to scroll through the entire list |
+| `*`     | tech HR recruiter | send an email to any contact                                                                                             | easily communicate anything                                                                         |
+| `*`     | tech HR recruiter | view which applicants have required but missing information                                                              | quickly contact them to request it                                                                  |
+| `*`     | tech HR recruiter | sort the applicants into different containers based on their job application                                             | easily find who are the potential candidates for that job role                                      |
+| `*`     | tech HR recruiter | sort the applicants into different containers based on their current application process                                 | easily identify what is the next stage in their application                                         |
+| `*`     | tech HR recruiter | parse the information of the applicants                                                                                  | easily understand the strengths and weaknesses of the applicants                                    |
+| `*`     | tech HR recruiter | sort job descriptions based on priority levels (based on date deadline)                                                  | settle more urgent job descriptions first                                                           |
+| `*`     | tech HR recruiter | select multiple contacts to group together                                                                               | easily create a group with the desired contacts                                                     |
+| `*`     | tech HR recruiter | consolidate similar job descriptions to the job role that the applicant has applied for and push them out to applicants  | mass send job openings to applicants  
+| `*`     | tech HR recruiter | I can send an email to multiple contacts at a time                                                                       | can easily broadcast anything.
+| `*`     | tech HR recruiter, I can reach out to other recruiters in my network                                                                         | can connect with them.
+| `* * *`     | tech HR recruiter, I can easily view the status of the applicant’s application process                                                   | can follow up on it.
+|
+| `* * *`     | tech HR recruiter, I can automatically remove applicants who already successfully found a job                                            | can keep the list of applicants well updated.                |
+| `*`     | tech HR recruiter, I can find applicants who are taking too long to move to the next stage of the application process                        | can follow up on it 
+|
+| `* * *`     |  tech HR recruiter, I can favorite contacts                                                                                              | can easily see who to take note of.                          |
+| `*`     |  tech HR recruiter, I can set up meetings/HR calls with the potential applicants                                                             | can easily reach out to the applicants.                      |
+
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `HRConnect` and the **Actor** is the `Tech HR Recruiter`, unless specified otherwise)
+
 
 **Use case: Add a person**
 
@@ -314,28 +341,26 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case only adds contact with valid job position.
     
 
-**Use case: Delete a person**
+**Use case: Edit a person's particulars**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to update a specific persons' details
+2.  HRConnect shows person with their updated details
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. HRConnect detects an error in the entered data
 
-  Use case ends.
+  * 1a1. HRConnect request for the correct data 
+  * 1a2. User enters new data
+    
+    Steps 1a1 - 1a2 are repeated until the data entered are correct
+    
+    Use case resumes from step 2.
 
-* 3a. The given index is invalid.
-
-    * 3a1. AddressBook shows an error message.
-
-      Use case resumes at step 2.
 
 *{More to be added}*
 
@@ -351,7 +376,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
+
+* **Private contact detail**: A contact detail that is not meant to be shared with others
+
 * **Tech HR Recruiters**: a Human Resource specialist that assists in the proper staffing of technical positions within an organization
+
 
 --------------------------------------------------------------------------------------------------------------------
 
