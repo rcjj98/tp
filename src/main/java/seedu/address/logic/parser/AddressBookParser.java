@@ -47,9 +47,6 @@ public class AddressBookParser {
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
-       // case EditCommand.COMMAND_WORD:
-         //   return new EditCommandParser().parse(arguments);
-
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
 
@@ -71,6 +68,9 @@ public class AddressBookParser {
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
+        //case EditCommand.COMMAND_WORD:
+        //return new EditCommandParser().parse(arguments);
+
     }
 
 }
