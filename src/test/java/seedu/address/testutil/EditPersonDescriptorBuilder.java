@@ -1,11 +1,17 @@
 package seedu.address.testutil;
 
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
+import seedu.address.model.application.Application;
+import seedu.address.model.application.Job;
+import seedu.address.model.application.Stage;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
@@ -31,7 +37,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
-        //descriptor.setApplications(person.getApplications());
+        descriptor.setApplications(person.getApplications());
     }
 
     /**
@@ -70,9 +76,12 @@ public class EditPersonDescriptorBuilder {
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
      * that we are building.
      */
-    public EditPersonDescriptorBuilder withApplications(String... applications) {
-        //Set<Application> applicationSet = Stream.of(applications).map(Application::new).collect(Collectors.toSet());
-        //descriptor.setApplications(applicationSet);
+    public EditPersonDescriptorBuilder withApplications(String... strings) {
+        Set<Application> applicationSet = new HashSet<>();
+        for (int i = 0; i < strings.length; i++) {
+            applicationSet.add(new Application(new Job(strings[i]), Stage.INPROGRESS));
+        }
+        descriptor.setApplications(applicationSet);
         return this;
     }
 

@@ -1,16 +1,13 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-
 import java.util.Set;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.application.Application;
 import seedu.address.model.person.Person;
+
+import static seedu.address.logic.parser.CliSyntax.*;
 
 /**
  * A utility class for Person.
@@ -49,11 +46,11 @@ public class PersonUtil {
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
         if (descriptor.getApplications().isPresent()) {
-            Set<Application> tags = descriptor.getApplications().get();
-            if (tags.isEmpty()) {
-                //sb.append(PREFIX_TAG);
+            Set<Application> applications = descriptor.getApplications().get();
+            if (applications.isEmpty()) {
+                sb.append(PREFIX_APPLICATION);
             } else {
-                //tags.forEach(s -> sb.append(PREFIX_TAG).append(s.tagName).append(" "));
+                applications.forEach(s -> sb.append(PREFIX_APPLICATION).append(s.getJob().jobId).append(" "));
             }
         }
         return sb.toString();
