@@ -1,9 +1,7 @@
 package seedu.address.model.util;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
@@ -15,7 +13,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.tag.Tag;
+
 
 /**
  * Contains utility methods for populating {@code AddressBook} with sample data.

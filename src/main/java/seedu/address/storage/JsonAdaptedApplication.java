@@ -1,8 +1,9 @@
 package seedu.address.storage;
 
-import com.fasterxml.jackson.annotation.*;
-import seedu.address.commons.exceptions.IllegalValueException;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.application.Application;
 import seedu.address.model.application.Job;
 import seedu.address.model.application.Stage;
