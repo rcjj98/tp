@@ -113,12 +113,17 @@ public class ParserUtil {
         return job;
     }
 
+    /**
+     * Parses a {@code Job job} into a {@code Application}.
+     *
+     * @throws ParseException if the given {@code job} is invalid.
+     */
     public static Application parseApplication(Job job) throws ParseException {
         return new Application(job, Stage.INPROGRESS);
     }
 
     /**
-     * Parses {@code Collection<String> jobIds} into a {@code Set<Application>}.
+     * Parses {@code Collection<String> jobIds} into a {@code Set<Job>}.
      */
     public static Set<Job> parseJobs(Collection<String> jobIds) throws ParseException {
         requireNonNull(jobIds);
@@ -129,6 +134,9 @@ public class ParserUtil {
         return jobSet;
     }
 
+    /**
+     * Parses {@code Collection<Job> jobs} into a {@code Set<Application>}.
+     */
     public static Set<Application> parseApplications(Collection<Job> jobs) throws ParseException {
         final Set<Application> applicationSet = new HashSet<>();
         for (Job job: jobs) {
