@@ -17,7 +17,6 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 
-
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
  */
@@ -99,28 +98,41 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String jobId} into a {@code Application}.
+     * Parses a {@code String jobId} into a {@code Job}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code jobId} is invalid.
      */
-    public static Application parseApplication(String jobId) throws ParseException {
+    public static Job parseJob(String jobId) throws ParseException {
         requireNonNull(jobId);
         String trimmedJobId = jobId.trim();
         if (!Job.isValidJobId(trimmedJobId)) {
             throw new ParseException(Job.MESSAGE_CONSTRAINTS);
         }
-        return new Application(new Job(trimmedJobId), Stage.INPROGRESS);
+        Job job = new Job(trimmedJobId);
+        return job;
+    }
+
+    public static Application parseApplication(Job job) throws ParseException {
+        return new Application(job, Stage.INPROGRESS);
     }
 
     /**
      * Parses {@code Collection<String> jobIds} into a {@code Set<Application>}.
      */
-    public static Set<Application> parseApplications(Collection<String> jobIds) throws ParseException {
+    public static Set<Job> parseJobs(Collection<String> jobIds) throws ParseException {
         requireNonNull(jobIds);
-        final Set<Application> applicationSet = new HashSet<>();
+        final Set<Job> jobSet = new HashSet<>();
         for (String jobId : jobIds) {
-            applicationSet.add(parseApplication(jobId));
+            jobSet.add(parseJob(jobId));
+        }
+        return jobSet;
+    }
+
+    public static Set<Application> parseApplications(Collection<Job> jobs) throws ParseException {
+        final Set<Application> applicationSet = new HashSet<>();
+        for (Job job: jobs) {
+            applicationSet.add(parseApplication(job));
         }
         return applicationSet;
     }

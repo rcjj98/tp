@@ -151,52 +151,52 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseApplication_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseApplication(null));
+    public void parseJob_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseJob(null));
     }
 
     @Test
-    public void parseApplication_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseApplication(INVALID_APPLICATION));
+    public void parseJob_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseJob(INVALID_APPLICATION));
     }
 
     @Test
-    public void parseApplication_validValueWithoutWhitespace_returnsApplication() throws Exception {
-        Application expectedApplication = new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS);
-        assertEquals(expectedApplication, ParserUtil.parseApplication(VALID_APPLICATION_1));
+    public void parseJob_validValueWithoutWhitespace_returnsJob() throws Exception {
+        Job expectedJob = new Job(VALID_APPLICATION_1);
+        assertEquals(expectedJob, ParserUtil.parseJob(VALID_APPLICATION_1));
     }
 
     @Test
-    public void parseApplication_validValueWithWhitespace_returnsTrimmedApplication() throws Exception {
+    public void parseJob_validValueWithWhitespace_returnsTrimmedJob() throws Exception {
         String applicationWithWhitespace = WHITESPACE + VALID_APPLICATION_1 + WHITESPACE;
-        Application expectedApplication = new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS);
-        assertEquals(expectedApplication, ParserUtil.parseApplication(applicationWithWhitespace));
+        Job expectedJob = new Job(VALID_APPLICATION_1);
+        assertEquals(expectedJob, ParserUtil.parseJob(applicationWithWhitespace));
     }
 
     @Test
-    public void parseApplications_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseApplications(null));
+    public void parseJobs_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseJobs(null));
     }
 
     @Test
-    public void parseApplications_collectionWithInvalidApplications_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseApplications(Arrays
+    public void parseJobs_collectionWithInvalidJobs_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseJobs(Arrays
                 .asList(VALID_APPLICATION_1, INVALID_APPLICATION)));
     }
 
     @Test
-    public void parseApplications_emptyCollection_returnsEmptySet() throws Exception {
-        assertTrue(ParserUtil.parseApplications(Collections.emptyList()).isEmpty());
+    public void parseJobs_emptyCollection_returnsEmptySet() throws Exception {
+        assertTrue(ParserUtil.parseJobs(Collections.emptyList()).isEmpty());
     }
 
     @Test
-    public void parseTags_collectionWithValidTags_returnsTagSet() throws Exception {
-        Set<Application> actualApplicationSet = ParserUtil.parseApplications(Arrays
+    public void parseJobs_collectionWithValidJobs_returnsJobSet() throws Exception {
+        Set<Job> actualJobSet = ParserUtil.parseJobs(Arrays
                 .asList(VALID_APPLICATION_1, VALID_APPLICATION_2));
-        Set<Application> expectedApplicationSet = new HashSet<Application>(Arrays
-                .asList(new Application(new Job(VALID_APPLICATION_1), Stage.INPROGRESS), new Application(
-                        new Job(VALID_APPLICATION_2), Stage.INPROGRESS)));
+        Set<Job> expectedJobSet = new HashSet<>(Arrays
+                .asList(new Job(VALID_APPLICATION_1),
+                        new Job(VALID_APPLICATION_2)));
 
-        assertEquals(expectedApplicationSet, actualApplicationSet);
+        assertEquals(expectedJobSet, actualJobSet);
     }
 }

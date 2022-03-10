@@ -78,7 +78,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         Collection<String> applicationSet = applications.size() == 1 && applications.contains("")
                 ? Collections.emptySet() : applications;
-        return Optional.of(ParserUtil.parseApplications(applicationSet));
+        return Optional.of(ParserUtil.parseApplications(ParserUtil.parseJobs(applicationSet)));
     }
 
 }
