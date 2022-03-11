@@ -109,8 +109,7 @@ public class ParserUtil {
         if (!Job.isValidJobId(trimmedJobId)) {
             throw new ParseException(Job.MESSAGE_CONSTRAINTS);
         }
-        Job job = new Job(trimmedJobId);
-        return job;
+        return new Job(trimmedJobId);
     }
 
     /**
@@ -119,6 +118,7 @@ public class ParserUtil {
      * @throws ParseException if the given {@code job} is invalid.
      */
     public static Application parseApplication(Job job) throws ParseException {
+        requireNonNull(job);
         return new Application(job, Stage.INPROGRESS);
     }
 
@@ -138,6 +138,7 @@ public class ParserUtil {
      * Parses {@code Collection<Job> jobs} into a {@code Set<Application>}.
      */
     public static Set<Application> parseApplications(Collection<Job> jobs) throws ParseException {
+        requireNonNull(jobs);
         final Set<Application> applicationSet = new HashSet<>();
         for (Job job: jobs) {
             applicationSet.add(parseApplication(job));
