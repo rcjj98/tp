@@ -58,7 +58,7 @@ public class Application {
                 .append(getJob())
                 .append(", Stage: ")
                 .append(getStage())
-                .append("] ");
+                .append("]");
         return builder.toString();
     }
 
