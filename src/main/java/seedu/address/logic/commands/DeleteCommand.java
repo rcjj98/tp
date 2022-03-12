@@ -7,6 +7,7 @@ import java.util.List;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
@@ -25,8 +26,20 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
     private final Index targetIndex;
+    private final String targetApplicant;
 
     public DeleteCommand(Index targetIndex) {
+        this.targetIndex = targetIndex;
+        this.targetApplicant = "";
+    }
+
+    /**
+     * Constructor to faciliate deletion of Job Applicant via name.
+     * 
+     * @param args the name of the user
+     */
+    public DeleteCommand(String targetApplicant, Index targetIndex) {
+        this.targetApplicant = targetApplicant;
         this.targetIndex = targetIndex;
     }
 
@@ -34,6 +47,11 @@ public class DeleteCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
+
+        // send to method that deletes applicant via name
+        if (!targetApplicant.isEmpty()) {
+            return deleteByName(model, lastShownList, targetApplicant);
+        }
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
@@ -44,10 +62,37 @@ public class DeleteCommand extends Command {
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }
 
+    /**
+     * Method that handles deletion of a person from the list via name.
+     * Need to find the position of the person in the list who matches the
+     * targetName
+     * 
+     * @param model
+     * @param lastShownList   A List of type Person
+     * @param targetApplicant
+     * @return CommandResult
+     */
+    private CommandResult deleteByName(Model model, List<Person> lastShownList, String targetApplicant)
+            throws CommandException {
+
+        int pos = 0;
+
+        for (Person person : lastShownList) {
+            if (person.getName().equals(targetApplicant)) {
+                break;
+            } else {
+                ++pos;
+                continue;
+            }
+        }
+
+        return;
+    }
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof DeleteCommand // instanceof handles nulls
-                && targetIndex.equals(((DeleteCommand) other).targetIndex)); // state check
+                        && targetIndex.equals(((DeleteCommand) other).targetIndex)); // state check
     }
 }
