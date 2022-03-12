@@ -278,7 +278,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 |----------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `*`      | Tech HR Recruiter                                                                                                     | share information with other recruiters                                                                                 | easily liaise with them                                                                             |
 | `* * *`  | Tech HR Recruiter                                                                                                     | rank applicants                                                                                                         | find out who to contact in the event the top few applicants reject the offer                        |
-| `* * *`  | Tech HR Recruiter                                                                                                     | categorize employers by the job position they are hiring for                                                            | find out who to contact regarding a specific job position                                           | 
+| `* * *`  | Tech HR Recruiter                                                                                                     | categorize employers by the job position they are hiring for                                                            | find out who to contact regarding a specific job position                                           |
 | `*`      | Tech HR Recruiter                                                                                                     | utilise a task list                                                                                                     | keep track of my daily schedule                                                                     |
 | `*`      | Tech HR Recruiter                                                                                                     | schedule meetings/interviews between employers and applicants                                                           | help them progress in the application process                                                       |
 | `* *`    | Tech HR Recruiter                                                                                                     | easily view the details of a contact without needing to click on their profile                                          | skim through my contacts quickly                                                                    |
@@ -338,7 +338,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. AddressBook shows an error message.
 
       Use case only adds contact with valid job position.
-    
 
 **Use case: Edit a person's particulars**
 
@@ -355,11 +354,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   * 1a1. HRConnect request for the correct data 
   * 1a2. User enters new data
-    
-    Steps 1a1 - 1a2 are repeated until the data entered are correct
-    
-    Use case resumes from step 2.
 
+    Steps 1a1 - 1a2 are repeated until the data entered are correct
+
+    Use case resumes from step 2.
 
 *{More to be added}*
 
