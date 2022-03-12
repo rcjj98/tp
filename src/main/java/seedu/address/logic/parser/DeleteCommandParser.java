@@ -19,11 +19,6 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
      */
     public DeleteCommand parse(String args) throws ParseException {
 
-        /**
-         * The way i think this will work is to check if args is an integer.
-         * Convert the input string to an integer, and then see if integer, else, move
-         * on with the else block.
-         */
         boolean isStringInt = isStringInt(args);
 
         if (!isStringInt) {
@@ -44,11 +39,10 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
             }
         }
     }
-
     /**
      * Checks if the input is a string or an integer.
      * @param args
-     * @return boolean
+     * @return boolean is string argument an integer.
      */
     private boolean isStringInt(String args) {
         try {
@@ -57,6 +51,5 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         } catch (Exception e) {
             return false;
         }
-
     }
 }
