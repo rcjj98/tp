@@ -7,7 +7,6 @@ import java.util.List;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
@@ -76,9 +75,12 @@ public class DeleteCommand extends Command {
             throws CommandException {
 
         int pos = 0;
+        int len = lastShownList.size();
 
         for (Person person : lastShownList) {
-            if (person.getName().equals(targetApplicant)) {
+            String name = person.getName().getfullName().toLowerCase();
+
+            if (name.equals(targetApplicant.toLowerCase())) {
                 break;
             } else {
                 ++pos;
@@ -86,7 +88,16 @@ public class DeleteCommand extends Command {
             }
         }
 
-        return;
+        // have gone past the limits of given list
+        if (pos >= len) {
+            throw new CommandException(Messages.MESSAGE_INVALID_NAME_PROVIDED);
+        }
+
+        // person to be deleted
+        Person personToDelete = lastShownList.get(pos);
+        model.deletePerson(personToDelete);
+
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }
 
     @Override
