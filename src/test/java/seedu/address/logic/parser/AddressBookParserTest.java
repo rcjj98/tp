@@ -46,6 +46,11 @@ public class AddressBookParserTest {
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + " 3") instanceof ClearCommand);
     }
 
+    /**
+     * This fails
+     * 
+     * @throws Exception
+     */
     @Test
     public void parseCommand_delete() throws Exception {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
@@ -54,14 +59,17 @@ public class AddressBookParserTest {
     }
 
     /*
-    @Test
-    public void parseCommand_edit() throws Exception {
-        Person person = new PersonBuilder().build();
-        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
-        EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
-    }
+     * @Test
+     * public void parseCommand_edit() throws Exception {
+     * Person person = new PersonBuilder().build();
+     * EditPersonDescriptor descriptor = new
+     * EditPersonDescriptorBuilder(person).build();
+     * EditCommand command = (EditCommand)
+     * parser.parseCommand(EditCommand.COMMAND_WORD + " "
+     * + INDEX_FIRST_PERSON.getOneBased() + " " +
+     * PersonUtil.getEditPersonDescriptorDetails(descriptor));
+     * assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
+     * }
      */
 
     @Test
@@ -92,8 +100,8 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {
-        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), ()
-            -> parser.parseCommand(""));
+        assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE),
+                () -> parser.parseCommand(""));
     }
 
     @Test

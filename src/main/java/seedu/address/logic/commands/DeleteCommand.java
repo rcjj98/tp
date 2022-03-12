@@ -11,8 +11,8 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
- */
+* Deletes a person identified using it's displayed index from the address book.
+*/
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
@@ -27,16 +27,19 @@ public class DeleteCommand extends Command {
     private final Index targetIndex;
     private final String targetApplicant;
 
+    /**
+    * Constructor for DeleteCommand.
+    * @param targetIndex
+    */
     public DeleteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
         this.targetApplicant = "";
     }
 
     /**
-     * Constructor to faciliate deletion of Job Applicant via name.
-     * 
-     * @param args the name of the user
-     */
+    * Constructor to faciliate deletion of Job Applicant via name.
+    * @param args the name of the user
+    */
     public DeleteCommand(String targetApplicant, Index targetIndex) {
         this.targetApplicant = targetApplicant;
         this.targetIndex = targetIndex;
@@ -65,7 +68,6 @@ public class DeleteCommand extends Command {
      * Method that handles deletion of a person from the list via name.
      * Need to find the position of the person in the list who matches the
      * targetName
-     * 
      * @param model
      * @param lastShownList   A List of type Person
      * @param targetApplicant
