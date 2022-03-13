@@ -52,9 +52,11 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+
+        System.out.println(person.getApplications());
+        person.getApplications().stream()
+                .sorted(Comparator.comparing(application -> application.getJob().jobId))
+                .forEach(application -> tags.getChildren().add(new Label("Job " + application.getJob().jobId)));
     }
 
     @Override

@@ -14,25 +14,27 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+//import seedu.address.model.application.Application;
+import seedu.address.model.application.Job;
+//import seedu.address.model.application.Stage;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
-import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
-    private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_APPLICATION = "Software Engineer";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_EMAIL = "rachel@example.com";
-    private static final String VALID_TAG_1 = "friend";
-    private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_APPLICATION_1 = "1";
+    private static final String VALID_APPLICATION_2 = "2";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -149,48 +151,52 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseTag_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseTag(null));
+    public void parseJob_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseJob(null));
     }
 
     @Test
-    public void parseTag_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseTag(INVALID_TAG));
+    public void parseJob_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseJob(INVALID_APPLICATION));
     }
 
     @Test
-    public void parseTag_validValueWithoutWhitespace_returnsTag() throws Exception {
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(VALID_TAG_1));
+    public void parseJob_validValueWithoutWhitespace_returnsJob() throws Exception {
+        Job expectedJob = new Job(VALID_APPLICATION_1);
+        assertEquals(expectedJob, ParserUtil.parseJob(VALID_APPLICATION_1));
     }
 
     @Test
-    public void parseTag_validValueWithWhitespace_returnsTrimmedTag() throws Exception {
-        String tagWithWhitespace = WHITESPACE + VALID_TAG_1 + WHITESPACE;
-        Tag expectedTag = new Tag(VALID_TAG_1);
-        assertEquals(expectedTag, ParserUtil.parseTag(tagWithWhitespace));
+    public void parseJob_validValueWithWhitespace_returnsTrimmedJob() throws Exception {
+        String applicationWithWhitespace = WHITESPACE + VALID_APPLICATION_1 + WHITESPACE;
+        Job expectedJob = new Job(VALID_APPLICATION_1);
+        assertEquals(expectedJob, ParserUtil.parseJob(applicationWithWhitespace));
     }
 
     @Test
-    public void parseTags_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseTags(null));
+    public void parseJobs_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseJobs(null));
     }
 
     @Test
-    public void parseTags_collectionWithInvalidTags_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseTags(Arrays.asList(VALID_TAG_1, INVALID_TAG)));
+    public void parseJobs_collectionWithInvalidJobs_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseJobs(Arrays
+                .asList(VALID_APPLICATION_1, INVALID_APPLICATION)));
     }
 
     @Test
-    public void parseTags_emptyCollection_returnsEmptySet() throws Exception {
-        assertTrue(ParserUtil.parseTags(Collections.emptyList()).isEmpty());
+    public void parseJobs_emptyCollection_returnsEmptySet() throws Exception {
+        assertTrue(ParserUtil.parseJobs(Collections.emptyList()).isEmpty());
     }
 
     @Test
-    public void parseTags_collectionWithValidTags_returnsTagSet() throws Exception {
-        Set<Tag> actualTagSet = ParserUtil.parseTags(Arrays.asList(VALID_TAG_1, VALID_TAG_2));
-        Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
+    public void parseJobs_collectionWithValidJobs_returnsJobSet() throws Exception {
+        Set<Job> actualJobSet = ParserUtil.parseJobs(Arrays
+                .asList(VALID_APPLICATION_1, VALID_APPLICATION_2));
+        Set<Job> expectedJobSet = new HashSet<>(Arrays
+                .asList(new Job(VALID_APPLICATION_1),
+                        new Job(VALID_APPLICATION_2)));
 
-        assertEquals(expectedTagSet, actualTagSet);
+        assertEquals(expectedJobSet, actualJobSet);
     }
 }
