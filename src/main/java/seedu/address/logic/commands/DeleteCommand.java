@@ -11,16 +11,19 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
-* Deletes a person identified using it's displayed index from the address book.
-*/
+ * Deletes a person identified using it's displayed index from the address book.
+ */
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes the person identified by the index number used in the displayed person list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + ": Deletes the person identified by the index number used in the displayed person list,\n"
+            + "Or deletes by identifying the user with their name\n"
+            + "Parameters: INDEX (must be a positive integer),\n"
+            + "Example: " + COMMAND_WORD + " 1\n"
+            + "Or, Parameters: NAME (must be a string), \n"
+            + "Example: " + COMMAND_WORD + " Jeremy\n";
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
 
@@ -28,9 +31,9 @@ public class DeleteCommand extends Command {
     private final String targetApplicant;
 
     /**
-    * Constructor for DeleteCommand.
-    * @param targetIndex
-    */
+     * Constructor for DeleteCommand.
+     * @param targetIndex
+     */
     public DeleteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
         this.targetApplicant = "";
@@ -69,7 +72,7 @@ public class DeleteCommand extends Command {
      * Need to find the position of the person in the list who matches the
      * targetName
      * @param model
-     * @param lastShownList   A List of type Person
+     * @param lastShownList A List of type Person
      * @param targetApplicant
      * @return CommandResult
      */
@@ -82,7 +85,7 @@ public class DeleteCommand extends Command {
         for (Person person : lastShownList) {
             String name = person.getName().getfullName().toLowerCase();
 
-            if (name.equals(targetApplicant.toLowerCase())) {
+            if (name.equals(targetApplicant.toLowerCase().trim())) {
                 break;
             } else {
                 ++pos;

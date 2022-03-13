@@ -19,14 +19,15 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
      */
     public DeleteCommand parse(String args) throws ParseException {
 
-        boolean isStringInt = isStringInt(args);
+        // trim method to delete the whitespace
+        boolean isStringInt = isStringInt(args.trim());
 
         if (!isStringInt) {
             // args is not an Integer, will send to method in DeleteCommand that deletes via
             // name.
             // Instantiate an index value for the targetIndex of DeleteCommand, as it
             // is a final attribute
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             return new DeleteCommand(args, index);
         } else {
             // args is an integer value
