@@ -1,12 +1,19 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_APPLICATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
-import java.util.Arrays;
+import java.util.HashMap;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PersonContainsKeywordsPredicate;
+import seedu.address.model.person.Phone;
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -20,14 +27,49 @@ public class FindCommandParser implements Parser<FindCommand> {
      */
     public FindCommand parse(String args) throws ParseException {
         String trimmedArgs = args.trim();
+
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
 
-        String[] nameKeywords = trimmedArgs.split("\\s+");
+        ArgumentMultimap argMultimap =
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_APPLICATION);
 
-        return new FindCommand(new NameContainsKeywordsPredicate(Arrays.asList(nameKeywords)));
+        HashMap<Prefix, String> searchDict = new HashMap<>();
+
+        if (argMultimap.getValue(PREFIX_NAME).isPresent()) {
+            if (!Name.isValidName(argMultimap.getValue(PREFIX_NAME).get())) {
+                throw new ParseException(Name.MESSAGE_CONSTRAINTS);
+            }
+            String searchName = argMultimap.getValue(PREFIX_NAME).get();
+            searchDict.put(PREFIX_NAME, searchName);
+        }
+
+        if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
+            if (!Phone.isValidPhone(argMultimap.getValue(PREFIX_PHONE).get())) {
+                throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+            }
+            String searchPhone = argMultimap.getValue(PREFIX_PHONE).get();
+            searchDict.put(PREFIX_PHONE, searchPhone);
+        }
+
+        if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
+            if (!Email.isValidEmail(argMultimap.getValue(PREFIX_EMAIL).get())) {
+                throw new ParseException(Email.MESSAGE_CONSTRAINTS);
+            }
+            String searchEmail = argMultimap.getValue(PREFIX_EMAIL).get();
+            searchDict.put(PREFIX_EMAIL, searchEmail);
+        }
+
+        /*
+        if (argMultimap.getValue(PREFIX_APPLICATION).isPresent()) {
+            List<String> applications = argMultimap.getAllValues(PREFIX_APPLICATION);
+            searchDict.put(PREFIX_APPLICATION, String.join(" ", applications));
+        }
+         */
+
+        return new FindCommand(new PersonContainsKeywordsPredicate(searchDict));
     }
 
 }
