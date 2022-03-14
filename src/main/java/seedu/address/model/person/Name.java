@@ -41,7 +41,7 @@ public class Name {
     public String getfullName() {
         return this.fullName;
     }
-  
+
     /**
      * Checks if current name contains the substring
      *
