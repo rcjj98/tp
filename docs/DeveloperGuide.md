@@ -352,7 +352,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. HRConnect detects an error in the entered data
 
-  * 1a1. HRConnect request for the correct data 
+  * 1a1. HRConnect request for the correct data
   * 1a2. User enters new data
 
     Steps 1a1 - 1a2 are repeated until the data entered are correct
