@@ -3,6 +3,18 @@
 /build/
 src/main/resources/docs/
 
+# Class files
+/*.class/
+
+# PNG files
+/*.png/
+
+# CSS Files
+/*.css/
+
+# FXML files
+/*.fxml/
+
 # IDEA files
 /.idea/
 /out/
