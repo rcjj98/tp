@@ -83,7 +83,7 @@ public class DeleteCommand extends Command {
         int len = lastShownList.size();
 
         for (Person person : lastShownList) {
-            String name = person.getName().getfullName().toLowerCase();
+            String name = person.getName().getFullName().toLowerCase();
 
             if (name.equals(targetApplicant.toLowerCase().trim())) {
                 break;
