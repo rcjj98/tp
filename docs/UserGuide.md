@@ -116,16 +116,16 @@ Employer Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 
 Examples:
 * Editing applicant: `edit 1 c/A p/91234567 j/2`
-  
+
   Edits the phone number and job ID of the 1st **applicant** to be `91234567` and `2` respectively.
 
 
-* Editing applicant: `edit 3 c/A n/Betsy Crower s/Interview` 
+* Editing applicant: `edit 3 c/A n/Betsy Crower s/Interview`
 
-  Edits the name and stage of application of the 2nd **applicant** to be `Betsy Crower` and `Interview` respectively. 
+  Edits the name and stage of application of the 2nd **applicant** to be `Betsy Crower` and `Interview` respectively.
 
 
-* Editing employer: `edit 1 c/E e/johndoe@gmail.com j/3` 
+* Editing employer: `edit 1 c/E e/johndoe@gmail.com j/3`
 
   Edits the email and job ID of the 1st **employer** to be `johndoe@gmail.com` and `3` respectively.
 
@@ -193,6 +193,7 @@ _Details coming soon ..._
 
 ## Command summary
 
+
 | Action     | Format, Examples                                                                                                                                                                                                                                                                                                                                                                                              |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**    | Applicant: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION` <br> e.g., `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`<br><br>Employer: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING` <br> e.g., `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1` |
@@ -202,3 +203,4 @@ _Details coming soon ..._
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                                                                                                                                                                    |
 | **List**   | `list`                                                                                                                                                                                                                                                                                                                                                                                                        |
 | **Help**   | `help`                                                                                                                                                                                                                                                                                                                                                                                                        |
+
