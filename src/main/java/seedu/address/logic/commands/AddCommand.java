@@ -13,6 +13,7 @@ import seedu.address.model.person.Person;
 
 /**
  * Adds a person to the address book.
+ * ewfmwkmf.
  */
 public class AddCommand extends Command {
 
