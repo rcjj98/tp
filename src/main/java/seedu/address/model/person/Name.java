@@ -9,8 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Name {
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Names should only contain alphanumeric "
+                                                       + "characters and spaces, and it should not be blank";
 
     /*
      * The first character of the address must not be a whitespace,
@@ -38,6 +38,10 @@ public class Name {
         return test.matches(VALIDATION_REGEX);
     }
 
+    public String getFullName() {
+        return this.fullName;
+    }
+
     /**
      * Checks if current name contains the substring
      *
@@ -57,8 +61,6 @@ public class Name {
         return false;
     }
 
-
-
     @Override
     public String toString() {
         return fullName;
@@ -68,7 +70,7 @@ public class Name {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Name // instanceof handles nulls
-                && fullName.equals(((Name) other).fullName)); // state check
+                        && fullName.equals(((Name) other).fullName)); // state check
     }
 
     @Override
