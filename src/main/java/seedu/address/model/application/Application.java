@@ -42,9 +42,16 @@ public class Application {
         if (other == this) {
             return true;
         }
-        seedu.address.model.application.Application otherApplication =
-                (seedu.address.model.application.Application) other;
-        return otherApplication == this;
+
+        if (!(other instanceof Application)) {
+            return false;
+        }
+
+        Application otherApplication = (Application) other;
+        Job otherJob = otherApplication.getJob();
+        Stage otherStage = otherApplication.getStage();
+        return (otherJob.equals(this.job)
+                && otherStage.equals(this.getStage()));
     }
 
     @Override
