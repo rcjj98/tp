@@ -44,8 +44,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
-        Set<Job> jobList = ParserUtil.parseJobs(argMultimap.getAllValues(PREFIX_APPLICATION));
-        Set<Application> applicationList = ParserUtil.parseApplications(jobList);
+        Set<Application> applicationList =  ParserUtil.parseApplications(argMultimap.getAllValues(PREFIX_APPLICATION));
 
         Person person = new Person(name, phone, email, address, applicationList);
 
