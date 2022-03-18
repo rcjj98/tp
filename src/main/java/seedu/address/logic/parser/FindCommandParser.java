@@ -7,9 +7,12 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
 import java.util.HashMap;
+import java.util.List;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.application.Application;
+import seedu.address.model.application.Job;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.PersonContainsKeywordsPredicate;
@@ -62,12 +65,17 @@ public class FindCommandParser implements Parser<FindCommand> {
             searchDict.put(PREFIX_EMAIL, searchEmail);
         }
 
-        /*
         if (argMultimap.getValue(PREFIX_APPLICATION).isPresent()) {
             List<String> applications = argMultimap.getAllValues(PREFIX_APPLICATION);
-            searchDict.put(PREFIX_APPLICATION, String.join(" ", applications));
+
+            for (String jobid : applications) {
+                if (!Job.isValidJobId(jobid)) {
+                    throw new ParseException(Job.MESSAGE_CONSTRAINTS);
+                }
+            }
+
+            searchDict.put(PREFIX_APPLICATION, String.join("\t", applications));
         }
-         */
 
         return new FindCommand(new PersonContainsKeywordsPredicate(searchDict));
     }
