@@ -5,8 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.function.Predicate;
 
@@ -54,7 +52,7 @@ public class PersonContainsKeywordsPredicate implements Predicate<Person> {
 
             for (String jobid : keywords.get(PREFIX_APPLICATION).split("\t")) {
                 boolean isSameId = person.getApplications().stream().anyMatch(
-                        entry -> entry.getJob().equals(new Job(jobid))
+                    entry -> entry.getJob().equals(new Job(jobid))
                 );
 
                 if (isSameId) {

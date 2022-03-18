@@ -11,7 +11,6 @@ import java.util.List;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.application.Application;
 import seedu.address.model.application.Job;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
