@@ -135,7 +135,7 @@ Examples:
 
 Finds a contact from the address book.
 
-Format: `find [n/NAME [NAME]...] [p/PHONE_NUMBER] [e/EMAIL] [[j/JOBID], ...]`
+Format: `find [n/NAME [NAME]...] [p/PHONE_NUMBER] [e/EMAIL] [[j/JOBID] [j/JOBID]...]`
 
 
 Examples:
