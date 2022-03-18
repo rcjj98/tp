@@ -31,6 +31,8 @@ HRConnect is a **desktop app for managing contacts, optimized for use via a Comm
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
    * **`clear`** : Deletes all contacts.
+   
+   * **`find`**`j/1 n/alex` : Finds all entries with `jobid 1` and the name containing `Alex`.
 
    * **`exit`** : Exits the app.
 
@@ -133,12 +135,12 @@ Examples:
 
 Finds a contact from the address book.
 
-Format: `find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] etc…`
+Format: `find [n/NAME [NAME]...] [p/PHONE_NUMBER] [e/EMAIL] [[j/JOBID] [j/JOBID]...]`
 
 
 Examples:
-* `find n/john` returns `John`, `John Lee`, `John Yeo`
-* `find n/john p/123456 e/johnlee@gmail.com` returns `John Lee`<br>
+* `find n/alex steven` returns all entries containing the word `alex` or `steven` or both.
+* `find n/john j/1` returns all entries with the name `John` who are applying to `jobid 1`<br>
 
 ### Deleting a person : `delete`
 

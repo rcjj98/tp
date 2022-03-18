@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.function.Predicate;
 
 import seedu.address.logic.parser.Prefix;
+import seedu.address.model.application.Job;
 
 /**
  * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
@@ -48,7 +49,19 @@ public class PersonContainsKeywordsPredicate implements Predicate<Person> {
         }
 
         if (keywords.containsKey(PREFIX_APPLICATION)) {
-            System.out.println("<placeholder>");
+
+            for (String jobid : keywords.get(PREFIX_APPLICATION).split("\t")) {
+                boolean isSameId = person.getApplications().stream().anyMatch(
+                    entry -> entry.getJob().equals(new Job(jobid))
+                );
+
+                if (isSameId) {
+                    return true;
+                }
+            }
+
+            // returns here due to unique nature of match any of the job id.
+            return false;
         }
 
         return true;
