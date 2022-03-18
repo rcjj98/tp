@@ -135,11 +135,11 @@ Examples:
 
 Finds a contact from the address book.
 
-Format: `find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [[j/JOBID], ...]`
+Format: `find [n/NAME [NAME]...] [p/PHONE_NUMBER] [e/EMAIL] [[j/JOBID], ...]`
 
 
 Examples:
-* `find n/alex` returns all entries containing the word `alex`. For example, `Alex Lee`, `Alex Tan`, `Alex Lee Kai Jie`
+* `find n/alex steven` returns all entries containing the word `alex` or `steven` or both.
 * `find n/john j/1` returns all entries with the name `John` who are applying to `jobid 1`<br>
 
 ### Deleting a person : `delete`
