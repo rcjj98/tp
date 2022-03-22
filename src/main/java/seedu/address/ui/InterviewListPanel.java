@@ -48,4 +48,3 @@ public class InterviewListPanel extends UiPart<Region> {
     }
 
 }
-
