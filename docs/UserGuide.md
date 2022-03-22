@@ -151,7 +151,7 @@ The `g/` flag, which stands for *group*, simulates the AND operator and the keyw
 
 In order to simulate an OR operator, multiple `g/` flags can be chained together like so: `find g/alex g/jobid:1`.
 
-Therefore, combining these operators will result in a series of AND statements ORed together as shown below.
+Therefore, combining the `g/` flags will result in a series of AND statements ORed together as shown below.
 
 * `find g/alex 123 progress:inprogress g/lee bukit tan` is logically equivalent to 
 `find (alex AND 123 AND progress:inprogress) OR (lee AND bukit AND tan)`
