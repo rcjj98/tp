@@ -95,6 +95,41 @@ public class Person {
                 && otherPerson.getApplications().equals(getApplications());
     }
 
+    public boolean contains(String term) {
+
+        if (term.contains("jobid:")) {
+            String id = term.split(":")[1];
+
+            for (Application app : getApplications()) {
+                if (app.getJob().toString().equals(id)) {
+                    return true;
+                }
+            }
+        }
+
+        if (term.contains("progress:")) {
+            String stage = term.split(":")[1].toLowerCase();
+
+            for (Application app : getApplications()) {
+                if (app.getStage().toString().toLowerCase().equals(stage)) {
+                    return true;
+                }
+            }
+        }
+
+        String thisName = getName().fullName.toLowerCase();
+        String thisPhone = getPhone().toString().toLowerCase();
+        String thisEmail = getEmail().toString().toLowerCase();
+        String thisAddress = getAddress().toString().toLowerCase();
+
+        if (thisName.contains(term) || thisPhone.contains(term)
+                || thisEmail.contains(term) || thisAddress.contains(term)) {
+            return true;
+        }
+
+        return false;
+    }
+
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
