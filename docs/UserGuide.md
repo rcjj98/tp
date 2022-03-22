@@ -131,16 +131,34 @@ Examples:
 
   Edits the email and job ID of the 1st **employer** to be `johndoe@gmail.com` and `3` respectively.
 
-### Locating persons by name: `find`
+### Locating persons by keywords: `find`
 
-Finds a contact from the address book.
+Finds all contacts from the address book whose data contains the keywords. The keywords are case-insensitive.
 
-Format: `find [n/NAME [NAME]...] [p/PHONE_NUMBER] [e/EMAIL] [[j/JOBID] [j/JOBID]...]`
+Format: `find g/[keywords] g/[keywords]...`
 
+To search for job id, use `jobid:`.
+* For example, `find g/jobid:2`
+
+To search for progress of application, use `progress:`.
+* For example, `find g/progress:inprogress`
+
+In the event that either `jobid:` or `progress:` is misspelled, the command will treat the 
+search term as a normal keyword search instead of a special keyword.
+
+The `g/` flag, which stands for *group*, simulates the AND operator and the keywords are separated by a space like so:
+`find g/alex jobid:1 jia`.
+
+In order to simulate an OR operator, multiple `g/` flags can be chained together like so: `find g/alex g/jobid:1`.
+
+Therefore, combining these operators will result in a series of AND statements ORed together as shown below.
+
+* `find g/alex 123 progress:inprogress g/lee bukit tan` is logically equivalent to 
+`find (alex AND 123 AND progress:inprogress) OR (lee AND bukit AND tan)`
 
 Examples:
-* `find n/alex steven` returns all entries containing the word `alex` or `steven` or both.
-* `find n/john j/1` returns all entries with the name `John` who are applying to `jobid 1`<br>
+* `find g/alex g/steven` returns all entries with the word `steven` **or** `alex` in their data.
+* `find g/alex 123 @gmail.com` returns all entries containing `alex` **and** `123` **and** `@gmail.com` in their data.
 
 ### Deleting a person : `delete`
 
