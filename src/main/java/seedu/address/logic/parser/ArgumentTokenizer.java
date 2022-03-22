@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.parser.exceptions.ParseException;
+
 /**
  * Tokenizes arguments string of the form: {@code preamble <prefix>value <prefix>value ...}<br>
  *     e.g. {@code some preamble text t/ 11.00 t/12.00 k/ m/ July}  where prefixes are {@code t/ k/ m/}.<br>
@@ -143,6 +145,17 @@ public class ArgumentTokenizer {
         Prefix getPrefix() {
             return prefix;
         }
+    }
+
+    public static String getType(String trimmedArgsString) throws ParseException {
+        if (trimmedArgsString.equals("") || trimmedArgsString.length() < 3) {
+            throw new ParseException("No type given.");
+        } else if (trimmedArgsString.charAt(0) != '[' || trimmedArgsString.charAt(2) != ']') {
+            throw new ParseException("No type given.");
+        } else if (trimmedArgsString.charAt(1) != 'p' && trimmedArgsString.charAt(1) != 'i') {
+            throw new ParseException("Invalid type given.");
+        }
+        return trimmedArgsString.substring(0, 3);
     }
 
 }

@@ -11,6 +11,12 @@ public class CliSyntax {
     public static final Prefix PREFIX_EMAIL = new Prefix("e/");
     public static final Prefix PREFIX_ADDRESS = new Prefix("a/");
     public static final Prefix PREFIX_APPLICATION = new Prefix("j/");
-    //public static final Prefix PREFIX_TAG = new Prefix("t/");
+    public static final Prefix PREFIX_DATE = new Prefix("d/");
+    public static final Prefix PREFIX_TIME = new Prefix("t/");
+
+    /* Type definitions */
+    public static final String TYPE_INTERVIEW = "[i]";
+    public static final String TYPE_PERSON = "[p]";
+
 
 }
