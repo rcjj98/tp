@@ -1,15 +1,15 @@
 package seedu.address.model.person;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.parser.Prefix;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonContainsKeywordsPredicateTest {

@@ -95,6 +95,12 @@ public class Person {
                 && otherPerson.getApplications().equals(getApplications());
     }
 
+    /**
+     * Checks if this person contains the given keyword.
+     *
+     * @param term The search term.
+     * @return A boolean checking whether this person has the keyword or not.
+     */
     public boolean contains(String term) {
 
         if (term.contains("jobid:")) {
