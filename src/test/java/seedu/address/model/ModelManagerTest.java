@@ -11,7 +11,9 @@ import static seedu.address.testutil.TypicalPersons.BENSON;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -119,8 +121,8 @@ public class ModelManagerTest {
         assertFalse(modelManager.equals(new ModelManager(differentAddressBook, userPrefs)));
 
         // different filteredList -> returns false
-        HashMap<Prefix, String> searchedName = new HashMap<>();
-        searchedName.put(PREFIX_NAME, ALICE.getName().fullName);
+        List<String> searchedName = new ArrayList<>();
+        searchedName.add(ALICE.getName().fullName);
         modelManager.updateFilteredPersonList(new PersonContainsKeywordsPredicate(searchedName));
         assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 

@@ -7,7 +7,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,17 +29,14 @@ public class FindCommandParserTest {
     public void parse_validArgs_returnsFindCommand() {
         // no leading and trailing whitespaces
 
-        HashMap<Prefix, String> terms = new HashMap<>();
-        terms.put(PREFIX_NAME, "Alice");
-        terms.put(PREFIX_PHONE, "12345678");
-        terms.put(PREFIX_EMAIL, "alice@example.com");
+        List<String> keywords = new ArrayList<>();
+        keywords.add("alice 12345678");
+        keywords.add("bob 87654321");
 
         FindCommand expectedFindCommand =
-                new FindCommand(new PersonContainsKeywordsPredicate(terms));
-        assertParseSuccess(parser, "find n/Alice p/12345678 e/alice@example.com", expectedFindCommand);
+                new FindCommand(new PersonContainsKeywordsPredicate(keywords));
+        assertParseSuccess(parser, "find g/alice 12345678 g/bob 87654321", expectedFindCommand);
 
-        // multiple whitespaces between keywords
-        assertParseSuccess(parser, "find n/Alice\n\t p/12345678 \t e/alice@example.com", expectedFindCommand);
     }
 
 }

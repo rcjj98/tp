@@ -10,7 +10,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -78,12 +80,10 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_find() throws Exception {
 
-        HashMap<Prefix, String> keywords = new HashMap<>();
-        keywords.put(PREFIX_NAME, "foo");
-        keywords.put(PREFIX_PHONE, "12345678");
-        keywords.put(PREFIX_EMAIL, "test@example.com");
+        List<String> keywords = new ArrayList<>();
+        keywords.add("foo 12345678 @example.com");
         FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " n/foo p/12345678 e/test@example.com");
+                FindCommand.COMMAND_WORD + " g/foo 12345678 @example.com");
         assertEquals(new FindCommand(new PersonContainsKeywordsPredicate(keywords)), command);
     }
 
