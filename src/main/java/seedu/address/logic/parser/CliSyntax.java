@@ -17,6 +17,5 @@ public class CliSyntax {
 
     /* Type definitions */
     public static final String TYPE_INTERVIEW = "[i]";
-    public static final String TYPE_PERSON = "[p]";
-  
+    public static final String TYPE_PERSON = "[p]";  
 }
