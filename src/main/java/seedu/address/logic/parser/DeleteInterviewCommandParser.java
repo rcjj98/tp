@@ -21,10 +21,8 @@ public class DeleteInterviewCommandParser implements Parser<DeleteInterviewComma
         if (!isStringInt) {
             // args is not an Integer, will send to method in DeleteInterviewCommand that deletes via
             // name.
-            // Instantiate an index value for the targetIndex of DeleteInterviewCommand, as it
-            // is a final attribute
-            Index index = ParserUtil.parseIndex("1");
-            return new DeleteInterviewCommand(args, index);
+            // Set index value for the targetIndex of DeleteInterviewCommand to null
+            return new DeleteInterviewCommand(args, null);
         } else {
             // args is an integer value
             try {

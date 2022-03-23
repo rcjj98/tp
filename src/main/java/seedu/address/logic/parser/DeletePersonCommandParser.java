@@ -21,10 +21,8 @@ public class DeletePersonCommandParser implements Parser<DeletePersonCommand> {
         if (!isStringInt) {
             // args is not an Integer, will send to method in DeletePersonCommand that deletes via
             // name.
-            // Instantiate an index value for the targetIndex of DeletePersonCommand, as it
-            // is a final attribute
-            Index index = ParserUtil.parseIndex("1");
-            return new DeletePersonCommand(args, index);
+            // Set index value for the targetIndex of DeleteInterviewCommand to null
+            return new DeletePersonCommand(args, null);
         } else {
             // args is an integer value
             try {

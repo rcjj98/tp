@@ -50,14 +50,13 @@ public class DeleteInterviewCommand extends DeleteCommand {
         List<Interview> lastShownList = model.getFilteredInterviewList();
 
         // send to method that deletes applicant via name
-        if (!targetApplicant.isEmpty()) {
+        if (!targetApplicant.isEmpty() || targetIndex == null) {
             return deleteByName(model, lastShownList, targetApplicant);
         }
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_INTERVIEW_DISPLAYED_INDEX);
         }
-
         Interview interviewToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteInterview(interviewToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), INTERVIEW);

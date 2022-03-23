@@ -71,9 +71,9 @@ public class DeletePersonCommandTest {
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
 
-        DeletePersonCommand DeletePersonCommand = new DeletePersonCommand(outOfBoundIndex);
+        DeletePersonCommand deletePersonCommand = new DeletePersonCommand(outOfBoundIndex);
 
-        assertCommandFailure(DeletePersonCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(deletePersonCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
     @Test

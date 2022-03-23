@@ -10,6 +10,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
+import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 
 public class DeletePersonCommand extends DeleteCommand {
@@ -47,20 +48,42 @@ public class DeletePersonCommand extends DeleteCommand {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Person> lastShownPersonList = model.getFilteredPersonList();
 
         // send to method that deletes applicant via name
-        if (!targetApplicant.isEmpty()) {
-            return deleteByName(model, lastShownList, targetApplicant);
+        if (!targetApplicant.isEmpty() || targetIndex == null) {
+            return deleteByName(model, lastShownPersonList, targetApplicant);
         }
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+        if (targetIndex.getZeroBased() >= lastShownPersonList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
+        Person personToDelete = lastShownPersonList.get(targetIndex.getZeroBased());
+
+        if (personHasInterview(personToDelete, model)) {
+            throw new CommandException("Person has interview. Delete interview first before deleting person.");
+        }
+
         model.deletePerson(personToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), PERSON);
+    }
+
+    /**
+     * Check if person that we wish to delete has interview
+     *
+     * @param person person
+     * @param model model
+     * @return true if person has interview
+     */
+    public boolean personHasInterview(Person person, Model model) {
+        List<Interview> lastShownInterviewList = model.getFilteredInterviewList();
+        for (int i = 0; i < lastShownInterviewList.size(); i++) {
+            if (lastShownInterviewList.get(i).getPerson().equals(person)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -74,6 +97,10 @@ public class DeletePersonCommand extends DeleteCommand {
      */
     private CommandResult deleteByName(Model model, List<Person> lastShownList, String targetApplicant)
             throws CommandException {
+
+        if (targetApplicant.trim().equals("")) {
+            throw new CommandException(Messages.MESSAGE_INVALID_NAME_PROVIDED);
+        }
 
         int pos = 0;
         int len = lastShownList.size();
