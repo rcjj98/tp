@@ -1,23 +1,21 @@
 package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.testutil.TypicalPersons.CARL;
 import static seedu.address.testutil.TypicalPersons.ELLE;
 import static seedu.address.testutil.TypicalPersons.FIONA;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.parser.Prefix;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -32,10 +30,11 @@ public class FindCommandTest {
 
     @Test
     public void equals() {
-        HashMap<Prefix, String> first = new HashMap<>();
-        HashMap<Prefix, String> second = new HashMap<>();
-        first.put(PREFIX_NAME, "first");
-        second.put(PREFIX_NAME, "second");
+        List<String> first = new ArrayList<>();
+        first.add("first");
+
+        List<String> second = new ArrayList<>();
+        second.add("second");
 
         PersonContainsKeywordsPredicate firstPredicate = new PersonContainsKeywordsPredicate(first);
         PersonContainsKeywordsPredicate secondPredicate = new PersonContainsKeywordsPredicate(second);
@@ -44,20 +43,20 @@ public class FindCommandTest {
         FindCommand findSecondCommand = new FindCommand(secondPredicate);
 
         // same object -> returns true
-        assertTrue(findFirstCommand.equals(findFirstCommand));
+        assertEquals(findFirstCommand, findFirstCommand);
 
         // same values -> returns true
         FindCommand findFirstCommandCopy = new FindCommand(firstPredicate);
-        assertTrue(findFirstCommand.equals(findFirstCommandCopy));
+        assertEquals(findFirstCommand, findFirstCommandCopy);
 
         // different types -> returns false
-        assertFalse(findFirstCommand.equals(1));
+        assertNotEquals(1, findFirstCommand);
 
         // null -> returns false
-        assertFalse(findFirstCommand.equals(null));
+        assertNotEquals(null, findFirstCommand);
 
         // different person -> returns false
-        assertFalse(findFirstCommand.equals(findSecondCommand));
+        assertNotEquals(findFirstCommand, findSecondCommand);
     }
 
     @Test
@@ -84,8 +83,8 @@ public class FindCommandTest {
      * Parses {@code userInput} into a {@code NameContainsKeywordsPredicate}.
      */
     private PersonContainsKeywordsPredicate preparePredicate(String userInput) {
-        HashMap<Prefix, String> terms = new HashMap<>();
-        terms.put(PREFIX_NAME, userInput);
+        List<String> terms = new ArrayList<>();
+        terms.addAll(Arrays.asList(userInput.split("\\s+")));
         return new PersonContainsKeywordsPredicate(terms);
     }
 }
