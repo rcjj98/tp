@@ -103,30 +103,32 @@ public class Person {
      */
     public boolean contains(String term) {
 
+        String thisName = getName().fullName.toLowerCase();
+        String thisPhone = getPhone().toString().toLowerCase();
+        String thisEmail = getEmail().toString().toLowerCase();
+        String thisAddress = getAddress().toString().toLowerCase();
+
         if (term.contains("jobid:")) {
             String id = term.split(":")[1];
+            boolean containsJobId = getApplications().stream().anyMatch(
+                application -> application.getJob().toString().equals(id)
+            );
 
-            for (Application app : getApplications()) {
-                if (app.getJob().toString().equals(id)) {
-                    return true;
-                }
+            if (containsJobId) {
+                return true;
             }
         }
 
         if (term.contains("progress:")) {
             String stage = term.split(":")[1].toLowerCase();
+            boolean containsStage = getApplications().stream().anyMatch(
+                application -> application.getStage().toString().toLowerCase().equals(stage)
+            );
 
-            for (Application app : getApplications()) {
-                if (app.getStage().toString().toLowerCase().equals(stage)) {
-                    return true;
-                }
+            if (containsStage) {
+                return true;
             }
         }
-
-        String thisName = getName().fullName.toLowerCase();
-        String thisPhone = getPhone().toString().toLowerCase();
-        String thisEmail = getEmail().toString().toLowerCase();
-        String thisAddress = getAddress().toString().toLowerCase();
 
         if (thisName.contains(term) || thisPhone.contains(term)
                 || thisEmail.contains(term) || thisAddress.contains(term)) {
