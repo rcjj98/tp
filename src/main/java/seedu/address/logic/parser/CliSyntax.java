@@ -13,10 +13,10 @@ public class CliSyntax {
     public static final Prefix PREFIX_APPLICATION = new Prefix("j/");
     public static final Prefix PREFIX_DATE = new Prefix("d/");
     public static final Prefix PREFIX_TIME = new Prefix("t/");
+    public static final Prefix PREFIX_GROUP = new Prefix("g/");
 
     /* Type definitions */
     public static final String TYPE_INTERVIEW = "[i]";
     public static final String TYPE_PERSON = "[p]";
-
-
+  
 }
