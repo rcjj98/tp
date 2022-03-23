@@ -26,11 +26,11 @@ HRConnect is a **desktop app for managing contacts, optimized for use via a Comm
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened` : Adds a applicant named `John Doe` to the Address Book who is applying for the job with job ID `1` and his current application status is `Resume Screened`.
+   * **`add [p]`**`n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1` : Adds a person named `John Doe` who is applying for the job with job ID `1` and his current application status is `INPROGRESS` to the person list .
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   * **`delete [p]`**`3` : Deletes the 3rd contact shown in the person list.
 
-   * **`clear`** : Deletes all contacts.
+   * **`clear`** : Deletes all contacts in person list.
    
    * **`find`**`j/1 n/alex` : Finds all entries with `jobid 1` and the name containing `Alex`.
 
@@ -47,13 +47,13 @@ HRConnect is a **desktop app for managing contacts, optimized for use via a Comm
 **:information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+  e.g. in `add [p] n/NAME`, `NAME` is a parameter which can be used as `add [p] n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g `n/NAME [j/APPLICATION]` can be used as `n/John Doe j/1` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[j/APPLICATION]…​` can be used as ` ` (i.e. 0 times), `j/1`, `j/1 j/2` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -77,13 +77,17 @@ Format: `help`
 
 ### Adding a person: `add`
 
-Adds a contact to the address book.
+Adds a person to the person list.
 
-Format:
+Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/APPLICATION`
 
-Applicant Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOBPOSITION s/STAGE`
+Adds an interview to the interview list. 
 
-Employer Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOBPOSITION`
+Format: `add [i] INDEX d/DATE t/TIME`
+
+* Adds interview for person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Each applicant can only apply for 1 job in the company and each employer can only be recruiting for 1 job.
@@ -94,14 +98,18 @@ When first added into the address book, each applicant's stage of application is
 </div>
 
 Examples:
-* Add Applicant: `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`
-* Add Employer: `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
+* Add Person: `add [p] n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1`
+* Add Interview: `add [i] 1 d/25-Dec-2021 t/04:05`
 
 ### Listing all persons : `list`
 
-Shows a list of all persons in the address book.
+Shows a list of all persons in the person list.
 
-Format: `list`
+Format: `list [p]`
+
+Shows a list of all interviews in the interview list.
+
+Format: `list [i]`
 
 ### Editing a person : `edit`
 
@@ -144,21 +152,26 @@ Examples:
 
 ### Deleting a person : `delete`
 
-Deletes the specified person from the address book.
+Deletes the specified person from the person list.
 
-Format: `delete INDEX`
+Format: `delete [p] INDEX`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+Deletes the specified interview from the interview list.
+
+Format: `delete [i] INDEX`
+
+* Deletes the person/interview at the specified `INDEX`. 
+* For delete person, can only delete if person does not have any interview.
+* The index refers to the index number shown in the displayed person/interview list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list [p]` followed by `delete [p] 2` deletes the 2nd person in the person list assuming he does not have any interview.
+* `list [i]` followed by `delete [i] 3` deletes the 3rd interview in the interview list.
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the address book.
+Clears all entries from the person list.
 
 Format: `clear`
 
@@ -195,12 +208,15 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** |Applicant: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION` <br> e.g., `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`<br><br>Employer: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING` <br> e.g., `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`<br> e.g.,`edit 2 c/A n/Jane Doe s/Interview` <br> <br> `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`<br> e.g.,`edit 2 c/E n/James Lee p/9891 3445`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+| Action                  | Format, Examples                                                                                                                                                                                                                                                                               |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add Person**          | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/1` <br> e.g., `add [p] n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1`                                                                                                                                            |
+| **Add Interview**       | `add [i] INDEX d/DATE t/TIME` <br> e.g., `add [i] 1 d/24-Dec-2021 t/05:06`                                                                                                                                                                                                                     |
+| **Clear**               | `clear`                                                                                                                                                                                                                                                                                        |
+| **Delete Person**       | `delete [p] INDEX`<br> e.g., `delete [p] 3`                                                                                                                                                                                                                                                    |
+| **Delete Interview**    | `delete [i] INDEX`<br> e.g., `delete [i] 3`                                                                                                                                                                                                                                                    |
+| **Edit**                | `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`<br> e.g.,`edit 2 c/A n/Jane Doe s/Interview` <br> <br> `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`<br> e.g.,`edit 2 c/E n/James Lee p/9891 3445` |
+| **Find**                | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                                                                                                                     |
+| **List Person List**    | `list [p]`                                                                                                                                                                                                                                                                                     |
+| **List Interview List** | `list [i]`                                                                                                                                                                                                                                                                                     |
+| **Help**                | `help`                                                                                                                                                                                                                                                                                         |

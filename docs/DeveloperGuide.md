@@ -320,24 +320,134 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to add an applicant or employer in the address book
-2. AddressBook adds the contact
+1. User requests to add a person in the address book
+2. AddressBook adds the person to person list
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The category is invalid.
+* 2a. The type is invalid.
 
   * 2a1. AddressBook shows an error message.
 
-    Use case only adds contact with category field 'A' or 'E'.
+    Use case only adds person with type field '[p]'.
 
 * 2b. The job position is invalid.
 
     * 2b1. AddressBook shows an error message.
 
       Use case only adds contact with valid job position.
+
+**Use case: Add an interview**
+
+**MSS**
+
+1. User requests to add an interview in the address book
+2. AddressBook adds the interview to interview list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only adds interview with type field '[i]'.
+
+* 2b. The INDEX is out of bounds.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only adds interview with valid index based on length of person list.
+
+**Use case: Delete a person**
+
+**MSS**
+
+1. User requests to delete a person in the address book
+2. AddressBook deletes the person from the person list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only deletes person with type field '[p]'.
+
+* 2b. The INDEX is out of bounds.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only deletes person with valid index based on length of person list.
+  
+* 2c. The given person has an interview.
+
+    * 2c1. AddressBook shows an error message.
+
+      Use case only can delete person if person does not have any interviews.
+
+**Use case: Delete an interview**
+
+**MSS**
+
+1. User requests to delete a interview in the address book
+2. AddressBook deletes the interview from the interview list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only deletes interview with type field '[i]'.
+
+* 2b. The INDEX is out of bounds.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only deletes interview with valid index based on length of interview list.
+
+
+**Use case: List person list**
+
+**MSS**
+
+1. User requests to see all people in the address book
+2. AddressBook display person list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only display people with type field '[p]'.
+
+**Use case: List interview list**
+
+**MSS**
+
+1. User requests to see all interviews in the address book
+2. AddressBook display interview list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only display interviews with type field '[i]'.
 
 **Use case: Edit a person's particulars**
 
