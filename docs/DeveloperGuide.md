@@ -234,11 +234,50 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
+### Searching for persons with keywords
 
-_{Explain here how the data archiving feature will be implemented}_
+#### Overview:
+The find feature uses the `g/` flag to simulate an AND operator. It checks if the data of current person contains all
+the keywords in the flag. For example, `find g/john orchard 111` finds all persons whose data contains `john`
+**AND** `orchard` **AND** `111`.
+
+Chaining together several `g/` flags simulates an OR operator. For example, `find g/john g/orchard g/111` 
+finds all persons whose data contains `john` **OR** `orchard` **OR** `111`.
+
+The find feature uses 2 keywords to distinguish application details from personal details. Namely `jobid:` and 
+`progress:`. If either parameters are misspelled, the find feature will treat these parameters as normal search terms 
+instead of special keywords.
+
+`jobid:` Checks if the person is applying for that specific job id.
+
+`progress:` Checks if the person is currently at that particular stage of the job application.
 
 
+#### Implementation Steps
+1. When the Find Command parses the query, it gets searches for all the `g/` flags and tokenizes the search terms wrapped
+inside the `g/` flag.
+   1. If any of the flags are empty, throw a new exception stating that the `g/` flag is empty
+   2. If parser cannot find and `g/` flag, throw a new exception stating that no `g/` flags can be found
+2. Create a new object in `PersonContainsKeywordsPredicate` with the list of search terms.
+3. Return a new `FindCommand` object using the newly created object from the previous step.
+4. <placeholder>
+
+The following sequence diagram shows how the find operation works:
+<placeholder>
+
+The following activity diagram summarizes what happens when a user executes a new command:
+<placeholder>
+
+#### Design considerations:
+* **Alternative 1:** Using AND, OR, NOT operators (i.e. `find john AND tom OR (gmail.com AND NOT 111)`).
+  * Pros: More intuitive to the technically inclined and more control over the search results.
+  * Cons: Harder to parse and implement.
+* **Alternative 2:** Enforcing the usage of flags for every search term (i.e. `find n/john p/123 e/john n/lee`)
+  * Pros: More control over the search query.
+  * Cons: Search query becomes long especially if search term appears in multiple fields.
+* **Alternative 3** Using free text queries (i.e. `find john tom gmail.com`)
+  * Pros: More intuitive as user expects queried person to contain all the search terms.
+  * Cons: Lacks the flexibility provided by AND and OR operators.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
