@@ -234,6 +234,20 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+### Editing a person's details
+
+#### Overview:
+The edit command is able to edit 1 or more fields of details of a single person at a time. <br><br>
+For example, `edit 2 n/John Doe` edits the name of the 2nd indexed person within the contact list. <br>
+While `edit 2 n/John Doe p/98181234 j/2 INPROGRESS` edits the name, phone number and job application details
+of the 2nd indexed person. <br><br>
+The edit command requires the index of the person you wish to edit, for example `edit n/Bob` will result
+in an invalid input while `edit 1 n/Bob` is a valid input. <br>
+Each specified field of detail cannot be an empty string input, for example `edit 1 a/` will not work. <br>
+
+
+
+
 ### Searching for persons with keywords
 
 #### Overview:

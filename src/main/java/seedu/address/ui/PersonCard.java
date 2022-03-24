@@ -56,7 +56,8 @@ public class PersonCard extends UiPart<Region> {
         System.out.println(person.getApplications());
         person.getApplications().stream()
                 .sorted(Comparator.comparing(application -> application.getJob().jobId))
-                .forEach(application -> applications.getChildren().add(new Label("Job " + application.getJob().jobId)));
+                .forEach(application -> applications.getChildren()
+                    .add(new Label("Job " + application.getJob().jobId + ", Stage: " + application.getStage())));
     }
 
     @Override
