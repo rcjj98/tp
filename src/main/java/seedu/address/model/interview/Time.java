@@ -40,8 +40,8 @@ public class Time {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof seedu.address.model.interview.Time // instanceof handles nulls
-                && value.equals(((seedu.address.model.interview.Time) other).value)); // state check
+                || (other instanceof Time // instanceof handles nulls
+                && value.equals(((Time) other).value)); // state check
     }
 
     @Override
