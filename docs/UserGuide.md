@@ -137,7 +137,7 @@ Special Keywords:
 * `jobid:` Specifies that the
 * `progress:` 
 
-Format: `find g/[KEYWORDS...]...`
+Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
 Example: `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`
 
@@ -183,7 +183,7 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 |    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` |
 |        Add Interview | `add [i] 1 d/DATE t/TIME`                                       |
 |                 Edit | `edit`                                                          |
-|                 Find | `find g/[KEYWORDS...]...`                                       |
+|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`     |
 | Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                        |
 |     Delete Interview | `delete [i] INDEX`                                              |
 |                Clear | `clear`                                                         |
