@@ -6,6 +6,7 @@ the progress of each applicant during the application process.
 ### Table of Contents
 * [Quick Start](#Quick-Start)
 * [Features](#Features)
+  * [Help](#Viewing-Help:-help)
 * [FAQ](#FAQ)
 * [Command Summary](#Command-Summary)
 
