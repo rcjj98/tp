@@ -134,6 +134,8 @@ Format: `find g/[KEYWORDS...]...`
 
 Example: `find g/john bukit jobid:1 g/thomas 119 progress:inprogress`
 
+![find](images/find.png)
+
 &nbsp;
 ### Clearing all entries: `clear` 
 Clears all entries from the address book.  
