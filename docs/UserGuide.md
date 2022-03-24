@@ -17,8 +17,8 @@ the progress of each applicant during the application process.
 * [Storage](#Storage)
   * [Saving the data](#saving-the-data)
   * [Editing the data file](#editing-the-data-file)
-  * [Archive](#archiving-the-current-data-coming-in-v13)
-  * [Import](#importing-the-data-file-coming-in-v13)
+  * [Export](#archiving-the-current-dataexport-coming-in-v13)
+  * [Import](#importing-the-data-fileimport-coming-in-v13)
 * [FAQ](#FAQ)
 * [Command Summary](#Command-Summary)
 
@@ -166,10 +166,10 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 :exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
 
 &nbsp;
-### Archiving the current data [coming in v1.3]
+### Archiving the current data:`export` [coming in v1.3]
 
 &nbsp;
-### Importing the data file [coming in v1.3] 
+### Importing the data file:`import` [coming in v1.3] 
 
 ## FAQ 
 
