@@ -183,7 +183,8 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 |               Action | Format                                                          |
 |---------------------:|:----------------------------------------------------------------|
 |                 Help | `help`                                                          |
-|                 List | `list`                                                          |
+|  List Job Applicants | `list [p]`                                                      |
+|      List Interviews | `list [i]`                                                      |
 |    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` |
 |        Add Interview | `add [i] 1 d/DATE t/TIME`                                       |
 |                 Edit | `edit`                                                          |
