@@ -31,6 +31,7 @@ public class FindCommandParser implements Parser<FindCommand> {
 
         if (argMultimap.getValue(PREFIX_GROUP).isPresent()) {
             List<String> terms = argMultimap.getAllValues(PREFIX_GROUP);
+            assert !terms.isEmpty() : "No values found in g/flag";
             boolean isEmpty = terms.stream().anyMatch(x -> x.equals(""));
 
             if (isEmpty) {
