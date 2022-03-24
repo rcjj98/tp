@@ -130,6 +130,13 @@ Deletes an existing job applicant/interview in the address book.
 ### Finding a job applicant by keywords: `find` 
 Finds job applicants whose data contain any of the given keywords.
 
+Use `g/` flags to find job applicants whose data contain **all** the keywords. Chain `g/` flags to find job applicants
+whose data **may or may not** contain those groups.
+
+Special Keywords:
+* `jobid:` Specifies that the
+* `progress:` 
+
 Format: `find g/[KEYWORDS...]...`
 
 Example: `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`
