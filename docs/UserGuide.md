@@ -26,14 +26,12 @@ the progress of each applicant during the application process.
 
 ## Features
 ### Viewing Help: `help`
-Shows a message explaining how to access the help page and the basic commands.
-
+Shows a message explaining how to access the help page and the basic commands.  
 Format: `help`  
 
 &nbsp;
 ### Listing all job applicants: `list`
-Shows a list of all persons in the address book.
-
+Shows a list of all persons in the address book.  
 Format: `list`
 
 ---
@@ -42,11 +40,13 @@ Format: `list`
 Adds a new job applicant/interview to the address book.
 
 * #### Adding a new job applicant 
-  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...`
+  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...`  
+  Example: `add [p] n/Tom Tan p/98764312 e/tt@outlook.com a/Blk 3 Queens Road #12-155 j/2 j/5`
 
 
 * #### Adding a new interview 
-  Format: `add [p] INDEX d/DATE t/TIME`
+  Format: `add [i] INDEX d/DATE t/TIME`  
+  Example: `add [i] 2 d/9-May-2020 t/17:30`
 
 
 ---
@@ -66,29 +66,31 @@ Edits an existing job applicant/interview in the address book
 Deletes an existing job applicant/interview in the address book.
 
 * #### Deleting a job applicant 
-  Format: `delete [p] INDEX` or `delete [p] NAME`
+  Format: `delete [p] INDEX` or `delete [p] NAME`  
+  Example: `delete [p] 2` or `delete [p] Alex Jones`
 
 * #### Deleting an interview 
-  Format: `delete [i] INDEX`
+  Format: `delete [i] INDEX`  
+  Example: `delete [1] 2`
 
 ---
 
 ### Finding a job applicant by keywords: `find` 
-Finds job applicants whose data contain any of the given keywords.
-
-Format: `find g/[KEYWORDS...] ...`
+Finds job applicants whose data contain any of the given keywords.  
+Format: `find g/[KEYWORDS...] ...`  
+Example: `find g/john bukit jobid:1 g/thomas 119 progress:inprogress`
 
 ---
 
 ### Clearing all entries: `clear` 
-Clears all entries from the address book.
+Clears all entries from the address book.  
 
 Format: `clear`
 
 ---
 
 ### Exiting the program: `exit` 
-Exits the program.
+Exits the program.  
 
 Format: `exit`
 
