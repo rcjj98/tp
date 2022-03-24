@@ -36,7 +36,8 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
-&nbsp;
+---
+
 ### Adding a new job applicant/interview: `add` 
 Adds a new job applicant/interview to the address book.
 
@@ -48,7 +49,8 @@ Adds a new job applicant/interview to the address book.
   Format: `add [p] INDEX d/DATE t/TIME`
 
 
-&nbsp;
+---
+
 ### Editing a job applicant/interview: `edit` 
 Edits an existing job applicant/interview in the address book
 
@@ -58,7 +60,8 @@ Edits an existing job applicant/interview in the address book
 * #### Editing an interview 
     Format: 
 
-&nbsp;
+---
+
 ### Deleting job applicant/interview: `delete` 
 Deletes an existing job applicant/interview in the address book.
 
@@ -68,32 +71,38 @@ Deletes an existing job applicant/interview in the address book.
 * #### Deleting an interview 
   Format: `delete [i] INDEX`
 
-&nbsp;
+---
+
 ### Finding a job applicant by keywords: `find` 
 Finds job applicants whose data contain any of the given keywords.
 
 Format: `find g/[KEYWORDS...] ...`
 
-&nbsp;
+---
+
 ### Clearing all entries: `clear` 
 Clears all entries from the address book.
 
 Format: `clear`
 
-&nbsp;
+---
+
 ### Exiting the program: `exit` 
 Exits the program.
 
 Format: `exit`
 
-&nbsp;
+---
+
 ### Saving the data 
 
-&nbsp;
+---
+
 ### Editing the data file 
 
 ---
-### Archiving the current data [coming in v1.3] 
+
+### Archiving the current data [coming in v1.3]
 
 ---
 
