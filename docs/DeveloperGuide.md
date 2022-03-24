@@ -430,6 +430,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case only can delete person if person does not have any interviews.
 
+* 2d. The given person does not exist in the database.
+    
+    * 2d1. AddressBook shows an error message.
+
+      Use case only deletes person with a valid name, provided the person's name exists in the database.
+
 **Use case: Delete an interview**
 
 **MSS**
@@ -570,7 +576,11 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
-
+  
+   1. Test case: `delete Jeremy`<br>
+      Expected: Person with name "Jeremy" is deleted. If name does not exist in the database, error is thrown. 
+      Error details shown in the status message. 
+ 
 1. _{ more test cases …​ }_
 
 ### Saving data

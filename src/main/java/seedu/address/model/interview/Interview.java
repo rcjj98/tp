@@ -42,16 +42,18 @@ public class Interview {
     }
 
     /**
-     * Returns true if both interviews have the same person.
+     * Returns true if both interviews have the same person/date/time.
      * This defines a weaker notion of equality between two interviews.
      */
-    public boolean isSameInterview(seedu.address.model.interview.Interview otherInterview) {
+    public boolean isSameInterview(Interview otherInterview) {
         if (otherInterview == this) {
             return true;
         }
 
         return otherInterview != null
-                && otherInterview.getPerson().equals(getPerson());
+                && (otherInterview.getPerson().isSamePerson(getPerson())
+                || otherInterview.getDate().equals(getDate())
+                || otherInterview.getTime().equals(getTime()));
     }
 
     /**
@@ -64,13 +66,12 @@ public class Interview {
             return true;
         }
 
-        if (!(other instanceof seedu.address.model.interview.Interview)) {
+        if (!(other instanceof Interview)) {
             return false;
         }
 
-        seedu.address.model.interview.Interview otherInterview =
-                (seedu.address.model.interview.Interview) other;
-        return otherInterview.getPerson().equals(getPerson())
+        Interview otherInterview = (Interview) other;
+        return otherInterview.getPerson().isSamePerson(getPerson())
                 && otherInterview.getDate().equals(getDate())
                 && otherInterview.getTime().equals(getTime());
     }
