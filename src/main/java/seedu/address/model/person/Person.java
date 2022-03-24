@@ -95,6 +95,54 @@ public class Person {
                 && otherPerson.getApplications().equals(getApplications());
     }
 
+    /**
+     * Checks if this person contains the given keyword.
+     *
+     * @param term The search term.
+     * @return A boolean checking whether this person has the keyword or not.
+     */
+    public boolean contains(String term) {
+        String thisName = getName().fullName.toLowerCase();
+        assert !thisName.isEmpty() : "Did not capture name";
+        String thisPhone = getPhone().toString().toLowerCase();
+        assert !thisPhone.isEmpty() : "Did not capture phone";
+        String thisEmail = getEmail().toString().toLowerCase();
+        assert !thisEmail.isEmpty() : "Did not capture email";
+        String thisAddress = getAddress().toString().toLowerCase();
+        assert !thisAddress.isEmpty() : "Did not capture address";
+
+        if (term.contains("jobid:")) {
+            String id = term.split(":")[1];
+
+
+            boolean containsJobId = getApplications().stream().anyMatch(
+                application -> application.getJob().toString().equals(id)
+            );
+
+            if (containsJobId) {
+                return true;
+            }
+        }
+
+        if (term.contains("progress:")) {
+            String stage = term.split(":")[1].toLowerCase();
+            boolean containsStage = getApplications().stream().anyMatch(
+                application -> application.getStage().toString().toLowerCase().equals(stage)
+            );
+
+            if (containsStage) {
+                return true;
+            }
+        }
+
+        if (thisName.contains(term) || thisPhone.contains(term)
+                || thisEmail.contains(term) || thisAddress.contains(term)) {
+            return true;
+        }
+
+        return false;
+    }
+
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own

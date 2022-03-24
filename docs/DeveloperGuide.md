@@ -234,11 +234,50 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
+### Searching for persons with keywords
 
-_{Explain here how the data archiving feature will be implemented}_
+#### Overview:
+The find feature uses the `g/` flag to simulate an AND operator. It checks if the data of current person contains all
+the keywords in the flag. For example, `find g/john orchard 111` finds all persons whose data contains `john`
+**AND** `orchard` **AND** `111`.
+
+Chaining together several `g/` flags simulates an OR operator. For example, `find g/john g/orchard g/111` 
+finds all persons whose data contains `john` **OR** `orchard` **OR** `111`.
+
+The find feature uses 2 keywords to distinguish application details from personal details. Namely `jobid:` and 
+`progress:`. If either parameters are misspelled, the find feature will treat these parameters as normal search terms 
+instead of special keywords.
+
+`jobid:` Checks if the person is applying for that specific job id.
+
+`progress:` Checks if the person is currently at that particular stage of the job application.
 
 
+#### Implementation Steps
+1. When the Find Command parses the query, it gets searches for all the `g/` flags and tokenizes the search terms wrapped
+inside the `g/` flag.
+   1. If any of the flags are empty, throw a new exception stating that the `g/` flag is empty
+   2. If parser cannot find and `g/` flag, throw a new exception stating that no `g/` flags can be found
+2. Create a new object in `PersonContainsKeywordsPredicate` with the list of search terms.
+3. Return a new `FindCommand` object using the newly created object from the previous step.
+4. <placeholder>
+
+The following sequence diagram shows how the find operation works:
+<placeholder>
+
+The following activity diagram summarizes what happens when a user executes a new command:
+<placeholder>
+
+#### Design considerations:
+* **Alternative 1:** Using AND, OR, NOT operators (i.e. `find john AND tom OR (gmail.com AND NOT 111)`).
+  * Pros: More intuitive to the technically inclined and more control over the search results.
+  * Cons: Harder to parse and implement.
+* **Alternative 2:** Enforcing the usage of flags for every search term (i.e. `find n/john p/123 e/john n/lee`)
+  * Pros: More control over the search query.
+  * Cons: Search query becomes long especially if search term appears in multiple fields.
+* **Alternative 3** Using free text queries (i.e. `find john tom gmail.com`)
+  * Pros: More intuitive as user expects queried person to contain all the search terms.
+  * Cons: Lacks the flexibility provided by AND and OR operators.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -278,7 +317,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 |----------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `*`      | Tech HR Recruiter                                                                                                     | share information with other recruiters                                                                                 | easily liaise with them                                                                             |
 | `* * *`  | Tech HR Recruiter                                                                                                     | rank applicants                                                                                                         | find out who to contact in the event the top few applicants reject the offer                        |
-| `* * *`  | Tech HR Recruiter                                                                                                     | categorize employers by the job position they are hiring for                                                            | find out who to contact regarding a specific job position                                           | 
+| `* * *`  | Tech HR Recruiter                                                                                                     | categorize employers by the job position they are hiring for                                                            | find out who to contact regarding a specific job position                                           |
 | `*`      | Tech HR Recruiter                                                                                                     | utilise a task list                                                                                                     | keep track of my daily schedule                                                                     |
 | `*`      | Tech HR Recruiter                                                                                                     | schedule meetings/interviews between employers and applicants                                                           | help them progress in the application process                                                       |
 | `* *`    | Tech HR Recruiter                                                                                                     | easily view the details of a contact without needing to click on their profile                                          | skim through my contacts quickly                                                                    |
@@ -320,25 +359,134 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to add an applicant or employer in the address book
-2. AddressBook adds the contact
+1. User requests to add a person in the address book
+2. AddressBook adds the person to person list
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The category is invalid.
+* 2a. The type is invalid.
 
   * 2a1. AddressBook shows an error message.
 
-    Use case only adds contact with category field 'A' or 'E'.
+    Use case only adds person with type field '[p]'.
 
 * 2b. The job position is invalid.
 
     * 2b1. AddressBook shows an error message.
 
       Use case only adds contact with valid job position.
-    
+
+**Use case: Add an interview**
+
+**MSS**
+
+1. User requests to add an interview in the address book
+2. AddressBook adds the interview to interview list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only adds interview with type field '[i]'.
+
+* 2b. The INDEX is out of bounds.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only adds interview with valid index based on length of person list.
+
+**Use case: Delete a person**
+
+**MSS**
+
+1. User requests to delete a person in the address book
+2. AddressBook deletes the person from the person list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only deletes person with type field '[p]'.
+
+* 2b. The INDEX is out of bounds.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only deletes person with valid index based on length of person list.
+  
+* 2c. The given person has an interview.
+
+    * 2c1. AddressBook shows an error message.
+
+      Use case only can delete person if person does not have any interviews.
+
+**Use case: Delete an interview**
+
+**MSS**
+
+1. User requests to delete a interview in the address book
+2. AddressBook deletes the interview from the interview list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only deletes interview with type field '[i]'.
+
+* 2b. The INDEX is out of bounds.
+
+    * 2b1. AddressBook shows an error message.
+
+      Use case only deletes interview with valid index based on length of interview list.
+
+
+**Use case: List person list**
+
+**MSS**
+
+1. User requests to see all people in the address book
+2. AddressBook display person list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only display people with type field '[p]'.
+
+**Use case: List interview list**
+
+**MSS**
+
+1. User requests to see all interviews in the address book
+2. AddressBook display interview list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The type is invalid.
+
+    * 2a1. AddressBook shows an error message.
+
+      Use case only display interviews with type field '[i]'.
 
 **Use case: Edit a person's particulars**
 
@@ -353,13 +501,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. HRConnect detects an error in the entered data
 
-  * 1a1. HRConnect request for the correct data 
+  * 1a1. HRConnect request for the correct data
   * 1a2. User enters new data
-    
-    Steps 1a1 - 1a2 are repeated until the data entered are correct
-    
-    Use case resumes from step 2.
 
+    Steps 1a1 - 1a2 are repeated until the data entered are correct
+
+    Use case resumes from step 2.
 
 *{More to be added}*
 

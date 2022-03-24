@@ -10,11 +10,10 @@ HRConnect is a desktop address book application used for keeping track of job ap
 Given below are my contributions to the project.
 
 * **New Feature**: Added the ability to edit details of job applicants.
-  * What it does: allows the user to update any current details of job applicants that were added previously. 
+  * What it does: allows the user to update any current details of job applicants that were added previously.
   * Justification: This feature improves the product significantly because a user can make mistakes when adding a new job applicant and the app should provide a convenient way to rectify them.
   * Highlights: to be added soon
   * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
-
 
 * **New Feature**: to be added soon
 
@@ -36,6 +35,5 @@ Given below are my contributions to the project.
 
 * **Community**:
   * to be added soon
-  
 * **Tools**:
   * to be added soon

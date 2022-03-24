@@ -4,7 +4,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
-/** Represents a Application in the address book.
+/** Represents an Application in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Application {
@@ -40,8 +40,7 @@ public class Application {
         if (other == this) {
             return true;
         }
-        seedu.address.model.application.Application otherApplication =
-                (seedu.address.model.application.Application) other;
+        Application otherApplication = (Application) other;
         return otherApplication == this;
     }
 

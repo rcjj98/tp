@@ -1,204 +1,196 @@
----
-layout: page
-title: User Guide
----
+# HRConnect
 
-HRConnect is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, HRConnect can get your contact management tasks done faster than traditional GUI apps.
+HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
+the progress of each applicant during the application process.
 
-* Table of Contents
-{:toc}
+### Table of Contents
+* [Quick Start](#Quick-Start)
+* [Features](#Features)
+  * [Help](#viewing-help-help)
+  * [List](#listing-all-job-applicantsinterviews-list)
+  * [Add](#adding-a-new-job-applicantinterview-add)
+  * [Edit](#editing-a-job-applicantinterview-edit)
+  * [Delete](#deleting-job-applicantinterview-delete)
+  * [Find](#finding-a-job-applicant-by-keywords-find)
+  * [Clear](#clearing-all-entries-clear)
+  * [Exit](#exiting-the-program-exit)
+* [Storage](#Storage)
+  * [Saving the data](#saving-the-data)
+  * [Editing the data file](#editing-the-data-file)
+  * [Export](#archiving-the-current-data-export-coming-in-v13)
+  * [Import](#importing-the-data-file-import-coming-in-v13)
+* [FAQ](#FAQ)
+* [Command Summary](#Command-Summary)
 
---------------------------------------------------------------------------------------------------------------------
+## Quick Start
+1. Ensure you have `Java 11` or above installed in your computer.
+2. Download the latest `addressbook.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp">here</a>
+3. Copy the file to the folder you want to use as the *home folder* for your AddressBook.
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
+   
+  ![Ui](images/Ui.png)
 
-## Quick start
+5. Type your command into the command box and press `Enter` to execute it. 
 
-1. Ensure you have Java `11` or above installed in your Computer.
+    Some sample commands to try:
+   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`: Adds a new contact name Bob Tan to the address book
+   * `list [p]`: Lists all contacts
+   * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
+   * `clear`: Deletes all contacts.
+   * `exit`: Exits the app.
 
-1. Download the latest `HRConnect.jar` from [here](https://github.com/AY2122S2-CS2103T-W11-2/tp/releases).
-
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
-
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
-
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
-
-   * **`list`** : Lists all contacts.
-
-   * **`add`**`c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened` : Adds a applicant named `John Doe` to the Address Book who is applying for the job with job ID `1` and his current application status is `Resume Screened`.
-
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-
-   * **`clear`** : Deletes all contacts.
-
-   * **`exit`** : Exits the app.
-
-1. Refer to the [Features](#features) below for details of each command.
-
---------------------------------------------------------------------------------------------------------------------
+6. Refer to the [Features](#Features) below for details of each command.
 
 ## Features
+### :information_source: Notes about the command format:
+* Words in `UPPER_CASE` are the parameters to be supplied by the user. 
+  
+  e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
 
-<div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+* Items in square brackets are optional. 
+  
+  e.g n/NAME [t/TAG] can be used as n/John Doe t/friend or as n/John Doe.
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+* Items with …​ after them can be used multiple times including zero times.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. [t/TAG]…​ can be used as   (i.e. 0 times), t/friend, t/friend t/family etc.
 
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
+* Parameters can be in any order.
+    
+  e.g. if the command specifies n/NAME p/PHONE_NUMBER, p/PHONE_NUMBER n/NAME is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
+
+* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.
+
+  e.g. if you specify p/12341234 p/56785678, only p/56785678 will be taken.
+
+
+* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.
+
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-</div>
+&nbsp;
+### Viewing Help: `help`
+Shows a message explaining how to access the help page and the basic commands.
 
-### Viewing help : `help`
+Format: `help`  
 
-Shows a message explaning how to access the help page.
+&nbsp;
+### Listing all job applicants/interviews: `list`
+Shows a list of all persons/interviews in the address book.
 
-![help message](images/helpMessage.png)
+Format: 
+* `list [i]`: Show all interviews.
+* `list [p]`: Show all job applicants.
 
-Format: `help`
+&nbsp;
+### Adding a new job applicant/interview: `add` 
+Adds a new job applicant/interview to the address book.
 
+* #### Adding a new job applicant 
+  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...`
 
-### Adding a person: `add`
+  Example: `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`
 
-Adds a contact to the address book.
+![add-applicant](images/add-applicant.png)
 
-Format:
+* #### Adding a new interview 
+  Format: `add [i] INDEX d/DATE t/TIME`
 
-Applicant Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOBPOSITION s/STAGE`
+  Example: `add [i] 1 d/9-May-2020 t/17:30`
 
-Employer Format: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOBPOSITION`
+![add-interview](images/add-interview.png)
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Each applicant can only apply for 1 job in the company and each employer can only be recruiting for 1 job.
-</div>
+&nbsp;
+### Editing a job applicant/interview: `edit` 
+Edits an existing job applicant/interview in the address book
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-When first added into the address book, each applicant's stage of application is `Resume Screened`.
-</div>
+* #### Editing a job applicant 
+    Format:
 
-Examples:
-* Add Applicant: `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`
-* Add Employer: `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
+* #### Editing an interview 
+    Format:
 
-### Listing all persons : `list`
+&nbsp;
+### Deleting job applicant/interview: `delete` 
+Deletes an existing job applicant/interview in the address book.
 
-Shows a list of all persons in the address book.
+* #### Deleting a job applicant 
+  Format: `delete [p] INDEX` or `delete [p] NAME`
 
-Format: `list`
+  Example: `delete [p] 1` or `delete [p] Alex Jones`
 
-### Editing a person : `edit`
+* #### Deleting an interview 
+  Format: `delete [i] INDEX`
 
-Edits an existing person in the address book.
+  Example: `delete [i] 1`
 
-Applicant Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`
+&nbsp;
+### Finding a job applicant by keywords: `find` 
+Finds job applicants whose data contain any of the given keywords.
 
-Employer Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`
+Use `g/` flags to find job applicants whose data contain **all** the keywords. Chain `g/` flags to find job applicants
+whose data **may or may not** contain those groups.
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* The `CATEGORY` field must be provided.
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
+Special Keywords:
+* `jobid:` Specifies that the
+* `progress:` 
 
-Examples:
-* Editing applicant: `edit 1 c/A p/91234567 j/2`
-  
-  Edits the phone number and job ID of the 1st **applicant** to be `91234567` and `2` respectively.
+Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
+Example: `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`
 
-* Editing applicant: `edit 3 c/A n/Betsy Crower s/Interview` 
+![find](images/find.png)
 
-  Edits the name and stage of application of the 2nd **applicant** to be `Betsy Crower` and `Interview` respectively. 
-
-
-* Editing employer: `edit 1 c/E e/johndoe@gmail.com j/3` 
-
-  Edits the email and job ID of the 1st **employer** to be `johndoe@gmail.com` and `3` respectively.
-
-### Locating persons by name: `find`
-
-Finds a contact from the address book.
-
-Format: `find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] etc…`
-
-
-Examples:
-* `find n/john` returns `John`, `John Lee`, `John Yeo`
-* `find n/john p/123456 e/johnlee@gmail.com` returns `John Lee`<br>
-
-### Deleting a person : `delete`
-
-Deletes the specified person from the address book.
-
-Format: `delete INDEX`
-
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-
-### Clearing all entries : `clear`
-
-Clears all entries from the address book.
+&nbsp;
+### Clearing all entries: `clear` 
+Clears all entries from the address book.  
 
 Format: `clear`
 
-### Exiting the program : `exit`
-
-Exits the program.
+&nbsp;
+### Exiting the program: `exit` 
+Exits the program.  
 
 Format: `exit`
 
+&nbsp;
+## Storage
 ### Saving the data
-
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
+&nbsp;
 ### Editing the data file
-
 AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
-</div>
+:exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
 
-### Archiving data files `[coming in v2.0]`
+&nbsp;
+### Archiving the current data: `export` [coming in v1.3]
 
-_Details coming soon ..._
+&nbsp;
+### Importing the data file: `import` [coming in v1.3] 
 
---------------------------------------------------------------------------------------------------------------------
-
-## FAQ
-
+## FAQ 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
---------------------------------------------------------------------------------------------------------------------
+## Command Summary
 
-## Command summary
+|               Action | Format                                                          |
+|---------------------:|:----------------------------------------------------------------|
+|                 Help | `help`                                                          |
+|  List Job Applicants | `list [p]`                                                      |
+|      List Interviews | `list [i]`                                                      |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` |
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                       |
+|                 Edit | `edit`                                                          |
+|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`     |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                        |
+|     Delete Interview | `delete [i] INDEX`                                              |
+|                Clear | `clear`                                                         |
+|                 Exit | `exit`                                                          |
 
-Action | Format, Examples
---------|------------------
-**Add** |Applicant: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_APPLIED s/STAGE_OF_APPLICATION` <br> e.g., `add c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened`<br><br>Employer: `add c/CATEGORY n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_RECRUITING` <br> e.g., `add c/E n/Jane Doe p/88541245 e/janedoe@email.com a/222 Bishan Street 22 j/1`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`<br> e.g.,`edit 2 c/A n/Jane Doe s/Interview` <br> <br> `edit INDEX c/CATEGORY [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`<br> e.g.,`edit 2 c/E n/James Lee p/9891 3445` 
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
