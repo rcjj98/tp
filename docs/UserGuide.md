@@ -168,14 +168,14 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-| Action | Format, Examples |
-|:------:|:----------------:|
-|  Help  |      `help`      |
-|  List  |      `list`      |
-|  Add   |      `add`       |
-|  Edit  |      `edit`      |
-|  Find  |      `find`      |
-| Delete |     `delete`     |
-| Clear  |     `clear`      |
-|  Exit  |      `exit`      |
+| Action |                                         Format, Examples                                         |
+|:------:|:------------------------------------------------------------------------------------------------:|
+|  Help  |                                              `help`                                              |
+|  List  |                                              `list`                                              |
+|  Add   | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` or `add [i] INDEX d/DATE t/TIME` |
+|  Edit  |                                              `edit`                                              |
+|  Find  |                                    `find g/[KEYWORDS...]...`                                     |
+| Delete |                  `delete [p] INDEX` or `delete [p] NAME` or `delete [i] INDEX`                   |
+| Clear  |                                             `clear`                                              |
+|  Exit  |                                              `exit`                                              |
 
