@@ -132,7 +132,7 @@ Finds job applicants whose data contain any of the given keywords.
 
 Format: `find g/[KEYWORDS...]...`
 
-Example: `find g/john bukit jobid:1 g/thomas 119 progress:inprogress`
+Example: `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`
 
 ![find](images/find.png)
 
