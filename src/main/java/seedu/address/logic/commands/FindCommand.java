@@ -17,6 +17,8 @@ public class FindCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose data contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: g/KEYWORD [MORE_KEYWORDS]... g/KEYWORD [MORE_KEYWORDS]...\n"
+            + "Special Keyword 1: 'jobid:' to search for job id \n"
+            + "Special Keyword 2: 'progress:' to search for state of progress\n"
             + "Example: " + COMMAND_WORD + " g/alex defu g/jia ling jobid:2";
 
     private final PersonContainsKeywordsPredicate predicate;
