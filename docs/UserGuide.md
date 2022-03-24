@@ -176,16 +176,16 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-|        Action        |                             Format                              |
-|:--------------------:|:---------------------------------------------------------------:|
-|         Help         |                             `help`                              |
-|         List         |                             `list`                              |
-|  Add Job Applicant   | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` |
-|    Add Interview     |                    `add [i] 1 d/DATE t/TIME`                    |
-|         Edit         |                             `edit`                              |
-|         Find         |                    `find g/[KEYWORDS...]...`                    |
-| Delete Job Applicant |            `delete [p] INDEX`<br/>`delete [p] NAME`             |
-|   Delete Interview   |                       `delete [i] INDEX`                        |
-|        Clear         |                             `clear`                             |
-|         Exit         |                             `exit`                              |
+|               Action | Format                                                          |
+|---------------------:|:----------------------------------------------------------------|
+|                 Help | `help`                                                          |
+|                 List | `list`                                                          |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` |
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                       |
+|                 Edit | `edit`                                                          |
+|                 Find | `find g/[KEYWORDS...]...`                                       |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                        |
+|     Delete Interview | `delete [i] INDEX`                                              |
+|                Clear | `clear`                                                         |
+|                 Exit | `exit`                                                          |
 
