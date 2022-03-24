@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 
 /**
@@ -13,6 +14,7 @@ import seedu.address.model.person.Person;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Interview> PREDICATE_SHOW_ALL_INTERVIEWS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -84,4 +86,38 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Returns true if an interview with the same identity as {@code interview} exists in the address book.
+     */
+    boolean hasInterview(Interview interview);
+
+    /**
+     * Deletes the given interview.
+     * The interview must exist in the address book.
+     */
+    void deleteInterview(Interview target);
+
+    /**
+     * Adds the given interview.
+     * {@code interview} must not already exist in the address book.
+     */
+    void addInterview(Interview interview);
+
+    /**
+     * Replaces the given interview {@code target} with {@code editedInterview}.
+     * {@code target} must exist in the address book.
+     * The interview identity of {@code editedInterview} must not be the same as another
+     * existing interview in the address book.
+     */
+    void setInterview(Interview target, Interview editedInterview);
+
+    /** Returns an unmodifiable view of the filtered interview list */
+    ObservableList<Interview> getFilteredInterviewList();
+
+    /**
+     * Updates the filter of the filtered interview list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredInterviewList(Predicate<Interview> predicate);
 }
