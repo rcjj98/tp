@@ -119,12 +119,12 @@ Deletes an existing job applicant/interview in the address book.
 * #### Deleting a job applicant 
   Format: `delete [p] INDEX` or `delete [p] NAME`
 
-  Example: `delete [p] 2` or `delete [p] Alex Jones`
+  Example: `delete [p] 1` or `delete [p] Alex Jones`
 
 * #### Deleting an interview 
   Format: `delete [i] INDEX`
 
-  Example: `delete [i] 2`
+  Example: `delete [i] 1`
 
 &nbsp;
 ### Finding a job applicant by keywords: `find` 
