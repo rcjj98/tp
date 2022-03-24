@@ -6,8 +6,6 @@ the progress of each applicant during the application process.
 ### Table of Contents
 
 
---------------------------------------------------------------------------------------------------------------------
-
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
 2. Download the latest `addressbook.jar` from <a href="www.google.com">here</a>
@@ -21,9 +19,6 @@ the progress of each applicant during the application process.
      * `clear`: Deletes all contacts.
      * `exit`: Exits the app.
 6. Refer to the [Features](name="features") below for details of each command.
-
-
-
 
 ## Features<a name="features"></a>
 ### Viewing Help: `help`
