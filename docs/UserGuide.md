@@ -36,8 +36,7 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
----
-
+&nbsp;
 ### Adding a new job applicant/interview: `add` 
 Adds a new job applicant/interview to the address book.
 
@@ -52,9 +51,7 @@ Adds a new job applicant/interview to the address book.
 
   Example: `add [i] 2 d/9-May-2020 t/17:30`
 
-
----
-
+&nbsp;
 ### Editing a job applicant/interview: `edit` 
 Edits an existing job applicant/interview in the address book
 
@@ -62,10 +59,9 @@ Edits an existing job applicant/interview in the address book
     Format:
 
 * #### Editing an interview 
-    Format: 
+    Format:
 
----
-
+&nbsp;
 ### Deleting job applicant/interview: `delete` 
 Deletes an existing job applicant/interview in the address book.
 
@@ -79,6 +75,7 @@ Deletes an existing job applicant/interview in the address book.
 
   Example: `delete [1] 2`
 
+&nbsp;
 ### Finding a job applicant by keywords: `find` 
 Finds job applicants whose data contain any of the given keywords.
 
