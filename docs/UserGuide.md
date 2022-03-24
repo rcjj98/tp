@@ -26,7 +26,7 @@ HRConnect is a **desktop app for managing contacts, optimized for use via a Comm
 
    * **`list`** : Lists all contacts.
 
-   * **`add`**`c/A n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 s/Resume Screened` : Adds a applicant named `John Doe` to the Address Book who is applying for the job with job ID `1` and his current application status is `Resume Screened`.
+   * **`add`**`n/John Doe p/84352609 e/johndoe@email.com a/244 Ang Mo Kio Street 32 j/1 REJECTED` : Adds a job applicant named `John Doe` to the Address Book who is applying for the job with job ID `1` and his current application status is `REJECTED`.
 
    * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
 
@@ -103,31 +103,28 @@ Format: `list`
 
 ### Editing a person : `edit`
 
-Edits an existing person in the address book.
+Edits an existing contact in the address book.
 
-Applicant Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION] [s/STAGE]`
-
-Employer Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION]`
+Format: `edit INDEX c/CATEGORY [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [j/JOBPOSITION STAGE]`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
-* The `CATEGORY` field must be provided.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 
 Examples:
-* Editing applicant: `edit 1 c/A p/91234567 j/2`
+* `edit 1 p/91234567 j/2 INPROGRESS`
 
-  Edits the phone number and job ID of the 1st **applicant** to be `91234567` and `2` respectively.
-
-
-* Editing applicant: `edit 3 c/A n/Betsy Crower s/Interview`
-
-  Edits the name and stage of application of the 2nd **applicant** to be `Betsy Crower` and `Interview` respectively.
+  Edits the phone number and job application of the 1st applicant to be `91234567` and `2 INPROGRESS` respectively.
 
 
-* Editing employer: `edit 1 c/E e/johndoe@gmail.com j/3`
+* `edit 3 n/Betsy Crower s/1 ACCEPTED`
 
-  Edits the email and job ID of the 1st **employer** to be `johndoe@gmail.com` and `3` respectively.
+  Edits the name and job application of the 2nd applicant to be `Betsy Crower` and `1 ACCEPTED` respectively.
+
+
+* `edit 1 c/E e/johndoe@gmail.com a/Tanah Merah`
+
+  Edits the email and address of the 1st applicant to be `johndoe@gmail.com` and `Tanah Merah` respectively.
 
 ### Locating persons by name: `find`
 
