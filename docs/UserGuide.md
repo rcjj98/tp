@@ -18,17 +18,18 @@ the progress of each applicant during the application process.
 3. Copy the file to the folder you want to use as the *home folder* for your AddressBook.
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
    
-![Ui](images/Ui.png)
+  ![Ui](images/Ui.png)
 
 5. Type your command into the command box and press `Enter` to execute it. 
- 
-  Some sample commands to try:
-  * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`: Adds a new contact name Bob Tan to the address book
-  * `list [p]`: Lists all contacts
-  * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
-  * `clear`: Deletes all contacts.
-  * `exit`: Exits the app.
-7. Refer to the [Features](#Features) below for details of each command.
+
+    Some sample commands to try:
+   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`: Adds a new contact name Bob Tan to the address book
+   * `list [p]`: Lists all contacts
+   * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
+   * `clear`: Deletes all contacts.
+   * `exit`: Exits the app.
+
+6. Refer to the [Features](#Features) below for details of each command.
 
 ## Features
 ### :information_source: Notes about the command format:
