@@ -83,14 +83,14 @@ Adds a new job applicant/interview to the address book.
 
   Example: `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`
 
-![add-applicant](images/add-applicant.PNG)
+![add-applicant](images/add-applicant.png)
 
 * #### Adding a new interview 
   Format: `add [i] INDEX d/DATE t/TIME`
 
   Example: `add [i] 1 d/9-May-2020 t/17:30`
 
-![add-interview](images/add-interview.PNG)
+![add-interview](images/add-interview.png)
 
 &nbsp;
 ### Editing a job applicant/interview: `edit` 
