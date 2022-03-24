@@ -10,12 +10,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.Prefix;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
@@ -93,7 +91,7 @@ public class CommandTestUtil {
      */
     public static void assertCommandSuccess(Command command, Model actualModel, String expectedMessage,
             Model expectedModel) {
-        CommandResult expectedCommandResult = new CommandResult(expectedMessage);
+        CommandResult expectedCommandResult = new CommandResult(expectedMessage, command.getType());
         assertCommandSuccess(command, actualModel, expectedCommandResult, expectedModel);
     }
 
@@ -122,8 +120,8 @@ public class CommandTestUtil {
 
         Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
 
-        HashMap<Prefix, String> keywords = new HashMap<>();
-        keywords.put(PREFIX_NAME, person.getName().fullName.split(" ")[0]);
+        List<String> keywords = new ArrayList<>();
+        keywords.add(person.getName().fullName.split(" ")[0]);
         model.updateFilteredPersonList(new PersonContainsKeywordsPredicate(keywords));
 
         assertEquals(1, model.getFilteredPersonList().size());
