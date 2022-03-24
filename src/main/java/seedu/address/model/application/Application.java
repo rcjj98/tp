@@ -4,7 +4,8 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
-/** Represents the job application details of an applicant.
+
+/** Represents an Application in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Application {
@@ -40,16 +41,8 @@ public class Application {
         if (other == this) {
             return true;
         }
-
-        if (!(other instanceof Application)) {
-            return false;
-        }
-
         Application otherApplication = (Application) other;
-        Job otherJob = otherApplication.getJob();
-        Stage otherStage = otherApplication.getStage();
-        return (otherJob.equals(this.job)
-                && otherStage.equals(this.getStage()));
+        return otherApplication == this;
     }
 
     @Override
