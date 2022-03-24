@@ -7,7 +7,7 @@ the progress of each applicant during the application process.
 * [Quick Start](#Quick-Start)
 * [Features](#Features)
   * [Help](#viewing-help-help)
-  * [List](#listing-all-job-applicants-list)
+  * [List](#listing-all-job-applicantsinterviews-list)
   * [Add](#adding-a-new-job-applicantinterview-add)
   * [Edit](#editing-a-job-applicantinterview-edit)
   * [Delete](#deleting-job-applicantinterview-delete)
@@ -79,10 +79,12 @@ Shows a message explaining how to access the help page and the basic commands.
 Format: `help`  
 
 &nbsp;
-### Listing all job applicants: `list`
-Shows a list of all persons in the address book.
+### Listing all job applicants/interviews: `list`
+Shows a list of all persons/interviews in the address book.
 
-Format: `list`
+Format: 
+* `list [i]`: Show all interviews.
+* `list [p]`: Show all job applicants.
 
 &nbsp;
 ### Adding a new job applicant/interview: `add` 
