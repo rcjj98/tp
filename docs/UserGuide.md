@@ -79,8 +79,6 @@ Deletes an existing job applicant/interview in the address book.
 
   Example: `delete [1] 2`
 
----
-
 ### Finding a job applicant by keywords: `find` 
 Finds job applicants whose data contain any of the given keywords.
 
@@ -88,12 +86,13 @@ Format: `find g/[KEYWORDS...] ...`
 
 Example: `find g/john bukit jobid:1 g/thomas 119 progress:inprogress`
 
-
+&nbsp;
 ### Clearing all entries: `clear` 
 Clears all entries from the address book.  
 
 Format: `clear`
 
+&nbsp;
 ### Exiting the program: `exit` 
 Exits the program.  
 
