@@ -33,8 +33,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
-    public static final String VALID_APPLICATION_HUSBAND = "1";
-    public static final String VALID_APPLICATION_FRIEND = "2";
+    public static final String VALID_APPLICATION_1 = "1";
+    public static final String VALID_APPLICATION_2 = "2";
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
@@ -44,8 +44,8 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String ADDRESS_DESC_AMY = " " + PREFIX_ADDRESS + VALID_ADDRESS_AMY;
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
-    public static final String APPLICATION_DESC_FRIEND = " " + PREFIX_APPLICATION + VALID_APPLICATION_FRIEND;
-    public static final String APPLICATION_DESC_HUSBAND = " " + PREFIX_APPLICATION + VALID_APPLICATION_HUSBAND;
+    public static final String APPLICATION_DESC_1 = " " + PREFIX_APPLICATION + VALID_APPLICATION_1;
+    public static final String APPLICATION_DESC_2 = " " + PREFIX_APPLICATION + VALID_APPLICATION_2;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
@@ -63,10 +63,10 @@ public class CommandTestUtil {
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withApplications(VALID_APPLICATION_FRIEND).build();
+                .withApplications("1", "23").build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withApplications(VALID_APPLICATION_HUSBAND, VALID_APPLICATION_FRIEND).build();
+                .withApplications(VALID_APPLICATION_2, VALID_APPLICATION_1).build();
     }
 
     /**

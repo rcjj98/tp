@@ -10,7 +10,6 @@ public class Job {
 
     public final String jobId;
 
-
     /**
      * Constructs a {@code Job}.
      * @param jobId A valid job Id.

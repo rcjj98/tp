@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
-
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_STAGE_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_MISSING_STAGE_FIELD;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -18,6 +19,9 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+
+
+
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -149,9 +153,27 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code job} is invalid.
      */
-    public static Application parseApplication(Job job) throws ParseException {
-        requireNonNull(job);
-        return new Application(job, Stage.INPROGRESS);
+    public static Application parseAppDetails(String application) throws ParseException {
+        requireNonNull(application);
+        String[] appDetails = application.split(" ");
+
+        if (appDetails.length == 1) {
+            throw new ParseException(MESSAGE_MISSING_STAGE_FIELD);
+        }
+
+        String jobId = appDetails[0]; //1
+        Job job = parseJob(jobId);
+
+        requireNonNull(appDetails[1]);
+        String strStage = appDetails[1];
+        String trimmedStrStage = strStage.trim();
+
+        try {
+            Stage stage = Stage.valueOf(trimmedStrStage);
+            return new Application(job, stage);
+        } catch (IllegalArgumentException illegalArgumentException) {
+            throw new ParseException(MESSAGE_INVALID_STAGE_FORMAT);
+        }
     }
 
     /**
@@ -169,11 +191,11 @@ public class ParserUtil {
     /**
      * Parses {@code Collection<Job> jobs} into a {@code Set<Application>}.
      */
-    public static Set<Application> parseApplications(Collection<Job> jobs) throws ParseException {
-        requireNonNull(jobs);
+    public static Set<Application> parseApplications(Collection<String> applications) throws ParseException {
+        requireNonNull(applications);
         final Set<Application> applicationSet = new HashSet<>();
-        for (Job job: jobs) {
-            applicationSet.add(parseApplication(job));
+        for (String application: applications) {
+            applicationSet.add(parseAppDetails(application));
         }
         return applicationSet;
     }

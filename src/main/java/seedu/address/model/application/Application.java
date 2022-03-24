@@ -4,6 +4,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
+
 /** Represents an Application in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
@@ -12,7 +13,6 @@ public class Application {
     //fields
     private final Job job;
     private final Stage stage;
-
 
     /**
      * Every field must be present and not null.
@@ -32,7 +32,8 @@ public class Application {
     }
 
     /**
-     * Returns true if both applications are the same.
+     * Returns true if both job applications are for the same Job positions
+     * and are at the same Stage.
      * This defines a stronger notion of equality between two applications.
      */
     @Override

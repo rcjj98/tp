@@ -41,7 +41,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
-            + "[" + PREFIX_APPLICATION + "TAG]...\n"
+            + "[" + PREFIX_APPLICATION + "APPLICATION]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -190,7 +190,9 @@ public class EditCommand extends Command {
          * A defensive copy of {@code tags} is used internally.
          */
         public void setApplications(Set<Application> applications) {
-            this.applications = (applications != null) ? new HashSet<>(applications) : null;
+            this.applications = (applications != null)
+                    ? new HashSet<>(applications)
+                    : null;
         }
 
         /**
@@ -199,7 +201,9 @@ public class EditCommand extends Command {
          * Returns {@code Optional#empty()} if {@code tags} is null.
          */
         public Optional<Set<Application>> getApplications() {
-            return (applications != null) ? Optional.of(Collections.unmodifiableSet(applications)) : Optional.empty();
+            return (applications != null)
+                    ? Optional.of(Collections.unmodifiableSet(applications))
+                    : Optional.empty();
         }
 
         @Override
