@@ -123,7 +123,7 @@ public class ParserUtil {
      */
     public static Application parseAppDetails(String application) throws ParseException {
         requireNonNull(application);
-        String[] appDetails = application.split(",");
+        String[] appDetails = application.split(" ");
 
         if (appDetails.length == 1) {
             throw new ParseException(MESSAGE_MISSING_STAGE_FIELD);
