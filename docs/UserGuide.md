@@ -173,6 +173,8 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 ### Importing the data file: `import` [coming in v1.3] 
 
 ## FAQ 
+**Q**: How do I transfer my data to another Computer?<br>
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
 ## Command Summary
 
