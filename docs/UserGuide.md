@@ -92,10 +92,11 @@ Format: `exit`
 &nbsp;
 ### Editing the data file 
 
-&nbsp;
+---
 ### Archiving the current data [coming in v1.3] 
 
-&nbsp;
+---
+
 ### Importing the data file [coming in v1.3] 
 
 ## FAQ 
