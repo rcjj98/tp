@@ -9,6 +9,16 @@ the progress of each applicant during the application process.
   * [Help](#viewing-help-help)
   * [List](#listing-all-job-applicants-list)
   * [Add](#adding-a-new-job-applicantinterview-add)
+  * [Edit](#editing-a-job-applicantinterview-edit)
+  * [Delete](#deleting-job-applicantinterview-delete)
+  * [Find](#finding-a-job-applicant-by-keywords-find)
+  * [Clear](#clearing-all-entries-clear)
+  * [Exit](#exiting-the-program-exit)
+* Storage(#Storage)
+  * [Saving the data](#saving-the-data)
+  * [Editing the data file](#editing-the-data-file)
+  * [Archive](#archiving-the-current-data-coming-in-v13)
+  * [Import](#importing-the-data-file-coming-in-v13)
 * [FAQ](#FAQ)
 * [Command Summary](#Command-Summary)
 
@@ -136,7 +146,7 @@ Exits the program.
 
 Format: `exit`
 
-&nbsp;
+##Storage
 ### Saving the data
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
