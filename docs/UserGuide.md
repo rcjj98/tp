@@ -20,14 +20,15 @@ the progress of each applicant during the application process.
    
 ![Ui](images/Ui.png)
 
-7. Type your command into the command box and press `Enter` to execute it. 
- Some sample commands to try:
+5. Type your command into the command box and press `Enter` to execute it. 
+ 
+Some sample commands to try:
      * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`: Adds a new contact name Bob Tan to the address book
      * `list [p]`: Lists all contacts
      * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
      * `clear`: Deletes all contacts.
      * `exit`: Exits the app.
-8. Refer to the [Features](#Features) below for details of each command.
+7. Refer to the [Features](#Features) below for details of each command.
 
 ## Features
 ### :information_source: Notes about the command format:
