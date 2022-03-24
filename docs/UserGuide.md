@@ -124,7 +124,7 @@ Deletes an existing job applicant/interview in the address book.
 * #### Deleting an interview 
   Format: `delete [i] INDEX`
 
-  Example: `delete [1] 2`
+  Example: `delete [i] 2`
 
 &nbsp;
 ### Finding a job applicant by keywords: `find` 
@@ -175,14 +175,16 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-| Action |                                       Format, Examples                                        |
-|:------:|:---------------------------------------------------------------------------------------------:|
-|  Help  |                                            `help`                                             |
-|  List  |                                            `list`                                             |
-|  Add   | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...`<br/>`add [i] 1 d/DATE t/TIME` |
-|  Edit  |                                            `edit`                                             |
-|  Find  |                                   `find g/[KEYWORDS...]...`                                   |
-| Delete |                `delete [p] INDEX`<br/>`delete [p] NAME`<br/>`delete [i] INDEX`                |
-| Clear  |                                            `clear`                                            |
-|  Exit  |                                            `exit`                                             |
+|        Action        |                        Format, Examples                         |
+|:--------------------:|:---------------------------------------------------------------:|
+|         Help         |                             `help`                              |
+|         List         |                             `list`                              |
+|  Add Job Applicant   | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` |
+|    Add Interview     |                    `add [i] 1 d/DATE t/TIME`                    |
+|         Edit         |                             `edit`                              |
+|         Find         |                    `find g/[KEYWORDS...]...`                    |
+| Delete Job Applicant |            `delete [p] INDEX`<br/>`delete [p] NAME`             |
+|   Delete Interview   |                       `delete [i] INDEX`                        |
+|        Clear         |                             `clear`                             |
+|         Exit         |                             `exit`                              |
 
