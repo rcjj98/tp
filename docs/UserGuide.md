@@ -95,14 +95,25 @@ Exits the program.
 
 Format: `exit`
 
-
+&nbsp;
 ### Saving the data
+AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+&nbsp;
 ### Editing the data file
+AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+
+:exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
+
+&nbsp;
 ### Archiving the current data [coming in v1.3]
+
+&nbsp;
 ### Importing the data file [coming in v1.3] 
 
 ## FAQ 
-## Command Summary 
+
+## Command Summary
 
 | Action | Format, Examples |
 |:------:|:----------------:|
