@@ -4,8 +4,9 @@ HRConnect is a desktop application for managing the contacts of job applicants. 
 the progress of each applicant during the application process.
 
 ### Table of Contents
+* [Quick Start](#Quick Start)
 
----
+
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
 2. Download the latest `addressbook.jar` from <a href="www.google.com">here</a>
@@ -19,7 +20,7 @@ the progress of each applicant during the application process.
      * `clear`: Deletes all contacts.
      * `exit`: Exits the app.
 6. Refer to the [Features](name="features") below for details of each command.
----
+
 ## Features<a name="features"></a>
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic commands.
@@ -30,8 +31,6 @@ Format: `help`
 Shows a list of all persons in the address book.
 
 Format: `list`
-
----
 
 ### Adding a new job applicant/interview: `add` <a name="add"></a>
 Adds a new job applicant/interview to the address book.
