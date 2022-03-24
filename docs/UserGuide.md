@@ -30,6 +30,9 @@ Shows a message explaining how to access the help page and the basic commands.
 
 Format: `help`
 
+
+
+
 ### Listing all job applicants: `list`
 Shows a list of all persons in the address book.
 
