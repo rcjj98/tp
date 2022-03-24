@@ -168,14 +168,14 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-| Action |                                         Format, Examples                                         |
-|:------:|:------------------------------------------------------------------------------------------------:|
-|  Help  |                                              `help`                                              |
-|  List  |                                              `list`                                              |
-|  Add   | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` or `add [i] INDEX d/DATE t/TIME` |
-|  Edit  |                                              `edit`                                              |
-|  Find  |                                    `find g/[KEYWORDS...]...`                                     |
-| Delete |                  `delete [p] INDEX` or `delete [p] NAME` or `delete [i] INDEX`                   |
-| Clear  |                                             `clear`                                              |
-|  Exit  |                                              `exit`                                              |
+| Action |                                                                                                           Format, Examples                                                                                                            |
+|:------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|  Help  |                                                                                                                `help`                                                                                                                 |
+|  List  |                                                                                                                `list`                                                                                                                 |
+|  Add   | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...` or `add [i] INDEX d/DATE t/TIME` <br/> `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2` or `add [i] 1 d/9-May-2020 t/17:30` |
+|  Edit  |                                                                                                                `edit`                                                                                                                 |
+|  Find  |                                                                      `find g/[KEYWORDS...]...` <br/> `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`                                                                       |
+| Delete |                                                    `delete [p] INDEX` or `delete [p] NAME` or `delete [i] INDEX` <br/> `delete [p] 2` or `delete [p] Alex Jones` or `delete [1] 2`                                                    |
+| Clear  |                                                                                                                `clear`                                                                                                                |
+|  Exit  |                                                                                                                `exit`                                                                                                                 |
 
