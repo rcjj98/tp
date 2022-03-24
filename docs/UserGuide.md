@@ -175,7 +175,7 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-|        Action        |                        Format, Examples                         |
+|        Action        |                             Format                              |
 |:--------------------:|:---------------------------------------------------------------:|
 |         Help         |                             `help`                              |
 |         List         |                             `list`                              |
