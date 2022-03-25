@@ -136,8 +136,8 @@ Use `g/` flags to find job applicants whose data contain **all** the keywords. C
 whose data **may or may not** contain those groups.
 
 Special Keywords:
-* `jobid:` Specifies that the
-* `progress:` 
+* `jobid:`: Finds which job id the applicant has applied for.
+* `progress:`: Finds which stage in the application process that the job applicant is at. (Only accepts: **inprogress**, **accepted**, **rejected**)
 
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
