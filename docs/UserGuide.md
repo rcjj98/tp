@@ -24,8 +24,8 @@ the progress of each applicant during the application process.
 
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
-2. Download the latest `addressbook.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp">here</a>
-3. Copy the file to the folder you want to use as the *home folder* for your AddressBook.
+2. Download the latest `HRConnect.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp">here</a>
+3. Copy the file to the folder you want to use as the *home folder* for your HRConnect.
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
    
   ![Ui](images/Ui.png)
@@ -33,7 +33,7 @@ the progress of each applicant during the application process.
 5. Type your command into the command box and press `Enter` to execute it. 
 
     Some sample commands to try:
-   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`: Adds a new contact name Bob Tan to the address book
+   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 INPROGRESS`: Adds a new contact name Bob Tan to the address book
    * `list [p]`: Lists all contacts
    * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
    * `clear`: Deletes all contacts.
@@ -50,12 +50,12 @@ the progress of each applicant during the application process.
 
 * Items in square brackets are optional. 
   
-  e.g n/NAME [t/TAG] can be used as n/John Doe t/friend or as n/John Doe.
+  e.g n/NAME [j/APPLICATION] can be used as n/John Doe j/1 INPROGRESS or as n/John Doe.
 
 
 * Items with …​ after them can be used multiple times including zero times.
 
-  e.g. [t/TAG]…​ can be used as   (i.e. 0 times), t/friend, t/friend t/family etc.
+  e.g. [j/APPLICATION]…​ can be used as   (i.e. 0 times), j/1 INPROGRESS, j/2 ACCEPTED etc.
 
 
 * Parameters can be in any order.
@@ -80,7 +80,7 @@ Format: `help`
 
 &nbsp;
 ### Listing all job applicants/interviews: `list`
-Shows a list of all persons/interviews in the address book.
+Shows a list of all job applicants/interviews in the address book.
 
 Format: 
 * `list [i]`: Show all interviews.
@@ -91,9 +91,9 @@ Format:
 Adds a new job applicant/interview to the address book.
 
 * #### Adding a new job applicant 
-  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/JOB_ID]...`
+  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`
 
-  Example: `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 j/2`
+  Example: `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
@@ -200,6 +200,5 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 |     Delete Interview | `delete [i] INDEX`                                                           |
 |                Clear | `clear`                                                                      |
 |                 Exit | `exit`                                                                       |
-
 
 
