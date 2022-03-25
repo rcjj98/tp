@@ -1,5 +1,5 @@
 title: "HRConnect"
-theme: minima
+theme: jekyll-theme-architect
 
 header_pages:
   - UserGuide.md
