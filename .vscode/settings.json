@@ -1,4 +1,3 @@
 {
-    "java.help.shareDiagnostics": true,
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.help.shareDiagnostics": true
 }
