@@ -105,18 +105,25 @@ Adds a new job applicant/interview to the address book.
 ![add-interview](images/add-interview.png)
 
 &nbsp;
-### Editing a job applicant/interview: `edit` 
+### Editing a job applicant/interview: `edit`
 Edits an existing job applicant/interview in the address book
 
-* #### Editing a job applicant 
-    Format:
+* #### Editing a job applicant
+  Format: `edit INDEX n/NAME j/APPLICATION` <br>
+  Example: `edit 2 n/Amanda Tan j/3 REJECTED` <br><br>
 
-* #### Editing an interview 
-    Format:
+Before edit command executed.<br>
+![edit](images/before-edit-contact-2.png) <br><br>
+
+After edit command is executed. <br>
+![edit](images/after-edit-contact-2.png) <br><br>
+
+* #### Editing interview details 
+  {more to add}
 
 &nbsp;
 ### Deleting job applicant/interview: `delete` 
-Deletes an existing job applicant/interview in the address book.
+Deletes an existing job applicant/interview timing in the address book.
 
 * #### Deleting a job applicant 
   Format: `delete [p] INDEX` or `delete [p] NAME`
@@ -180,18 +187,18 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-|               Action | Format                                                               |
-|---------------------:|:---------------------------------------------------------------------|
-|                 Help | `help`                                                               |
-|  List Job Applicants | `list [p]`                                                           |
-|      List Interviews | `list [i]`                                                           |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...` |
-|        Add Interview | `add [i] 1 d/DATE t/TIME`                                            |
-|                 Edit | `edit`                                                               |
-|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`          |
-| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                             |
-|     Delete Interview | `delete [i] INDEX`                                                   |
-|                Clear | `clear`                                                              |
-|                 Exit | `exit`                                                               |
+|               Action | Format                                                                       |
+|---------------------:|:-----------------------------------------------------------------------------|
+|                 Help | `help`                                                                       |
+|  List Job Applicants | `list [p]`                                                                   |
+|      List Interviews | `list [i]`                                                                   |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`         |
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                    |
+|                 Edit | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
+|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                     |
+|     Delete Interview | `delete [i] INDEX`                                                           |
+|                Clear | `clear`                                                                      |
+|                 Exit | `exit`                                                                       |
 
 
