@@ -282,6 +282,7 @@ The following sequence diagram shows how the find operation works:
 The following activity diagram summarizes what happens when a user executes a new command:
 <placeholder>
 
+
 #### Design considerations:
 * **Alternative 1:** Using AND, OR, NOT operators (i.e. `find john AND tom OR (gmail.com AND NOT 111)`).
   * Pros: More intuitive to the technically inclined and more control over the search results.
