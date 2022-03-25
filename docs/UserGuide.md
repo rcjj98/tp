@@ -1,3 +1,8 @@
+---
+layout: page
+title: User Guide
+---
+
 # HRConnect
 
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
@@ -93,7 +98,7 @@ Adds a new job applicant/interview to the address book.
 * #### Adding a new job applicant 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`
 
-  Example: `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 INPROGRESS`
+  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/1 INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
@@ -148,7 +153,7 @@ Special Keywords:
 
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
-Example: `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`
+Example: `find g/alex 94825 @gmail.com jobid:1 g/jia ling progress:inprogress`
 
 ![find](images/find.png)
 
