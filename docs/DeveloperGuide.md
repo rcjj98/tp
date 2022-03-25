@@ -292,6 +292,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 * **Alternative 3** Using free text queries (i.e. `find john tom gmail.com`)
   * Pros: More intuitive as user expects queried person to contain all the search terms.
   * Cons: Lacks the flexibility provided by AND and OR operators.
+
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
