@@ -1,10 +1,7 @@
 package seedu.address.ui;
 
-import java.util.Comparator;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.Person;
@@ -39,7 +36,9 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
-    private FlowPane applications;
+    private Label job;
+    @FXML
+    private Label stage;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -52,12 +51,8 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-
-        System.out.println(person.getApplications());
-        person.getApplications().stream()
-                .sorted(Comparator.comparing(application -> application.getJob().jobId))
-                .forEach(application -> applications.getChildren()
-                    .add(new Label("Job " + application.getJob().jobId + ", Stage: " + application.getStage())));
+        job.setText(person.getJob().jobTitle);
+        stage.setText(person.getStage().value);
     }
 
     @Override

@@ -2,29 +2,29 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.application.Application;
+import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Stage;
 
 /**
  * Edits the details of an existing person in the address book.
@@ -41,7 +41,8 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
-            + "[" + PREFIX_APPLICATION + "APPLICATION]...\n"
+            + "[" + PREFIX_JOB + "JOB] "
+            + "[" + PREFIX_STAGE + "STAGE] "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -75,6 +76,10 @@ public class EditCommand extends Command {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
+        if (personHasInterview(personToEdit, model)) {
+            throw new CommandException("Person has interview. Delete interview first before editing person.");
+        }
+
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
@@ -84,6 +89,23 @@ public class EditCommand extends Command {
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson), getType());
+    }
+
+    /**
+     * Check if person that we wish to edit has interview
+     *
+     * @param person person
+     * @param model model
+     * @return true if person has interview
+     */
+    public boolean personHasInterview(Person person, Model model) {
+        List<Interview> lastShownInterviewList = model.getFilteredInterviewList();
+        for (int i = 0; i < lastShownInterviewList.size(); i++) {
+            if (lastShownInterviewList.get(i).getPerson().equals(person)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -97,10 +119,10 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
-        Set<Application> updatedApplications = editPersonDescriptor.getApplications()
-                .orElse(personToEdit.getApplications());
+        Job updatedJob = editPersonDescriptor.getJob().orElse(personToEdit.getJob());
+        Stage updatedStage = editPersonDescriptor.getStage().orElse(personToEdit.getStage());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedApplications);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedJob, updatedStage);
     }
 
     @Override
@@ -130,7 +152,8 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Address address;
-        private Set<Application> applications;
+        private Job job;
+        private Stage stage;
 
         public EditPersonDescriptor() {}
 
@@ -143,14 +166,15 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setAddress(toCopy.address);
-            setApplications(toCopy.applications);
+            setJob(toCopy.job);
+            setStage(toCopy.stage);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, applications);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, job, stage);
         }
 
         public void setName(Name name) {
@@ -185,25 +209,20 @@ public class EditCommand extends Command {
             return Optional.ofNullable(address);
         }
 
-        /**
-         * Sets {@code tags} to this object's {@code tags}.
-         * A defensive copy of {@code tags} is used internally.
-         */
-        public void setApplications(Set<Application> applications) {
-            this.applications = (applications != null)
-                    ? new HashSet<>(applications)
-                    : null;
+        public void setJob(Job job) {
+            this.job = job;
         }
 
-        /**
-         * Returns an unmodifiable tag set, which throws {@code UnsupportedOperationException}
-         * if modification is attempted.
-         * Returns {@code Optional#empty()} if {@code tags} is null.
-         */
-        public Optional<Set<Application>> getApplications() {
-            return (applications != null)
-                    ? Optional.of(Collections.unmodifiableSet(applications))
-                    : Optional.empty();
+        public Optional<Job> getJob() {
+            return Optional.ofNullable(job);
+        }
+
+        public void setStage(Stage stage) {
+            this.stage = stage;
+        }
+
+        public Optional<Stage> getStage() {
+            return Optional.ofNullable(stage);
         }
 
         @Override
@@ -225,7 +244,8 @@ public class EditCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
-                    && getApplications().equals(e.getApplications());
+                    && getJob().equals(e.getJob())
+                    && getStage().equals(e.getStage());
         }
     }
 }
