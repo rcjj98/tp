@@ -1,5 +1,8 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_TYPE_GIVEN;
+import static seedu.address.commons.core.Messages.MESSAGE_NO_TYPE_GIVEN;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -149,11 +152,11 @@ public class ArgumentTokenizer {
 
     public static String getType(String trimmedArgsString) throws ParseException {
         if (trimmedArgsString.equals("") || trimmedArgsString.length() < 3) {
-            throw new ParseException("No type given.");
+            throw new ParseException(MESSAGE_NO_TYPE_GIVEN);
         } else if (trimmedArgsString.charAt(0) != '[' || trimmedArgsString.charAt(2) != ']') {
-            throw new ParseException("No type given.");
+            throw new ParseException(MESSAGE_NO_TYPE_GIVEN);
         } else if (trimmedArgsString.charAt(1) != 'p' && trimmedArgsString.charAt(1) != 'i') {
-            throw new ParseException("Invalid type given.");
+            throw new ParseException(MESSAGE_INVALID_TYPE_GIVEN);
         }
         return trimmedArgsString.substring(0, 3);
     }
