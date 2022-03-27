@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_PERSON_HAS_INTERVIEW;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
@@ -77,7 +78,7 @@ public class EditCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         if (personHasInterview(personToEdit, model)) {
-            throw new CommandException("Person has interview. Delete interview first before editing person.");
+            throw new CommandException(MESSAGE_PERSON_HAS_INTERVIEW);
         }
 
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);

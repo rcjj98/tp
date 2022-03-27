@@ -19,7 +19,7 @@ import seedu.address.model.person.Person;
  */
 public class AddPersonCommand extends AddCommand {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] : Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] : Adds an applicant to the address book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
@@ -35,8 +35,8 @@ public class AddPersonCommand extends AddCommand {
             + PREFIX_JOB + "Software Engineer"
             + PREFIX_STAGE + "INPROGRESS";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "New applicant added!";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the address book";
 
     private final Person toAdd;
 
