@@ -53,16 +53,6 @@ public class PersonCard extends UiPart<Region> {
         email.setText(person.getEmail().value);
         job.setText(person.getJob().jobTitle);
         stage.setText(person.getStage().value);
-        if (person.getStage().value.equals("INPROGRESS")) {
-            stage.setStyle("-fx-text-fill: white; -fx-background-color: #d2691e; -fx-padding: 1 3 1 3; "
-                    + "-fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11;");
-        } else if (person.getStage().value.equals("ACCEPTED")) {
-            stage.setStyle("-fx-text-fill: white; -fx-background-color: #228b22; -fx-padding: 1 3 1 3; "
-                    + "-fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11;");
-        } else if (person.getStage().value.equals("REJECTED")) {
-            stage.setStyle("-fx-text-fill: white; -fx-background-color: #b22222; -fx-padding: 1 3 1 3; "
-                    + "-fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11;");
-        }
     }
 
     @Override
