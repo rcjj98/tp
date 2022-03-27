@@ -80,10 +80,6 @@ public class UniqueInterviewList implements Iterable<Interview> {
         }
     }
 
-    public void clear() {
-        internalList.clear();
-    }
-
     /**
      * Replaces the contents of this list with {@code interviews}.
      * {@code interviews} must not contain duplicate interviews.

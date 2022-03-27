@@ -4,14 +4,11 @@
     "phone": "94351253",
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
-    "job":  "Software Engineer",
-    "stage": "INPROGRESS"
+    "tagged": [ "friends" ]
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",
-    "address": "4th street",
-    "job":  "Mobile Engineer",
-    "stage": "ACCEPTED"
+    "address": "4th street"
   } ]
 }

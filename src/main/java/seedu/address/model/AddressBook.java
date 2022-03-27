@@ -105,14 +105,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
-    /**
-     * Resets the existing person list.
-     */
-    public void resetPersons() {
-        this.persons.clear();
-    }
-
-
     //// interview-level operations
 
     /**
@@ -151,12 +143,6 @@ public class AddressBook implements ReadOnlyAddressBook {
         interviews.remove(key);
     }
 
-    /**
-     * Resets the existing interview list.
-     */
-    public void resetInterviews() {
-        this.interviews.clear();
-    }
 
     //// util methods
 
