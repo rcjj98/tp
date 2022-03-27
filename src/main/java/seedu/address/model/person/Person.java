@@ -114,7 +114,7 @@ public class Person {
             String job = term.split(":")[1].toLowerCase();
 
 
-            boolean containsJobId = getJob().toString().toLowerCase().contains(job);
+            boolean containsJobId = getJob().toString().equals(job);
 
             if (containsJobId) {
                 return true;
@@ -123,7 +123,7 @@ public class Person {
 
         if (term.contains("progress:")) {
             String stage = term.split(":")[1].toLowerCase();
-            boolean containsStage = getStage().toString().toLowerCase().equals(stage);
+            boolean containsStage = getStage().toString().equals(stage);
 
             if (containsStage) {
                 return true;

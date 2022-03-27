@@ -85,7 +85,6 @@ public class ModelManager implements Model {
         this.addressBook.resetData(addressBook);
     }
 
-
     @Override
     public ReadOnlyAddressBook getAddressBook() {
         return addressBook;
@@ -116,12 +115,6 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void resetPersons() {
-        this.addressBook.resetPersons();
-    }
-
-
-    @Override
     public boolean hasInterview(Interview interview) {
         requireNonNull(interview);
         return addressBook.hasInterview(interview);
@@ -143,12 +136,6 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedInterview);
         addressBook.setInterview(target, editedInterview);
     }
-
-    @Override
-    public void resetInterviews() {
-        this.addressBook.resetInterviews();
-    }
-
 
     //=========== Filtered List Accessors =============================================================
 

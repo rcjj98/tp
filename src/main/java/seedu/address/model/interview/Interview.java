@@ -52,8 +52,8 @@ public class Interview {
 
         return otherInterview != null
                 && (otherInterview.getPerson().isSamePerson(getPerson())
-                || (otherInterview.getDate().equals(getDate())
-                && otherInterview.getTime().equals(getTime())));
+                || otherInterview.getDate().equals(getDate())
+                || otherInterview.getTime().equals(getTime()));
     }
 
     /**

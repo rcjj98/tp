@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Job {
 
-    public static final String MESSAGE_CONSTRAINTS = "Job should only contain alphanumeric "
+    public static final String MESSAGE_CONSTRAINTS = "Jobs should only contain alphanumeric "
             + "characters and spaces, and it should not be blank";
 
     /*
