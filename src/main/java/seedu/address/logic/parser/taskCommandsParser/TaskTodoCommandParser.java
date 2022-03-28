@@ -1,15 +1,13 @@
 package seedu.address.logic.parser.taskCommandsParser;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-
-import java.util.stream.Stream;
-
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BY;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.taskCommands.TaskTodoCommand;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
+import java.util.stream.Stream;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.Prefix;
@@ -25,8 +23,8 @@ public class TaskTodoCommandParser implements Parser<TaskTodoCommand> {
     public TaskTodoCommand parse(String args) throws ParseException {
         // String type = ArgumentTokenizer.getType(args.trim());
         // removeCharacters will remove the first 13 characters
-        final int removeCharacters = 9;
-        String removedType = args.trim().substring(removeCharacters);
+        // final int removeCharacters = 9;
+        // String removedType = args.trim().substring(removeCharacters);
     
         ArgumentMultimap argMultiMap = ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION);
 
@@ -42,7 +40,6 @@ public class TaskTodoCommandParser implements Parser<TaskTodoCommand> {
         return new TaskTodoCommand(todo);
     }
 
-       
     /**
      * Returns true if none of the prefixes contains empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.
@@ -50,6 +47,4 @@ public class TaskTodoCommandParser implements Parser<TaskTodoCommand> {
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
-}
-
 }

@@ -16,13 +16,12 @@ import seedu.address.model.tasks.Deadlines;
 
 public class TaskDeadlineCommandParser implements Parser<TaskDeadlineCommand>{
 
-    // Example of deadline commmand : {task deadline des/(description) by(by)}
+    // Example of deadline commmand : {task deadline des/(description) by/(by)}
     public TaskDeadlineCommand parse(String args) throws ParseException {
         // incoming args will not have the "task" tag
         // deadline des/(description) by(by)
-
-        final int removeCharacters = 13;
-        String removedType = args.trim().substring(removeCharacters);
+        // final int removeCharacters = 13;
+        // String removedType = args.trim().substring(removeCharacters);
 
         // need to break down the inputs into the relevant parts,
         // and then return a new TaskDeadlineCommand 

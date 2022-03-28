@@ -10,6 +10,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.logic.parser.taskCommandsParser.At;
 import seedu.address.logic.parser.taskCommandsParser.By;
 import seedu.address.logic.parser.taskCommandsParser.Description;
 import seedu.address.model.application.Application;
@@ -207,6 +208,10 @@ public class ParserUtil {
     }
 
     public static By parseBy(String string) {
+        return null;
+    }
+
+    public static At parseAt(String string) {
         return null;
     }
 }

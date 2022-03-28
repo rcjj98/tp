@@ -1,18 +1,21 @@
 package seedu.address.model.tasks;
 
+import seedu.address.logic.parser.taskCommandsParser.At;
+import seedu.address.logic.parser.taskCommandsParser.Description;
+
 /**
  * Task that occurs on a specified date.
  */
 public class Events extends Task {
     
-    private String at;
+    private At at;
 
-    public Events(String description, String at) {
+    public Events(Description description, At at) {
         super(description);
         this.at = at;
     }
 
-    public String getAt(String at) {
+    public At getAt() {
         return this.at;
     }
 
