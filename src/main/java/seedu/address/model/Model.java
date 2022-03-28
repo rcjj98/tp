@@ -7,6 +7,8 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Deadlines;
+import seedu.address.model.tasks.Events;
 import seedu.address.model.tasks.Todos;
 
 /**
@@ -129,8 +131,14 @@ public interface Model {
     //  */
     // boolean hasTodo(Todos todo);
 
+    // ------------------------------> CRUD for Tasks <--------------------------------
     /**
      * Adds the given todo.
      */
     void addTodo(Todos todo);
+
+    void addDeadline(Deadlines deadline);
+
+    void addEvent(Events event);
+    
 }

@@ -13,6 +13,8 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Deadlines;
+import seedu.address.model.tasks.Events;
 import seedu.address.model.tasks.Todos;
 
 /**
@@ -190,9 +192,24 @@ public class ModelManager implements Model {
                 && filteredPersons.equals(other.filteredPersons);
     }
 
+    //=========== Task List methods =============================================================
+
     @Override
     public void addTodo(Todos todo) {
-        requireNonNull(todo);        
+        requireNonNull(todo);    
+        // need to get the overall list of tasks 
+        // can get insipration from the UniqueInterviewList,
+        // simple add delete functions, no edit required.
+    }
+
+    @Override
+    public void addDeadline(Deadlines deadline) {
+        requireNonNull(deadline);
+    }
+
+    @Override
+    public void addEvent(Events event) {
+        requireNonNull(event);        
     }
 
 }

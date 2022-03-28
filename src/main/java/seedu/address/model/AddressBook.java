@@ -10,12 +10,26 @@ import seedu.address.model.interview.UniqueInterviewList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 
+
+// only uniqueInterviewList and interview were added on to this file.
+
 /**
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
+
+// /**
+// * Returns an unmodifiable view of the persons list.
+// * This list will not contain any duplicate persons.
+
+// quite likely have to add the TaskList here in ReadOnlyAddressBook, as a method.
+
+// */
+// ObservableList<Person> getPersonList();
+// ObservableList<Interview> getInterviewList();
 public class AddressBook implements ReadOnlyAddressBook {
 
+    // these were added on
     private final UniquePersonList persons;
     private final UniqueInterviewList interviews;
 
