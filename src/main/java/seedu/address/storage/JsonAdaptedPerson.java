@@ -1,21 +1,16 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.application.Application;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Stage;
 
 
 /**
@@ -29,7 +24,8 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String address;
-    private final List<JsonAdaptedApplication> tagged = new ArrayList<>();
+    private final String job;
+    private final String stage;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -37,14 +33,14 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tagged") List<JsonAdaptedApplication> tagged) {
+            @JsonProperty("job") String job, @JsonProperty("stage") String stage) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        if (tagged != null) {
-            this.tagged.addAll(tagged);
-        }
+        this.job = job;
+        this.stage = stage;
+
     }
 
     /**
@@ -55,9 +51,9 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
-        tagged.addAll(source.getApplications().stream()
-                .map(JsonAdaptedApplication::new)
-                .collect(Collectors.toList()));
+        job = source.getJob().jobTitle;
+        stage = source.getStage().value;
+
     }
 
     /**
@@ -66,11 +62,6 @@ class JsonAdaptedPerson {
      * @throws IllegalValueException if there were any data constraints violated in the adapted person.
      */
     public Person toModelType() throws IllegalValueException {
-        final List<Application> personApplications = new ArrayList<>();
-        for (JsonAdaptedApplication application : tagged) {
-            personApplications.add(application.toModelType());
-        }
-
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -103,8 +94,25 @@ class JsonAdaptedPerson {
         }
         final Address modelAddress = new Address(address);
 
-        final Set<Application> modelApplications = new HashSet<>(personApplications);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelApplications);
+        if (job == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Job.class.getSimpleName()));
+        }
+        if (!Job.isValidJob(job)) {
+            throw new IllegalValueException(Job.MESSAGE_CONSTRAINTS);
+        }
+        final Job modelJob = new Job(job);
+
+        if (stage == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Stage.class.getSimpleName()));
+        }
+        if (!Stage.isValidStage(stage)) {
+            throw new IllegalValueException(Stage.MESSAGE_CONSTRAINTS);
+        }
+        final Stage modelStage = new Stage(stage);
+
+
+
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelJob, modelStage);
     }
 
 }
