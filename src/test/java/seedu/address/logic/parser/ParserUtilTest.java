@@ -1,22 +1,13 @@
 package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
-//import seedu.address.model.application.Application;
-import seedu.address.model.application.Job;
-//import seedu.address.model.application.Stage;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -27,14 +18,15 @@ public class ParserUtilTest {
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
-    private static final String INVALID_APPLICATION = "Software Engineer";
+    private static final String INVALID_JOB = "Software Engineer&";
+    private static final String INVALID_STAGE = "PROCESSING";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_EMAIL = "rachel@example.com";
-    private static final String VALID_APPLICATION_1 = "1";
-    private static final String VALID_APPLICATION_2 = "2";
+    private static final String VALID_JOB = "Software Engineer";
+    private static final String VALID_STAGE = "ACCEPTED";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -150,53 +142,4 @@ public class ParserUtilTest {
         assertEquals(expectedEmail, ParserUtil.parseEmail(emailWithWhitespace));
     }
 
-    @Test
-    public void parseJob_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseJob(null));
-    }
-
-    @Test
-    public void parseJob_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseJob(INVALID_APPLICATION));
-    }
-
-    @Test
-    public void parseJob_validValueWithoutWhitespace_returnsJob() throws Exception {
-        Job expectedJob = new Job(VALID_APPLICATION_1);
-        assertEquals(expectedJob, ParserUtil.parseJob(VALID_APPLICATION_1));
-    }
-
-    @Test
-    public void parseJob_validValueWithWhitespace_returnsTrimmedJob() throws Exception {
-        String applicationWithWhitespace = WHITESPACE + VALID_APPLICATION_1 + WHITESPACE;
-        Job expectedJob = new Job(VALID_APPLICATION_1);
-        assertEquals(expectedJob, ParserUtil.parseJob(applicationWithWhitespace));
-    }
-
-    @Test
-    public void parseJobs_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseJobs(null));
-    }
-
-    @Test
-    public void parseJobs_collectionWithInvalidJobs_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseJobs(Arrays
-                .asList(VALID_APPLICATION_1, INVALID_APPLICATION)));
-    }
-
-    @Test
-    public void parseJobs_emptyCollection_returnsEmptySet() throws Exception {
-        assertTrue(ParserUtil.parseJobs(Collections.emptyList()).isEmpty());
-    }
-
-    @Test
-    public void parseJobs_collectionWithValidJobs_returnsJobSet() throws Exception {
-        Set<Job> actualJobSet = ParserUtil.parseJobs(Arrays
-                .asList(VALID_APPLICATION_1, VALID_APPLICATION_2));
-        Set<Job> expectedJobSet = new HashSet<>(Arrays
-                .asList(new Job(VALID_APPLICATION_1),
-                        new Job(VALID_APPLICATION_2)));
-
-        assertEquals(expectedJobSet, actualJobSet);
-    }
 }

@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_APPLICATION_2;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_JOB_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STAGE_BOB;
 
 import org.junit.jupiter.api.Test;
 
@@ -51,8 +52,12 @@ public class EditPersonDescriptorTest {
         editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withAddress(VALID_ADDRESS_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
-        // different tags -> returns false
-        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withApplications(VALID_APPLICATION_2).build();
+        // different job -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withJob(VALID_JOB_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different stage -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withStage(VALID_STAGE_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
     }
 }

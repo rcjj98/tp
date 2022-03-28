@@ -1,17 +1,13 @@
 package seedu.address.testutil;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
-import seedu.address.model.application.Application;
-import seedu.address.model.application.Job;
-import seedu.address.model.application.Stage;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Stage;
 
 /**
  * A utility class to help with building EditPersonDescriptor objects.
@@ -37,7 +33,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
-        descriptor.setApplications(person.getApplications());
+        descriptor.setJob(person.getJob());
+        descriptor.setStage(person.getStage());
     }
 
     /**
@@ -73,17 +70,21 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPersonDescriptor}
-     * that we are building.
+     * Sets the {@code Job} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withApplications(String... strings) {
-        Set<Application> applicationSet = new HashSet<>();
-        for (int i = 0; i < strings.length; i++) {
-            applicationSet.add(new Application(new Job(strings[i]), Stage.INPROGRESS));
-        }
-        descriptor.setApplications(applicationSet);
+    public EditPersonDescriptorBuilder withJob(String job) {
+        descriptor.setJob(new Job(job));
         return this;
     }
+
+    /**
+     * Sets the {@code Stage} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withStage(String stage) {
+        descriptor.setStage(new Stage(stage));
+        return this;
+    }
+
 
     public EditPersonDescriptor build() {
         return descriptor;

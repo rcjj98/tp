@@ -8,7 +8,7 @@ import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 
 public class ListPersonCommand extends ListCommand {
-    public static final String MESSAGE_SUCCESS = "Listed all interviews";
+    public static final String MESSAGE_SUCCESS = "Listed all applicants!";
 
     @Override
     public CommandResult execute(Model model) {

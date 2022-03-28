@@ -2,12 +2,7 @@ package seedu.address.model.person;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
-
-import seedu.address.model.application.Application;
 
 /**
  * Represents a Person in the address book.
@@ -22,18 +17,20 @@ public class Person {
 
     // Data fields
     private final Address address;
-    private final Set<Application> applications = new HashSet<>();
+    private final Job job;
+    private final Stage stage;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Application> applications) {
-        requireAllNonNull(name, phone, email, address, applications);
+    public Person(Name name, Phone phone, Email email, Address address, Job job, Stage stage) {
+        requireAllNonNull(name, phone, email, address, job, stage);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.applications.addAll(applications);
+        this.job = job;
+        this.stage = stage;
     }
 
     public Name getName() {
@@ -52,14 +49,13 @@ public class Person {
         return address;
     }
 
-    /**
-     * Returns an immutable application set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
-    public Set<Application> getApplications() {
-        return Collections.unmodifiableSet(applications);
+    public Job getJob() {
+        return job;
     }
 
+    public Stage getStage() {
+        return stage;
+    }
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
@@ -70,7 +66,9 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName());
+                && (otherPerson.getName().equals(getName())
+                || otherPerson.getPhone().equals(getPhone())
+                || otherPerson.getEmail().equals(getEmail()));
     }
 
     /**
@@ -92,7 +90,8 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getApplications().equals(getApplications());
+                && otherPerson.getJob().equals(getJob())
+                && otherPerson.getStage().equals(getStage());
     }
 
     /**
@@ -112,12 +111,10 @@ public class Person {
         assert !thisAddress.isEmpty() : "Did not capture address";
 
         if (term.contains("jobid:")) {
-            String id = term.split(":")[1];
+            String job = term.split(":")[1].toLowerCase();
 
 
-            boolean containsJobId = getApplications().stream().anyMatch(
-                application -> application.getJob().toString().equals(id)
-            );
+            boolean containsJobId = getJob().toString().toLowerCase().contains(job);
 
             if (containsJobId) {
                 return true;
@@ -126,9 +123,7 @@ public class Person {
 
         if (term.contains("progress:")) {
             String stage = term.split(":")[1].toLowerCase();
-            boolean containsStage = getApplications().stream().anyMatch(
-                application -> application.getStage().toString().toLowerCase().equals(stage)
-            );
+            boolean containsStage = getStage().toString().toLowerCase().equals(stage);
 
             if (containsStage) {
                 return true;
@@ -146,7 +141,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, applications);
+        return Objects.hash(name, phone, email, address, job, stage);
     }
 
     @Override
@@ -158,13 +153,12 @@ public class Person {
                 .append("; Email: ")
                 .append(getEmail())
                 .append("; Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append("; Job: ")
+                .append(getJob())
+                .append("; Stage: ")
+                .append(getStage());
 
-        Set<Application> applications = getApplications();
-        if (!applications.isEmpty()) {
-            builder.append("; Applications: ");
-            applications.forEach(builder::append);
-        }
         return builder.toString();
     }
 
