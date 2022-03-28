@@ -22,6 +22,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Todos;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddPersonCommandTest {
@@ -179,6 +180,12 @@ public class AddPersonCommandTest {
         @Override
         public void updateFilteredInterviewList(Predicate<Interview> predicate) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addTodo(Todos todo) {
+            // TODO Auto-generated method stub
+            
         }
     }
 
