@@ -1,7 +1,6 @@
 package seedu.address.logic.parser.taskCommandsParser;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_BY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AT;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
@@ -25,7 +24,7 @@ public TaskEventCommand parse(String args) throws ParseException {
 
     ArgumentMultimap argMultiMap = ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION);
 
-    if (!arePrefixesPresent(argMultiMap, PREFIX_DESCRIPTION, PREFIX_BY) || !argMultiMap.getPreamble().isEmpty()) {
+    if (!arePrefixesPresent(argMultiMap, PREFIX_DESCRIPTION, PREFIX_AT) || !argMultiMap.getPreamble().isEmpty()) {
         throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, TaskEventCommand.MESSAGE_USAGE));
     } 
 
