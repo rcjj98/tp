@@ -134,8 +134,11 @@ public interface Model {
     // ------------------------------> CRUD for Tasks <--------------------------------
     /**
      * Adds the given todo.
+     * @throws Exception
      */
-    void addTodo(Todos todo);
+    void addTodo(Todos todo) throws Exception;
+
+    void deleteTodo(Todos todo) throws Exception;
 
     void addDeadline(Deadlines deadline);
 

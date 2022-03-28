@@ -9,6 +9,9 @@ import seedu.address.model.interview.Interview;
 import seedu.address.model.interview.UniqueInterviewList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.tasks.Task;
+import seedu.address.model.tasks.Todos;
+import seedu.address.model.tasks.UniqueTaskList;
 
 
 // only uniqueInterviewList and interview were added on to this file.
@@ -33,6 +36,9 @@ public class AddressBook implements ReadOnlyAddressBook {
     private final UniquePersonList persons;
     private final UniqueInterviewList interviews;
 
+    // this list will hold all the available tasks
+    private final UniqueTaskList tasks;
+
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
      * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
@@ -43,6 +49,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     {
         persons = new UniquePersonList();
         interviews = new UniqueInterviewList();
+        tasks = new UniqueTaskList();
     }
 
     public AddressBook() {}
@@ -157,6 +164,25 @@ public class AddressBook implements ReadOnlyAddressBook {
         interviews.remove(key);
     }
 
+    //// task-level operations 
+    
+    /**
+     * Adds a Task to the address book.
+     * The Task can already be in the address book.
+     * @throws Exception
+     */
+    public void addTask(Task i) throws Exception {
+        tasks.add(i);
+    }
+
+    /**
+     * Removes {@code key} from this {@code AddressBook}.
+     * {@code key} must exist in the address book.
+     * @throws Exception
+     */
+    public void removeTask(Task key) throws Exception {
+        tasks.remove(key);
+    }
 
     //// util methods
 
@@ -187,4 +213,5 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return persons.hashCode();
     }
+
 }

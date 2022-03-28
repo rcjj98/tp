@@ -194,12 +194,32 @@ public class ModelManager implements Model {
 
     //=========== Task List methods =============================================================
 
+
+    // @Override
+    // public void addPerson(Person person) {
+    //     addressBook.addPerson(person);
+    //     updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    // }
+
+    // @Override
+    // public void addInterview(Interview interview) {
+    //     addressBook.addInterview(interview);
+    //     updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
+    // }
+
     @Override
-    public void addTodo(Todos todo) {
+    public void addTodo(Todos todo) throws Exception {
         requireNonNull(todo);    
+        addressBook.addTask(todo);
         // need to get the overall list of tasks 
         // can get insipration from the UniqueInterviewList,
         // simple add delete functions, no edit required.
+    }
+
+    @Override 
+    public void deleteTodo(Todos todo) throws Exception {
+        requireNonNull(todo);
+        addressBook.removeTask(todo);
     }
 
     @Override

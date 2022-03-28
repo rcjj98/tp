@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 /**
  * A list containing Tasks that has only the add and delete methods.
  */
-public class UniqueTaskList  implements Iterable<Task> {
+public class UniqueTaskList implements Iterable<Task> {
 
     private final ObservableList<Task> internalList = FXCollections.observableArrayList();
     // what is this for?
