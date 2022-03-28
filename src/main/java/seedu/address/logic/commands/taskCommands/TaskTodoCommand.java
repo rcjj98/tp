@@ -30,10 +30,12 @@ public class TaskTodoCommand extends TaskCommands {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        
-        if (model.hasTodo(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_TODO);
-        }
+
+        // You should be allowed to add the same todo multiple times
+        // because you may need to do the same taks multiple times. eg eat 3 times a day
+        // if (model.hasTodo(toAdd)) {
+        //     throw new CommandException(MESSAGE_DUPLICATE_TODO);
+        // }
 
         model.addTodo(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), getType());

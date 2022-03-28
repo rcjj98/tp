@@ -9,25 +9,11 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class TaskTodoCommandParser implements Parser<TaskTodoCommand> {
 
-    // public DeleteCommand parse(String args) throws ParseException {
-    //     String type = ArgumentTokenizer.getType(args.trim());
-    //     String removedType = args.trim().substring(3);
-
-    //     if (type.equals(TYPE_PERSON)) {
-    //         System.out.println(removedType);
-    //         return new DeletePersonCommandParser().parse(removedType);
-    //     } else if (type.equals(TYPE_INTERVIEW)) {
-    //         return new DeleteInterviewCommandParser().parse(removedType);
-    //     } else {
-    //         return null;
-    //     }
-    // }
-
     // an example of the input would be {todo des/(description)}
     public TaskTodoCommand parse(String args) throws ParseException {
         // String type = ArgumentTokenizer.getType(args.trim());
         // removeCharacters will remove the first 13 characters
-        final int removeCharacters = 13;
+        final int removeCharacters = 9;
         String removedType = args.trim().substring(removeCharacters);
     
         // its guaranteed to be a deadline type, so immediately call the TaskDeadlineCommand class

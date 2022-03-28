@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Todos;
 
 /**
  * The API of the Model component.
@@ -120,4 +121,16 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredInterviewList(Predicate<Interview> predicate);
+
+    // /**
+    //  * Returns true if a todo task with the same identity as {@code todo} exists in the task list.
+    //  * @param todo 
+    //  * @return boolean true/false
+    //  */
+    // boolean hasTodo(Todos todo);
+
+    /**
+     * Adds the given todo.
+     */
+    void addTodo(Todos todo);
 }
