@@ -1,7 +1,5 @@
 package seedu.address.model.tasks;
 
-import seedu.address.logic.parser.taskCommandsParser.Description;
-
 public class Task {
 
     private Description description;

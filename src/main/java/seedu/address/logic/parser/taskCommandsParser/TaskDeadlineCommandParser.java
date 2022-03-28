@@ -12,7 +12,9 @@ import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.tasks.By;
 import seedu.address.model.tasks.Deadlines;
+import seedu.address.model.tasks.Description;
 
 public class TaskDeadlineCommandParser implements Parser<TaskDeadlineCommand>{
 

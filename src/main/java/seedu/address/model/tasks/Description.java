@@ -1,4 +1,4 @@
-package seedu.address.logic.parser.taskCommandsParser;
+package seedu.address.model.tasks;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;

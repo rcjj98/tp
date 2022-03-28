@@ -1,8 +1,5 @@
 package seedu.address.model.tasks;
 
-import seedu.address.logic.parser.taskCommandsParser.At;
-import seedu.address.logic.parser.taskCommandsParser.Description;
-
 /**
  * Task that occurs on a specified date.
  */

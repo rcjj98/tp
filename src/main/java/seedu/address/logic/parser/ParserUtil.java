@@ -10,9 +10,6 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.logic.parser.taskCommandsParser.At;
-import seedu.address.logic.parser.taskCommandsParser.By;
-import seedu.address.logic.parser.taskCommandsParser.Description;
 import seedu.address.model.application.Application;
 import seedu.address.model.application.Job;
 import seedu.address.model.application.Stage;
@@ -22,6 +19,9 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.tasks.At;
+import seedu.address.model.tasks.By;
+import seedu.address.model.tasks.Description;
 
 
 

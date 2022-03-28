@@ -1,4 +1,4 @@
-package seedu.address.logic.parser.taskCommandsParser;
+package seedu.address.model.tasks;
 
 /**
  * Need a toString() method.

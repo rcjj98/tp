@@ -1,8 +1,5 @@
 package seedu.address.model.tasks;
 
-import seedu.address.logic.parser.taskCommandsParser.By;
-import seedu.address.logic.parser.taskCommandsParser.Description;
-
 /**
  * Task that needs to be done before a specific date.
  */

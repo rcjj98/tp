@@ -11,6 +11,8 @@ import seedu.address.logic.parser.ArgumentTokenizer;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.tasks.At;
+import seedu.address.model.tasks.Description;
 import seedu.address.model.tasks.Events;
 
 public class TaskEventCommandParser {
