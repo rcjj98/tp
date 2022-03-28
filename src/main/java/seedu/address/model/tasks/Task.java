@@ -1,14 +1,16 @@
 package seedu.address.model.tasks;
 
+import seedu.address.logic.parser.taskCommandsParser.Description;
+
 public class Task {
 
-    private String description;
+    private Description description;
 
-    public Task(String description) {
+    public Task(Description description) {
         this.description = description;
     }
 
-    public String getDescription() {
+    public Description getDescription() {
         return description;
     }
     

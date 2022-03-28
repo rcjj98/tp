@@ -1,8 +1,10 @@
 package seedu.address.model.tasks;
 
+import seedu.address.logic.parser.taskCommandsParser.Description;
+
 public class Todos extends Task {
 
-    public Todos(String description) {
+    public Todos(Description description) {
         super(description);
     }
 
