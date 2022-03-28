@@ -18,13 +18,11 @@ public class TaskTodoCommand extends TaskCommands {
     public static final String MESSAGE_SUCCESS = "New todo task added successfully!";
     public static final String MESSAGE_DUPLICATE_TODO = "This task already exists in the task list";
 
-    public final String description;
     public final Todos toAdd;
 
-    public TaskTodoCommand(String description) {
-        requireNonNull(description);
-        this.description = description;
-        toAdd = new Todos(description);
+    public TaskTodoCommand(Todos todo) {
+        requireNonNull(todo);
+        toAdd = todo;
     }
 
     @Override

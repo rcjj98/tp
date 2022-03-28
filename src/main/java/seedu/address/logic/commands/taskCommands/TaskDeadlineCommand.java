@@ -1,7 +1,6 @@
 package seedu.address.logic.commands.taskCommands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.Type.TASK;
 
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -31,7 +30,7 @@ public class TaskDeadlineCommand extends TaskCommands {
         requireNonNull(model);
 
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS, args));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, args), null);
     }
 
     @Override

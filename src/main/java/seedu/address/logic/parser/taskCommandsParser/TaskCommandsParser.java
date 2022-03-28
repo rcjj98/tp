@@ -41,13 +41,6 @@ public class TaskCommandsParser implements Parser<TaskCommands> {
 
     /**
      * Parses input arguments and creates a new TaskCommand object.
-     * 
-     * ORRR this could just be another filter for you to disperse to other commands.
-     * You have ADD, DEADLINE, DELETE, EVENT, FIND, TODO, LIST commands.
-     * Why not convert this class to handle all the different commands of
-     * taskCommand.
-     * Abstract the methods out here, and then create other classes to help handle
-     * such commands.
      */
     @Override
     public TaskCommands parse(String args) throws ParseException {
