@@ -208,7 +208,7 @@ public class ModelManager implements Model {
     // }
 
     @Override
-    public void addTodo(Todos todo) throws Exception {
+    public void addTodo(Todos todo) {
         requireNonNull(todo);    
         addressBook.addTask(todo);
         // need to get the overall list of tasks 

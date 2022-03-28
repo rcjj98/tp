@@ -136,7 +136,7 @@ public interface Model {
      * Adds the given todo.
      * @throws Exception
      */
-    void addTodo(Todos todo) throws Exception;
+    void addTodo(Todos todo);
 
     void deleteTodo(Todos todo) throws Exception;
 
