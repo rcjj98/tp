@@ -10,6 +10,8 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.logic.parser.taskCommandsParser.By;
+import seedu.address.logic.parser.taskCommandsParser.Description;
 import seedu.address.model.application.Application;
 import seedu.address.model.application.Job;
 import seedu.address.model.application.Stage;
@@ -198,5 +200,13 @@ public class ParserUtil {
             applicationSet.add(parseAppDetails(application));
         }
         return applicationSet;
+    }
+
+    public static Description parseDescription(String string) {
+        return null;
+    }
+
+    public static By parseBy(String string) {
+        return null;
     }
 }

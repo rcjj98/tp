@@ -1,5 +1,8 @@
 package seedu.address.model.tasks;
 
+import seedu.address.logic.parser.taskCommandsParser.By;
+import seedu.address.logic.parser.taskCommandsParser.Description;
+
 /**
  * Task that needs to be done before a specific date.
  */
@@ -10,9 +13,9 @@ public class Deadlines extends Task {
     /**
      * Deadline will take in a description and a by deadline.
      */
-    public Deadlines(String description, String by) {
+    public Deadlines(Description description, By by2) {
         super(description);
-        this.by = by;
+        this.by = by2;
     }
 
     @Override 

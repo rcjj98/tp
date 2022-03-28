@@ -12,6 +12,7 @@ import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.tasks.Deadlines;
 
 public class TaskDeadlineCommandParser implements Parser<TaskDeadlineCommand>{
 
@@ -35,10 +36,11 @@ public class TaskDeadlineCommandParser implements Parser<TaskDeadlineCommand>{
         
         // implement the Description class, and paeserUtil method for parseDescription
         Description description = ParserUtil.parseDescription(argMultiMap.getValue(PREFIX_DESCRIPTION).get());
-        
         // Is there a way to just use the by as a String value, and not create a whole By class for this
-        // String by =  
+        By by = ParserUtil.parseBy(argMultiMap.getValue(PREFIX_BY).get());
+        Deadlines deadline = new Deadlines(description, by);
 
+        return new TaskDeadlineCommand(deadline);
     }  
 
     

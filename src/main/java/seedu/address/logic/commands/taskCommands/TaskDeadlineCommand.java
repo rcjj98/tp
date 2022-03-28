@@ -18,13 +18,11 @@ public class TaskDeadlineCommand extends TaskCommands {
     public static final String MESSAGE_SUCCESS = "New todo task added successfully!";
     public static final String MESSAGE_DUPLICATE_TODO = "This task already exists in the task list";
 
-    // private final String description;
-    // private final Deadlines toAdd;
-    private final String args; 
+    private final Deadlines args; 
 
-    public TaskDeadlineCommand(String args) {
-        requireNonNull(args);
-        this.args = args;
+    public TaskDeadlineCommand(Deadlines deadline) {
+        requireNonNull(deadline);
+        this.args = deadline;
     }
 
     @Override

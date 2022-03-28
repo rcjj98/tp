@@ -82,7 +82,7 @@ public class TaskCommandsParser implements Parser<TaskCommands> {
             return new TaskEventCommandParser().parse(arguments);    
         
         case TaskDeadlineCommand.COMMAND_WORD:
-            return new TaskEventCommandParser().parse(arguments);
+            return new TaskDeadlineCommandParser().parse(arguments);
         
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
