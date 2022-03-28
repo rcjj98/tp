@@ -8,14 +8,14 @@ import seedu.address.logic.parser.taskCommandsParser.Description;
  */
 public class Deadlines extends Task {
     
-    private String by;
+    private By by;
 
     /**
      * Deadline will take in a description and a by deadline.
      */
-    public Deadlines(Description description, By by2) {
+    public Deadlines(Description description, By by) {
         super(description);
-        this.by = by2;
+        this.by = by;
     }
 
     @Override 
