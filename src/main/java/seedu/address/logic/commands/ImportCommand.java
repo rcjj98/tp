@@ -37,10 +37,8 @@ public class ImportCommand extends Command {
             }
         }
 
-        // adds persons to address book
-        for (Person p : personList) {
-            model.addPerson(p);
-        }
+        // adds each person to address book
+        personList.forEach(model::addPerson);
 
         return new CommandResult("Added " + personList.size() + " people to address book.", Type.PERSON);
     }

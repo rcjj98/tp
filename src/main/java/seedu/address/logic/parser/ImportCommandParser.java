@@ -4,13 +4,17 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.util.FileUtil;
 import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Job;
@@ -18,13 +22,18 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
+import seedu.address.storage.AddressBookStorage;
+import seedu.address.storage.JsonAddressBookStorage;
+
+import javax.swing.text.html.Option;
 
 public class ImportCommandParser implements Parser<ImportCommand> {
+
+    private static final int NUM_OF_FIELDS = 6;
 
     @Override
     public ImportCommand parse(String args) throws ParseException {
         String filepath = args.strip();
-        System.out.println(Paths.get(filepath));
 
         if (filepath.equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ImportCommand.MESSAGE_USAGE));
@@ -60,7 +69,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         for (int i = 0; i < entries.size(); i++) {
             String[] fields = entries.get(i).strip().split("\t");
 
-            if (fields.length != 6) {
+            if (fields.length != NUM_OF_FIELDS) {
                 int lineno = i + 1;
                 throw new ParseException("Line " + lineno + " length of fields is not correct.");
             }
@@ -82,7 +91,19 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         return personList;
     }
 
-    private List<Person> readJson(String path) {
-        return new ArrayList<>();
+    private List<Person> readJson(String path) throws ParseException {
+
+        try {
+            Optional<ReadOnlyAddressBook> newAddrBook = new JsonAddressBookStorage(Paths.get(path)).readAddressBook();
+
+            if (newAddrBook.isPresent()) {
+                return newAddrBook.get().getPersonList();
+            } else {
+                return new ArrayList<>();
+            }
+
+        } catch (DataConversionException e) {
+            throw new ParseException(e.toString());
+        }
     }
 }
