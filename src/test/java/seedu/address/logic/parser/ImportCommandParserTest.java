@@ -5,7 +5,6 @@ import static seedu.address.logic.commands.ImportCommand.MESSAGE_USAGE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.logic.parser.ImportCommandParser.FILE_DOES_NOT_EXIST;
-import static seedu.address.logic.parser.ImportCommandParser.INVALID_FILE_PATH;
 import static seedu.address.logic.parser.ImportCommandParser.WRONG_FILE_TYPE;
 
 import java.util.ArrayList;
