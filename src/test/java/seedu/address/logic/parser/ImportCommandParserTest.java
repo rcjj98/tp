@@ -33,9 +33,6 @@ public class ImportCommandParserTest {
         // Empty path
         assertParseFailure(parser, "", String.format(MESSAGE_INVALID_COMMAND_FORMAT, MESSAGE_USAGE));
 
-        // Invalid characters in filepath
-        assertParseFailure(parser, "<>2", String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_PATH));
-
         // File does not exist
         assertParseFailure(parser, "xxx.csv", String.format(MESSAGE_INVALID_COMMAND_FORMAT, FILE_DOES_NOT_EXIST));
 
