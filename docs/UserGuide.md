@@ -9,7 +9,6 @@ HRConnect is a desktop application for managing the contacts of job applicants. 
 the progress of each applicant during the application process.
 
 
-
 ### Table of Contents
 * [Quick Start](#Quick-Start)
 * [Features](#Features)
@@ -60,9 +59,9 @@ the progress of each applicant during the application process.
   e.g n/NAME [j/APPLICATION] can be used as n/John Doe j/1 INPROGRESS or as n/John Doe.
 
 
-* Items with …​ after them can be used multiple times including zero times.
+* Items with ... after them can be used multiple times including zero times.
 
-  e.g. [j/APPLICATION]…​ can be used as   (i.e. 0 times), j/1 INPROGRESS, j/2 ACCEPTED etc.
+  e.g. [j/APPLICATION]... can be used as   (i.e. 0 times), j/1 INPROGRESS, j/2 ACCEPTED etc.
 
 
 * Parameters can be in any order.
@@ -193,7 +192,11 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 &nbsp;
 ### Importing the data file: `import`
 
-Adds all persons from *csv* or *json* file into the address book.
+Imports all persons data from a *csv* or *json* save file generated from this address book.
+
+File Format:
+* CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
+* JSON: Follows the existing file data structure. 
 
 Notes:
 1. Filepath can be relative or absolute.
