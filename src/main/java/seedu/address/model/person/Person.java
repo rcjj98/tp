@@ -110,7 +110,7 @@ public class Person {
         String thisAddress = getAddress().toString().toLowerCase();
         assert !thisAddress.isEmpty() : "Did not capture address";
 
-        if (term.contains("jobid:")) {
+        if (term.contains("jobdesc:")) {
             String job = term.split(":")[1].toLowerCase();
 
 
@@ -121,7 +121,7 @@ public class Person {
             }
         }
 
-        if (term.contains("progress:")) {
+        if (term.contains("stage:")) {
             String stage = term.split(":")[1].toLowerCase();
             boolean containsStage = getStage().toString().toLowerCase().equals(stage);
 
