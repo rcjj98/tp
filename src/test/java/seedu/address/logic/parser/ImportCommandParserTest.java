@@ -1,6 +1,18 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.ImportCommand.MESSAGE_USAGE;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.logic.parser.ImportCommandParser.FILE_DOES_NOT_EXIST;
+import static seedu.address.logic.parser.ImportCommandParser.INVALID_FILE_PATH;
+import static seedu.address.logic.parser.ImportCommandParser.WRONG_FILE_TYPE;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.logic.commands.ImportCommand;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
@@ -9,15 +21,6 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.ImportCommand.MESSAGE_USAGE;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.logic.parser.ImportCommandParser.*;
 
 public class ImportCommandParserTest {
 
