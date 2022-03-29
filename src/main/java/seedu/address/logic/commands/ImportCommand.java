@@ -34,7 +34,7 @@ public class ImportCommand extends Command {
         // checks if any persons is duplicated
         for (int i = 0; i < personList.size(); i++) {
             if (model.hasPerson(personList.get(i))) {
-                throw new CommandException("Entry " + i + 1 + ": is already in address book.\nAborting now.");
+                throw new CommandException("Entry1 " + i + 1 + ": is already in address book.\nAborting now.");
             }
         }
 
