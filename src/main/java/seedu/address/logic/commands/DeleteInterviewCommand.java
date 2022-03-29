@@ -21,7 +21,7 @@ public class DeleteInterviewCommand extends DeleteCommand {
             + "Or, Parameters: NAME (must be a string), \n"
             + "Example: " + COMMAND_WORD + " [p] Jeremy\n";
 
-    public static final String MESSAGE_DELETE_INTERVIEW_SUCCESS = "Deleted Interview: %1$s";
+    public static final String MESSAGE_DELETE_INTERVIEW_SUCCESS = "Interview has been deleted!";
 
     private final Index targetIndex;
     private final String targetApplicant;

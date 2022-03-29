@@ -1,3 +1,8 @@
+---
+layout: page
+title: User Guide
+---
+
 # HRConnect
 
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
@@ -93,7 +98,7 @@ Adds a new job applicant/interview to the address book.
 * #### Adding a new job applicant 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`
 
-  Example: `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 INPROGRESS`
+  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/1 INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
@@ -105,18 +110,25 @@ Adds a new job applicant/interview to the address book.
 ![add-interview](images/add-interview.png)
 
 &nbsp;
-### Editing a job applicant/interview: `edit` 
+### Editing a job applicant/interview: `edit`
 Edits an existing job applicant/interview in the address book
 
-* #### Editing a job applicant 
-    Format:
+* #### Editing a job applicant
+  Format: `edit INDEX n/NAME j/APPLICATION` <br>
+  Example: `edit 2 n/Amanda Tan j/3 REJECTED` <br><br>
 
-* #### Editing an interview 
-    Format:
+Before edit command executed.<br>
+![edit](images/before-edit-contact-2.png) <br><br>
+
+After edit command is executed. <br>
+![edit](images/after-edit-contact-2.png) <br><br>
+
+* #### Editing interview details 
+  {more to add}
 
 &nbsp;
 ### Deleting job applicant/interview: `delete` 
-Deletes an existing job applicant/interview in the address book.
+Deletes an existing job applicant/interview timing in the address book.
 
 * #### Deleting a job applicant 
   Format: `delete [p] INDEX` or `delete [p] NAME`
@@ -136,12 +148,12 @@ Use `g/` flags to find job applicants whose data contain **all** the keywords. C
 whose data **may or may not** contain those groups.
 
 Special Keywords:
-* `jobid:` Specifies that the
-* `progress:` 
+* `jobid:`: Finds which job id the applicant has applied for.
+* `progress:`: Finds which stage in the application process that the job applicant is at. (Only accepts: **inprogress**, **accepted**, **rejected**)
 
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
-Example: `find g/alex 94825 jobid:1 g/jia ling progress:inprogress`
+Example: `find g/alex 94825 @gmail.com jobid:1 g/jia ling progress:inprogress`
 
 ![find](images/find.png)
 
@@ -180,18 +192,18 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 ## Command Summary
 
-|               Action | Format                                                               |
-|---------------------:|:---------------------------------------------------------------------|
-|                 Help | `help`                                                               |
-|  List Job Applicants | `list [p]`                                                           |
-|      List Interviews | `list [i]`                                                           |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...` |
-|        Add Interview | `add [i] 1 d/DATE t/TIME`                                            |
-|                 Edit | `edit`                                                               |
-|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`          |
-| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                             |
-|     Delete Interview | `delete [i] INDEX`                                                   |
-|                Clear | `clear`                                                              |
-|                 Exit | `exit`                                                               |
+|               Action | Format                                                                       |
+|---------------------:|:-----------------------------------------------------------------------------|
+|                 Help | `help`                                                                       |
+|  List Job Applicants | `list [p]`                                                                   |
+|      List Interviews | `list [i]`                                                                   |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`         |
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                    |
+|                 Edit | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
+|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                     |
+|     Delete Interview | `delete [i] INDEX`                                                           |
+|                Clear | `clear`                                                                      |
+|                 Exit | `exit`                                                                       |
 
 

@@ -274,14 +274,14 @@ inside the `g/` flag.
    2. If parser cannot find and `g/` flag, throw a new exception stating that no `g/` flags can be found
 2. Create a new object in `PersonContainsKeywordsPredicate` with the list of search terms.
 3. Return a new `FindCommand` object using the newly created object from the previous step.
-4. <placeholder>
+4. smth smth
 
 The following sequence diagram shows how the find operation works:
-<placeholder>
+
 
 The following activity diagram summarizes what happens when a user executes a new command:
-<placeholder>
 
+&nbsp;
 #### Design considerations:
 * **Alternative 1:** Using AND, OR, NOT operators (i.e. `find john AND tom OR (gmail.com AND NOT 111)`).
   * Pros: More intuitive to the technically inclined and more control over the search results.
@@ -292,6 +292,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 * **Alternative 3** Using free text queries (i.e. `find john tom gmail.com`)
   * Pros: More intuitive as user expects queried person to contain all the search terms.
   * Cons: Lacks the flexibility provided by AND and OR operators.
+
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
