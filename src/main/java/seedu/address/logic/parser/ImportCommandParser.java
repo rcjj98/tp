@@ -27,27 +27,28 @@ import seedu.address.storage.JsonAddressBookStorage;
 
 public class ImportCommandParser implements Parser<ImportCommand> {
 
-    private static final int NUM_OF_FIELDS = 6;
-    private static final String INVALID_FILE_PATH = "That is not a valid file path\n"
-        + "Please check for any illegal characters.";
-    private static final String FILE_DOES_NOT_EXIST = "The file does not exists or it is not an actual file.\n"
+    public static final String FILE_DOES_NOT_EXIST = "The file does not exists or it is not an actual file.\n"
             + "If using relative path, your current working directory is "
             + System.getProperty("user.dir");
-    private static final String WRONG_FILE_TYPE = "No csv or json file extension found";
+    public static final String INVALID_FILE_PATH = "That is not a valid file path\n"
+            + "Please check for any illegal characters.";
+    public static final String PARSE_ERROR = "File cannot be parsed due to invalid entries";
+    public static final String WRONG_FILE_TYPE = "No csv or json file extension found";
+    private static final int NUM_OF_FIELDS = 6;
 
     @Override
     public ImportCommand parse(String args) throws ParseException {
         String filepath = args.strip();
-        Path path = checkFilePath(filepath);
+        checkFilePath(filepath);
 
         try {
-            if (path.endsWith(".csv")) {
-                return new ImportCommand(readCsv(path));
+            if (filepath.endsWith(".csv")) {
+                return new ImportCommand(readCsv(Paths.get(filepath)));
             } else {
-                return new ImportCommand(readJson(path));
+                return new ImportCommand(readJson(Paths.get(filepath)));
             }
         } catch (IOException e) {
-            throw new ParseException("File cannot be parsed due to invalid entries.");
+            throw new ParseException(PARSE_ERROR);
         }
     }
 
@@ -58,24 +59,33 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         List<String> entries = FileUtil.readFromFileLines(path);
 
         for (int i = 0; i < entries.size(); i++) {
-            String[] fields = entries.get(i).strip().split("\t");
+            String[] allFields = entries.get(i).strip().split("\t");
+            ArrayList<String> fieldList = new ArrayList<>();
 
-            if (fields.length != NUM_OF_FIELDS) {
+            for (String f : allFields) {
+                String field = f.strip();
+
+                if (!field.equals("")) {
+                    fieldList.add(field);
+                }
+            }
+
+            if (fieldList.size() != NUM_OF_FIELDS) {
                 int lineno = i + 1;
-                throw new ParseException("Line " + lineno + " length of fields is not correct.");
+                throw new ParseException("Line " + lineno + ": length of fields is not correct");
             }
 
             try {
-                Name name = ParserUtil.parseName(fields[0]);
-                Phone phone = ParserUtil.parsePhone(fields[1]);
-                Email email = ParserUtil.parseEmail(fields[2]);
-                Address address = ParserUtil.parseAddress(fields[3]);
-                Job job = ParserUtil.parseJob(fields[4]);
-                Stage stage = ParserUtil.parseStage(fields[5]);
+                Name name = ParserUtil.parseName(fieldList.get(0).strip());
+                Phone phone = ParserUtil.parsePhone(fieldList.get(1).strip());
+                Email email = ParserUtil.parseEmail(fieldList.get(2).strip());
+                Address address = ParserUtil.parseAddress(fieldList.get(3).strip());
+                Job job = ParserUtil.parseJob(fieldList.get(4).strip());
+                Stage stage = ParserUtil.parseStage(fieldList.get(5).strip());
                 personList.add(new Person(name, phone, email, address, job, stage));
             } catch (ParseException e) {
                 int lineno = i + 1;
-                throw new ParseException("Line " + lineno + " " + e);
+                throw new ParseException("Line " + lineno + ": " + e.getMessage());
             }
         }
 
@@ -98,7 +108,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         }
     }
 
-    private Path checkFilePath(String path) throws ParseException {
+    private void checkFilePath(String path) throws ParseException {
         if (path.equals("")) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ImportCommand.MESSAGE_USAGE));
         } else if (!FileUtil.isValidPath(path)) {
@@ -107,8 +117,6 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FILE_DOES_NOT_EXIST));
         } else if (!(path.endsWith(".csv") || path.endsWith(".json"))) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, WRONG_FILE_TYPE));
-        } else {
-            return Paths.get(path);
         }
     }
 }

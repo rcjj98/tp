@@ -12,7 +12,8 @@ import seedu.address.model.person.Person;
 public class ImportCommand extends Command {
 
     public static final String COMMAND_WORD = "import";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Imports all data from csv or json file";
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+        + ": Imports all data from csv or json file\n";
 
     private List<Person> personList;
 
@@ -33,7 +34,7 @@ public class ImportCommand extends Command {
         // checks if any persons is duplicated
         for (int i = 0; i < personList.size(); i++) {
             if (model.hasPerson(personList.get(i))) {
-                throw new CommandException("Entry " + i + " is already in address book.\nAborting now.");
+                throw new CommandException("Entry " + i + 1 + ": is already in address book.\nAborting now.");
             }
         }
 
@@ -43,4 +44,27 @@ public class ImportCommand extends Command {
         return new CommandResult("Added " + personList.size() + " people to address book.", Type.PERSON);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        personList.forEach(person -> s.append(person.toString() + "\n"));
+        return s.toString().strip();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof ImportCommand)) {
+            return false;
+        }
+
+        // state check
+        ImportCommand e = (ImportCommand) other;
+        return this.toString().equals(e.toString());
+    }
 }
