@@ -9,24 +9,8 @@ HRConnect is a desktop application for managing the contacts of job applicants. 
 the progress of each applicant during the application process.
 
 
-### Table of Contents
-* [Quick Start](#Quick-Start)
-* [Features](#Features)
-  * [Help](#viewing-help-help)
-  * [List](#listing-all-job-applicantsinterviews-list)
-  * [Add](#adding-a-new-job-applicantinterview-add)
-  * [Edit](#editing-a-job-applicantinterview-edit)
-  * [Delete](#deleting-job-applicantinterview-delete)
-  * [Find](#finding-a-job-applicant-by-keywords-find)
-  * [Clear](#clearing-all-entries-clear)
-  * [Exit](#exiting-the-program-exit)
-* [Storage](#Storage)
-  * [Saving the data](#saving-the-data)
-  * [Editing the data file](#editing-the-data-file)
-  * [Export](#archiving-the-current-data-export-coming-in-v13)
-  * [Import](#importing-the-data-file-import-coming-in-v13)
-* [FAQ](#FAQ)
-* [Command Summary](#Command-Summary)
+* Table of Contents
+  {:toc}
 
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
