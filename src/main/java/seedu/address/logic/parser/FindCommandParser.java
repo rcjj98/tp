@@ -21,9 +21,9 @@ public class FindCommandParser implements Parser<FindCommand> {
 
         switch (type) {
         case TYPE_PERSON:
-            return new FindPersonCommandParser().parse(args.strip());
+            return new FindPersonCommandParser().parse(args);
         case TYPE_INTERVIEW:
-            return new FindInterviewCommandParser().parse(args.strip());
+            return new FindInterviewCommandParser().parse(args);
         default:
             return null;
         }
