@@ -1,7 +1,5 @@
 package seedu.address.model.person;
 
-import static java.util.Objects.requireNonNull;
-
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -17,32 +15,23 @@ public class PersonContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        requireNonNull(person);
-
-        for (String group : keywords) {
-            boolean containsGroup = true;
-            String[] terms = group.strip().split("\\s+");
-            assert terms.length > 0 : "No values in group";
-
-            for (String term : terms) {
-                if (!person.contains(term.toLowerCase())) {
-                    containsGroup = false;
-                }
-            }
-
-            if (containsGroup) {
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof PersonContainsKeywordsPredicate // instanceof handles nulls
-                && keywords.equals(((PersonContainsKeywordsPredicate) other).keywords)); // state check
-    }
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
 
+        // instanceof handles nulls
+        if (!(other instanceof PersonContainsKeywordsPredicate)) {
+            return false;
+        }
+
+        // state check
+        PersonContainsKeywordsPredicate e = (PersonContainsKeywordsPredicate) other;
+        return keywords.equals(e.keywords);
+    }
 }

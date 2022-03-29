@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_PERSON_HAS_INTERVIEW;
-import static seedu.address.logic.parser.Type.PERSON;
 
 import java.util.List;
 
@@ -67,7 +66,7 @@ public class DeletePersonCommand extends DeleteCommand {
         }
 
         model.deletePerson(personToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), PERSON);
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     /**
@@ -126,7 +125,7 @@ public class DeletePersonCommand extends DeleteCommand {
         Person personToDelete = lastShownList.get(pos);
         model.deletePerson(personToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), getType());
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     @Override
@@ -134,11 +133,6 @@ public class DeletePersonCommand extends DeleteCommand {
         return other == this // short circuit if same object
                 || (other instanceof DeletePersonCommand // instanceof handles nulls
                 && targetIndex.equals(((DeletePersonCommand) other).targetIndex)); // state check
-    }
-
-    @Override
-    public Type getType() {
-        return PERSON;
     }
 }
 

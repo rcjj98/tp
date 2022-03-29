@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
-import static seedu.address.logic.parser.Type.PERSON;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.Type;
@@ -57,7 +56,7 @@ public class AddPersonCommand extends AddCommand {
         }
 
         model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), getType());
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), Type.PERSON);
     }
 
     @Override
@@ -65,10 +64,5 @@ public class AddPersonCommand extends AddCommand {
         return other == this // short circuit if same object
                 || (other instanceof AddPersonCommand // instanceof handles nulls
                 && toAdd.equals(((AddPersonCommand) other).toAdd));
-    }
-
-    @Override
-    public Type getType() {
-        return PERSON;
     }
 }

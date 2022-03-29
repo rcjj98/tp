@@ -1,31 +1,35 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
-
-import java.util.List;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.PersonContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FindCommand object
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
-    /**
-     * Parses the given {@code String} of arguments in the context of the FindCommand
-     * and returns a FindCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
-     */
-    public FindCommand parse(String args) throws ParseException {
-        String trimmedArgs = args.trim();
+    public FindCommand parse(String input) throws ParseException {
+        String type = ArgumentTokenizer.getType(input.trim());
+        String args = input.trim().substring(3);
 
-        if (trimmedArgs.isEmpty()) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        if (args.isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
+
+        switch (type) {
+        case TYPE_PERSON:
+            return new FindPersonCommandParser().parse(args.strip());
+        case TYPE_INTERVIEW:
+            return new FindInterviewCommandParser().parse(args.strip());
+        default:
+            return null;
+        }
+    }
+
+    /*
 
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_GROUP);
 
@@ -45,5 +49,6 @@ public class FindCommandParser implements Parser<FindCommand> {
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, "g/ cannot be found"));
         }
     }
+    */
 
 }
