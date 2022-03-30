@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.core.Messages.MESSAGE_PERSON_HAS_INTERVIEW;
 import static seedu.address.logic.parser.Type.PERSON;
 
 import java.util.List;
@@ -15,14 +16,14 @@ import seedu.address.model.person.Person;
 
 public class DeletePersonCommand extends DeleteCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " [p] : Deletes the person identified by the index number used in the displayed person list,\n"
-            + "Or deletes by identifying the user with their name\n"
+            + " [p] : Deletes the applicant identified by the index number used in the displayed applicant list,\n"
+            + "Or deletes by identifying the applicant with their name\n"
             + "Parameters: INDEX (must be a positive integer),\n"
             + "Example: " + COMMAND_WORD + " [p] 1\n"
             + "Or, Parameters: NAME (must be a string), \n"
             + "Example: " + COMMAND_WORD + " [p] Jeremy\n";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Applicant: %1$s";
 
     private final Index targetIndex;
     private final String targetApplicant;
@@ -62,11 +63,11 @@ public class DeletePersonCommand extends DeleteCommand {
         Person personToDelete = lastShownPersonList.get(targetIndex.getZeroBased());
 
         if (personHasInterview(personToDelete, model)) {
-            throw new CommandException("Person has interview. Delete interview first before deleting person.");
+            throw new CommandException(MESSAGE_PERSON_HAS_INTERVIEW);
         }
 
         model.deletePerson(personToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), PERSON);
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     /**
@@ -125,7 +126,7 @@ public class DeletePersonCommand extends DeleteCommand {
         Person personToDelete = lastShownList.get(pos);
         model.deletePerson(personToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), getType());
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     @Override

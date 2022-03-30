@@ -14,12 +14,12 @@ import seedu.address.model.interview.Interview;
 
 public class DeleteInterviewCommand extends DeleteCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " [p] : Deletes the Interview identified by the index number used in the displayed Interview list,\n"
+            + " [i] : Deletes the Interview identified by the index number used in the displayed Interview list,\n"
             + "Or deletes by identifying the user with their name\n"
             + "Parameters: INDEX (must be a positive integer),\n"
-            + "Example: " + COMMAND_WORD + " [p] 1\n"
+            + "Example: " + COMMAND_WORD + " [i] 1\n"
             + "Or, Parameters: NAME (must be a string), \n"
-            + "Example: " + COMMAND_WORD + " [p] Jeremy\n";
+            + "Example: " + COMMAND_WORD + " [i] Jeremy\n";
 
     public static final String MESSAGE_DELETE_INTERVIEW_SUCCESS = "Deleted Interview: %1$s";
 
@@ -59,7 +59,7 @@ public class DeleteInterviewCommand extends DeleteCommand {
         }
         Interview interviewToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteInterview(interviewToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), INTERVIEW);
+        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), Type.INTERVIEW);
     }
 
     /**
@@ -97,7 +97,7 @@ public class DeleteInterviewCommand extends DeleteCommand {
         Interview interviewToDelete = lastShownList.get(pos);
         model.deleteInterview(interviewToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), getType());
+        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), Type.INTERVIEW);
     }
 
     @Override

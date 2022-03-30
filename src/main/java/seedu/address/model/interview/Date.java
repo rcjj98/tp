@@ -3,9 +3,8 @@ package seedu.address.model.interview;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 /**
  * Represents a Interview's date in the interview list.
@@ -15,7 +14,8 @@ public class Date {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Date should be in the format dd-MM-YYYY like 26-Jun-2001";
+            "Date should be in the format YYYY-MM-dd like 2021-06-25."
+            + "\nDate has to be valid. Example: 2021-02-30 is an invalid date as there is no 30th Feb.";
     public final String value;
 
     /**
@@ -30,14 +30,12 @@ public class Date {
     }
 
     /**
-     * Returns true if a given string is a valid time.
+     * Returns true if a given string is a valid date.
      */
     public static boolean isValidDate(String test) {
-        DateFormat sdf = new SimpleDateFormat("dd-MMM-YYYY");
-        sdf.setLenient(false);
         try {
-            sdf.parse(test);
-        } catch (ParseException e) {
+            LocalDate.parse(test);
+        } catch (DateTimeParseException e) {
             return false;
         }
         return true;

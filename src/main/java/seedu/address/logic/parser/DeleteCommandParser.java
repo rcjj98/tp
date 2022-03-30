@@ -23,7 +23,6 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         String removedType = args.trim().substring(3);
 
         if (type.equals(TYPE_PERSON)) {
-            System.out.println(removedType);
             return new DeletePersonCommandParser().parse(removedType);
         } else if (type.equals(TYPE_INTERVIEW)) {
             return new DeleteInterviewCommandParser().parse(removedType);

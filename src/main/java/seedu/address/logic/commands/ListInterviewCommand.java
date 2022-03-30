@@ -8,13 +8,13 @@ import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 
 public class ListInterviewCommand extends ListCommand {
-    public static final String MESSAGE_SUCCESS = "Listed all interviews";
+    public static final String MESSAGE_SUCCESS = "Listed all interviews!";
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
-        return new CommandResult(MESSAGE_SUCCESS, getType());
+        return new CommandResult(MESSAGE_SUCCESS, Type.INTERVIEW);
     }
 
     @Override

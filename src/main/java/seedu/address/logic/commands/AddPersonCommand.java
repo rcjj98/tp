@@ -2,10 +2,11 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
 import static seedu.address.logic.parser.Type.PERSON;
 
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -18,23 +19,24 @@ import seedu.address.model.person.Person;
  */
 public class AddPersonCommand extends AddCommand {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] : Adds a person to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] : Adds an applicant to the address book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
-            + PREFIX_APPLICATION + "APPLICATION...\n"
+            + PREFIX_JOB + "JOB "
+            + PREFIX_STAGE + "STAGE "
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
-            + PREFIX_APPLICATION + "1 "
-            + PREFIX_APPLICATION + "2";
+            + PREFIX_JOB + "Software Engineer"
+            + PREFIX_STAGE + "INPROGRESS";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_SUCCESS = "Added Applicant: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the address book";
 
     private final Person toAdd;
 
@@ -55,7 +57,7 @@ public class AddPersonCommand extends AddCommand {
         }
 
         model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), getType());
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), PERSON);
     }
 
     @Override

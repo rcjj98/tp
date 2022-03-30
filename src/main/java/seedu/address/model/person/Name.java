@@ -13,7 +13,7 @@ public class Name {
                                                        + "characters and spaces, and it should not be blank";
 
     /*
-     * The first character of the address must not be a whitespace,
+     * The first character of the name must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
@@ -42,23 +42,8 @@ public class Name {
         return this.fullName;
     }
 
-    /**
-     * Checks if current name contains the substring
-     *
-     * @param name The name to checked with
-     * @return true if current name contains the substring of the checked name
-     */
-    public boolean contains(Name name) {
-
-        String[] nameFragments = name.fullName.split(" ");
-
-        for (String fragment : nameFragments) {
-            if (fullName.toLowerCase().contains(fragment.toLowerCase())) {
-                return true;
-            }
-        }
-
-        return false;
+    public boolean contains(String s) {
+        return fullName.toLowerCase().contains(s.toLowerCase());
     }
 
     @Override

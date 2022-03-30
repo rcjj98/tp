@@ -78,6 +78,11 @@ public interface Model {
      */
     void setPerson(Person target, Person editedPerson);
 
+    /**
+     * Replaces person list data.
+     */
+    void resetPersons();
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
@@ -111,6 +116,11 @@ public interface Model {
      * existing interview in the address book.
      */
     void setInterview(Interview target, Interview editedInterview);
+
+    /**
+     * Replaces interview list data.
+     */
+    void resetInterviews();
 
     /** Returns an unmodifiable view of the filtered interview list */
     ObservableList<Interview> getFilteredInterviewList();

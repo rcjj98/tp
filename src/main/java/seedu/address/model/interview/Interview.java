@@ -42,18 +42,13 @@ public class Interview {
     }
 
     /**
-     * Returns true if both interviews have the same person/date/time.
+     * Returns true if both interviews have the same person or same date and time.
      * This defines a weaker notion of equality between two interviews.
      */
     public boolean isSameInterview(Interview otherInterview) {
-        if (otherInterview == this) {
-            return true;
-        }
-
         return otherInterview != null
-                && (otherInterview.getPerson().isSamePerson(getPerson())
-                || otherInterview.getDate().equals(getDate())
-                || otherInterview.getTime().equals(getTime()));
+                && (otherInterview.getDate().equals(getDate())
+                && otherInterview.getTime().equals(getTime()));
     }
 
     /**
