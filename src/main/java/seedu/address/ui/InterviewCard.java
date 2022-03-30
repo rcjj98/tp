@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -54,7 +55,8 @@ public class InterviewCard extends UiPart<Region> {
         this.interview = interview;
         id.setText(displayedIndex + ". ");
 
-        String[] dateSplit = interview.getDate().value.split("-");
+        String formattedDate = LocalDate.parse(interview.getDate().value)
+                .format(DateTimeFormatter.ofPattern("dd MMM YYYY"));
         String[] timeSplit = interview.getTime().value.split(":");
         LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));
         String formattedTime = parsedTime.format(DateTimeFormatter.ofPattern("hh:mma"));
@@ -62,8 +64,7 @@ public class InterviewCard extends UiPart<Region> {
         Person person = interview.getPerson();
 
         name.setText(person.getName().fullName);
-        date.setText(dateSplit[0] + " " + dateSplit[1].substring(0, 1).toUpperCase()
-                + dateSplit[1].substring(1) + " " + dateSplit[2]);
+        date.setText(formattedDate);
         time.setText("@ " + formattedTime);
         job.setText(person.getJob().jobTitle);
         stage.setText(person.getStage().value);
