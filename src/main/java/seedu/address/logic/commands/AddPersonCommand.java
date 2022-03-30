@@ -32,7 +32,7 @@ public class AddPersonCommand extends AddCommand {
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
-            + PREFIX_JOB + "Software Engineer"
+            + PREFIX_JOB + "Software Engineer "
             + PREFIX_STAGE + "INPROGRESS";
 
     public static final String MESSAGE_SUCCESS = "New applicant added!";
