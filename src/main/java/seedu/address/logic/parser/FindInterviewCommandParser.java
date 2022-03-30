@@ -21,14 +21,19 @@ public class FindInterviewCommandParser implements Parser<FindInterviewCommand> 
 
         ArgumentMultimap groupTokens = ArgumentTokenizer.tokenize(" " + args, PREFIX_GROUP);
         List<String> groupAND = groupTokens.getAllValues(PREFIX_GROUP);
+        checkGroupsValidity(groupAND);
 
-        // check for any empty groups
-        if (groupAND.stream().anyMatch(String::isEmpty)) {
+        return new FindInterviewCommand(new InterviewContainsKeywordsPredicate(groupAND));
+    }
+
+    private void checkGroupsValidity(List<String> groups) throws ParseException {
+
+        // Check if any flags are empty
+        if (groups.stream().anyMatch(String::isEmpty)) {
             throw new ParseException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT, "Empty g/ flags"));
         }
 
-        // check if it is valid token
-        for (String group : groupAND) {
+        for (String group : groups) {
             ArgumentMultimap fields = ArgumentTokenizer.tokenize(" " + group, PREFIX_DATE, PREFIX_TIME, PREFIX_NAME, PREFIX_JOB);
 
             List<String> dates = fields.getAllValues(PREFIX_DATE);
@@ -51,7 +56,5 @@ public class FindInterviewCommandParser implements Parser<FindInterviewCommand> 
                 throw new ParseException("Group: " + group + " contains invalid job\n" + Job.MESSAGE_CONSTRAINTS);
             }
         }
-
-        return new FindInterviewCommand(new InterviewContainsKeywordsPredicate(groupAND));
     }
 }
