@@ -42,17 +42,10 @@ public class Name {
         return this.fullName;
     }
 
-    /**
-     * Checks if current name contains the substring
-     *
-     * @param name The name to checked with
-     * @return true if current name contains the substring of the checked name
-     */
-    public boolean contains(String n) {
-
-        String thisName = fullName.toLowerCase();
-        String otherName = n.toLowerCase();
-        return thisName.contains(otherName);
+    public boolean contains(String s) {
+        System.out.println(s);
+        System.out.println(fullName);
+        return fullName.toLowerCase().contains(s.toLowerCase());
     }
 
     @Override

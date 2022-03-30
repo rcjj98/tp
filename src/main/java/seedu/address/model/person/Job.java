@@ -43,16 +43,8 @@ public class Job {
         return this.jobTitle;
     }
 
-    /**
-     * Checks if current job title contains the substring
-     *
-     * @param job The job to checked with
-     * @return true if current jobTitle contains the substring of the checked jobTitle
-     */
-    public boolean contains(String job) {
-        String thisJob = jobTitle.toLowerCase();
-        String otherJob = job.toLowerCase();
-        return thisJob.contains(otherJob);
+    public boolean contains(String s) {
+        return jobTitle.toLowerCase().contains(s.toLowerCase());
     }
 
     @Override
