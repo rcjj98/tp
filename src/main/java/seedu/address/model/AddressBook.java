@@ -202,6 +202,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removeTask(Task key) throws Exception {
         tasks.remove(key);
+    }
 
     @Override
     public ObservableList<Task> getTaskList() {
