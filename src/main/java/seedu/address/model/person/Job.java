@@ -49,17 +49,10 @@ public class Job {
      * @param job The job to checked with
      * @return true if current jobTitle contains the substring of the checked jobTitle
      */
-    public boolean contains(Job job) {
-
-        String[] jobTitleFragments = job.jobTitle.split(" ");
-
-        for (String fragment : jobTitleFragments) {
-            if (jobTitle.toLowerCase().contains(fragment.toLowerCase())) {
-                return true;
-            }
-        }
-
-        return false;
+    public boolean contains(String job) {
+        String thisJob = jobTitle.toLowerCase();
+        String otherJob = job.toLowerCase();
+        return thisJob.contains(otherJob);
     }
 
     @Override

@@ -1,6 +1,9 @@
 package seedu.address.model.interview;
 
+import seedu.address.logic.parser.ArgumentMultimap;
+import seedu.address.logic.parser.ArgumentTokenizer;
 import seedu.address.logic.parser.Prefix;
+import seedu.address.logic.parser.exceptions.ParseException;
 
 import java.util.List;
 import java.util.Map;
@@ -9,37 +12,41 @@ import java.util.function.Predicate;
 import static seedu.address.logic.parser.CliSyntax.*;
 
 public class InterviewContainsKeywordsPredicate implements Predicate<Interview> {
-    private final Map<Prefix, List<String>> keywords;
+    private List<String> keywords;
 
-    public InterviewContainsKeywordsPredicate(Map<Prefix, List<String>> keywords) {
+    public InterviewContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
 
     @Override
     public boolean test(Interview interview) {
 
-        List<String> dates = keywords.get(PREFIX_DATE);
-        List<String> names = keywords.get(PREFIX_NAME);
-        List<String> times = keywords.get(PREFIX_TIME);
-        List<String> jobs = keywords.get(PREFIX_JOB);
+        for (String group : keywords) {
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(" " + group, PREFIX_DATE, PREFIX_TIME, PREFIX_NAME, PREFIX_JOB);
 
-        if (dates.stream().anyMatch(date -> interview.getDate().value.contains(date))) {
-            return true;
+            List<String> dates = fields.getAllValues(PREFIX_DATE);
+            if (!dates.isEmpty() && dates.stream().noneMatch(d -> interview.getDate().toString().contains(d))) {
+                return false;
+            }
+
+            List<String> times = fields.getAllValues(PREFIX_TIME);
+            if (!times.isEmpty() && times.stream().noneMatch(t-> interview.getTime().toString().contains(t))) {
+                return false;
+            }
+
+            List<String> names = fields.getAllValues(PREFIX_NAME);
+            System.out.println(names);
+            if (!names.isEmpty() && names.stream().noneMatch(n -> interview.getPerson().getName().contains(n))) {
+                return false;
+            }
+
+            List<String> jobs = fields.getAllValues(PREFIX_JOB);
+            if (!jobs.isEmpty() && jobs.stream().noneMatch(j -> interview.getPerson().getJob().contains(j))) {
+                return false;
+            }
         }
 
-        if (names.stream().anyMatch(name -> interview.getPerson().getName().fullName.toLowerCase().contains(name.toLowerCase()))) {
-            return true;
-        }
-
-        if (times.stream().anyMatch(time -> interview.getTime().value.contains(time))) {
-            return true;
-        }
-
-        if (jobs.stream().anyMatch(job -> interview.getPerson().getJob().jobTitle.toLowerCase().contains(job.toLowerCase()))) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     @Override
