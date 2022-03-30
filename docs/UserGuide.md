@@ -8,24 +8,9 @@ title: User Guide
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
 the progress of each applicant during the application process.
 
-### Table of Contents
-* [Quick Start](#Quick-Start)
-* [Features](#Features)
-  * [Help](#viewing-help-help)
-  * [List](#listing-all-job-applicantsinterviews-list)
-  * [Add](#adding-a-new-job-applicantinterview-add)
-  * [Edit](#editing-a-job-applicantinterview-edit)
-  * [Delete](#deleting-job-applicantinterview-delete)
-  * [Find](#finding-a-job-applicant-by-keywords-find)
-  * [Clear](#clearing-all-entries-clear)
-  * [Exit](#exiting-the-program-exit)
-* [Storage](#Storage)
-  * [Saving the data](#saving-the-data)
-  * [Editing the data file](#editing-the-data-file)
-  * [Export](#archiving-the-current-data-export-coming-in-v13)
-  * [Import](#importing-the-data-file-import-coming-in-v13)
-* [FAQ](#FAQ)
-* [Command Summary](#Command-Summary)
+
+* Table of Contents
+  {:toc}
 
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
@@ -58,9 +43,9 @@ the progress of each applicant during the application process.
   e.g n/NAME [j/APPLICATION] can be used as n/John Doe j/1 INPROGRESS or as n/John Doe.
 
 
-* Items with …​ after them can be used multiple times including zero times.
+* Items with ... after them can be used multiple times including zero times.
 
-  e.g. [j/APPLICATION]…​ can be used as   (i.e. 0 times), j/1 INPROGRESS, j/2 ACCEPTED etc.
+  e.g. [j/APPLICATION]... can be used as   (i.e. 0 times), j/1 INPROGRESS, j/2 ACCEPTED etc.
 
 
 * Parameters can be in any order.
@@ -144,16 +129,21 @@ Deletes an existing job applicant/interview timing in the address book.
 ### Finding a job applicant by keywords: `find` 
 Finds job applicants whose data contain any of the given keywords.
 
-Use `g/` flags to find job applicants whose data contain **all** the keywords. Chain `g/` flags to find job applicants
-whose data **may or may not** contain those groups.
+Use `g/` flags to find job applicants whose data contain **all** the keywords.
+
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/alex g/bukit g/stage:inprogress`)
 
 Special Keywords:
-* `jobid:`: Finds which job id the applicant has applied for.
-* `progress:`: Finds which stage in the application process that the job applicant is at. (Only accepts: **inprogress**, **accepted**, **rejected**)
+* `jobdesc:`: Finds which job description the applicant has applied for.
+* `stage:`: Finds which stage in the application process that the job applicant is at. (Only accepts: **inprogress**, **accepted**, **rejected**)
 
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
-Example: `find g/alex 94825 @gmail.com jobid:1 g/jia ling progress:inprogress`
+Examples:
+* `find g/alex g/bukit g/111 g/@gmail` is logically equivalent to `find alex OR bukit OR 111 OR @gmail`
+* `find g/alex bukit 111 @gmail` is logically equivalent to `find alex AND bukit AND 111 AND @gmail`
+* `find g/alex bukit g/111 @gmail` is logically equivalent to `find (alex AND bukit) OR (111 AND @gmail)`
+
 
 ![find](images/find.png)
 
@@ -184,26 +174,38 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 ### Archiving the current data: `export` [coming in v1.3]
 
 &nbsp;
-### Importing the data file: `import` [coming in v1.3] 
+### Importing the data file: `import`
 
-## FAQ 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+Imports all persons data from a *csv* or *json* save file generated from this address book.
+
+File Format:
+* CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
+* JSON: Follows the existing file data structure. 
+
+Notes:
+1. Filepath can be relative or absolute.
+2. No duplicates are allowed to be imported into the address book.
+   1. Data in the address book has a higher priority than data in the save file.
+3. If any error is found, **none** of the data in the save file will be imported into the address book. 
+
+Format: `import FILEPATH`
+
+Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\data.json`
+
 
 ## Command Summary
 
 |               Action | Format                                                                       |
 |---------------------:|:-----------------------------------------------------------------------------|
-|                 Help | `help`                                                                       |
-|  List Job Applicants | `list [p]`                                                                   |
-|      List Interviews | `list [i]`                                                                   |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`         |
 |        Add Interview | `add [i] 1 d/DATE t/TIME`                                                    |
-|                 Edit | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
-|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
-| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                     |
-|     Delete Interview | `delete [i] INDEX`                                                           |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`         |
 |                Clear | `clear`                                                                      |
+|     Delete Interview | `delete [i] INDEX`                                                           |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                     |
+|                 Edit | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
 |                 Exit | `exit`                                                                       |
-
-
+|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
+|                 Help | `help`                                                                       |
+|               Import | `import FILEPATH`                                                            |
+|      List Interviews | `list [i]`                                                                   |
+|  List Job Applicants | `list [p]`                                                                   |

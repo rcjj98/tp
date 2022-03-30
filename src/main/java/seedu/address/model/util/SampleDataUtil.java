@@ -36,11 +36,11 @@ public class SampleDataUtil {
                     new Job("Software Developer"), new Stage("REJECTED")),
             new Person(new Name("Lew Jia Xin"), new Phone("92573826"), new Email("lewjx@hotmail.com"),
                     new Address("261 Yishun St 22 #01-137"), new Job("Software Developer"), new Stage("ACCEPTED")),
-            new Person(new Name("Zhuo Jia Ling"), new Phone("92462946"), new Email("jialingz@hotmail.com"),
-                    new Address("80 Marine Parade Rd #21-08"), new Job("Software Engineer"), new Stage("INPROGRESS")),
             new Person(new Name("Tan Jia Ling"), new Phone("93375454"), new Email("tjialing@outlook.com"),
                     new Address("12 New Industrial Road #05-05 Morningstar Centre"),
-                    new Job("Data Analyst"), new Stage("ACCEPTED"))
+                    new Job("Data Analyst"), new Stage("ACCEPTED")),
+            new Person(new Name("Zhou Jia Ling"), new Phone("92462146"), new Email("jialingz@hotmail.com"),
+                    new Address("80 Marine Parade Rd #21-08"), new Job("Software Engineer"), new Stage("INPROGRESS")),
         };
 
 
