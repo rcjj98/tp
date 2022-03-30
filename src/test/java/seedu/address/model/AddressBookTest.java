@@ -108,7 +108,6 @@ public class AddressBookTest {
 
         @Override
         public ObservableList<Task> getTaskList() {
-            // TODO Auto-generated method stub
             return null;
         }
     }

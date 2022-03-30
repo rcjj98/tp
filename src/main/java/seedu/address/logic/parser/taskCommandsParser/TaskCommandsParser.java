@@ -1,4 +1,4 @@
-package seedu.address.logic.parser.taskCommandsParser;
+package seedu.address.logic.parser.taskcommandsparser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
@@ -7,10 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.taskCommands.TaskCommands;
-import seedu.address.logic.commands.taskCommands.TaskDeadlineCommand;
-import seedu.address.logic.commands.taskCommands.TaskEventCommand;
-import seedu.address.logic.commands.taskCommands.TaskTodoCommand;
+import seedu.address.logic.commands.taskcommand.TaskCommands;
+import seedu.address.logic.commands.taskcommand.TaskTodoCommand;
 import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -71,12 +69,6 @@ public class TaskCommandsParser implements Parser<TaskCommands> {
         case TaskTodoCommand.COMMAND_WORD:
             return new TaskTodoCommandParser().parse(arguments);
 
-        case TaskEventCommand.COMMAND_WORD:
-            return new TaskEventCommandParser().parse(arguments);    
-        
-        case TaskDeadlineCommand.COMMAND_WORD:
-            return new TaskDeadlineCommandParser().parse(arguments);
-        
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }

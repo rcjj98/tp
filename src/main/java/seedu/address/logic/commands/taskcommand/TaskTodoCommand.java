@@ -1,12 +1,12 @@
-package seedu.address.logic.commands.taskCommands;
+package seedu.address.logic.commands.taskcommand;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.Type.TASK;
 
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
 import seedu.address.logic.parser.Type;
+import seedu.address.model.Model;
 import seedu.address.model.tasks.Todos;
 
 public class TaskTodoCommand extends TaskCommands {
@@ -20,6 +20,10 @@ public class TaskTodoCommand extends TaskCommands {
 
     public final Todos toAdd;
 
+    /**
+     * Constructor for TaskTodoCommand.
+     * @param todo
+     */
     public TaskTodoCommand(Todos todo) {
         requireNonNull(todo);
         toAdd = todo;
@@ -46,9 +50,8 @@ public class TaskTodoCommand extends TaskCommands {
                 && toAdd.equals(((TaskTodoCommand) other).toAdd));
     }
 
-    @Override 
+    @Override
     public Type getType() {
         return TASK;
     }
 }
- 

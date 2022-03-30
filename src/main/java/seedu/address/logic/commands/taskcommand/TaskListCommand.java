@@ -1,4 +1,4 @@
-package seedu.address.logic.commands.taskCommands;
+package seedu.address.logic.commands.taskcommand;
 
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -9,13 +9,11 @@ public class TaskListCommand extends TaskCommands {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public boolean equals(Object other) {
-        // TODO Auto-generated method stub
         return false;
     }
 

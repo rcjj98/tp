@@ -1,4 +1,4 @@
-package seedu.address.logic.commands.taskCommands;
+package seedu.address.logic.commands.taskcommand;
 
 import java.util.ArrayList;
 
@@ -15,12 +15,11 @@ import seedu.address.model.tasks.Task;
 public abstract class TaskCommands extends Command {
 
     public static final String COMMAND_WORD = "task";
-
-    protected ArrayList<Task> tasks;    
+    protected ArrayList<Task> tasks;
 
     @Override
     public abstract CommandResult execute(Model model) throws CommandException;
-    
+
     @Override
     public abstract boolean equals(Object other);
 

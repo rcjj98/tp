@@ -178,18 +178,17 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.interviews.clear();
     }
 
-    //// task-level operations 
-    
+    //// task-level operations
+
     /**
      * Adds a Task to the address book.
      * The Task can already be in the address book.
      * @throws Exception
      */
-    public void addTask(Task i)  {
+    public void addTask(Task i) {
         try {
             tasks.add(i);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -207,13 +206,12 @@ public class AddressBook implements ReadOnlyAddressBook {
     public ObservableList<Task> getTaskList() {
         return tasks.asUnmodifiableObservableList();
     }
-    
+
     //// util methods
 
     @Override
     public String toString() {
         return persons.asUnmodifiableObservableList().size() + " persons";
-        // TODO: refine later
     }
 
     @Override

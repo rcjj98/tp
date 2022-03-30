@@ -7,8 +7,6 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
-import seedu.address.model.tasks.Deadlines;
-import seedu.address.model.tasks.Events;
 import seedu.address.model.tasks.Task;
 import seedu.address.model.tasks.Todos;
 
@@ -137,7 +135,7 @@ public interface Model {
 
     // /**
     //  * Returns true if a todo task with the same identity as {@code todo} exists in the task list.
-    //  * @param todo 
+    //  * @param todo
     //  * @return boolean true/false
     //  */
     // boolean hasTodo(Todos todo);
@@ -151,11 +149,7 @@ public interface Model {
 
     void deleteTodo(Todos todo) throws Exception;
 
-    void addDeadline(Deadlines deadline);
-
-    void addEvent(Events event);
-
     /** Returns an unmodifiable view of the filtered task list */
     ObservableList<Task> getFilteredTaskList();
-    
+
 }

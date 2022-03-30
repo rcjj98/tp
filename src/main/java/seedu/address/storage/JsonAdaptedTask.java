@@ -9,10 +9,10 @@ import seedu.address.model.tasks.Task;
 
 
 /**
- * JSON-friendly version of {@link Task} 
+ * JSON-friendly version of {@link Task}
  */
 public class JsonAdaptedTask {
-    
+
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
     private final String description;
@@ -40,8 +40,10 @@ public class JsonAdaptedTask {
     public Task toModelType() throws IllegalValueException {
 
         if (description == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                Description.class.getSimpleName()));
         }
+
         if (!Description.isValidDescription(description)) {
             throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS);
         }

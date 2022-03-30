@@ -10,8 +10,8 @@ import seedu.address.model.tasks.Task;
 /**
  * Panel containing the list of Tasks.
  */
-public class TaskListPanel extends UiPart<Region>{
-    
+public class TaskListPanel extends UiPart<Region> {
+
     private static final String FXML = "TaskListPanel.fxml";
 
     @FXML

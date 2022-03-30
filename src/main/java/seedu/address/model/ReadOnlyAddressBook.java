@@ -17,6 +17,6 @@ public interface ReadOnlyAddressBook {
     ObservableList<Person> getPersonList();
 
     ObservableList<Interview> getInterviewList();
-    
+
     ObservableList<Task> getTaskList();
 }

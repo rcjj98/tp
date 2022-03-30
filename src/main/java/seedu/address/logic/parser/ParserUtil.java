@@ -12,10 +12,8 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
-import seedu.address.model.tasks.At;
-import seedu.address.model.tasks.By;
-import seedu.address.model.tasks.Description;
 import seedu.address.model.person.Stage;
+import seedu.address.model.tasks.Description;
 
 
 
@@ -163,11 +161,4 @@ public class ParserUtil {
         return null;
     }
 
-    public static By parseBy(String string) {
-        return null;
-    }
-
-    public static At parseAt(String string) {
-        return null;
-    }
 }

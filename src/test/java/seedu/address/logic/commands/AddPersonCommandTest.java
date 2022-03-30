@@ -22,8 +22,6 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
-import seedu.address.model.tasks.Deadlines;
-import seedu.address.model.tasks.Events;
 import seedu.address.model.tasks.Task;
 import seedu.address.model.tasks.Todos;
 import seedu.address.testutil.PersonBuilder;
@@ -198,31 +196,16 @@ public class AddPersonCommandTest {
 
         @Override
         public void addTodo(Todos todo) {
-            // TODO Auto-generated method stub
-            
-        }
-
-        @Override
-        public void addDeadline(Deadlines deadline) {
-            // TODO Auto-generated method stub
-            
-        }
-
-        @Override
-        public void addEvent(Events event) {
-            // TODO Auto-generated method stub
-            
+            requireNonNull(todo);
         }
 
         @Override
         public void deleteTodo(Todos todo) throws Exception {
-            // TODO Auto-generated method stub
-            
+            requireNonNull(todo);
         }
 
         @Override
         public ObservableList<Task> getFilteredTaskList() {
-            // TODO Auto-generated method stub
             return null;
         }
     }

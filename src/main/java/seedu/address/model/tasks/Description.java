@@ -43,7 +43,7 @@ public class Description {
 
     /**
      * Checks if current name contains the substring
-     * @param name The name to checked with
+     * @param description The description to check with
      * @return true if current name contains the substring of the checked name
      */
     public boolean contains(Description description) {

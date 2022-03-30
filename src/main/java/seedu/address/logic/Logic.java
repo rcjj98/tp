@@ -37,7 +37,7 @@ public interface Logic {
 
     /** Returns an unmodifiable view of the filtered list of interviews */
     ObservableList<Interview> getFilteredInterviewList();
-    
+
     /** Returns an unmodifiable view of the filtered list of tasks */
     ObservableList<Task> getFilteredTaskList();
 

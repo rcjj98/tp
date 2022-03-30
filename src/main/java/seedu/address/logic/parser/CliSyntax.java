@@ -18,7 +18,7 @@ public class CliSyntax {
     // for EVENT & DEADLINE
     public static final Prefix PREFIX_BY = new Prefix("by/");
     public static final Prefix PREFIX_AT = new Prefix("at/");
-    // for TASK's description 
+    // for TASK's description
     public static final Prefix PREFIX_DESCRIPTION = new Prefix("des/");
 
     /* Type definitions */

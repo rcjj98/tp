@@ -1,5 +1,5 @@
-package seedu.address.logic.parser.taskCommandsParser;
+package seedu.address.logic.parser.taskcommandsparser;
 
 public class TaskDeleteCommandParser {
-    
+
 }

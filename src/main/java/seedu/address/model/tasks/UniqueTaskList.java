@@ -1,8 +1,9 @@
- package seedu.address.model.tasks;
+package seedu.address.model.tasks;
 
 import static java.util.Objects.requireNonNull;
 
 import java.util.Iterator;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -34,8 +35,6 @@ public class UniqueTaskList implements Iterable<Task> {
     /**
      * Removes the equivalent Task from the list.
      * The Task must exist in the list.
-     * May have to edit argument to accept int index, 
-     * and delete that particular element in the list. 
      * @throws Exception
      */
     public void remove(Task toRemove) throws Exception {
@@ -45,17 +44,16 @@ public class UniqueTaskList implements Iterable<Task> {
         }
     }
 
-    
     /**
      * Returns the backing list as an unmodifiable {@code ObservableList}.
      */
     public ObservableList<Task> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
     }
-    
+
     @Override
     public int hashCode() {
         return internalList.hashCode();
     }
-    
+
 }
