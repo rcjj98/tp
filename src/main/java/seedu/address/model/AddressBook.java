@@ -189,6 +189,11 @@ public class AddressBook implements ReadOnlyAddressBook {
         tasks.remove(key);
     }
 
+    @Override
+    public ObservableList<Task> getTaskList() {
+        return tasks.asUnmodifiableObservableList();
+    }
+    
     //// util methods
 
     @Override
@@ -218,5 +223,6 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return persons.hashCode();
     }
+
 
 }
