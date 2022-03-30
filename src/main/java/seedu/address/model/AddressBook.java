@@ -10,7 +10,6 @@ import seedu.address.model.interview.UniqueInterviewList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 import seedu.address.model.tasks.Task;
-import seedu.address.model.tasks.Todos;
 import seedu.address.model.tasks.UniqueTaskList;
 
 
