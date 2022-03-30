@@ -140,9 +140,9 @@ Notes:
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
 Examples:
-* `find g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find n/alex OR s/ACCEPTED OR p/1111`
-* `find g/n/alex s/ACCEPTED p/1111` is logically equivalent to `find n/alex AND s/ACCEPTED AND p/1111`
-* `find g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find (n/alex AND g/s/ACCEPTED) OR p/1111`
+* `find [p] g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find n/alex OR s/ACCEPTED OR p/1111`
+* `find [p] g/n/alex s/ACCEPTED p/1111` is logically equivalent to `find n/alex AND s/ACCEPTED AND p/1111`
+* `find [p] g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find (n/alex AND g/s/ACCEPTED) OR p/1111`
 
 
 ![find](images/find.png)

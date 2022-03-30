@@ -23,7 +23,7 @@ public class DeletePersonCommand extends DeleteCommand {
             + "Or, Parameters: NAME (must be a string), \n"
             + "Example: " + COMMAND_WORD + " [p] Jeremy\n";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Applicant has been deleted!";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Applicant: %1$s";
 
     private final Index targetIndex;
     private final String targetApplicant;

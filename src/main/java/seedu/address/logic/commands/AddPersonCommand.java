@@ -35,7 +35,7 @@ public class AddPersonCommand extends AddCommand {
             + PREFIX_JOB + "Software Engineer"
             + PREFIX_STAGE + "INPROGRESS";
 
-    public static final String MESSAGE_SUCCESS = "New applicant added!";
+    public static final String MESSAGE_SUCCESS = "Added Applicant: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the address book";
 
     private final Person toAdd;

@@ -77,8 +77,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidDates(ArgumentMultimap fields, String group) throws ParseException {
         List<String> dates = fields.getAllValues(PREFIX_DATE);
         if (dates.stream().anyMatch(d -> !Date.isValidDate(d.strip()))) {
-            throw new ParseException(String.format("Group " + group + ": contains invalid date\n",
-                    Date.MESSAGE_CONSTRAINTS));
+            throw new ParseException("Group " + group + ": contains invalid date\n" + Date.MESSAGE_CONSTRAINTS);
         }
     }
 
