@@ -11,7 +11,8 @@ public class Time {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Time should be in the format HH:MM like 09:41";
+            "Time should be in the format HH:MM like 09:41"
+                    + "\n Time has to be valid. Example: 24:01 is an invalid time.";
     public final String value;
 
     /**

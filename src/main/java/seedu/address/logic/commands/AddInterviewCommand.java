@@ -34,7 +34,7 @@ public class AddInterviewCommand extends AddCommand {
             + PREFIX_TIME + "05:29";
 
 
-    public static final String MESSAGE_SUCCESS = "New interview added!";
+    public static final String MESSAGE_SUCCESS = "Added Interview: %1$s";
     public static final String MESSAGE_DUPLICATE_INTERVIEW = "This interview already exists in the interview list";
 
     private final Index index;

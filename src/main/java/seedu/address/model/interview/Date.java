@@ -15,7 +15,7 @@ public class Date {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Date should be in the format YYYY-MM-dd like 2021-06-25."
-            + " Date has to be valid. Example: 2021-02-29 is an invalid date.";
+            + "\nDate has to be valid. Example: 2021-02-30 is an invalid date as there is no 30th Feb.";
     public final String value;
 
     /**
