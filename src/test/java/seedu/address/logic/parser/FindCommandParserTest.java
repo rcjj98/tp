@@ -10,19 +10,52 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindInterviewCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.model.interview.InterviewContainsKeywordsPredicate;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.PersonContainsKeywordsPredicate;
 
 public class FindCommandParserTest {
 
-    private FindCommandParser parser = new FindCommandParser();
+    private FindPersonCommandParser person = new FindPersonCommandParser();
+    private FindInterviewCommandParser interview = new FindInterviewCommandParser();
 
     @Test
-    public void parse_emptyArg_throwsParseException() {
-        assertParseFailure(parser, "     ", MESSAGE_NO_TYPE_GIVEN);
+    public void parse_throwsParseException() {
+
+        // check for empty string
+        assertParseFailure(person, "", MESSAGE_NO_TYPE_GIVEN);
+
+        // check for no g/ flags
+        assertParseFailure(person, " [p]",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+        assertParseFailure(interview, " [i]",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+
+        // check for empty g/ flags
+        assertParseFailure(person, " [p] g/",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+        assertParseFailure(interview, " [i] g/",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+        assertParseFailure(person, " [p] g/\n",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+        assertParseFailure(interview, " [i] g/\t",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+        assertParseFailure(person, " [p] g/n/test g/",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+        assertParseFailure(interview, " [i] g/n/test g/",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+        assertParseFailure(person, " [p] g/n/test g/ g/j/software",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+        assertParseFailure(interview, " [i] g/n/test g/ g/j/software",
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+
+        // check for invalid input
+        assertParseFailure(person, " [p] g/n/<>",
+                String.format("Group n/<>: contains invalid name\n" + Name.MESSAGE_CONSTRAINTS));
+        assertParseFailure(interview, " [i] g/n/<>",
+                String.format("Group n/<>: contains invalid name\n" + Name.MESSAGE_CONSTRAINTS));
     }
 
     @Test
@@ -33,10 +66,10 @@ public class FindCommandParserTest {
 
         // finding interview
         FindInterviewCommand findInterview = new FindInterviewCommand(new InterviewContainsKeywordsPredicate(groups));
-        assertParseSuccess(parser, " [i] g/n/test1 j/test2 g/n/test3 j/test4", findInterview);
+        assertParseSuccess(interview, " [i] g/n/test1 j/test2 g/n/test3 j/test4", findInterview);
 
         // finding persons
         FindPersonCommand findPerson = new FindPersonCommand(new PersonContainsKeywordsPredicate(groups));
-        assertParseSuccess(parser, " [p] g/n/test1 j/test2 g/n/test3 j/test4", findPerson);
+        assertParseSuccess(person, " [p] g/n/test1 j/test2 g/n/test3 j/test4", findPerson);
     }
 }

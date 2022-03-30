@@ -62,7 +62,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     // ------ Checks input for any invalid data ------ //
 
     private void checkIfEmpty(List<String> allGroups, String args, String msg) throws ParseException {
-        if (args.isEmpty() || allGroups.isEmpty()) {
+        if (args.isEmpty() || allGroups.isEmpty() || allGroups.stream().anyMatch(grp -> grp.equals(""))) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, msg));
         }
     }
@@ -77,7 +77,8 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidDates(ArgumentMultimap fields, String group) throws ParseException {
         List<String> dates = fields.getAllValues(PREFIX_DATE);
         if (dates.stream().anyMatch(d -> !Date.isValidDate(d.strip()))) {
-            throw new ParseException("Group: " + group + " contains invalid date\n" + Date.MESSAGE_CONSTRAINTS);
+            throw new ParseException(String.format("Group " + group + ": contains invalid date\n",
+                    Date.MESSAGE_CONSTRAINTS));
         }
     }
 
@@ -91,7 +92,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidTime(ArgumentMultimap fields, String group) throws ParseException {
         List<String> times = fields.getAllValues(PREFIX_TIME);
         if (times.stream().anyMatch(t -> !Time.isValidTime(t.strip()))) {
-            throw new ParseException("Group: " + group + " contains invalid time\n" + Time.MESSAGE_CONSTRAINTS);
+            throw new ParseException("Group " + group + ": contains invalid time\n" + Time.MESSAGE_CONSTRAINTS);
         }
     }
 
@@ -105,7 +106,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidName(ArgumentMultimap fields, String group) throws ParseException {
         List<String> names = fields.getAllValues(PREFIX_NAME);
         if (names.stream().anyMatch(n -> !Name.isValidName(n.strip()))) {
-            throw new ParseException("Group: " + group + " contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
+            throw new ParseException("Group " + group + ": contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
         }
     }
 
@@ -119,7 +120,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidJob(ArgumentMultimap fields, String group) throws ParseException {
         List<String> jobs = fields.getAllValues(PREFIX_JOB);
         if (jobs.stream().anyMatch(j -> !Job.isValidJob(j.strip()))) {
-            throw new ParseException("Group: " + group + " contains invalid job\n" + Job.MESSAGE_CONSTRAINTS);
+            throw new ParseException("Group " + group + ": contains invalid job\n" + Job.MESSAGE_CONSTRAINTS);
         }
     }
 
@@ -133,7 +134,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidPhone(ArgumentMultimap fields, String group) throws ParseException {
         List<String> phoneNumbers = fields.getAllValues(PREFIX_PHONE);
         if (phoneNumbers.stream().anyMatch(p -> !Phone.isValidPhone(p))) {
-            throw new ParseException("Group: " + group + " contains invalid phone number\n"
+            throw new ParseException("Group " + group + ": contains invalid phone number\n"
                     + Phone.MESSAGE_CONSTRAINTS);
         }
     }
@@ -148,7 +149,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidEmail(ArgumentMultimap fields, String group) throws ParseException {
         List<String> emails = fields.getAllValues(PREFIX_EMAIL);
         if (emails.stream().anyMatch(e -> !Email.isValidEmail(e))) {
-            throw new ParseException("Group: " + group + " contains invalid email\n" + Email.MESSAGE_CONSTRAINTS);
+            throw new ParseException("Group " + group + ": contains invalid email\n" + Email.MESSAGE_CONSTRAINTS);
         }
     }
 
@@ -162,7 +163,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidAddress(ArgumentMultimap fields, String group) throws ParseException {
         List<String> addresses = fields.getAllValues(PREFIX_ADDRESS);
         if (addresses.stream().anyMatch(a -> !Address.isValidAddress(a))) {
-            throw new ParseException("Group: " + group + " contains invalid address\n" + Address.MESSAGE_CONSTRAINTS);
+            throw new ParseException("Group " + group + ": contains invalid address\n" + Address.MESSAGE_CONSTRAINTS);
         }
     }
 
@@ -176,7 +177,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     public static void checkInvalidStage(ArgumentMultimap fields, String group) throws ParseException {
         List<String> stages = fields.getAllValues(PREFIX_STAGE);
         if (stages.stream().anyMatch(s -> !Stage.isValidStage(s))) {
-            throw new ParseException("Group: " + group + " contains invalid stage\n" + Stage.MESSAGE_CONSTRAINTS);
+            throw new ParseException("Group " + group + ": contains invalid stage\n" + Stage.MESSAGE_CONSTRAINTS);
         }
     }
 }
