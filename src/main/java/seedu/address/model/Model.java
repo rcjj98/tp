@@ -9,6 +9,7 @@ import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 import seedu.address.model.tasks.Deadlines;
 import seedu.address.model.tasks.Events;
+import seedu.address.model.tasks.Task;
 import seedu.address.model.tasks.Todos;
 
 /**
@@ -153,5 +154,8 @@ public interface Model {
     void addDeadline(Deadlines deadline);
 
     void addEvent(Events event);
+
+    /** Returns an unmodifiable view of the filtered task list */
+    ObservableList<Task> getFilteredTaskList();
     
 }

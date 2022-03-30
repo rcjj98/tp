@@ -15,6 +15,7 @@ import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 import seedu.address.model.tasks.Deadlines;
 import seedu.address.model.tasks.Events;
+import seedu.address.model.tasks.Task;
 import seedu.address.model.tasks.Todos;
 
 /**
@@ -27,6 +28,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Interview> filteredInterviews;
+    private final FilteredList<Task> filteredTasks;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -40,6 +42,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         filteredInterviews = new FilteredList<>(this.addressBook.getInterviewList());
+        filteredTasks = new FilteredList<>(this.addressBook.getTaskList());
     }
 
     public ModelManager() {
@@ -208,18 +211,6 @@ public class ModelManager implements Model {
     //=========== Task List methods =============================================================
 
 
-    // @Override
-    // public void addPerson(Person person) {
-    //     addressBook.addPerson(person);
-    //     updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-    // }
-
-    // @Override
-    // public void addInterview(Interview interview) {
-    //     addressBook.addInterview(interview);
-    //     updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
-    // }
-
     @Override
     public void addTodo(Todos todo) {
         requireNonNull(todo);    
@@ -243,6 +234,15 @@ public class ModelManager implements Model {
     @Override
     public void addEvent(Events event) {
         requireNonNull(event);        
+    }
+
+    /**
+     * Returns an unmodifiable view of the list of {@code task} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Task> getFilteredTaskList() {
+        return filteredTasks;
     }
 
 }
