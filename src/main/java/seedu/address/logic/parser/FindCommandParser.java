@@ -67,6 +67,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid dates.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A date was found to have invalid format.
+     */
     public static void checkInvalidDates(ArgumentMultimap fields, String group) throws ParseException {
         List<String> dates = fields.getAllValues(PREFIX_DATE);
         if (dates.stream().anyMatch(d -> !Date.isValidDate(d.strip()))) {
@@ -74,6 +81,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid time.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A time was found to have invalid format.
+     */
     public static void checkInvalidTime(ArgumentMultimap fields, String group) throws ParseException {
         List<String> times = fields.getAllValues(PREFIX_TIME);
         if (times.stream().anyMatch(t -> !Time.isValidTime(t.strip()))) {
@@ -81,6 +95,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid names.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A name was found to have invalid format.
+     */
     public static void checkInvalidName(ArgumentMultimap fields, String group) throws ParseException {
         List<String> names = fields.getAllValues(PREFIX_NAME);
         if (names.stream().anyMatch(n -> !Name.isValidName(n.strip()))) {
@@ -88,6 +109,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid jobs.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A job was found to have invalid format.
+     */
     public static void checkInvalidJob(ArgumentMultimap fields, String group) throws ParseException {
         List<String> jobs = fields.getAllValues(PREFIX_JOB);
         if (jobs.stream().anyMatch(j -> !Job.isValidJob(j.strip()))) {
@@ -95,6 +123,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid phone numbers.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A phone number was found to have invalid format.
+     */
     public static void checkInvalidPhone(ArgumentMultimap fields, String group) throws ParseException {
         List<String> phoneNumbers = fields.getAllValues(PREFIX_PHONE);
         if (phoneNumbers.stream().anyMatch(p -> !Phone.isValidPhone(p))) {
@@ -102,6 +137,14 @@ public class FindCommandParser implements Parser<FindCommand> {
                     + Phone.MESSAGE_CONSTRAINTS);
         }
     }
+
+    /**
+     * Checks the current group for any invalid emails.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException An email was found to have invalid format.
+     */
     public static void checkInvalidEmail(ArgumentMultimap fields, String group) throws ParseException {
         List<String> emails = fields.getAllValues(PREFIX_EMAIL);
         if (emails.stream().anyMatch(e -> !Email.isValidEmail(e))) {
@@ -109,6 +152,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid addresses.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException An address was found to have invalid format.
+     */
     public static void checkInvalidAddress(ArgumentMultimap fields, String group) throws ParseException {
         List<String> addresses = fields.getAllValues(PREFIX_ADDRESS);
         if (addresses.stream().anyMatch(a -> !Address.isValidAddress(a))) {
@@ -116,6 +166,13 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
+    /**
+     * Checks the current group for any invalid stages.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A stage was found to have invalid format.
+     */
     public static void checkInvalidStage(ArgumentMultimap fields, String group) throws ParseException {
         List<String> stages = fields.getAllValues(PREFIX_STAGE);
         if (stages.stream().anyMatch(s -> !Stage.isValidStage(s))) {
