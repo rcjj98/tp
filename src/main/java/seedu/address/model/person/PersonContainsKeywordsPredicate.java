@@ -1,13 +1,17 @@
 package seedu.address.model.person;
 
-import seedu.address.logic.parser.ArgumentMultimap;
-import seedu.address.logic.parser.ArgumentTokenizer;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
 
 import java.util.List;
 import java.util.function.Predicate;
 
-import static seedu.address.logic.parser.CliSyntax.*;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
+import seedu.address.logic.parser.ArgumentMultimap;
+import seedu.address.logic.parser.ArgumentTokenizer;
 
 /**
  * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
@@ -23,34 +27,36 @@ public class PersonContainsKeywordsPredicate implements Predicate<Person> {
     public boolean test(Person person) {
         for (String group : keywords) {
             boolean containsAllGroupTerms = true;
-            ArgumentMultimap fields = ArgumentTokenizer.tokenize(" " + group, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE);
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(" " + group, PREFIX_NAME,
+                    PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE);
 
             List<String> names = fields.getAllValues(PREFIX_NAME);
+            List<String> phone = fields.getAllValues(PREFIX_PHONE);
+            List<String> emails = fields.getAllValues(PREFIX_EMAIL);
+            List<String> addresses = fields.getAllValues(PREFIX_ADDRESS);
+            List<String> jobs = fields.getAllValues(PREFIX_JOB);
+            List<String> stages = fields.getAllValues(PREFIX_STAGE);
+
             if (!names.isEmpty() && names.stream().noneMatch(n -> person.getName().contains(n))) {
                 containsAllGroupTerms = false;
             }
 
-            List<String> phone = fields.getAllValues(PREFIX_PHONE);
             if (!phone.isEmpty() && phone.stream().noneMatch(p -> person.getPhone().contains(p))) {
                 containsAllGroupTerms = false;
             }
 
-            List<String> emails = fields.getAllValues(PREFIX_EMAIL);
             if (!emails.isEmpty() && emails.stream().noneMatch(e -> person.getEmail().contains(e))) {
                 containsAllGroupTerms = false;
             }
 
-            List<String> addresses = fields.getAllValues(PREFIX_ADDRESS);
             if (!addresses.isEmpty() && addresses.stream().noneMatch(a -> person.getAddress().contains(a))) {
                 containsAllGroupTerms = false;
             }
 
-            List<String> jobs = fields.getAllValues(PREFIX_JOB);
             if (!jobs.isEmpty() && jobs.stream().noneMatch(j -> person.getJob().contains(j))) {
                 containsAllGroupTerms = false;
             }
 
-            List<String> stages = fields.getAllValues(PREFIX_STAGE);
             if (!stages.isEmpty() && stages.stream().noneMatch(s -> person.getStage().contains(s))) {
                 containsAllGroupTerms = false;
             }

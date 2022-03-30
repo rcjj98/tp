@@ -52,7 +52,7 @@ public class Email {
     }
 
     public boolean contains(String s) {
-        return value.toLowerCase().contains(s.toLowerCase());
+        return value.toLowerCase().contains(s.toLowerCase().strip());
     }
 
     @Override

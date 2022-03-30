@@ -1,7 +1,19 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
+import static seedu.address.logic.parser.CliSyntax.TYPE_INTERVIEW;
+import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
+
+import java.util.List;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindInterviewCommand;
@@ -9,15 +21,25 @@ import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.interview.Date;
 import seedu.address.model.interview.Time;
-import seedu.address.model.person.*;
-
-import java.util.List;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Job;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Stage;
 
 /**
  * Parses input arguments and creates a new FindCommand object
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
+    /**
+     * Parses the initial input taken from the application
+     *
+     * @param input The input passed from the application.
+     * @return A FindPersonCommand or FindInterviewCommand ready for execution or an error stating that no type is found
+     * @throws ParseException A search term has an invalid format.
+     */
     public FindCommand parse(String input) throws ParseException {
         String type = ArgumentTokenizer.getType(input.trim());
         String args = input.trim().substring(3);
@@ -38,6 +60,7 @@ public class FindCommandParser implements Parser<FindCommand> {
     }
 
     // ------ Checks input for any invalid data ------ //
+
     private void checkIfEmpty(List<String> allGroups, String args, String msg) throws ParseException {
         if (args.isEmpty() || allGroups.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, msg));

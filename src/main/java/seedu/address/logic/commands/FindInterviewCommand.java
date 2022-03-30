@@ -1,21 +1,21 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.INTERVIEW;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 import seedu.address.model.interview.InterviewContainsKeywordsPredicate;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.Type.INTERVIEW;
-
 public class FindInterviewCommand extends FindCommand {
-
-    private InterviewContainsKeywordsPredicate predicate;
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + " [i] : Finds all interviews that meet search criteria.\n"
             + "Only accepts: g/, d/, t/, n/ and j/ flags\n"
             + "Example: " + COMMAND_WORD + " [i] g/n/john j/software engineer g/d/07-May-2020";
+
+    private InterviewContainsKeywordsPredicate predicate;
 
     public FindInterviewCommand(InterviewContainsKeywordsPredicate predicate) {
         this.predicate = predicate;

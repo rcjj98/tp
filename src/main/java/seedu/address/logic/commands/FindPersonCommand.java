@@ -1,21 +1,21 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.PERSON;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 import seedu.address.model.person.PersonContainsKeywordsPredicate;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.Type.PERSON;
-
 public class FindPersonCommand extends FindCommand {
-
-    private PersonContainsKeywordsPredicate predicate;
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + " [p] : Finds all persons that meet search criteria.\n"
             + "Only accepts: g/, n/, p/, e/, a/, j/, and s/ flags\n"
             + "Example: " + COMMAND_WORD + " [p] g/n/john j/software engineer g/e/gmail.com";
+
+    private PersonContainsKeywordsPredicate predicate;
 
     public FindPersonCommand(PersonContainsKeywordsPredicate predicate) {
         this.predicate = predicate;

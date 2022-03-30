@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INTERVIEW_LIST_NOT_EMPTY;
-import static seedu.address.logic.parser.Type.INTERVIEW;
 import static seedu.address.logic.parser.Type.PERSON;
 
 import seedu.address.logic.commands.exceptions.CommandException;

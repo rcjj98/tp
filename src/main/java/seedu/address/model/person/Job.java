@@ -44,7 +44,7 @@ public class Job {
     }
 
     public boolean contains(String s) {
-        return jobTitle.toLowerCase().contains(s.toLowerCase());
+        return jobTitle.toLowerCase().contains(s.toLowerCase().strip());
     }
 
     @Override
