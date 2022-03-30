@@ -15,6 +15,8 @@ import seedu.address.commons.core.LogsCenter;
  */
 public class HelpWindow extends UiPart<Stage> {
 
+    public static final String USERGUIDE_URL = "https://ay2122s2-cs2103t-w11-2.github.io/tp/UserGuide.html";
+
     private static final String FLAGS_HELP = "Flags:\n"
             + "\ta/ : Address\n"
             + "\td/ : Date (Format: yyyy-mm-dd)\n"
@@ -26,7 +28,6 @@ public class HelpWindow extends UiPart<Stage> {
             + "\ts/ : Stage (Current progress of the job application process)\n"
             + "\tt/ : Time (Format: HH:MM)";
 
-    public static final String USERGUIDE_URL = "https://ay2122s2-cs2103t-w11-2.github.io/tp/UserGuide.html";
     public static final String HELP_MESSAGE = "Refer to the user guide for more information: "
             + USERGUIDE_URL
             + "\n\n"
