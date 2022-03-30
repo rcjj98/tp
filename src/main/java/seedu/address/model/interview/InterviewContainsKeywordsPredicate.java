@@ -31,19 +31,19 @@ public class InterviewContainsKeywordsPredicate implements Predicate<Interview> 
             List<String> names = fields.getAllValues(PREFIX_NAME);
             List<String> jobs = fields.getAllValues(PREFIX_JOB);
 
-            if (!dates.isEmpty() && dates.stream().noneMatch(d -> interview.getDate().toString().contains(d))) {
+            if (!dates.isEmpty() && !dates.stream().allMatch(d -> interview.getDate().toString().contains(d))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!times.isEmpty() && times.stream().noneMatch(t-> interview.getTime().toString().contains(t))) {
+            if (!times.isEmpty() && !times.stream().allMatch(t-> interview.getTime().toString().contains(t))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!names.isEmpty() && names.stream().noneMatch(n -> interview.getPerson().getName().contains(n))) {
+            if (!names.isEmpty() && !names.stream().allMatch(n -> interview.getPerson().getName().contains(n))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!jobs.isEmpty() && jobs.stream().noneMatch(j -> interview.getPerson().getJob().contains(j))) {
+            if (!jobs.isEmpty() && !jobs.stream().allMatch(j -> interview.getPerson().getJob().contains(j))) {
                 containsAllGroupTerms = false;
             }
 

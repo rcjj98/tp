@@ -37,27 +37,27 @@ public class PersonContainsKeywordsPredicate implements Predicate<Person> {
             List<String> jobs = fields.getAllValues(PREFIX_JOB);
             List<String> stages = fields.getAllValues(PREFIX_STAGE);
 
-            if (!names.isEmpty() && names.stream().noneMatch(n -> person.getName().contains(n))) {
+            if (!names.isEmpty() && !names.stream().allMatch(n -> person.getName().contains(n))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!phone.isEmpty() && phone.stream().noneMatch(p -> person.getPhone().contains(p))) {
+            if (!phone.isEmpty() && !phone.stream().allMatch(p -> person.getPhone().contains(p))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!emails.isEmpty() && emails.stream().noneMatch(e -> person.getEmail().contains(e))) {
+            if (!emails.isEmpty() && !emails.stream().allMatch(e -> person.getEmail().contains(e))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!addresses.isEmpty() && addresses.stream().noneMatch(a -> person.getAddress().contains(a))) {
+            if (!addresses.isEmpty() && !addresses.stream().allMatch(a -> person.getAddress().contains(a))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!jobs.isEmpty() && jobs.stream().noneMatch(j -> person.getJob().contains(j))) {
+            if (!jobs.isEmpty() && !jobs.stream().allMatch(j -> person.getJob().contains(j))) {
                 containsAllGroupTerms = false;
             }
 
-            if (!stages.isEmpty() && stages.stream().noneMatch(s -> person.getStage().contains(s))) {
+            if (!stages.isEmpty() && !stages.stream().allMatch(s -> person.getStage().contains(s))) {
                 containsAllGroupTerms = false;
             }
 
