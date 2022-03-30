@@ -4,7 +4,14 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.*;
 
 import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.FindInterviewCommand;
+import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.interview.Date;
+import seedu.address.model.interview.Time;
+import seedu.address.model.person.*;
+
+import java.util.List;
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -15,40 +22,81 @@ public class FindCommandParser implements Parser<FindCommand> {
         String type = ArgumentTokenizer.getType(input.trim());
         String args = input.trim().substring(3);
 
-        if (args.isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
-        }
+        // splits tokens by its groups
+        ArgumentMultimap groupTokens = ArgumentTokenizer.tokenize(" " + args, PREFIX_GROUP);
+        List<String> allGroups = groupTokens.getAllValues(PREFIX_GROUP);
 
-        switch (type) {
-        case TYPE_PERSON:
-            return new FindPersonCommandParser().parse(args);
-        case TYPE_INTERVIEW:
-            return new FindInterviewCommandParser().parse(args);
-        default:
+        if (type.equals(TYPE_PERSON)) {
+            checkIfEmpty(allGroups, args, FindPersonCommand.MESSAGE_USAGE);
+            return new FindPersonCommandParser().parse(allGroups);
+        } else if (type.equals(TYPE_INTERVIEW)) {
+            checkIfEmpty(allGroups, args, FindInterviewCommand.MESSAGE_USAGE);
+            return new FindInterviewCommandParser().parse(allGroups);
+        } else {
             return null;
         }
     }
 
-    /*
-
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_GROUP);
-
-        if (argMultimap.getValue(PREFIX_GROUP).isPresent()) {
-            List<String> terms = argMultimap.getAllValues(PREFIX_GROUP);
-            assert !terms.isEmpty() : "No values found in g/flag";
-            boolean isEmpty = terms.stream().anyMatch(x -> x.equals(""));
-
-            if (isEmpty) {
-                throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, "g/ is empty"));
-            }
-
-            return new FindCommand(new PersonContainsKeywordsPredicate(terms));
-        } else {
-            throw new ParseException(
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, "g/ cannot be found"));
+    // ------ Checks input for any invalid data ------ //
+    private void checkIfEmpty(List<String> allGroups, String args, String msg) throws ParseException {
+        if (args.isEmpty() || allGroups.isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, msg));
         }
     }
-    */
 
+    public static void checkInvalidDates(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> dates = fields.getAllValues(PREFIX_DATE);
+        if (dates.stream().anyMatch(d -> !Date.isValidDate(d.strip()))) {
+            throw new ParseException("Group: " + group + " contains invalid date\n" + Date.MESSAGE_CONSTRAINTS);
+        }
+    }
+
+    public static void checkInvalidTime(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> times = fields.getAllValues(PREFIX_TIME);
+        if (times.stream().anyMatch(t -> !Time.isValidTime(t.strip()))) {
+            throw new ParseException("Group: " + group + " contains invalid time\n" + Time.MESSAGE_CONSTRAINTS);
+        }
+    }
+
+    public static void checkInvalidName(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> names = fields.getAllValues(PREFIX_NAME);
+        if (names.stream().anyMatch(n -> !Name.isValidName(n.strip()))) {
+            throw new ParseException("Group: " + group + " contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
+        }
+    }
+
+    public static void checkInvalidJob(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> jobs = fields.getAllValues(PREFIX_JOB);
+        if (jobs.stream().anyMatch(j -> !Job.isValidJob(j.strip()))) {
+            throw new ParseException("Group: " + group + " contains invalid job\n" + Job.MESSAGE_CONSTRAINTS);
+        }
+    }
+
+    public static void checkInvalidPhone(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> phoneNumbers = fields.getAllValues(PREFIX_PHONE);
+        if (phoneNumbers.stream().anyMatch(p -> !Phone.isValidPhone(p))) {
+            throw new ParseException("Group: " + group + " contains invalid phone number\n"
+                    + Phone.MESSAGE_CONSTRAINTS);
+        }
+    }
+    public static void checkInvalidEmail(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> emails = fields.getAllValues(PREFIX_EMAIL);
+        if (emails.stream().anyMatch(e -> !Email.isValidEmail(e))) {
+            throw new ParseException("Group: " + group + " contains invalid email\n" + Email.MESSAGE_CONSTRAINTS);
+        }
+    }
+
+    public static void checkInvalidAddress(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> addresses = fields.getAllValues(PREFIX_ADDRESS);
+        if (addresses.stream().anyMatch(a -> !Address.isValidAddress(a))) {
+            throw new ParseException("Group: " + group + " contains invalid address\n" + Address.MESSAGE_CONSTRAINTS);
+        }
+    }
+
+    public static void checkInvalidStage(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> stages = fields.getAllValues(PREFIX_STAGE);
+        if (stages.stream().anyMatch(s -> !Stage.isValidStage(s))) {
+            throw new ParseException("Group: " + group + " contains invalid stage\n" + Stage.MESSAGE_CONSTRAINTS);
+        }
+    }
 }

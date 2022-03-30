@@ -12,6 +12,11 @@ public class FindInterviewCommand extends FindCommand {
 
     private InterviewContainsKeywordsPredicate predicate;
 
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + " [i] : Finds all interviews that meet search criteria.\n"
+            + "Only accepts: g/, d/, t/, n/ and j/ flags\n"
+            + "Example: " + COMMAND_WORD + " [i] g/n/john j/software engineer g/d/07-May-2020";
+
     public FindInterviewCommand(InterviewContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
