@@ -13,7 +13,7 @@ public class ClearInterviewCommand extends ClearCommand {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.resetInterviews();
-        return new CommandResult(MESSAGE_SUCCESS, getType());
+        return new CommandResult(MESSAGE_SUCCESS, Type.INTERVIEW);
     }
 
     @Override

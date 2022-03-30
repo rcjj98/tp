@@ -67,7 +67,7 @@ public class DeletePersonCommand extends DeleteCommand {
         }
 
         model.deletePerson(personToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), PERSON);
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     /**
@@ -126,7 +126,7 @@ public class DeletePersonCommand extends DeleteCommand {
         Person personToDelete = lastShownList.get(pos);
         model.deletePerson(personToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), getType());
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     @Override

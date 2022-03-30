@@ -18,10 +18,10 @@ public class PersonContainsKeywordsPredicateTest {
     public void equals() {
 
         List<String> first = new ArrayList<>();
-        first.add("first");
+        first.add("n/first");
 
         List<String> second = new ArrayList<>();
-        second.add("second");
+        second.add("j/second");
 
         PersonContainsKeywordsPredicate firstPredicate = new PersonContainsKeywordsPredicate(first);
         PersonContainsKeywordsPredicate secondPredicate = new PersonContainsKeywordsPredicate(second);
@@ -49,23 +49,23 @@ public class PersonContainsKeywordsPredicateTest {
         List<String> keywords = new ArrayList<>();
 
         // One keyword
-        keywords.add("alice");
+        keywords.add("n/alice");
         PersonContainsKeywordsPredicate predicate = new PersonContainsKeywordsPredicate(keywords);
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Multiple keywords
-        keywords.add("bob");
+        keywords.add("n/bob");
         predicate = new PersonContainsKeywordsPredicate(keywords);
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
 
         // Only one matching keyword
-        keywords.add("john");
+        keywords.add("n/john");
         predicate = new PersonContainsKeywordsPredicate(keywords);
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Carol").build()));
 
         // Mixed-case keywords
         keywords.clear();
-        keywords.add("aLIce bOB");
+        keywords.add("n/aLIce bOB");
         predicate = new PersonContainsKeywordsPredicate(keywords);
         assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
     }
@@ -75,15 +75,8 @@ public class PersonContainsKeywordsPredicateTest {
 
         List<String> keywords = new ArrayList<>();
 
-        /* already checks for zero keywords
-        // Zero keywords
-        name.put(PREFIX_NAME, "");
-        PersonContainsKeywordsPredicate predicate = new PersonContainsKeywordsPredicate(name);
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice").build()));
-        */
-
         // Non-matching keyword
-        keywords.add("Carol");
+        keywords.add("n/Carol");
         PersonContainsKeywordsPredicate predicate = new PersonContainsKeywordsPredicate(keywords);
         assertFalse(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
     }
