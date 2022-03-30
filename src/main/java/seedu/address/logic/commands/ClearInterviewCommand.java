@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.INTERVIEW;
 
 import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
@@ -13,6 +14,11 @@ public class ClearInterviewCommand extends ClearCommand {
         requireNonNull(model);
         model.resetInterviews();
         return new CommandResult(MESSAGE_SUCCESS, Type.INTERVIEW);
+    }
+
+    @Override
+    public Type getType() {
+        return INTERVIEW;
     }
 }
 

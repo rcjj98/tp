@@ -12,18 +12,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.AddPersonCommand;
-import seedu.address.logic.commands.ClearInterviewCommand;
-import seedu.address.logic.commands.ClearPersonCommand;
-import seedu.address.logic.commands.DeletePersonCommand;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ImportCommand;
-import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.ListPersonCommand;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.interview.InterviewContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
@@ -75,12 +66,17 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_find() throws Exception {
+        List<String> groups = new ArrayList<>();
+        groups.add("n/foo");
+        groups.add("j/bar");
 
-        List<String> keywords = new ArrayList<>();
-        keywords.add("foo 12345678 @example.com");
-        FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " g/foo 12345678 @example.com");
-        assertEquals(new FindCommand(new PersonContainsKeywordsPredicate(keywords)), command);
+        FindInterviewCommand interview = (FindInterviewCommand) parser.parseCommand(
+            FindCommand.COMMAND_WORD + " [i] g/n/foo g/j/bar");
+        FindPersonCommand person = (FindPersonCommand) parser.parseCommand(
+            FindCommand.COMMAND_WORD + " [p] g/n/foo g/j/bar");
+
+        assertEquals(new FindPersonCommand(new PersonContainsKeywordsPredicate(groups)), person);
+        assertEquals(new FindInterviewCommand(new InterviewContainsKeywordsPredicate(groups)), interview);
     }
 
     @Test

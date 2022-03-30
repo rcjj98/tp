@@ -37,22 +37,22 @@ public class FindInterviewCommandParser implements Parser<FindInterviewCommand> 
             ArgumentMultimap fields = ArgumentTokenizer.tokenize(" " + group, PREFIX_DATE, PREFIX_TIME, PREFIX_NAME, PREFIX_JOB);
 
             List<String> dates = fields.getAllValues(PREFIX_DATE);
-            if (dates.stream().anyMatch(d -> !Date.isValidDate(d))) {
+            if (dates.stream().anyMatch(d -> !Date.isValidDate(d.strip()))) {
                 throw new ParseException("Group: " + group + " contains invalid date\n" + Date.MESSAGE_CONSTRAINTS);
             }
 
             List<String> times = fields.getAllValues(PREFIX_TIME);
-            if (times.stream().anyMatch(t -> !Time.isValidTime(t))) {
+            if (times.stream().anyMatch(t -> !Time.isValidTime(t.strip()))) {
                 throw new ParseException("Group: " + group + " contains invalid time\n" + Time.MESSAGE_CONSTRAINTS);
             }
 
             List<String> names = fields.getAllValues(PREFIX_NAME);
-            if (names.stream().anyMatch(n -> !Name.isValidName(n))) {
+            if (names.stream().anyMatch(n -> !Name.isValidName(n.strip()))) {
                 throw new ParseException("Group: " + group + " contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
             }
 
             List<String> jobs = fields.getAllValues(PREFIX_JOB);
-            if (jobs.stream().anyMatch(j -> !Job.isValidJob(j))) {
+            if (jobs.stream().anyMatch(j -> !Job.isValidJob(j.strip()))) {
                 throw new ParseException("Group: " + group + " contains invalid job\n" + Job.MESSAGE_CONSTRAINTS);
             }
         }

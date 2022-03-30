@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INTERVIEW_LIST_NOT_EMPTY;
+import static seedu.address.logic.parser.Type.INTERVIEW;
+import static seedu.address.logic.parser.Type.PERSON;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.Type;
@@ -18,6 +20,11 @@ public class ClearPersonCommand extends ClearCommand {
         } else {
             throw new CommandException(MESSAGE_INTERVIEW_LIST_NOT_EMPTY);
         }
-        return new CommandResult(MESSAGE_SUCCESS, Type.PERSON);
+        return new CommandResult(MESSAGE_SUCCESS, PERSON);
+    }
+
+    @Override
+    public Type getType() {
+        return PERSON;
     }
 }

@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.INTERVIEW;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_INTERVIEWS;
 
 import seedu.address.logic.parser.Type;
@@ -14,6 +15,11 @@ public class ListInterviewCommand extends ListCommand {
         requireNonNull(model);
         model.updateFilteredInterviewList(PREDICATE_SHOW_ALL_INTERVIEWS);
         return new CommandResult(MESSAGE_SUCCESS, Type.INTERVIEW);
+    }
+
+    @Override
+    public Type getType() {
+        return INTERVIEW;
     }
 }
 

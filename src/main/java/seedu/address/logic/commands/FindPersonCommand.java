@@ -6,6 +6,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.PersonContainsKeywordsPredicate;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.PERSON;
 
 public class FindPersonCommand extends FindCommand {
 
@@ -38,5 +39,10 @@ public class FindPersonCommand extends FindCommand {
         // state check
         FindPersonCommand e = (FindPersonCommand) other;
         return predicate.equals(e.predicate);
+    }
+
+    @Override
+    public Type getType() {
+        return PERSON;
     }
 }

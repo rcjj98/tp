@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.INTERVIEW;
 
 import java.util.List;
 
@@ -104,6 +105,11 @@ public class DeleteInterviewCommand extends DeleteCommand {
         return other == this // short circuit if same object
                 || (other instanceof DeleteInterviewCommand // instanceof handles nulls
                 && targetIndex.equals(((DeleteInterviewCommand) other).targetIndex)); // state check
+    }
+
+    @Override
+    public Type getType() {
+        return INTERVIEW;
     }
 }
 

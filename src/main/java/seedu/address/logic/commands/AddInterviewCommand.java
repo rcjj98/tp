@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
+import static seedu.address.logic.parser.Type.INTERVIEW;
 
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class AddInterviewCommand extends AddCommand {
         }
 
         model.addInterview(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), Type.INTERVIEW);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), INTERVIEW);
     }
 
     /**
@@ -88,5 +89,10 @@ public class AddInterviewCommand extends AddCommand {
                 && index.equals(((AddInterviewCommand) other).index)
                 && date.equals(((AddInterviewCommand) other).date)
                 && time.equals(((AddInterviewCommand) other).time));
+    }
+
+    @Override
+    public Type getType() {
+        return INTERVIEW;
     }
 }

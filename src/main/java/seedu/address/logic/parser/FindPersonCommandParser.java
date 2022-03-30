@@ -39,6 +39,7 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
                 throw new ParseException("Group: " + group + " contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
             }
 
+            /*
             List<String> phoneNumbers = fields.getAllValues(PREFIX_PHONE);
             if (phoneNumbers.stream().anyMatch(p -> !Phone.isValidPhone(p))) {
                 throw new ParseException("Group: " + group + " contains invalid phone numbers\n" + Phone.MESSAGE_CONSTRAINTS);
@@ -57,7 +58,7 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
             List<String> jobs = fields.getAllValues(PREFIX_JOB);
             if (jobs.stream().anyMatch(j -> !Job.isValidJob(j))) {
                 throw new ParseException("Group: " + group + " contains invalid job\n" + Job.MESSAGE_CONSTRAINTS);
-            }
+            }*/
 
             List<String> stages = fields.getAllValues(PREFIX_STAGE);
             System.out.println(stages);

@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
+import static seedu.address.logic.parser.Type.PERSON;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
@@ -249,6 +250,11 @@ public class EditCommand extends Command {
                     && getJob().equals(e.getJob())
                     && getStage().equals(e.getStage());
         }
+    }
+
+    @Override
+    public Type getType() {
+        return PERSON;
     }
 }
 

@@ -6,6 +6,7 @@ import seedu.address.model.Model;
 import seedu.address.model.interview.InterviewContainsKeywordsPredicate;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.INTERVIEW;
 
 public class FindInterviewCommand extends FindCommand {
 
@@ -38,5 +39,10 @@ public class FindInterviewCommand extends FindCommand {
         // state check
         FindInterviewCommand e = (FindInterviewCommand) other;
         return predicate.equals(e.predicate);
+    }
+
+    @Override
+    public Type getType() {
+        return INTERVIEW;
     }
 }

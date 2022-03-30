@@ -43,8 +43,6 @@ public class Name {
     }
 
     public boolean contains(String s) {
-        System.out.println(s);
-        System.out.println(fullName);
         return fullName.toLowerCase().contains(s.toLowerCase());
     }
 

@@ -18,4 +18,7 @@ public abstract class FindCommand extends Command {
 
     @Override
     public abstract CommandResult execute(Model model);
+
+    @Override
+    public abstract boolean equals(Object other);
 }

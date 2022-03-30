@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_NO_TYPE_GIVEN;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -10,6 +11,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.FindInterviewCommand;
+import seedu.address.logic.commands.FindPersonCommand;
+import seedu.address.model.interview.InterviewContainsKeywordsPredicate;
 import seedu.address.model.person.PersonContainsKeywordsPredicate;
 
 public class FindCommandParserTest {
@@ -18,21 +22,21 @@ public class FindCommandParserTest {
 
     @Test
     public void parse_emptyArg_throwsParseException() {
-        assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "     ", MESSAGE_NO_TYPE_GIVEN);
     }
 
     @Test
     public void parse_validArgs_returnsFindCommand() {
-        // no leading and trailing whitespaces
+        List<String> groups = new ArrayList<>();
+        groups.add("n/test1 j/test2");
+        groups.add("n/test3 j/test4");
 
-        List<String> keywords = new ArrayList<>();
-        keywords.add("alice 12345678");
-        keywords.add("bob 87654321");
+        // finding interview
+        FindInterviewCommand findInterview = new FindInterviewCommand(new InterviewContainsKeywordsPredicate(groups));
+        assertParseSuccess(parser, " [i] g/n/test1 j/test2 g/n/test3 j/test4", findInterview);
 
-        FindCommand expectedFindCommand =
-                new FindCommand(new PersonContainsKeywordsPredicate(keywords));
-        assertParseSuccess(parser, "find g/alice 12345678 g/bob 87654321", expectedFindCommand);
-
+        // finding persons
+        FindPersonCommand findPerson = new FindPersonCommand(new PersonContainsKeywordsPredicate(groups));
+        assertParseSuccess(parser, " [p] g/n/test1 j/test2 g/n/test3 j/test4", findPerson);
     }
-
 }
