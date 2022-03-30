@@ -126,7 +126,7 @@ Deletes an existing job applicant/interview timing in the address book.
   Example: `delete [i] 1`
 
 &nbsp;
-### Finding a job applicant by keywords: `find` 
+### Finding a job applicant or interviews by keywords: `find` 
 Finds job applicants or interviews whose data contain any of the given keywords.
 
 Use `g/` flags to find job applicants or interviews whose data contain **all** the keywords.
