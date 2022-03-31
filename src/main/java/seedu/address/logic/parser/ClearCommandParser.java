@@ -3,10 +3,12 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.TYPE_INTERVIEW;
 import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
+import static seedu.address.logic.parser.CliSyntax.TYPE_TASK;
 
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.ClearInterviewCommand;
 import seedu.address.logic.commands.ClearPersonCommand;
+import seedu.address.logic.commands.ClearTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ClearCommandParser {
@@ -23,6 +25,8 @@ public class ClearCommandParser {
             return new ClearPersonCommand();
         } else if (type.equals(TYPE_INTERVIEW)) {
             return new ClearInterviewCommand();
+        } else if (type.equals(TYPE_TASK)) {
+            return new ClearTaskCommand();
         } else {
             return null;
         }

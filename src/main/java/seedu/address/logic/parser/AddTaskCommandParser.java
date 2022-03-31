@@ -1,13 +1,13 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.tasks.Description;
+import seedu.address.model.tasks.Information;
 import seedu.address.model.tasks.Task;
 
 public class AddTaskCommandParser implements Parser<AddTaskCommand> {
@@ -16,15 +16,15 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
     public AddTaskCommand parse(String args) throws ParseException {
 
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION);
+                ArgumentTokenizer.tokenize(args, PREFIX_INFORMATION);
 
         if (!arePrefixesPresent(argMultimap,
-                PREFIX_DESCRIPTION) || !argMultimap.getPreamble().isEmpty()) {
+                PREFIX_INFORMATION) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
         }
 
-        Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
-        Task newTask = new Task(description);
+        Information information = ParserUtil.parseInformation(argMultimap.getValue(PREFIX_INFORMATION).get());
+        Task newTask = new Task(information);
 
         return new AddTaskCommand(newTask);
     }

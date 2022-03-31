@@ -1,6 +1,5 @@
 package seedu.address.logic.commands;
 
-// import static seedu.address.commons.core.Messages.MESSAGE_PERSON_HAS_INTERVIEW;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.Type.TASK;
 
@@ -16,7 +15,7 @@ public class DeleteTaskCommand extends DeleteCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
         + " [t] : Deletes the Task identified by the index number used in the displayed task list,\n";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Task has been deleted!";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Task: %1$s";
 
     private final Index targetIndex;
 

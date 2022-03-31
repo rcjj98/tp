@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.tasks.Description;
+import seedu.address.model.tasks.Information;
 import seedu.address.model.tasks.Task;
 
 
@@ -15,21 +15,21 @@ public class JsonAdaptedTask {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
-    private final String description;
+    private final String information;
 
     /**
      * Constructs a {@code JsonAdaptedTask} with the given Task details.
      */
     @JsonCreator
-    public JsonAdaptedTask(@JsonProperty("description") String description) {
-        this.description = description;
+    public JsonAdaptedTask(@JsonProperty("information") String information) {
+        this.information = information;
     }
 
     /**
      * Converts a given {@code Task} into this class for Jackson use.
      */
     public JsonAdaptedTask(Task source) {
-        description = source.getDescription().fullDescription;
+        information = source.getInformation().fullInformation;
     }
 
     /**
@@ -39,16 +39,16 @@ public class JsonAdaptedTask {
      */
     public Task toModelType() throws IllegalValueException {
 
-        if (description == null) {
+        if (information == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                Description.class.getSimpleName()));
+                Information.class.getSimpleName()));
         }
 
-        if (!Description.isValidDescription(description)) {
-            throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS);
+        if (!Information.isValidInformation(information)) {
+            throw new IllegalValueException(Information.MESSAGE_CONSTRAINTS);
         }
-        final Description modelDescription = new Description(description);
+        final Information modelInformation = new Information(information);
 
-        return new Task(modelDescription);
+        return new Task(modelInformation);
     }
 }

@@ -121,6 +121,10 @@ public class AddPersonCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        @Override
+        public void addTask(Task task) {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
@@ -143,12 +147,22 @@ public class AddPersonCommandTest {
         }
 
         @Override
+        public boolean hasTask(Task task) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public void deleteInterview(Interview target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteTask(Task target) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -163,6 +177,11 @@ public class AddPersonCommandTest {
         }
 
         @Override
+        public void setTask(Task target, Task editedTask) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void resetPersons() {
             throw new AssertionError("This method should not be called.");
         }
@@ -172,6 +191,10 @@ public class AddPersonCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        @Override
+        public void resetTasks() {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
         public ObservableList<Person> getFilteredPersonList() {
@@ -180,6 +203,11 @@ public class AddPersonCommandTest {
 
         @Override
         public ObservableList<Interview> getFilteredInterviewList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Task> getFilteredTaskList() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -194,25 +222,12 @@ public class AddPersonCommandTest {
         }
 
         @Override
-        public ObservableList<Task> getFilteredTaskList() {
-            return null;
+        public void updateFilteredTaskList(Predicate<Task> predicate) {
+            throw new AssertionError("This method should not be called.");
         }
 
-        @Override
-        public void addTask(Task toAdd) {
-            requireNonNull(toAdd);
-        }
 
-        @Override
-        public void deleteTask(Task taskToDelete) throws Exception {
-            // TODO Auto-generated method stub
-        }
 
-        @Override
-        public boolean hasTask(Task toAdd) {
-            // TODO Auto-generated method stub
-            return false;
-        }
     }
 
     /**
