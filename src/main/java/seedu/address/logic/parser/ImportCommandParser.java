@@ -44,10 +44,8 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         try {
             if (filepath.endsWith(".csv")) {
                 return new ImportCommand(readCsv(Paths.get(filepath)));
-            } else if (filepath.endsWith(".json")) {
-                return new ImportCommand(readJson(Paths.get(filepath)));
             } else {
-                assert false;
+                return new ImportCommand(readJson(Paths.get(filepath)));
             }
         } catch (IOException e) {
             throw new ParseException(PARSE_ERROR);
