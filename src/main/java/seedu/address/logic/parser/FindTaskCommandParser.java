@@ -38,7 +38,7 @@ public class FindTaskCommandParser extends FindCommandParser {
 
             ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_HEADER, PREFIX_INFORMATION,
                     PREFIX_DATE, PREFIX_TIME);
-          
+
             checkInvalidHeader(fields.getAllValues(PREFIX_HEADER), group);
             checkInvalidInformation(fields.getAllValues(PREFIX_INFORMATION), group);
             checkInvalidDates(fields.getAllValues(PREFIX_DATE), group);

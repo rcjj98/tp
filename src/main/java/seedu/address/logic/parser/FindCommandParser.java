@@ -97,7 +97,7 @@ public class FindCommandParser implements Parser<FindCommand> {
 
             if (!areCorrectPrefixesPresent(padding + firstArg, PREFIX_NAME, PREFIX_PHONE,
                     PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE, PREFIX_DATE, PREFIX_TIME,
-                    PREFIX_GROUP, PREFIX_INFORMATION)) {
+                    PREFIX_GROUP, PREFIX_INFORMATION, PREFIX_HEADER)) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, "No flags found in group"));
             }
         }
@@ -142,28 +142,12 @@ public class FindCommandParser implements Parser<FindCommand> {
     /**
      * Checks the current group for any invalid header.
      *
-     * @param fields Current group of tokens.
-     * @param group The current group in string form.
+     * @param group Current group of tokens.
      * @throws ParseException A header was found to have invalid format.
      */
     public static void checkInvalidHeader(List<String> header, String group) throws ParseException {
         if (header.stream().anyMatch(h -> !Header.isValidHeader(h.strip()))) {
             throw new ParseException("Group " + group + ": contains invalid header\n" + Header.MESSAGE_CONSTRAINTS);
-        }
-    }
-    /**
-     * Checks the current group for any invalid information.
-     *
-     * @param fields Current group of tokens.
-     * @param group The current group in string form.
-     * @throws ParseException A information was found to have invalid format.
-     */
-    public static void checkInvalidInformation(ArgumentMultimap fields, String group)
-            throws ParseException {
-        List<String> information = fields.getAllValues(PREFIX_INFORMATION);
-        if (information.stream().anyMatch(i -> !Information.isValidInformation(i.strip()))) {
-            throw new ParseException("Group " + group
-                    + ": contains invalid information\n" + Information.MESSAGE_CONSTRAINTS);
         }
     }
 

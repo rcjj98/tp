@@ -14,13 +14,13 @@ import seedu.address.model.tasks.Task;
 
 public class AddTaskCommand extends AddCommand {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [t] : Adds a task to the list of tasks."
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [t] : Adds a task to the list of tasks. "
             + "Parameters: "
             + PREFIX_HEADER + "HEADER "
             + PREFIX_DATE + "DATE "
             + PREFIX_TIME + "TIME "
             + PREFIX_INFORMATION + "INFORMATION "
-            + "Example: " + COMMAND_WORD
+            + "Example: " + COMMAND_WORD + " "
             + PREFIX_HEADER + "Update interview statuses "
             + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "05:29 "
