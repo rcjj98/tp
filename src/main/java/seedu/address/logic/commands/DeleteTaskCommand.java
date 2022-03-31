@@ -5,9 +5,11 @@ import static seedu.address.logic.parser.Type.TASK;
 
 import java.util.List;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.interview.Interview;
 import seedu.address.model.tasks.Task;
 
 public class DeleteTaskCommand extends DeleteCommand {
@@ -30,15 +32,13 @@ public class DeleteTaskCommand extends DeleteCommand {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Task> lastShownTaskList = model.getFilteredTaskList();
+        List<Task> lastShownList = model.getFilteredTaskList();
 
-        Task taskToDelete = lastShownTaskList.get(targetIndex.getZeroBased());
-
-        try {
-            model.deleteTask(taskToDelete);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_INTERVIEW_DISPLAYED_INDEX);
         }
+        Task taskToDelete = lastShownList.get(targetIndex.getZeroBased());
+        model.deleteTask(taskToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete), TASK);
     }
 
