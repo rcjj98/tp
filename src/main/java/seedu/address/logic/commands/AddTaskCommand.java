@@ -10,10 +10,10 @@ import seedu.address.model.tasks.Task;
 
 public class AddTaskCommand extends AddCommand {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + "[t] : Adds a todo task to the list of tasks."
+    public static final String MESSAGE_USAGE = COMMAND_WORD + "[t] : Adds a task to the list of tasks."
         + "Parameters: ";
 
-    public static final String MESSAGE_SUCCESS = "New todo task added successfully!";
+    public static final String MESSAGE_SUCCESS = "Added Task: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the task list";
 
     public final Task toAdd;

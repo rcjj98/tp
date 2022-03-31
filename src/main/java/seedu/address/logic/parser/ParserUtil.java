@@ -13,8 +13,7 @@ import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
-import seedu.address.model.tasks.Description;
-
+import seedu.address.model.tasks.Information;
 
 
 /**
@@ -160,17 +159,17 @@ public class ParserUtil {
     /**
      * Parses a {@code String des} into a {@code Description}.
      * Leading and trailing whitespaces will be trimmed.
-     * @param des
+     * @param information
      * @return Description
      * @throws ParseException
      */
-    public static Description parseDescription(String des) throws ParseException {
-        requireNonNull(des);
-        String trimmedDes = des.trim();
-        if (!Description.isValidDescription(trimmedDes)) {
-            throw new ParseException(Description.MESSAGE_CONSTRAINTS);
+    public static Information parseInformation(String information) throws ParseException {
+        requireNonNull(information);
+        String trimmedInformation = information.trim();
+        if (!Information.isValidInformation(trimmedInformation)) {
+            throw new ParseException(Information.MESSAGE_CONSTRAINTS);
         }
-        return new Description(trimmedDes);
+        return new Information(trimmedInformation);
     }
 }
 
