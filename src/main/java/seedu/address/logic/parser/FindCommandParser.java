@@ -12,12 +12,16 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 import static seedu.address.logic.parser.CliSyntax.TYPE_INTERVIEW;
 import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
+import static seedu.address.logic.parser.CliSyntax.TYPE_TASK;
 
 import java.util.List;
+import java.util.logging.Logger;
 
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.FindInterviewCommand;
 import seedu.address.logic.commands.FindPersonCommand;
+import seedu.address.logic.commands.FindTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.interview.Date;
 import seedu.address.model.interview.Time;
@@ -33,6 +37,8 @@ import seedu.address.model.person.Stage;
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
+    private static Logger logger = LogsCenter.getLogger(FindCommandParser.class);
+
     /**
      * Parses the initial input taken from the application
      *
@@ -41,6 +47,8 @@ public class FindCommandParser implements Parser<FindCommand> {
      * @throws ParseException A search term has an invalid format.
      */
     public FindCommand parse(String input) throws ParseException {
+        logger.info(" ---------- Find command parsing input: " + input);
+
         String type = ArgumentTokenizer.getType(input.trim());
         String args = input.trim().substring(3);
 
@@ -54,6 +62,9 @@ public class FindCommandParser implements Parser<FindCommand> {
         } else if (type.equals(TYPE_INTERVIEW)) {
             checkIfEmpty(allGroups, args, FindInterviewCommand.MESSAGE_USAGE);
             return new FindInterviewCommandParser().parse(allGroups);
+        } else if (type.equals(TYPE_TASK)) {
+            checkIfEmpty(allGroups, args, FindTaskCommand.MESSAGE_USAGE);
+            return new FindTaskCommandParser().parse(allGroups);
         } else {
             return null;
         }
