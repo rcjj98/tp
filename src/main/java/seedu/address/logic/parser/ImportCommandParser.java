@@ -44,8 +44,10 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         try {
             if (filepath.endsWith(".csv")) {
                 return new ImportCommand(readCsv(Paths.get(filepath)));
-            } else {
+            } else if (filepath.endsWith(".json")) {
                 return new ImportCommand(readJson(Paths.get(filepath)));
+            } else {
+                assert false;
             }
         } catch (IOException e) {
             throw new ParseException(PARSE_ERROR);
@@ -104,7 +106,8 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             }
 
         } catch (DataConversionException e) {
-            throw new ParseException("Error while parsing JSON file\nPlease ensure that all data fields is correct");
+            throw new ParseException("Error while parsing JSON file\n"
+                    + "Please ensure that all data fields exists and is correct");
         }
     }
 
