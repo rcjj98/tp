@@ -18,7 +18,6 @@ public class ExportCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
         + ": Exports all data from all job applicants to a CSV file\n";
     public static final String MISSING_CSV_FILE = "CSV file could not be created.";
-    public static final String MISSING_JSON_FILE = "Json file containing job applicant data not found.";
 
     private final Path csvFilePath;
 
