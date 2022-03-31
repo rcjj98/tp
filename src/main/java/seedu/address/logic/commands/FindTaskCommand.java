@@ -11,13 +11,19 @@ import seedu.address.model.tasks.TaskContainsKeywordPredicate;
 public class FindTaskCommand extends FindCommand {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " [i] : Finds all tasks that meet search criteria.\n"
+            + " [t] : Finds all tasks that meet search criteria.\n"
             + "Only accepts: g/, i/ flags\n"
             + "Example: " + COMMAND_WORD + " [t] g/i/asd g/i/def";
 
     private TaskContainsKeywordPredicate predicate;
 
+    /**
+     * Constructor for FindTaskCommand
+     *
+     * @param predicate Search criteria to find tasks
+     */
     public FindTaskCommand(TaskContainsKeywordPredicate predicate) {
+        requireNonNull(predicate);
         this.predicate = predicate;
     }
 
