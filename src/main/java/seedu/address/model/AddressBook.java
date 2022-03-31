@@ -183,13 +183,14 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Adds a Task to the address book.
      * The Task can already be in the address book.
-     * @throws Exception
+     * @throws Exception this exception should be customised
      */
     public void addTask(Task i) {
         try {
             tasks.add(i);
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            System.out.println("We could not add the task --> AddressBook#addTask");
         }
     }
 

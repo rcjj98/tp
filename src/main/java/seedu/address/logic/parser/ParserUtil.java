@@ -157,8 +157,13 @@ public class ParserUtil {
         return new Stage(trimmedStage);
     }
 
-    public static Description parseDescription(String string) {
-        return null;
+    public static Description parseDescription(String des) throws ParseException {
+        requireNonNull(des);
+        String trimmedDes = des.trim();
+        if (!Description.isValidDescription(trimmedDes)) {
+            throw new ParseException(Description.MESSAGE_CONSTRAINTS);
+        }
+        return new Description(trimmedDes);
     }
-
 }
+

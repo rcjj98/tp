@@ -152,4 +152,8 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered task list */
     ObservableList<Task> getFilteredTaskList();
 
+    void addTask(Task toAdd);
+
+    void deleteTask(Task taskToDelete) throws Exception;
+
 }

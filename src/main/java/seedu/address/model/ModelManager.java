@@ -233,4 +233,16 @@ public class ModelManager implements Model {
         return filteredTasks;
     }
 
+    @Override
+    public void addTask(Task toAdd) {
+        requireNonNull(toAdd);
+        addressBook.addTask(toAdd);        
+    }
+
+    @Override
+    public void deleteTask(Task taskToDelete) throws Exception {
+        requireNonNull(taskToDelete);
+        addressBook.removeTask(taskToDelete);
+    }
+
 }

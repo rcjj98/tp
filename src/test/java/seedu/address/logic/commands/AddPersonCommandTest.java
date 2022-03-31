@@ -208,6 +208,17 @@ public class AddPersonCommandTest {
         public ObservableList<Task> getFilteredTaskList() {
             return null;
         }
+
+        @Override
+        public void addTask(Task toAdd) {
+            requireNonNull(toAdd);
+        }
+
+        @Override
+        public void deleteTask(Task taskToDelete) throws Exception {
+            // TODO Auto-generated method stub
+            
+        }
     }
 
     /**
