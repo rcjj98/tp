@@ -43,7 +43,7 @@ public class EditPersonCommand extends EditCommand {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_JOB + "JOB] "
-            + "[" + PREFIX_STAGE + "STAGE] "
+            + "[" + PREFIX_STAGE + "STAGE] \n"
             + "Example: " + COMMAND_WORD + " [p] 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
