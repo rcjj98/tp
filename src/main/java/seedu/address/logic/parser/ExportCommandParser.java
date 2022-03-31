@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import seedu.address.logic.commands.ExportCommand;
-import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ExportCommandParser implements Parser<ExportCommand> {
@@ -40,7 +39,7 @@ public class ExportCommandParser implements Parser<ExportCommand> {
      */
     private void checkFilePath(String path) throws ParseException {
         if (path.equals("")) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ImportCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ExportCommand.MESSAGE_USAGE));
         } else if (!isValidPath(path)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_PATH));
         } else if (!isValidCsvFile(path)) {
