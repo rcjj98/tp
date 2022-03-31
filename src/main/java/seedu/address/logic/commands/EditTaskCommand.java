@@ -32,7 +32,7 @@ public class EditTaskCommand extends EditCommand {
             + "[" + PREFIX_HEADER + "HEADER] "
             + "[" + PREFIX_DATE + "DATE] "
             + "[" + PREFIX_TIME + "TIME] "
-            + "[" + PREFIX_INFORMATION + "INFORMATION] "
+            + "[" + PREFIX_INFORMATION + "INFORMATION] \n"
             + "Example: " + COMMAND_WORD + " [t] 1 "
             + PREFIX_HEADER + "Update interview statuses "
             + PREFIX_DATE + "2021-05-06 ";

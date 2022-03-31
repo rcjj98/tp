@@ -14,12 +14,12 @@ import seedu.address.model.tasks.Task;
 
 public class AddTaskCommand extends AddCommand {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [t] : Adds a task to the list of tasks. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [t] : Adds a task to the list of tasks.\n"
             + "Parameters: "
             + PREFIX_HEADER + "HEADER "
             + PREFIX_DATE + "DATE "
             + PREFIX_TIME + "TIME "
-            + PREFIX_INFORMATION + "INFORMATION "
+            + PREFIX_INFORMATION + "INFORMATION\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_HEADER + "Update interview statuses "
             + PREFIX_DATE + "2021-05-06 "
@@ -33,7 +33,7 @@ public class AddTaskCommand extends AddCommand {
 
     /**
      * Constructor for AddTaskCommand.
-     * @param task
+     * @param task Task to be added
      */
     public AddTaskCommand(Task task) {
         requireNonNull(task);
