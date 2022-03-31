@@ -9,8 +9,9 @@ HRConnect is a desktop application for managing the contacts of job applicants. 
 the progress of each applicant during the application process.
 
 
-* Table of Contents
+## Table of Contents
   {:toc}
+
 
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
@@ -23,7 +24,8 @@ the progress of each applicant during the application process.
 5. Type your command into the command box and press `Enter` to execute it. 
 
     Some sample commands to try:
-   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 j/1 INPROGRESS`: Adds a new contact name Bob Tan to the address book
+   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
+   j/Software Developer s/INPROGRESS`: Adds a new contact name Bob Tan to the address book
    * `list [p]`: Lists all contacts
    * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
    * `clear`: Deletes all contacts.
@@ -31,8 +33,8 @@ the progress of each applicant during the application process.
 
 6. Refer to the [Features](#Features) below for details of each command.
 
-## Features
-### :information_source: Notes about the command format:
+## Applicant Features
+### :information_source: Notes about the command format regarding Applicants:
 * Words in `UPPER_CASE` are the parameters to be supplied by the user. 
   
   e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
@@ -40,17 +42,17 @@ the progress of each applicant during the application process.
 
 * Items in square brackets are optional. 
   
-  e.g n/NAME [j/APPLICATION] can be used as n/John Doe j/1 INPROGRESS or as n/John Doe.
+  e.g n/NAME [p/PHONE_NUMBER] can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
 
 
 * Items with ... after them can be used multiple times including zero times.
 
-  e.g. [j/APPLICATION]... can be used as   (i.e. 0 times), j/1 INPROGRESS, j/2 ACCEPTED etc.
+  e.g. [a/ADDRESS]... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
 
 
-* Parameters can be in any order.
+* Parameters can be supplied in any order.
     
-  e.g. if the command specifies n/NAME p/PHONE_NUMBER, p/PHONE_NUMBER n/NAME is also acceptable.
+  e.g. if the command requires n/NAME p/PHONE_NUMBER, <br> p/PHONE_NUMBER n/NAME is also acceptable.
 
 
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.
@@ -69,38 +71,31 @@ Shows a message explaining how to access the help page and the basic commands.
 Format: `help`  
 
 &nbsp;
-### Listing all job applicants/interviews: `list`
+### Listing all job applicants: `list [p]`
 Shows a list of all job applicants/interviews in the address book.
 
 Format: 
-* `list [i]`: Show all interviews.
 * `list [p]`: Show all job applicants.
 
 &nbsp;
-### Adding a new job applicant/interview: `add` 
-Adds a new job applicant/interview to the address book.
+### Adding a new job applicant: `add [p]` 
+Adds a new job applicant to the address book.
 
 * #### Adding a new job applicant 
-  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`
+  Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/1 INPROGRESS`
+  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
-* #### Adding a new interview 
-  Format: `add [i] INDEX d/DATE t/TIME`
-
-  Example: `add [i] 1 d/9-May-2020 t/17:30`
-
-![add-interview](images/add-interview.png)
 
 &nbsp;
-### Editing a job applicant/interview: `edit`
+### Editing a job applicant:`edit [p]`
 Edits an existing job applicant/interview in the address book
 
 * #### Editing a job applicant
-  Format: `edit INDEX n/NAME j/APPLICATION` <br>
-  Example: `edit 2 n/Amanda Tan j/3 REJECTED` <br><br>
+  Format: `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` <br>
+  Example: `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
 
 Before edit command executed.<br>
 ![edit](images/before-edit-contact-2.png) <br><br>
@@ -108,44 +103,45 @@ Before edit command executed.<br>
 After edit command is executed. <br>
 ![edit](images/after-edit-contact-2.png) <br><br>
 
-* #### Editing interview details 
-  {more to add}
+:exclamation: **Take note:** Cannot edit a person if he/she has an interview scheduled.
+
 
 &nbsp;
-### Deleting job applicant/interview: `delete` 
-Deletes an existing job applicant/interview timing in the address book.
+### Deleting job applicant: `delete [p]` 
+Deletes an existing job applicant from the address book.
 
 * #### Deleting a job applicant 
   Format: `delete [p] INDEX` or `delete [p] NAME`
 
-  Example: `delete [p] 1` or `delete [p] Alex Jones`
-
-* #### Deleting an interview 
-  Format: `delete [i] INDEX`
-
-  Example: `delete [i] 1`
+  Example: `delete [p] 1` or `delete [p] Alex Jones` <br><br>
+  :exclamation: **Take note:** Cannot delete a person if he/she has an interview scheduled.
 
 &nbsp;
-### Finding a job applicant or interviews by keywords: `find` 
-Finds job applicants or interviews whose data contain any of the given keywords.
+### Finding job applicant(s) by keywords: `find [p]` 
+Finds job applicants whose data contain the given keywords.
 
-Use `g/` flags to find job applicants or interviews whose data contain **all** the keywords.
+Use `g/` flags to find job applicants whose data contain **all** the keywords.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s:INPROGRESS`)
+:bulb: Tip: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s:INPROGRESS`)
 
 Notes:
 * Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
-* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags
 
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
 Examples:
-* `find [p] g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find n/alex OR s/ACCEPTED OR p/1111`
-* `find [p] g/n/alex s/ACCEPTED p/1111` is logically equivalent to `find n/alex AND s/ACCEPTED AND p/1111`
-* `find [p] g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find (n/alex AND g/s/ACCEPTED) OR p/1111`
+* `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
+`find s/ACCEPTED OR n/John Doe`  <br> <br>
+![find](images/find-applicant-OR-example.png) <br> <br>
 
+* `find [p] g/j/Software Developer s/ACCEPTED` is logically equivalent to <br> 
+`find j/Software Developer AND s/ACCEPTED` <br> <br>
+![find](images/find-applicant-AND-example.png)
 
-![find](images/find.png)
+* `find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
+`find (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
+![find](images/find-applicant-AND-OR-example.png)
+
 
 &nbsp;
 ### Clearing all entries: `clear` 
@@ -158,6 +154,75 @@ Format: `clear`
 Exits the program.  
 
 Format: `exit`
+
+
+## Interview Features
+### :information_source: Notes about the command format regarding Interviews:
+
+&nbsp;
+### Listing all scheduled interviews: `list [i]`
+Shows a list of all scheduled interviews in the address book.
+
+Format:
+* `list [i]`: Show all scheduled interviews.
+
+&nbsp;
+### Adding a new interview slot for a job applicant: `add [i]`
+Adds a new job interview slot to the address book.
+
+* #### Adding a new interview
+  Format: `add [i] INDEX d/DATE t/TIME` <br><br>
+
+  Example: `add [i] 1 d/2021-06-25 t/17:30`
+
+![add-interview](images/add-interview.png)
+
+&nbsp;
+### Editing an existing interview slot: `edit [i]`
+Edits an existing interview slot in the address book
+
+* #### Editing interview details
+  Format: `edit [i] INDEX d/DATE [t/TIME]` <br> 
+  or `edit [i] INDEX t/TIME [d/DATE]` <br><br>
+
+  Examples: <br> `edit [i] 1 d/2021-12-30` <br>
+  `edit [i] 1 t/10:30` <br>
+  `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
+
+![edit-interview](images/edit-interview.png)
+
+&nbsp;
+### Deleting an interview slot: `delete [i]`
+Deletes an existing interview slot in the address book.
+
+* #### Deleting an interview slot
+  Format: `delete [i] INDEX`
+
+  Example: `delete [i] 1`
+
+&nbsp;
+### Finding scheduled interview slot(s) by keywords: `find [i]`
+Finds interview slots with data containing any of the specified keywords.
+
+Use `g/` flags to find interview slot(s) with data containing **all** the keywords.
+
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s:INPROGRESS`)
+
+Notes:
+* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags
+
+Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
+
+Examples:
+* `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
+* `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
+* `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
+
+
+![find](images/find-interview.png)
+
+
+
 
 &nbsp;
 ## Storage
@@ -200,11 +265,11 @@ File Format:
 * File to export to: CSV (<YOUR_FILE_NAME.csv>) <br> 
 
 Notes:
-1. Filepath of specified CSV file **must be absolute**.
-2. File name of csv file cannot contain any front or back slash.
-   1. Front slash: \
-   2. Back slash: /
-3. Specifying the same csv file name will overwrite the data inside the csv file.
+1. Filepath of specified CSV file can be relative or absolute.
+2. File name of csv file **cannot** contain any front or back slashes.
+   1. Invalid csv file name with front slash: myCSVfile\\.csv
+   2. Invalid csv file name with back slash: myCSVfile/.csv
+3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
 4. Csv file must have .csv as a file extension.
 5. Only the current data within the addressbook.json will be exported into the specified csv file.
 6. Data exported into the specified CSV file will be seperated by tabs.
@@ -214,26 +279,29 @@ Notes:
 8. If any error is found while executing the command, 
 **none** of the data from the addressbook will be exported into the specified csv file.
 
-Format: `export ABSOLUTE_FILEPATH_OF_CSV_FILE`
+Format: `export FILEPATH`
 
-Example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
-Example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv 
+Absolute filepath example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
+Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
+Absolute filepath example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv` <br>
+Relative filepath example for MacOS: `export  ./myDataFile.csv
 `
 
 ## Command Summary
 
-|               Action | Format                                                                       |
-|---------------------:|:-----------------------------------------------------------------------------|
-|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                    |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`         |
-|                Clear | `clear`                                                                      |
-|     Delete Interview | `delete [i] INDEX`                                                           |
-| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                     |
-|                 Edit | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
-|                 Exit | `exit`                                                                       |
-|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
-|                 Help | `help`                                                                       |
-|               Import | `import FILEPATH`                                                            |
-|               Export | `export ABSOLUTE_FILEPATH_OF_CSV_FILE`                                       |
-|      List Interviews | `list [i]`                                                                   |
-|  List Job Applicants | `list [p]`                                                                   |
+|               Action | Format                                                                           |
+|---------------------:|:---------------------------------------------------------------------------------|
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                        |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`             |
+|                Clear | `clear`                                                                          |
+|     Delete Interview | `delete [i] INDEX`                                                               |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                         |
+|       Edit Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
+|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                               |
+|                 Exit | `exit`                                                                           |
+|       Find Applicant | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                      |
+|                 Help | `help`                                                                           |
+|               Import | `import FILEPATH`                                                                |
+|               Export | `export FILEPATH`                                                                |
+|      List Interviews | `list [i]`                                                                       |
+|  List Job Applicants | `list [p]`                                                                       |
