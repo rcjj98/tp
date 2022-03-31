@@ -3,6 +3,9 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.util.FileUtil.isValidPath;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -24,8 +27,9 @@ public class ExportCommandParser implements Parser<ExportCommand> {
         //check whether valid path input given by the user
         String strCsvFilePath = args.strip();
         checkFilePath(strCsvFilePath);
+        Path csvFilePath = Paths.get(strCsvFilePath);
 
-        return new ExportCommand(strCsvFilePath);
+        return new ExportCommand(csvFilePath);
     }
 
     /**

@@ -3,11 +3,13 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Path;
 
 import javafx.collections.ObservableList;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
@@ -15,18 +17,19 @@ public class ExportCommand extends Command {
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_USAGE = COMMAND_WORD
         + ": Exports all data from all job applicants to a CSV file\n";
+    public static final String MISSING_CSV_FILE = "CSV file could not be created.";
     public static final String MISSING_JSON_FILE = "Json file containing job applicant data not found.";
 
-    private final String strCsvFilePath;
+    private final Path csvFilePath;
 
     /**
      * Constructor for Export Command.
      *
-     * @param strCsvFilePath File path of CSV file to export job applicant data to.
+     * @param csvFilePath File path of CSV file to export job applicant data to.
      */
-    public ExportCommand(String strCsvFilePath) {
-        requireNonNull(strCsvFilePath);
-        this.strCsvFilePath = strCsvFilePath;
+    public ExportCommand(Path csvFilePath) {
+        requireNonNull(csvFilePath);
+        this.csvFilePath = csvFilePath;
     }
 
     @Override
@@ -36,7 +39,7 @@ public class ExportCommand extends Command {
 
         try {
             //create new csv file to export data into
-            File csvFile = new File(strCsvFilePath);
+            File csvFile = new File(csvFilePath.toString());
             PrintWriter pw = new PrintWriter(csvFile);
 
             //export all persons data from addressbook.json into specified csv file
@@ -50,12 +53,10 @@ public class ExportCommand extends Command {
                 pw.printf("%s\t%s\t%s\t%s\t%s\t%s\n", name, phone, email, address, job, stage);
             }
             pw.close();
-
-        } catch (FileNotFoundException e) {
-            throw new CommandException(MISSING_JSON_FILE);
+        } catch (IOException e) {
+            throw new CommandException(MISSING_CSV_FILE);
         }
         return new CommandResult("Exported " + personList.size() + " job applicants' data to "
-            + strCsvFilePath, getType());
+            + csvFilePath, Type.PERSON);
     }
-
 }
