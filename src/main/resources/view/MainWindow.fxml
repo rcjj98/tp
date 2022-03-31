@@ -64,6 +64,11 @@
                     <StackPane fx:id="interviewListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                   </content>
                 </Tab>
+                <Tab fx:id="taskListTab" text="Tasks">
+                  <content>
+                    <StackPane fx:id="taskListPanelPlaceHolder" VBox.vgrow="ALWAYS" />
+                  </content>
+                </Tab>
               </tabs>
               </TabPane>
             </children>

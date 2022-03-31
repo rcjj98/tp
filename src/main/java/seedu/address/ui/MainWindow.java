@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import static seedu.address.logic.parser.Type.INTERVIEW;
 import static seedu.address.logic.parser.Type.PERSON;
+import static seedu.address.logic.parser.Type.TASK;
 
 import java.util.logging.Logger;
 
@@ -39,6 +40,7 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private PersonListPanel personListPanel;
     private InterviewListPanel interviewListPanel;
+    private TaskListPanel taskListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -53,6 +55,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane interviewListPanelPlaceholder;
+
+    @FXML
+    private StackPane taskListPanelPlaceHolder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -128,6 +133,9 @@ public class MainWindow extends UiPart<Stage> {
 
         interviewListPanel = new InterviewListPanel(logic.getFilteredInterviewList());
         interviewListPanelPlaceholder.getChildren().add(interviewListPanel.getRoot());
+
+        taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
+        taskListPanelPlaceHolder.getChildren().add(taskListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -208,6 +216,8 @@ public class MainWindow extends UiPart<Stage> {
                 selectionModel.select(0);
             } else if (commandResult.getType() == INTERVIEW) {
                 selectionModel.select(1);
+            } else if (commandResult.getType() == TASK) {
+                selectionModel.select(2);
             }
 
             return commandResult;

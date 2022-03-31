@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.parser.CliSyntax.TYPE_INTERVIEW;
 import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
+import static seedu.address.logic.parser.CliSyntax.TYPE_TASK;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -24,6 +25,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             return new AddPersonCommandParser().parse(removedType);
         } else if (type.equals(TYPE_INTERVIEW)) {
             return new AddInterviewCommandParser().parse(removedType);
+        } else if (type.equals(TYPE_TASK)) {
+            return new AddTaskCommandParser().parse(removedType);
         } else {
             return null;
         }

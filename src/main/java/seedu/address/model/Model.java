@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Task;
 
 /**
  * The API of the Model component.
@@ -130,4 +131,25 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredInterviewList(Predicate<Interview> predicate);
+
+    /** Returns an unmodifiable view of the filtered task list */
+    ObservableList<Task> getFilteredTaskList();
+
+    /**
+     * Adds the given Task.
+     * {@code task} must not already exist in the address book.
+    */
+    void addTask(Task toAdd);
+
+    /**
+     * Deletes the given Task.
+     * The Task must exist in the address book.
+     */
+    void deleteTask(Task taskToDelete) throws Exception;
+
+    /**
+     * Returns true if a task with the same identity as {@code task} exists in the address book.
+     */
+    boolean hasTask(Task task);
+
 }
