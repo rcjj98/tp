@@ -27,13 +27,13 @@ the progress of each applicant during the application process.
    * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
    j/Software Developer s/INPROGRESS`: Adds a new contact name Bob Tan to the address book
    * `list [p]`: Lists all contacts
-   * `delete [p] Alex Lee`: Deletes job applicant named **Alex Lee** from the address book
-   * `clear`: Deletes all contacts.
+   * `delete [p] 1`: Deletes job applicant idex **1** from the address book
+   * `clear [p]`: Deletes all applicants.
    * `exit`: Exits the app.
 
 6. Refer to the [Features](#Features) below for details of each command.
 
-## Applicant Features
+## Features
 ### :information_source: Notes about the command format regarding Applicants:
 * Words in `UPPER_CASE` are the parameters to be supplied by the user. 
   
@@ -65,19 +65,21 @@ the progress of each applicant during the application process.
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 &nbsp;
+
+##General Features
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic commands.
 
 Format: `help`  
 
 &nbsp;
-### Listing all job applicants: `list [p]`
-Shows a list of all job applicants/interviews in the address book.
+### Exiting the program: `exit`
+Exits the program.
 
-Format: 
-* `list [p]`: Show all job applicants.
+Format: `exit`
 
-&nbsp;
+
+##Applicant Features
 ### Adding a new job applicant: `add [p]` 
 Adds a new job applicant to the address book.
 
@@ -111,10 +113,23 @@ After edit command is executed. <br>
 Deletes an existing job applicant from the address book.
 
 * #### Deleting a job applicant 
-  Format: `delete [p] INDEX` or `delete [p] NAME`
+  Format: `delete [p] INDEX`
 
-  Example: `delete [p] 1` or `delete [p] Alex Jones` <br><br>
+  Example: `delete [p] 1` <br><br>
   :exclamation: **Take note:** Cannot delete a person if he/she has an interview scheduled.
+
+&nbsp;
+### Listing all job applicants: `list [p]`
+Shows a list of all job applicants in the address book.
+
+Format:
+* `list [p]`: Show all job applicants.
+
+&nbsp;
+### Clearing all job applicants: `clear [p]`
+Clears all job applicants from the address book.
+
+Format: `clear [p]`
 
 &nbsp;
 ### Finding job applicant(s) by keywords: `find [p]` 
@@ -144,27 +159,11 @@ Examples:
 
 
 &nbsp;
-### Clearing all entries: `clear` 
-Clears all entries from the address book.  
 
-Format: `clear`
-
-&nbsp;
-### Exiting the program: `exit` 
-Exits the program.  
-
-Format: `exit`
 
 
 ## Interview Features
 ### :information_source: Notes about the command format regarding Interviews:
-
-&nbsp;
-### Listing all scheduled interviews: `list [i]`
-Shows a list of all scheduled interviews in the address book.
-
-Format:
-* `list [i]`: Show all scheduled interviews.
 
 &nbsp;
 ### Adding a new interview slot for a job applicant: `add [i]`
@@ -199,6 +198,20 @@ Deletes an existing interview slot in the address book.
   Format: `delete [i] INDEX`
 
   Example: `delete [i] 1`
+
+&nbsp;
+### Listing all scheduled interviews: `list [i]`
+Shows a list of all scheduled interviews in the address book.
+
+Format:
+* `list [i]`: Show all scheduled interviews.
+
+
+&nbsp;
+### Clearing all interviews: `clear [i]`
+Clears all interviews from the address book.
+
+Format: `clear [i]`
 
 &nbsp;
 ### Finding scheduled interview slot(s) by keywords: `find [i]`
@@ -289,19 +302,21 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 
 ## Command Summary
 
-|               Action | Format                                                                           |
-|---------------------:|:---------------------------------------------------------------------------------|
-|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                        |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`             |
-|                Clear | `clear`                                                                          |
-|     Delete Interview | `delete [i] INDEX`                                                               |
-| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                         |
-|       Edit Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
-|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                               |
-|                 Exit | `exit`                                                                           |
-|       Find Applicant | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                      |
-|                 Help | `help`                                                                           |
-|               Import | `import FILEPATH`                                                                |
-|               Export | `export FILEPATH`                                                                |
-|      List Interviews | `list [i]`                                                                       |
-|  List Job Applicants | `list [p]`                                                                       |
+|               Action | Format                                                                                      |
+|---------------------:|:--------------------------------------------------------------------------------------------|
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                                   |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`                    |
+|     Clear Interviews | `clear [i]`                                                                                 |
+| Clear Job Applicants | `clear [p]`                                                                                 |
+|     Delete Interview | `delete [i] INDEX`                                                                          |
+| Delete Job Applicant | `delete [p] INDEX`                                                                          |
+|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
+|   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
+|                 Exit | `exit`                                                                                      |
+|       Find Interview | `find [i] g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                             |
+|   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                             |
+|                 Help | `help`                                                                                      |
+|               Import | `import FILEPATH`                                                                           |
+|               Export | `export FILEPATH`                                                                           |
+|      List Interviews | `list [i]`                                                                                  |
+|  List Job Applicants | `list [p]`                                                                                  |
