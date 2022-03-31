@@ -9,8 +9,9 @@ HRConnect is a desktop application for managing the contacts of job applicants. 
 the progress of each applicant during the application process.
 
 
-* Table of Contents
+## Table of Contents
   {:toc}
+
 
 ## Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
@@ -264,11 +265,11 @@ File Format:
 * File to export to: CSV (<YOUR_FILE_NAME.csv>) <br> 
 
 Notes:
-1. Filepath of specified CSV file **must be absolute**.
-2. File name of csv file cannot contain any front or back slash.
-   1. Front slash: \
-   2. Back slash: /
-3. Specifying the same csv file name will overwrite the data inside the csv file.
+1. Filepath of specified CSV file can be relative or absolute.
+2. File name of csv file **cannot** contain any front or back slashes.
+   1. Invalid csv file name with front slash: myCSVfile\\.csv
+   2. Invalid csv file name with back slash: myCSVfile/.csv
+3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
 4. Csv file must have .csv as a file extension.
 5. Only the current data within the addressbook.json will be exported into the specified csv file.
 6. Data exported into the specified CSV file will be seperated by tabs.
@@ -278,26 +279,29 @@ Notes:
 8. If any error is found while executing the command, 
 **none** of the data from the addressbook will be exported into the specified csv file.
 
-Format: `export ABSOLUTE_FILEPATH_OF_CSV_FILE`
+Format: `export FILEPATH`
 
-Example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
-Example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv 
+Absolute filepath example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
+Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
+Absolute filepath example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv` <br>
+Relative filepath example for MacOS: `export  ./myDataFile.csv
 `
 
 ## Command Summary
 
-|               Action | Format                                                                       |
-|---------------------:|:-----------------------------------------------------------------------------|
-|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                    |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`         |
-|                Clear | `clear`                                                                      |
-|     Delete Interview | `delete [i] INDEX`                                                           |
-| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                     |
-|                 Edit | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
-|                 Exit | `exit`                                                                       |
-|                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
-|                 Help | `help`                                                                       |
-|               Import | `import FILEPATH`                                                            |
-|               Export | `export ABSOLUTE_FILEPATH_OF_CSV_FILE`                                       |
-|      List Interviews | `list [i]`                                                                   |
-|  List Job Applicants | `list [p]`                                                                   |
+|               Action | Format                                                                           |
+|---------------------:|:---------------------------------------------------------------------------------|
+|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                        |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [j/APPLICATION]...`             |
+|                Clear | `clear`                                                                          |
+|     Delete Interview | `delete [i] INDEX`                                                               |
+| Delete Job Applicant | `delete [p] INDEX`<br/>`delete [p] NAME`                                         |
+|       Edit Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/APPLICATION]` |
+|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                               |
+|                 Exit | `exit`                                                                           |
+|       Find Applicant | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                      |
+|                 Help | `help`                                                                           |
+|               Import | `import FILEPATH`                                                                |
+|               Export | `export FILEPATH`                                                                |
+|      List Interviews | `list [i]`                                                                       |
+|  List Job Applicants | `list [p]`                                                                       |
