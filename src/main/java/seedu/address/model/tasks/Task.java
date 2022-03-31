@@ -2,20 +2,40 @@ package seedu.address.model.tasks;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import seedu.address.model.Date;
+import seedu.address.model.Time;
+
 public class Task {
 
-    private Information information;
-
+    private final Header header;
+    private final Date date;
+    private final Time time;
+    private final Information information;
     /**
      * Every field must be present and not null.
      */
-    public Task(Information information) {
-        requireAllNonNull(information);
+    public Task(Header header, Date date, Time time, Information information) {
+        requireAllNonNull(header, date, time, information);
+        this.header = header;
+        this.date = date;
+        this.time = time;
         this.information = information;
+    }
+
+    public Header getHeader() {
+        return header;
     }
 
     public Information getInformation() {
         return information;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Time getTime() {
+        return time;
     }
 
     /**
@@ -28,7 +48,10 @@ public class Task {
         }
 
         return otherTask != null
-                && (otherTask.getInformation().equals(getInformation()));
+                && (otherTask.getHeader().equals(getHeader()))
+                && (otherTask.getInformation().equals(getInformation()))
+                && (otherTask.getDate().equals(getDate())
+                && otherTask.getTime().equals(getTime()));
     }
 
     /**
@@ -46,13 +69,22 @@ public class Task {
         }
 
         Task otherTask = (Task) other;
-        return otherTask.getInformation().equals(getInformation());
+        return otherTask.getInformation().equals(getInformation())
+                && (otherTask.getHeader().equals(getHeader()))
+                && (otherTask.getDate().equals(getDate())
+                && otherTask.getTime().equals(getTime()));
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getInformation());
+        builder.append(getHeader())
+                .append("; Date: ")
+                .append(getDate())
+                .append("; Time: ")
+                .append(getTime())
+                .append("; Information: ")
+                .append(getInformation());
 
         return builder.toString();
     }

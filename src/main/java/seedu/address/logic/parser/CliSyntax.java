@@ -15,6 +15,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_DATE = new Prefix("d/");
     public static final Prefix PREFIX_TIME = new Prefix("t/");
     public static final Prefix PREFIX_GROUP = new Prefix("g/");
+    public static final Prefix PREFIX_HEADER = new Prefix("h/");
     public static final Prefix PREFIX_INFORMATION = new Prefix("i/");
 
     /* Type definitions */

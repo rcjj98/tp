@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
+import static seedu.address.logic.parser.Type.INTERVIEW;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_INTERVIEWS;
 
 import java.util.List;
@@ -12,10 +13,11 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Type;
+import seedu.address.model.Date;
 import seedu.address.model.Model;
-import seedu.address.model.interview.Date;
+import seedu.address.model.Time;
 import seedu.address.model.interview.Interview;
-import seedu.address.model.interview.Time;
 
 public class EditInterviewCommand extends EditCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD + " [i] : Edits the details of the interview identified "
@@ -25,7 +27,7 @@ public class EditInterviewCommand extends EditCommand {
             + "[" + PREFIX_DATE + "DATE] "
             + "[" + PREFIX_TIME + "TIME] "
             + "Example: " + COMMAND_WORD + " [i] 1 "
-            + PREFIX_DATE + "05-May-2022 "
+            + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "10:30";
 
     public static final String MESSAGE_EDIT_INTERVIEW_SUCCESS = "Edited Interview: %1$s";
@@ -101,6 +103,10 @@ public class EditInterviewCommand extends EditCommand {
                 && editInterviewDescriptor.equals(e.editInterviewDescriptor);
     }
 
+    @Override
+    public Type getType() {
+        return INTERVIEW;
+    }
     /**
      * Stores the details to edit the interview with. Each non-empty field value will replace the
      * corresponding field value of the interview.
@@ -162,4 +168,5 @@ public class EditInterviewCommand extends EditCommand {
                     && getTime().equals(e.getTime());
         }
     }
+
 }

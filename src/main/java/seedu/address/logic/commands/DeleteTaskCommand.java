@@ -15,12 +15,12 @@ public class DeleteTaskCommand extends DeleteCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
         + " [t] : Deletes the Task identified by the index number used in the displayed task list,\n";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Task: %1$s";
+    public static final String MESSAGE_DELETE_TASK_SUCCESS = "Deleted Task: %1$s";
 
     private final Index targetIndex;
 
     /**
-     * Constructor for DeletePersonCommand.
+     * Constructor for DeleteTaskCommand.
      * @param targetIndex
      */
     public DeleteTaskCommand(Index targetIndex) {
@@ -39,7 +39,7 @@ public class DeleteTaskCommand extends DeleteCommand {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, taskToDelete), TASK);
+        return new CommandResult(String.format(MESSAGE_DELETE_TASK_SUCCESS, taskToDelete), TASK);
     }
 
     @Override

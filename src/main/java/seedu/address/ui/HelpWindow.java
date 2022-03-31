@@ -22,6 +22,8 @@ public class HelpWindow extends UiPart<Stage> {
             + "\td/ : Date (Format: yyyy-mm-dd)\n"
             + "\te/ : Email\n"
             + "\tg/ : Group (Used for grouping together search terms)\n"
+            + "\th/ : Header (task header)"
+            + "\ti/ : Information (task information)"
             + "\tj/ : Job Title\n"
             + "\tn/ : Name\n"
             + "\tp/ : Phone Number\n"

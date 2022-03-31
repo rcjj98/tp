@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEADER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -25,14 +26,15 @@ import seedu.address.logic.commands.FindInterviewCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.commands.FindTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.interview.Date;
-import seedu.address.model.interview.Time;
+import seedu.address.model.Date;
+import seedu.address.model.Time;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
+import seedu.address.model.tasks.Header;
 import seedu.address.model.tasks.Information;
 
 /**
@@ -95,7 +97,7 @@ public class FindCommandParser implements Parser<FindCommand> {
 
             if (!areCorrectPrefixesPresent(padding + firstArg, PREFIX_NAME, PREFIX_PHONE,
                     PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE, PREFIX_DATE, PREFIX_TIME,
-                    PREFIX_GROUP, PREFIX_INFORMATION)) {
+                    PREFIX_GROUP, PREFIX_INFORMATION, PREFIX_HEADER)) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, "No flags found in group"));
             }
         }
@@ -136,6 +138,19 @@ public class FindCommandParser implements Parser<FindCommand> {
             throw new ParseException("[" + group + "] contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
         }
     }
+
+    /**
+     * Checks the current group for any invalid header.
+     *
+     * @param group Current group of tokens.
+     * @throws ParseException A header was found to have invalid format.
+     */
+    public static void checkInvalidHeader(List<String> header, String group) throws ParseException {
+        if (header.stream().anyMatch(h -> !Header.isValidHeader(h.strip()))) {
+            throw new ParseException("Group " + group + ": contains invalid header\n" + Header.MESSAGE_CONSTRAINTS);
+        }
+    }
+
 
     /**
      * Checks the current group for any invalid jobs.

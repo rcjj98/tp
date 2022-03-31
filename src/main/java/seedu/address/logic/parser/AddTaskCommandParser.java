@@ -1,12 +1,18 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEADER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.Date;
+import seedu.address.model.Time;
+import seedu.address.model.tasks.Header;
 import seedu.address.model.tasks.Information;
 import seedu.address.model.tasks.Task;
 
@@ -16,15 +22,18 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
     public AddTaskCommand parse(String args) throws ParseException {
 
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_INFORMATION);
+                ArgumentTokenizer.tokenize(args, PREFIX_HEADER, PREFIX_INFORMATION, PREFIX_DATE, PREFIX_TIME);
 
         if (!arePrefixesPresent(argMultimap,
-                PREFIX_INFORMATION) || !argMultimap.getPreamble().isEmpty()) {
+                PREFIX_HEADER, PREFIX_INFORMATION, PREFIX_DATE, PREFIX_TIME) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
         }
-
+        Header header = ParserUtil.parseHeader(argMultimap.getValue(PREFIX_HEADER).get());
         Information information = ParserUtil.parseInformation(argMultimap.getValue(PREFIX_INFORMATION).get());
-        Task newTask = new Task(information);
+        Date date = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).get());
+        Time time = ParserUtil.parseTime(argMultimap.getValue(PREFIX_TIME).get());
+
+        Task newTask = new Task(header, date, time, information);
 
         return new AddTaskCommand(newTask);
     }

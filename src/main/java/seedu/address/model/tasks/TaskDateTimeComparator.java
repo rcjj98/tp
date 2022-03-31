@@ -1,12 +1,12 @@
-package seedu.address.model.interview;
+package seedu.address.model.tasks;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Comparator;
 
-public class DateTimeComparator implements Comparator<Interview> {
+public class TaskDateTimeComparator implements Comparator<Task> {
     @Override
-    public int compare(Interview o1, Interview o2) {
+    public int compare(Task o1, Task o2) {
         LocalDate o1Date = LocalDate.parse(o1.getDate().value);
         LocalDate o2Date = LocalDate.parse(o2.getDate().value);
         if (o1Date.isBefore(o2Date)) {
