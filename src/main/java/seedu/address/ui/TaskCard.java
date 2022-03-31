@@ -26,6 +26,8 @@ public class TaskCard extends UiPart<Region> {
     private Label id;
     @FXML
     private Label information;
+    @FXML
+    private Label date;
 
     /**
      * Creates a {@code InterviewCode} with the given {@code Interview} and index to display.
@@ -35,6 +37,7 @@ public class TaskCard extends UiPart<Region> {
         this.task = task;
         id.setText(displayedIndex + ". ");
         information.setText(task.getInformation().fullInformation);
+        date.setText("By: No Deadline");
     }
 
     @Override
