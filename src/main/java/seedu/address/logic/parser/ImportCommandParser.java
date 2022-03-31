@@ -104,7 +104,8 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             }
 
         } catch (DataConversionException e) {
-            throw new ParseException("Error while parsing JSON file\nPlease ensure that all data fields is correct");
+            throw new ParseException("Error while parsing JSON file.\n"
+                    + "Please ensure that all data fields exists and is valid.");
         }
     }
 
