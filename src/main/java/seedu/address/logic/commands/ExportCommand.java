@@ -16,7 +16,8 @@ import seedu.address.model.person.Person;
 public class ExportCommand extends Command {
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-        + ": Exports all data from all job applicants to a CSV file\n";
+        + "Exports all data from all job applicants to a CSV file\n"
+        + "Parameters: filepath to the exported csv file";
     public static final String MISSING_CSV_FILE = "CSV file could not be created.";
 
     private final Path csvFilePath;

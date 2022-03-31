@@ -13,7 +13,8 @@ public class ImportCommand extends Command {
 
     public static final String COMMAND_WORD = "import";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-        + ": Imports all data from csv or json file\n";
+        + "Imports all job applicants data from csv/json file\n"
+        + "Parameters: filepath to csv/json file";
 
     private List<Person> personList;
 
@@ -34,13 +35,12 @@ public class ImportCommand extends Command {
         // checks if any persons is duplicated
         for (int i = 0; i < personList.size(); i++) {
             if (model.hasPerson(personList.get(i))) {
-                throw new CommandException("Entry " + i + 1 + ": is already in address book.\nAborting now.");
+                int lineNo = i + 1;
+                throw new CommandException("Entry " + lineNo + ": is already in address book.\nAborting now.");
             }
         }
 
-        // adds each person to address book
         personList.forEach(model::addPerson);
-
         return new CommandResult("Added " + personList.size() + " people to address book.", Type.PERSON);
     }
 
