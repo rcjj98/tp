@@ -1,11 +1,15 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 
 import java.util.List;
 
@@ -31,10 +35,13 @@ public class FindInterviewCommandParser extends FindCommandParser {
                 throw new ParseException("[" + group + "] Invalid flags are found.");
             }
 
-            checkInvalidDates(group);
-            checkInvalidTime(group);
-            checkInvalidName(group);
-            checkInvalidJob(group);
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(
+                    padding + group, PREFIX_NAME, PREFIX_DATE, PREFIX_TIME, PREFIX_JOB);
+
+            checkInvalidDates(fields.getAllValues(PREFIX_DATE), group);
+            checkInvalidTime(fields.getAllValues(PREFIX_TIME), group);
+            checkInvalidName(fields.getAllValues(PREFIX_NAME), group);
+            checkInvalidJob(fields.getAllValues(PREFIX_JOB), group);
         }
 
         return new FindInterviewCommand(new InterviewContainsKeywordsPredicate(groups));

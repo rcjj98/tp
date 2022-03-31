@@ -4,6 +4,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -15,6 +16,7 @@ import java.util.List;
 import seedu.address.logic.commands.FindTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tasks.TaskContainsKeywordPredicate;
+
 
 public class FindTaskCommandParser extends FindCommandParser {
 
@@ -33,7 +35,9 @@ public class FindTaskCommandParser extends FindCommandParser {
                 throw new ParseException("[" + group + "] Invalid flags are found.");
             }
 
-            checkInvalidInformation(group);
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_INFORMATION);
+
+            checkInvalidInformation(fields.getAllValues(PREFIX_INFORMATION), group);
         }
 
         return new FindTaskCommand(new TaskContainsKeywordPredicate(groups));
