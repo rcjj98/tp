@@ -8,7 +8,6 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 import seedu.address.model.tasks.Task;
-import seedu.address.model.tasks.Todos;
 
 /**
  * The API of the Model component.
@@ -133,27 +132,24 @@ public interface Model {
      */
     void updateFilteredInterviewList(Predicate<Interview> predicate);
 
-    // /**
-    //  * Returns true if a todo task with the same identity as {@code todo} exists in the task list.
-    //  * @param todo
-    //  * @return boolean true/false
-    //  */
-    // boolean hasTodo(Todos todo);
-
-    // ------------------------------> CRUD for Tasks <--------------------------------
-    /**
-     * Adds the given todo.
-     * @throws Exception
-     */
-    void addTodo(Todos todo);
-
-    void deleteTodo(Todos todo) throws Exception;
-
     /** Returns an unmodifiable view of the filtered task list */
     ObservableList<Task> getFilteredTaskList();
 
+    /**
+     * Adds the given Task.
+     * {@code task} must not already exist in the address book.
+    */
     void addTask(Task toAdd);
 
+    /**
+     * Deletes the given Task.
+     * The Task must exist in the address book.
+     */
     void deleteTask(Task taskToDelete) throws Exception;
+
+    /**
+     * Returns true if a task with the same identity as {@code task} exists in the address book.
+     */
+    boolean hasTask(Task task);
 
 }

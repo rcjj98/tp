@@ -14,7 +14,7 @@ import seedu.address.model.tasks.Task;
 public class DeleteTaskCommand extends DeleteCommand {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-    + " [t] : Deletes the Task identified by the index number used in the displayed task list,\n";
+        + " [t] : Deletes the Task identified by the index number used in the displayed task list,\n";
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Task has been deleted!";
 
@@ -34,7 +34,7 @@ public class DeleteTaskCommand extends DeleteCommand {
         List<Task> lastShownTaskList = model.getFilteredTaskList();
 
         Task taskToDelete = lastShownTaskList.get(targetIndex.getZeroBased());
-        
+
         try {
             model.deleteTask(taskToDelete);
         } catch (Exception e) {
@@ -47,5 +47,5 @@ public class DeleteTaskCommand extends DeleteCommand {
     public boolean equals(Object other) {
         return false;
     }
-    
+
 }

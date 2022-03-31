@@ -13,29 +13,14 @@ import seedu.address.model.tasks.Task;
 import seedu.address.model.tasks.UniqueTaskList;
 
 
-// only uniqueInterviewList and interview were added on to this file.
-
 /**
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSamePerson comparison)
  */
-
-// /**
-// * Returns an unmodifiable view of the persons list.
-// * This list will not contain any duplicate persons.
-
-// quite likely have to add the TaskList here in ReadOnlyAddressBook, as a method.
-
-// */
-// ObservableList<Person> getPersonList();
-// ObservableList<Interview> getInterviewList();
 public class AddressBook implements ReadOnlyAddressBook {
 
-    // these were added on
     private final UniquePersonList persons;
     private final UniqueInterviewList interviews;
-
-    // this list will hold all the available tasks
     private final UniqueTaskList tasks;
 
     /*
@@ -182,15 +167,12 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     /**
      * Adds a Task to the address book.
-     * The Task can already be in the address book.
-     * @throws Exception this exception should be customised
      */
     public void addTask(Task i) {
         try {
             tasks.add(i);
         } catch (Exception e) {
-            // e.printStackTrace();
-            System.out.println("We could not add the task --> AddressBook#addTask");
+            e.printStackTrace();
         }
     }
 
@@ -237,5 +219,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         return persons.hashCode();
     }
 
+    /**
+     * Returns true if a task with the same identity as {@code task} exists in the address book.
+     * @param toAdd
+     * @return boolean
+     */
+    public boolean hasTask(Task toAdd) {
+        requireNonNull(toAdd);
+        return tasks.contains(toAdd);
+    }
 
 }

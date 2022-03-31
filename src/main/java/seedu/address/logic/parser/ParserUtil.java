@@ -157,6 +157,13 @@ public class ParserUtil {
         return new Stage(trimmedStage);
     }
 
+    /**
+     * Parses a {@code String des} into a {@code Description}.
+     * Leading and trailing whitespaces will be trimmed.
+     * @param des
+     * @return Description
+     * @throws ParseException
+     */
     public static Description parseDescription(String des) throws ParseException {
         requireNonNull(des);
         String trimmedDes = des.trim();

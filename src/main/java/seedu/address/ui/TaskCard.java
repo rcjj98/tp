@@ -35,6 +35,5 @@ public class TaskCard extends UiPart<Region> {
         this.task = task;
         id.setText(displayedIndex + ". ");
         description.setText(task.getDescription().fullDescription);
-        // i think this should be it
     }
 }

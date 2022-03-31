@@ -23,7 +23,6 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 import seedu.address.model.tasks.Task;
-import seedu.address.model.tasks.Todos;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddPersonCommandTest {
@@ -195,16 +194,6 @@ public class AddPersonCommandTest {
         }
 
         @Override
-        public void addTodo(Todos todo) {
-            requireNonNull(todo);
-        }
-
-        @Override
-        public void deleteTodo(Todos todo) throws Exception {
-            requireNonNull(todo);
-        }
-
-        @Override
         public ObservableList<Task> getFilteredTaskList() {
             return null;
         }
@@ -217,7 +206,12 @@ public class AddPersonCommandTest {
         @Override
         public void deleteTask(Task taskToDelete) throws Exception {
             // TODO Auto-generated method stub
-            
+        }
+
+        @Override
+        public boolean hasTask(Task toAdd) {
+            // TODO Auto-generated method stub
+            return false;
         }
     }
 

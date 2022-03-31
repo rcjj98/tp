@@ -23,11 +23,10 @@ class JsonSerializableAddressBook {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
     public static final String MESSAGE_DUPLICATE_INTERVIEW = "Interview list contains duplicate interview(s).";
-    // no need to throw exception if theres a duplicate Task
+    public static final String MESSAGE_DUPLICATE_TASK = "Task list contains duplicate task(s).";
 
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
     private final List<JsonAdaptedInterview> interviews = new ArrayList<>();
-    // add a JSON adapted Task list
     private final List<JsonAdaptedTask> tasks = new ArrayList<>();
 
     /**
@@ -44,7 +43,6 @@ class JsonSerializableAddressBook {
 
     /**
      * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
-     *
      * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
      */
     public JsonSerializableAddressBook(ReadOnlyAddressBook source) {
@@ -56,7 +54,6 @@ class JsonSerializableAddressBook {
 
     /**
      * Converts this address book into the model's {@code AddressBook} object.
-     *
      * @throws IllegalValueException if there were any data constraints violated.
      */
     public AddressBook toModelType() throws IllegalValueException {
@@ -79,8 +76,10 @@ class JsonSerializableAddressBook {
 
         for (JsonAdaptedTask jsonAdaptedTask : tasks) {
             Task task = jsonAdaptedTask.toModelType();
-            // if (addressBook.hasTask(task)) {}
-            // dont need to check if there is a duplicate task
+
+            if (addressBook.hasTask(task)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+            }
             addressBook.addTask(task);
         }
 

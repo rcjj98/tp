@@ -14,7 +14,6 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 import seedu.address.model.tasks.Task;
-import seedu.address.model.tasks.Todos;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -208,22 +207,6 @@ public class ModelManager implements Model {
 
     //=========== Task List methods =============================================================
 
-
-    @Override
-    public void addTodo(Todos todo) {
-        requireNonNull(todo);
-        addressBook.addTask(todo);
-        // need to get the overall list of tasks
-        // can get insipration from the UniqueInterviewList,
-        // simple add delete functions, no edit required.
-    }
-
-    @Override
-    public void deleteTodo(Todos todo) throws Exception {
-        requireNonNull(todo);
-        addressBook.removeTask(todo);
-    }
-
     /**
      * Returns an unmodifiable view of the list of {@code task} backed by the internal list of
      * {@code versionedAddressBook}
@@ -236,13 +219,19 @@ public class ModelManager implements Model {
     @Override
     public void addTask(Task toAdd) {
         requireNonNull(toAdd);
-        addressBook.addTask(toAdd);        
+        addressBook.addTask(toAdd);
     }
 
     @Override
     public void deleteTask(Task taskToDelete) throws Exception {
         requireNonNull(taskToDelete);
         addressBook.removeTask(taskToDelete);
+    }
+
+    @Override
+    public boolean hasTask(Task toAdd) {
+        requireNonNull(toAdd);
+        return addressBook.hasTask(toAdd);
     }
 
 }

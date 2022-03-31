@@ -135,14 +135,7 @@ public class MainWindow extends UiPart<Stage> {
         interviewListPanelPlaceholder.getChildren().add(interviewListPanel.getRoot());
 
         taskListPanel = new TaskListPanel(logic.getFilteredTaskList());
-
-        // we cant get this command properly, we get null values back
-        System.out.println("HERES WHAT WE CAN GET");
-        System.out.println(taskListPanelPlaceHolder);
-        // TASKLISTPANELPLACEHOLDER IS A NULL VALUE, THATS WHERE THE ERROR LIES!!
         taskListPanelPlaceHolder.getChildren().add(taskListPanel.getRoot());
-
-        System.out.println("WE GET PAST THE TASK LOADED ");
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
