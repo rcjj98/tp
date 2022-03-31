@@ -5,6 +5,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEADER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -23,14 +25,16 @@ import seedu.address.logic.commands.FindInterviewCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.commands.FindTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.interview.Date;
-import seedu.address.model.interview.Time;
+import seedu.address.model.Date;
+import seedu.address.model.Time;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
+import seedu.address.model.tasks.Header;
+import seedu.address.model.tasks.Information;
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -119,6 +123,36 @@ public class FindCommandParser implements Parser<FindCommand> {
             throw new ParseException("Group " + group + ": contains invalid name\n" + Name.MESSAGE_CONSTRAINTS);
         }
     }
+
+    /**
+     * Checks the current group for any invalid header.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A header was found to have invalid format.
+     */
+    public static void checkInvalidHeader(ArgumentMultimap fields, String group) throws ParseException {
+        List<String> header = fields.getAllValues(PREFIX_HEADER);
+        if (header.stream().anyMatch(h -> !Header.isValidHeader(h.strip()))) {
+            throw new ParseException("Group " + group + ": contains invalid header\n" + Header.MESSAGE_CONSTRAINTS);
+        }
+    }
+    /**
+     * Checks the current group for any invalid information.
+     *
+     * @param fields Current group of tokens.
+     * @param group The current group in string form.
+     * @throws ParseException A information was found to have invalid format.
+     */
+    public static void checkInvalidInformation(ArgumentMultimap fields, String group)
+            throws ParseException {
+        List<String> information = fields.getAllValues(PREFIX_INFORMATION);
+        if (information.stream().anyMatch(i -> !Information.isValidInformation(i.strip()))) {
+            throw new ParseException("Group " + group
+                    + ": contains invalid information\n" + Information.MESSAGE_CONSTRAINTS);
+        }
+    }
+
 
     /**
      * Checks the current group for any invalid jobs.

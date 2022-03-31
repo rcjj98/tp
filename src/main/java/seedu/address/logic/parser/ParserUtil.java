@@ -5,14 +5,15 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.interview.Date;
-import seedu.address.model.interview.Time;
+import seedu.address.model.Date;
+import seedu.address.model.Time;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
+import seedu.address.model.tasks.Header;
 import seedu.address.model.tasks.Information;
 
 
@@ -157,10 +158,26 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String des} into a {@code Description}.
+     * Parses a {@code String header} into a {@code Header}.
+     * Leading and trailing whitespaces will be trimmed.
+     * @param header
+     * @return Header
+     * @throws ParseException
+     */
+    public static Header parseHeader(String header) throws ParseException {
+        requireNonNull(header);
+        String trimmedHeader = header.trim();
+        if (!Header.isValidHeader(trimmedHeader)) {
+            throw new ParseException(Header.MESSAGE_CONSTRAINTS);
+        }
+        return new Header(trimmedHeader);
+    }
+
+    /**
+     * Parses a {@code String information} into a {@code Information}.
      * Leading and trailing whitespaces will be trimmed.
      * @param information
-     * @return Description
+     * @return Information
      * @throws ParseException
      */
     public static Information parseInformation(String information) throws ParseException {

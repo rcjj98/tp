@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -25,11 +24,16 @@
                         <Region fx:constant="USE_PREF_SIZE" />
                     </minWidth>
                 </Label>
-                <Label fx:id="information" text="\$first" styleClass="cell_big_label" />
+                <Label fx:id="header" text="\$first" styleClass="cell_big_label" />
             </HBox>
-            <Label fx:id="date" styleClass="cell_small_label" text="\$date" />
             <HBox>
+                <Label fx:id="date" styleClass="cell_small_label" text="\$date" style="-fx-text-fill: white; -fx-background-color: #3e7b91;
+               -fx-padding: 1 3 1 3; -fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11; " />
+                <Label text=" " />
+                <Label fx:id="time" styleClass="cell_small_label" text="\$time" style="-fx-text-fill: white; -fx-background-color: #d2691e;
+               -fx-padding: 1 3 1 3; -fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11; " />
             </HBox>
+            <Label fx:id="information" styleClass="cell_small_label" text="\$information" />
         </VBox>
     </GridPane>
 </HBox>

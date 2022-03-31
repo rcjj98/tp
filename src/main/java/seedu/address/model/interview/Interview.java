@@ -4,6 +4,8 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
 
+import seedu.address.model.Date;
+import seedu.address.model.Time;
 import seedu.address.model.person.Person;
 
 /**

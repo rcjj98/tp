@@ -83,7 +83,7 @@ public class UniqueInterviewList implements Iterable<Interview> {
     }
 
     public void sortInterviews() {
-        internalList.sort(new DateTimeComparator());
+        internalList.sort(new InterviewDateTimeComparator());
     }
 
     public void clear() {
