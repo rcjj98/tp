@@ -2,6 +2,9 @@ package seedu.address.model.util;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.interview.Date;
+import seedu.address.model.interview.Interview;
+import seedu.address.model.interview.Time;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Job;
@@ -42,15 +45,37 @@ public class SampleDataUtil {
             new Person(new Name("Zhou Jia Ling"), new Phone("92462146"), new Email("jialingz@hotmail.com"),
                     new Address("80 Marine Parade Rd #21-08"), new Job("Software Engineer"), new Stage("INPROGRESS")),
         };
-
-
     }
+
+    public static Interview[] getSampleInterview(Person[] persons) {
+        return new Interview[]{
+            new Interview(persons[0], new Date("2022-01-20"), new Time("04:01")),
+            new Interview(persons[1], new Date("2022-01-22"), new Time("04:02")),
+            new Interview(persons[2], new Date("2021-02-23"), new Time("04:03")),
+            new Interview(persons[3], new Date("2027-03-21"), new Time("04:04")),
+            new Interview(persons[4], new Date("2022-05-21"), new Time("04:05")),
+            new Interview(persons[5], new Date("2024-11-21"), new Time("04:06")),
+            new Interview(persons[6], new Date("2012-01-21"), new Time("04:07")),
+            new Interview(persons[7], new Date("2012-02-21"), new Time("04:08")),
+            new Interview(persons[8], new Date("2012-04-21"), new Time("04:09")),
+            new Interview(persons[9], new Date("2022-11-21"), new Time("04:10"))
+        };
+    }
+
 
     public static ReadOnlyAddressBook getSampleAddressBook() {
         AddressBook sampleAb = new AddressBook();
-        for (Person samplePerson : getSamplePersons()) {
+        Person[] samplePersons = getSamplePersons();
+        Interview[] sampleInterviews = getSampleInterview(samplePersons);
+
+        for (Person samplePerson : samplePersons) {
             sampleAb.addPerson(samplePerson);
         }
+
+        for (Interview sampleInterview : sampleInterviews) {
+            sampleAb.addInterview(sampleInterview);
+        }
+
         return sampleAb;
     }
 
