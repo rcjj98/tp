@@ -42,23 +42,8 @@ public class Name {
         return this.fullName;
     }
 
-    /**
-     * Checks if current name contains the substring
-     *
-     * @param name The name to checked with
-     * @return true if current name contains the substring of the checked name
-     */
-    public boolean contains(Name name) {
-
-        String[] nameFragments = name.fullName.split(" ");
-
-        for (String fragment : nameFragments) {
-            if (fullName.toLowerCase().contains(fragment.toLowerCase())) {
-                return true;
-            }
-        }
-
-        return false;
+    public boolean contains(String s) {
+        return fullName.toLowerCase().contains(s.toLowerCase());
     }
 
     @Override

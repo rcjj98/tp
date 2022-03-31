@@ -71,8 +71,8 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             }
 
             if (fieldList.size() != NUM_OF_FIELDS) {
-                int lineno = i + 1;
-                throw new ParseException("Line " + lineno + ": length of fields is not correct");
+                int lineNo = i + 1;
+                throw new ParseException("Line " + lineNo + ": length of fields is not correct");
             }
 
             try {

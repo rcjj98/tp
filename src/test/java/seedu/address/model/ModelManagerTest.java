@@ -119,7 +119,7 @@ public class ModelManagerTest {
 
         // different filteredList -> returns false
         List<String> searchedName = new ArrayList<>();
-        searchedName.add(ALICE.getName().fullName);
+        searchedName.add("n/" + ALICE.getName().fullName);
         modelManager.updateFilteredPersonList(new PersonContainsKeywordsPredicate(searchedName));
         assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 

@@ -18,7 +18,6 @@ public abstract class Command {
      */
     public abstract CommandResult execute(Model model) throws CommandException;
 
-
     public Type getType() {
         return null;
     }

@@ -37,6 +37,11 @@ public class Address {
         return test.matches(VALIDATION_REGEX);
     }
 
+
+    public boolean contains(String s) {
+        return value.toLowerCase().contains(s.toLowerCase().strip());
+    }
+
     @Override
     public String toString() {
         return value;

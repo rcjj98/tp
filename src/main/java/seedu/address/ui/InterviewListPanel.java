@@ -1,14 +1,10 @@
 package seedu.address.ui;
 
-
-import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.interview.Interview;
 
 /**
@@ -16,7 +12,6 @@ import seedu.address.model.interview.Interview;
  */
 public class InterviewListPanel extends UiPart<Region> {
     private static final String FXML = "InterviewListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(InterviewListPanel.class);
 
     @FXML
     private ListView<Interview> interviewListView;

@@ -127,7 +127,7 @@ public class CommandTestUtil {
         Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
 
         List<String> keywords = new ArrayList<>();
-        keywords.add(person.getName().fullName.split(" ")[0]);
+        keywords.add("n/" + person.getName().fullName.split(" ")[0]);
         model.updateFilteredPersonList(new PersonContainsKeywordsPredicate(keywords));
 
         assertEquals(1, model.getFilteredPersonList().size());

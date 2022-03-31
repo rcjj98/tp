@@ -21,7 +21,7 @@ public class DeleteInterviewCommand extends DeleteCommand {
             + "Or, Parameters: NAME (must be a string), \n"
             + "Example: " + COMMAND_WORD + " [i] Jeremy\n";
 
-    public static final String MESSAGE_DELETE_INTERVIEW_SUCCESS = "Interview has been deleted!";
+    public static final String MESSAGE_DELETE_INTERVIEW_SUCCESS = "Deleted Interview: %1$s";
 
     private final Index targetIndex;
     private final String targetApplicant;
@@ -59,7 +59,7 @@ public class DeleteInterviewCommand extends DeleteCommand {
         }
         Interview interviewToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteInterview(interviewToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), INTERVIEW);
+        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), Type.INTERVIEW);
     }
 
     /**
@@ -97,7 +97,7 @@ public class DeleteInterviewCommand extends DeleteCommand {
         Interview interviewToDelete = lastShownList.get(pos);
         model.deleteInterview(interviewToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), getType());
+        return new CommandResult(String.format(MESSAGE_DELETE_INTERVIEW_SUCCESS, interviewToDelete), Type.INTERVIEW);
     }
 
     @Override

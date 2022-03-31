@@ -10,6 +10,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Task;
 
 /**
  * API of the Logic component
@@ -37,6 +38,9 @@ public interface Logic {
     /** Returns an unmodifiable view of the filtered list of interviews */
     ObservableList<Interview> getFilteredInterviewList();
 
+    /** Returns an unmodifiable view of the filtered list of tasks */
+    ObservableList<Task> getFilteredTaskList();
+
     /**
      * Returns the user prefs' address book file path.
      */
@@ -51,6 +55,7 @@ public interface Logic {
      * Set the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
 
 
 }

@@ -23,7 +23,7 @@ public class DeletePersonCommand extends DeleteCommand {
             + "Or, Parameters: NAME (must be a string), \n"
             + "Example: " + COMMAND_WORD + " [p] Jeremy\n";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Applicant has been deleted!";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Applicant: %1$s";
 
     private final Index targetIndex;
     private final String targetApplicant;
@@ -67,7 +67,7 @@ public class DeletePersonCommand extends DeleteCommand {
         }
 
         model.deletePerson(personToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), PERSON);
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     /**
@@ -126,7 +126,7 @@ public class DeletePersonCommand extends DeleteCommand {
         Person personToDelete = lastShownList.get(pos);
         model.deletePerson(personToDelete);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), getType());
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     @Override

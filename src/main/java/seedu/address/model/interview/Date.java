@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /**
@@ -16,7 +15,7 @@ public class Date {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Date should be in the format YYYY-MM-dd like 2021-06-25."
-            + " Date has to be valid. Example: 2021-02-29 is an invalid date.";
+            + "\nDate has to be valid. Example: 2021-02-30 is an invalid date as there is no 30th Feb.";
     public final String value;
 
     /**
@@ -27,7 +26,7 @@ public class Date {
     public Date(String date) {
         requireNonNull(date);
         checkArgument(isValidDate(date), MESSAGE_CONSTRAINTS);
-        value = LocalDate.parse(date).format(DateTimeFormatter.ofPattern("dd-MMM-YYYY"));
+        value = date;
     }
 
     /**

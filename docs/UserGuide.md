@@ -126,23 +126,23 @@ Deletes an existing job applicant/interview timing in the address book.
   Example: `delete [i] 1`
 
 &nbsp;
-### Finding a job applicant by keywords: `find` 
-Finds job applicants whose data contain any of the given keywords.
+### Finding a job applicant or interviews by keywords: `find` 
+Finds job applicants or interviews whose data contain any of the given keywords.
 
-Use `g/` flags to find job applicants whose data contain **all** the keywords.
+Use `g/` flags to find job applicants or interviews whose data contain **all** the keywords.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/alex g/bukit g/stage:inprogress`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s:INPROGRESS`)
 
-Special Keywords:
-* `jobdesc:`: Finds which job description the applicant has applied for.
-* `stage:`: Finds which stage in the application process that the job applicant is at. (Only accepts: **inprogress**, **accepted**, **rejected**)
+Notes:
+* Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
+* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags
 
 Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
 
 Examples:
-* `find g/alex g/bukit g/111 g/@gmail` is logically equivalent to `find alex OR bukit OR 111 OR @gmail`
-* `find g/alex bukit 111 @gmail` is logically equivalent to `find alex AND bukit AND 111 AND @gmail`
-* `find g/alex bukit g/111 @gmail` is logically equivalent to `find (alex AND bukit) OR (111 AND @gmail)`
+* `find [p] g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find n/alex OR s/ACCEPTED OR p/1111`
+* `find [p] g/n/alex s/ACCEPTED p/1111` is logically equivalent to `find n/alex AND s/ACCEPTED AND p/1111`
+* `find [p] g/n/alex g/s/ACCEPTED g/p/1111` is logically equivalent to `find (n/alex AND g/s/ACCEPTED) OR p/1111`
 
 
 ![find](images/find.png)
@@ -170,8 +170,6 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 
 :exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
 
-&nbsp;
-### Archiving the current data: `export` [coming in v1.3]
 
 &nbsp;
 ### Importing the data file: `import`
@@ -192,6 +190,35 @@ Format: `import FILEPATH`
 
 Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\data.json`
 
+&nbsp;
+### Exporting to a csv data file: `export`
+
+Exports all persons data from this address book to a *csv* save file.
+
+File Format:
+* File to export from: JSON (addressbook.json)
+* File to export to: CSV (<YOUR_FILE_NAME.csv>) <br> 
+
+Notes:
+1. Filepath of specified CSV file **must be absolute**.
+2. File name of csv file cannot contain any front or back slash.
+   1. Front slash: \
+   2. Back slash: /
+3. Specifying the same csv file name will overwrite the data inside the csv file.
+4. Csv file must have .csv as a file extension.
+5. Only the current data within the addressbook.json will be exported into the specified csv file.
+6. Data exported into the specified CSV file will be seperated by tabs.
+   1. (\t) represents a tab spacing between each field of data.
+7. Each row of data inside the CSV file represents the details of 1 single person from the addressbook. 
+   1. name(\t)phone_number(\t)email_address(\t)address(\t)job_description(\t)application_stage
+8. If any error is found while executing the command, 
+**none** of the data from the addressbook will be exported into the specified csv file.
+
+Format: `export ABSOLUTE_FILEPATH_OF_CSV_FILE`
+
+Example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
+Example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv 
+`
 
 ## Command Summary
 
@@ -207,5 +234,6 @@ Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\d
 |                 Find | `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                  |
 |                 Help | `help`                                                                       |
 |               Import | `import FILEPATH`                                                            |
+|               Export | `export ABSOLUTE_FILEPATH_OF_CSV_FILE`                                       |
 |      List Interviews | `list [i]`                                                                   |
 |  List Job Applicants | `list [p]`                                                                   |

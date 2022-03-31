@@ -19,7 +19,7 @@ public class ClearPersonCommand extends ClearCommand {
         } else {
             throw new CommandException(MESSAGE_INTERVIEW_LIST_NOT_EMPTY);
         }
-        return new CommandResult(MESSAGE_SUCCESS, getType());
+        return new CommandResult(MESSAGE_SUCCESS, PERSON);
     }
 
     @Override
