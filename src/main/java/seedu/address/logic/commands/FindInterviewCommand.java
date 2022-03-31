@@ -17,7 +17,14 @@ public class FindInterviewCommand extends FindCommand {
 
     private InterviewContainsKeywordsPredicate predicate;
 
+    /**
+     * Constructor for FindInterviewCommand
+     *
+     * @param predicate Search criteria to find interviews
+     */
+
     public FindInterviewCommand(InterviewContainsKeywordsPredicate predicate) {
+        requireNonNull(predicate);
         this.predicate = predicate;
     }
 

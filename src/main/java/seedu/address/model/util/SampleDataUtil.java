@@ -55,9 +55,6 @@ public class SampleDataUtil {
             new Interview(persons[4], new Date("2022-05-21"), new Time("04:05")),
             new Interview(persons[5], new Date("2024-11-21"), new Time("04:06")),
             new Interview(persons[6], new Date("2012-01-21"), new Time("04:07")),
-            new Interview(persons[7], new Date("2012-02-21"), new Time("04:08")),
-            new Interview(persons[8], new Date("2012-04-21"), new Time("04:09")),
-            new Interview(persons[9], new Date("2022-11-21"), new Time("04:10"))
         };
     }
 

@@ -53,9 +53,9 @@ public class FindCommandParserTest {
 
         // check for invalid input
         assertParseFailure(person, " [p] g/n/<>",
-                String.format("Group n/<>: contains invalid name\n" + Name.MESSAGE_CONSTRAINTS));
+                String.format("[n/<>] contains invalid name\n" + Name.MESSAGE_CONSTRAINTS));
         assertParseFailure(interview, " [i] g/n/<>",
-                String.format("Group n/<>: contains invalid name\n" + Name.MESSAGE_CONSTRAINTS));
+                String.format("[n/<>] contains invalid name\n" + Name.MESSAGE_CONSTRAINTS));
     }
 
     @Test
