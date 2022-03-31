@@ -1,12 +1,12 @@
 package seedu.address.model.tasks;
 
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
+
 import java.util.List;
 import java.util.function.Predicate;
 
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
-
-import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 
 /**
  * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
