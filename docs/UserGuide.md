@@ -27,7 +27,7 @@ the progress of each applicant during the application process.
    * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
    j/Software Developer s/INPROGRESS`: Adds a new contact name Bob Tan to the address book
    * `list [p]`: Lists all contacts
-   * `delete [p] 1`: Deletes job applicant idex **1** from the address book
+   * `delete [p] 1`: Deletes job applicant index **1** from the address book
    * `clear [p]`: Deletes all applicants.
    * `exit`: Exits the app.
 
@@ -68,7 +68,7 @@ the progress of each applicant during the application process.
 
 ##General Features
 ### Viewing Help: `help`
-Shows a message explaining how to access the help page and the basic commands.
+Shows a message explaining how to access the help page and the basic flags.
 
 Format: `help`  
 
@@ -93,7 +93,7 @@ Adds a new job applicant to the address book.
 
 &nbsp;
 ### Editing a job applicant:`edit [p]`
-Edits an existing job applicant/interview in the address book
+Edits an existing job applicant in the address book
 
 * #### Editing a job applicant
   Format: `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` <br>
@@ -112,11 +112,11 @@ After edit command is executed. <br>
 ### Deleting job applicant: `delete [p]` 
 Deletes an existing job applicant from the address book.
 
-* #### Deleting a job applicant 
-  Format: `delete [p] INDEX`
+:exclamation: **Take note:** Cannot delete a person if he/she has an interview scheduled.
 
-  Example: `delete [p] 1` <br><br>
-  :exclamation: **Take note:** Cannot delete a person if he/she has an interview scheduled.
+Format: `delete [p] INDEX`
+
+Example: `delete [p] 1` <br><br>
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
@@ -137,24 +137,24 @@ Finds job applicants whose data contain the given keywords.
 
 Use `g/` flags to find job applicants whose data contain **all** the keywords.
 
-:bulb: Tip: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s:INPROGRESS`)
+:bulb: Tip: Use multiple `g/` flags as an **OR** command (e.g. `find g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Notes:
 * Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
 
-Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
+Format: `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
 
 Examples:
 * `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
-`find s/ACCEPTED OR n/John Doe`  <br> <br>
+`find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
 
 * `find [p] g/j/Software Developer s/ACCEPTED` is logically equivalent to <br> 
-`find j/Software Developer AND s/ACCEPTED` <br> <br>
+`find [p] j/Software Developer AND s/ACCEPTED` <br> <br>
 ![find](images/find-applicant-AND-example.png)
 
 * `find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
-`find (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
+`find [p] (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
 ![find](images/find-applicant-AND-OR-example.png)
 
 
@@ -219,12 +219,12 @@ Finds interview slots with data containing any of the specified keywords.
 
 Use `g/` flags to find interview slot(s) with data containing **all** the keywords.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s:INPROGRESS`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Notes:
 * Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags
 
-Format: `find g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`
+Format: `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
 
 Examples:
 * `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
@@ -252,17 +252,18 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 &nbsp;
 ### Importing the data file: `import`
 
-Imports all persons data from a *csv* or *json* save file generated from this address book.
+Imports all **job applicants** data from a *csv* or *json* save file generated from this address book.
 
 File Format:
 * CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
-* JSON: Follows the existing file data structure. 
+* JSON: Follows the existing `addressbook.json` data structure. 
 
 Notes:
 1. Filepath can be relative or absolute.
 2. No duplicates are allowed to be imported into the address book.
    1. Data in the address book has a higher priority than data in the save file.
-3. If any error is found, **none** of the data in the save file will be imported into the address book. 
+3. Save files needs to end with `.csv` or `.json` in order for the address book to recognise the save file. 
+4. If any error is found, **none** of the data in the save file will be imported into the address book. 
 
 Format: `import FILEPATH`
 
@@ -271,7 +272,7 @@ Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\d
 &nbsp;
 ### Exporting to a csv data file: `export`
 
-Exports all persons data from this address book to a *csv* save file.
+Exports all **job applicants** data from the address book into a *csv* save file.
 
 File Format:
 * File to export from: JSON (addressbook.json)
@@ -283,7 +284,7 @@ Notes:
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with back slash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
-4. Csv file must have .csv as a file extension.
+4. Csv file **must** have .csv as a file extension.
 5. Only the current data within the addressbook.json will be exported into the specified csv file.
 6. Data exported into the specified CSV file will be seperated by tabs.
    1. (\t) represents a tab spacing between each field of data.
@@ -313,8 +314,8 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 |       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
 |   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
 |                 Exit | `exit`                                                                                      |
-|       Find Interview | `find [i] g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                             |
-|   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS...] [g/KEYWORD [KEYWORDS...]]...`                             |
+|       Find Interview | `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
+|   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
 |                 Help | `help`                                                                                      |
 |               Import | `import FILEPATH`                                                                           |
 |               Export | `export FILEPATH`                                                                           |
