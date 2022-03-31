@@ -47,6 +47,7 @@ public class UniqueInterviewList implements Iterable<Interview> {
             throw new DuplicateInterviewException();
         }
         internalList.add(toAdd);
+        sortInterviews();
     }
 
     /**
@@ -65,8 +66,8 @@ public class UniqueInterviewList implements Iterable<Interview> {
         if (!target.isSameInterview(editedInterview) && contains(editedInterview)) {
             throw new DuplicateInterviewException();
         }
-
         internalList.set(index, editedInterview);
+        sortInterviews();
     }
 
     /**
@@ -78,6 +79,11 @@ public class UniqueInterviewList implements Iterable<Interview> {
         if (!internalList.remove(toRemove)) {
             throw new InterviewNotFoundException();
         }
+        sortInterviews();
+    }
+
+    public void sortInterviews() {
+        internalList.sort(new DateTimeComparator());
     }
 
     public void clear() {
@@ -93,8 +99,8 @@ public class UniqueInterviewList implements Iterable<Interview> {
         if (!interviewsAreUnique(interviews)) {
             throw new DuplicateInterviewException();
         }
-
         internalList.setAll(interviews);
+        sortInterviews();
     }
 
     /**
