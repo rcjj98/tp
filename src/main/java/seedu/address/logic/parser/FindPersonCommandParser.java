@@ -1,11 +1,15 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 
 import java.util.List;
 
@@ -25,15 +29,20 @@ public class FindPersonCommandParser extends FindCommandParser {
     public FindPersonCommand parse(List<String> groups) throws ParseException {
 
         for (String group : groups) {
-            ArgumentMultimap fields = ArgumentTokenizer.tokenize(" " + group, PREFIX_NAME,
-                    PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE);
 
-            checkInvalidName(fields, group);
-            checkInvalidJob(fields, group);
-            checkInvalidPhone(fields, group);
-            checkInvalidEmail(fields, group);
-            checkInvalidAddress(fields, group);
-            checkInvalidStage(fields, group);
+            if (areCorrectPrefixesPresent(group, PREFIX_DATE, PREFIX_TIME, PREFIX_GROUP, PREFIX_INFORMATION)) {
+                throw new ParseException("[" + group + "] Invalid flags are found.");
+            }
+
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_NAME, PREFIX_PHONE,
+                    PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE);
+
+            checkInvalidName(fields.getAllValues(PREFIX_NAME), group);
+            checkInvalidPhone(fields.getAllValues(PREFIX_PHONE), group);
+            checkInvalidEmail(fields.getAllValues(PREFIX_EMAIL), group);
+            checkInvalidAddress(fields.getAllValues(PREFIX_ADDRESS), group);
+            checkInvalidJob(fields.getAllValues(PREFIX_JOB), group);
+            checkInvalidStage(fields.getAllValues(PREFIX_STAGE), group);
         }
 
         return new FindPersonCommand(new PersonContainsKeywordsPredicate(groups));

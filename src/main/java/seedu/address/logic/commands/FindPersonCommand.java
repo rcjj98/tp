@@ -17,7 +17,13 @@ public class FindPersonCommand extends FindCommand {
 
     private PersonContainsKeywordsPredicate predicate;
 
+    /**
+     * Constructor for FindPersonCommand
+     *
+     * @param predicate Search criteria to find persons
+     */
     public FindPersonCommand(PersonContainsKeywordsPredicate predicate) {
+        requireNonNull(predicate);
         this.predicate = predicate;
     }
 
