@@ -256,7 +256,7 @@ Imports all **job applicants** data from a *csv* or *json* save file generated f
 
 File Format:
 * CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
-* JSON: Follows the existing `addressbook.json` data structure. 
+* JSON: Follows the **entire** existing `[JAR file location]/data/addressbook.json` data structure and format. 
 
 Notes:
 1. Filepath can be relative or absolute.
