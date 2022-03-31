@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Task;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -24,6 +25,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Interview> filteredInterviews;
+    private final FilteredList<Task> filteredTasks;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -37,6 +39,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
         filteredInterviews = new FilteredList<>(this.addressBook.getInterviewList());
+        filteredTasks = new FilteredList<>(this.addressBook.getTaskList());
     }
 
     public ModelManager() {
@@ -200,6 +203,35 @@ public class ModelManager implements Model {
         return addressBook.equals(other.addressBook)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons);
+    }
+
+    //=========== Task List methods =============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code task} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Task> getFilteredTaskList() {
+        return filteredTasks;
+    }
+
+    @Override
+    public void addTask(Task toAdd) {
+        requireNonNull(toAdd);
+        addressBook.addTask(toAdd);
+    }
+
+    @Override
+    public void deleteTask(Task taskToDelete) throws Exception {
+        requireNonNull(taskToDelete);
+        addressBook.removeTask(taskToDelete);
+    }
+
+    @Override
+    public boolean hasTask(Task toAdd) {
+        requireNonNull(toAdd);
+        return addressBook.hasTask(toAdd);
     }
 
 }

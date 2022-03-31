@@ -22,6 +22,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
+import seedu.address.model.tasks.Task;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddPersonCommandTest {
@@ -190,6 +191,27 @@ public class AddPersonCommandTest {
         @Override
         public void updateFilteredInterviewList(Predicate<Interview> predicate) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Task> getFilteredTaskList() {
+            return null;
+        }
+
+        @Override
+        public void addTask(Task toAdd) {
+            requireNonNull(toAdd);
+        }
+
+        @Override
+        public void deleteTask(Task taskToDelete) throws Exception {
+            // TODO Auto-generated method stub
+        }
+
+        @Override
+        public boolean hasTask(Task toAdd) {
+            // TODO Auto-generated method stub
+            return false;
         }
     }
 

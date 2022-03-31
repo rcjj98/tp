@@ -9,6 +9,9 @@ import seedu.address.model.interview.Interview;
 import seedu.address.model.interview.UniqueInterviewList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.tasks.Task;
+import seedu.address.model.tasks.UniqueTaskList;
+
 
 /**
  * Wraps all data at the address-book level
@@ -18,6 +21,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
     private final UniqueInterviewList interviews;
+    private final UniqueTaskList tasks;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -29,6 +33,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     {
         persons = new UniquePersonList();
         interviews = new UniqueInterviewList();
+        tasks = new UniqueTaskList();
     }
 
     public AddressBook() {}
@@ -158,12 +163,38 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.interviews.clear();
     }
 
+    //// task-level operations
+
+    /**
+     * Adds a Task to the address book.
+     */
+    public void addTask(Task i) {
+        try {
+            tasks.add(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Removes {@code key} from this {@code AddressBook}.
+     * {@code key} must exist in the address book.
+     * @throws Exception
+     */
+    public void removeTask(Task key) throws Exception {
+        tasks.remove(key);
+    }
+
+    @Override
+    public ObservableList<Task> getTaskList() {
+        return tasks.asUnmodifiableObservableList();
+    }
+
     //// util methods
 
     @Override
     public String toString() {
         return persons.asUnmodifiableObservableList().size() + " persons";
-        // TODO: refine later
     }
 
     @Override
@@ -187,4 +218,15 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return persons.hashCode();
     }
+
+    /**
+     * Returns true if a task with the same identity as {@code task} exists in the address book.
+     * @param toAdd
+     * @return boolean
+     */
+    public boolean hasTask(Task toAdd) {
+        requireNonNull(toAdd);
+        return tasks.contains(toAdd);
+    }
+
 }

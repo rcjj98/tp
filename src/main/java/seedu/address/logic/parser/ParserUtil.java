@@ -13,6 +13,9 @@ import seedu.address.model.person.Job;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
+import seedu.address.model.tasks.Description;
+
+
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -153,4 +156,21 @@ public class ParserUtil {
         }
         return new Stage(trimmedStage);
     }
+
+    /**
+     * Parses a {@code String des} into a {@code Description}.
+     * Leading and trailing whitespaces will be trimmed.
+     * @param des
+     * @return Description
+     * @throws ParseException
+     */
+    public static Description parseDescription(String des) throws ParseException {
+        requireNonNull(des);
+        String trimmedDes = des.trim();
+        if (!Description.isValidDescription(trimmedDes)) {
+            throw new ParseException(Description.MESSAGE_CONSTRAINTS);
+        }
+        return new Description(trimmedDes);
+    }
 }
+
