@@ -4,6 +4,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEADER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -30,7 +31,8 @@ public class FindPersonCommandParser extends FindCommandParser {
 
         for (String group : groups) {
 
-            if (areCorrectPrefixesPresent(group, PREFIX_DATE, PREFIX_TIME, PREFIX_GROUP, PREFIX_INFORMATION)) {
+            if (havePrefixesPresent(group, PREFIX_DATE, PREFIX_TIME, PREFIX_GROUP,
+                    PREFIX_INFORMATION, PREFIX_HEADER)) {
                 throw new ParseException("[" + group + "] Invalid flags are found.");
             }
 

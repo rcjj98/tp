@@ -31,13 +31,13 @@ public class FindTaskCommandParser extends FindCommandParser {
     public FindTaskCommand parse(List<String> groups) throws ParseException {
 
         for (String group : groups) {
-            if (areCorrectPrefixesPresent(group, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB,
+            if (havePrefixesPresent(group, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB,
                     PREFIX_STAGE, PREFIX_DATE, PREFIX_TIME, PREFIX_GROUP)) {
                 throw new ParseException("[" + group + "] Invalid flags are found.");
             }
 
-            ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_HEADER, PREFIX_INFORMATION,
-                    PREFIX_DATE, PREFIX_TIME);
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_HEADER,
+                    PREFIX_INFORMATION, PREFIX_DATE, PREFIX_TIME);
 
             checkInvalidHeader(fields.getAllValues(PREFIX_HEADER), group);
             checkInvalidInformation(fields.getAllValues(PREFIX_INFORMATION), group);
