@@ -25,7 +25,9 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label description;
+    private Label information;
+    @FXML
+    private Label date;
 
     /**
      * Creates a {@code InterviewCode} with the given {@code Interview} and index to display.
@@ -34,6 +36,24 @@ public class TaskCard extends UiPart<Region> {
         super(FXML);
         this.task = task;
         id.setText(displayedIndex + ". ");
-        description.setText(task.getDescription().fullDescription);
+        information.setText(task.getInformation().fullInformation);
+        date.setText("By: No Deadline");
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+        // instanceof handles nulls
+        if (!(other instanceof TaskCard)) {
+            return false;
+        }
+
+        // state check
+        TaskCard card = (TaskCard) other;
+        return id.getText().equals(card.id.getText())
+                && task.equals(card.task);
     }
 }

@@ -152,6 +152,35 @@ public class ModelManager implements Model {
         this.addressBook.resetInterviews();
     }
 
+    @Override
+    public boolean hasTask(Task person) {
+        requireNonNull(person);
+        return addressBook.hasTask(person);
+    }
+
+    @Override
+    public void deleteTask(Task target) {
+        addressBook.removeTask(target);
+    }
+
+    @Override
+    public void addTask(Task task) {
+        addressBook.addTask(task);
+        updateFilteredTaskList(PREDICATE_SHOW_ALL_TASKS);
+    }
+
+    @Override
+    public void setTask(Task target, Task editedTask) {
+        requireAllNonNull(target, editedTask);
+
+        addressBook.setTask(target, editedTask);
+    }
+
+    @Override
+    public void resetTasks() {
+        this.addressBook.resetTasks();
+    }
+
 
     //=========== Filtered List Accessors =============================================================
 
@@ -185,6 +214,21 @@ public class ModelManager implements Model {
         filteredInterviews.setPredicate(predicate);
     }
 
+    /**
+     * Returns an unmodifiable view of the list of {@code Interview} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Task> getFilteredTaskList() {
+        return filteredTasks;
+    }
+
+    @Override
+    public void updateFilteredTaskList(Predicate<Task> predicate) {
+        requireNonNull(predicate);
+        filteredTasks.setPredicate(predicate);
+    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -203,35 +247,6 @@ public class ModelManager implements Model {
         return addressBook.equals(other.addressBook)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons);
-    }
-
-    //=========== Task List methods =============================================================
-
-    /**
-     * Returns an unmodifiable view of the list of {@code task} backed by the internal list of
-     * {@code versionedAddressBook}
-     */
-    @Override
-    public ObservableList<Task> getFilteredTaskList() {
-        return filteredTasks;
-    }
-
-    @Override
-    public void addTask(Task toAdd) {
-        requireNonNull(toAdd);
-        addressBook.addTask(toAdd);
-    }
-
-    @Override
-    public void deleteTask(Task taskToDelete) throws Exception {
-        requireNonNull(taskToDelete);
-        addressBook.removeTask(taskToDelete);
-    }
-
-    @Override
-    public boolean hasTask(Task toAdd) {
-        requireNonNull(toAdd);
-        return addressBook.hasTask(toAdd);
     }
 
 }
