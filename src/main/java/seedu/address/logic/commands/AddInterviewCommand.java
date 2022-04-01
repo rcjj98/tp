@@ -28,7 +28,7 @@ public class AddInterviewCommand extends AddCommand {
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_DATE + "DATE "
-            + PREFIX_TIME + "TIME "
+            + PREFIX_TIME + "TIME\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "05:29";

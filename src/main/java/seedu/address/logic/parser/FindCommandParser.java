@@ -95,7 +95,7 @@ public class FindCommandParser implements Parser<FindCommand> {
         for (String group : allGroups) {
             String firstArg = group.strip().split("\\s+")[0];
 
-            if (!areCorrectPrefixesPresent(padding + firstArg, PREFIX_NAME, PREFIX_PHONE,
+            if (!havePrefixesPresent(padding + firstArg, PREFIX_NAME, PREFIX_PHONE,
                     PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE, PREFIX_DATE, PREFIX_TIME,
                     PREFIX_GROUP, PREFIX_INFORMATION, PREFIX_HEADER)) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, "No flags found in group"));
@@ -226,10 +226,10 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
     }
 
-    protected static boolean areCorrectPrefixesPresent(String group, Prefix... prefixes) {
+    protected static boolean havePrefixesPresent(String group, Prefix... prefixes) {
         ArgumentMultimap allFlags = ArgumentTokenizer.tokenize(padding + group, PREFIX_NAME, PREFIX_PHONE,
                 PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE, PREFIX_DATE, PREFIX_TIME,
-                PREFIX_GROUP, PREFIX_INFORMATION);
+                PREFIX_GROUP, PREFIX_INFORMATION, PREFIX_HEADER);
 
         return Stream.of(prefixes).anyMatch(prefix -> allFlags.getValue(prefix).isPresent());
     }

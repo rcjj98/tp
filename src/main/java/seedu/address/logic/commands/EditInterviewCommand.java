@@ -21,11 +21,11 @@ import seedu.address.model.interview.Interview;
 
 public class EditInterviewCommand extends EditCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD + " [i] : Edits the details of the interview identified "
-            + "by the index number used in the displayed inter iew list. "
+            + "by the index number used in the displayed interview list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_DATE + "DATE] "
-            + "[" + PREFIX_TIME + "TIME] "
+            + "[" + PREFIX_TIME + "TIME] \n"
             + "Example: " + COMMAND_WORD + " [i] 1 "
             + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "10:30";
