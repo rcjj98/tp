@@ -181,9 +181,8 @@ Adds a new job interview slot to the address book.
 Edits an existing interview slot in the address book
 
 * #### Editing interview details
-  Format: `edit [i] INDEX d/DATE [t/TIME]` <br> 
-  or `edit [i] INDEX t/TIME [d/DATE]` <br><br>
-
+  Format: `edit [i] INDEX [d/DATE] [t/TIME]` <br> 
+  
   Examples: <br> `edit [i] 1 d/2021-12-30` <br>
   `edit [i] 1 t/10:30` <br>
   `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
@@ -229,11 +228,80 @@ Format: `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
 Examples:
 * `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
 * `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
-* `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
+* `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
 
 
 ![find](images/find-interview.png)
 
+## Task Features
+### :information_source: Notes about the command format regarding Tasks:
+
+&nbsp;
+### Adding a new task to the miscellaneous task list: `add [t]`
+Adds a new task to the address book.
+
+* #### Adding a new task
+  Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
+
+  Example: `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
+
+[Upcoming Image]
+
+&nbsp;
+### Editing an existing task: `edit [t]`
+Edits an existing task in the address book
+
+* #### Editing task details
+  Format: `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]` <br>
+
+  Examples: <br> `edit [t] 1 d/2021-12-30` <br>
+  `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
+
+[Upcoming Image]
+
+&nbsp;
+### Deleting a task: `delete [t]`
+Deletes an existing task in the address book.
+
+* #### Deleting a task
+  Format: `delete [t] INDEX`
+
+  Example: `delete [t] 1`
+
+&nbsp;
+### Listing all tasks: `list [t]`
+Shows a list of all tasks in the address book.
+
+Format:
+* `list [t]`: Show all tasks.
+
+
+&nbsp;
+### Clearing all tasks: `clear [t]`
+Clears all tasks from the address book.
+
+Format: `clear [t]`
+
+&nbsp;
+### Finding task(s) by keywords: `find [t]`
+Find tasks with data containing any of the specified keywords.
+
+Use `g/` flags to find task(s) with data containing **all** the keywords.
+
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/h/update t/10:10`)
+
+Notes:
+* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
+
+Format: `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+
+Examples:
+* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find d/2022-03-04 OR h/update OR t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find d/2022-03-04 AND h/update AND t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
+
+
+[Upcoming Image]
 
 
 
@@ -307,17 +375,23 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 |---------------------:|:--------------------------------------------------------------------------------------------|
 |        Add Interview | `add [i] 1 d/DATE t/TIME`                                                                   |
 |    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`                    |
+|             Add Task | `add [t] h/HEADER d/DATE t/TIME i/INFORMATION`                                              |
 |     Clear Interviews | `clear [i]`                                                                                 |
 | Clear Job Applicants | `clear [p]`                                                                                 |
+|          Clear Tasks | `clear [t]`                                                                                 |
 |     Delete Interview | `delete [i] INDEX`                                                                          |
 | Delete Job Applicant | `delete [p] INDEX`                                                                          |
+|          Delete Task | `delete [t] INDEX`                                                                          |
 |       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
 |   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
+|            Edit Task | `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]`                               |
 |                 Exit | `exit`                                                                                      |
 |       Find Interview | `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
 |   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
+|            Find Task | `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
 |                 Help | `help`                                                                                      |
-|               Import | `import FILEPATH`                                                                           |
-|               Export | `export FILEPATH`                                                                           |
 |      List Interviews | `list [i]`                                                                                  |
 |  List Job Applicants | `list [p]`                                                                                  |
+|           List Tasks | `list [t]`                                                                                  |
+|               Import | `import FILEPATH`                                                                           |
+|               Export | `export FILEPATH`                                                                           |
