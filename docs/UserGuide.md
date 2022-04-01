@@ -258,25 +258,18 @@ Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\d
 &nbsp;
 ### Exporting to a csv data file: `export`
 
-Exports all persons data from this address book to a *csv* save file.
+Exports all applicant data from the address book to a *csv* save file.
 
 File Format:
-* File to export from: JSON (addressbook.json)
-* File to export to: CSV (<YOUR_FILE_NAME.csv>) <br> 
+* CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage <br> 
 
 Notes:
-1. Filepath of specified CSV file can be relative or absolute.
+1. Filepath of specified CSV file can be either relative or absolute.
 2. File name of csv file **cannot** contain any front or back slashes.
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with back slash: myCSVfile/.csv
-3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
-4. Csv file must have .csv as a file extension.
-5. Only the current data within the addressbook.json will be exported into the specified csv file.
-6. Data exported into the specified CSV file will be seperated by tabs.
-   1. (\t) represents a tab spacing between each field of data.
-7. Each row of data inside the CSV file represents the details of 1 single person from the addressbook. 
-   1. name(\t)phone_number(\t)email_address(\t)address(\t)job_description(\t)application_stage
-8. If any error is found while executing the command, 
+3. Specifying the same csv file name and path will overwrite the data inside the specified csv file. 
+4. If any error is found while executing the command, 
 **none** of the data from the addressbook will be exported into the specified csv file.
 
 Format: `export FILEPATH`
