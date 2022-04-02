@@ -38,9 +38,9 @@ public class Header {
     }
 
     /**
-     * Checks if current name contains the substring
+     * Checks if current Header contains the substring
      * @param s the header to check with
-     * @return true if current name contains the substring of the checked name
+     * @return true if current Header contains the substring of the checked Header
      */
     public boolean contains(String s) {
         return fullHeader.toLowerCase().contains(s.toLowerCase());
@@ -53,9 +53,19 @@ public class Header {
 
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Header // instanceof handles nulls
-                && fullHeader.equals(((Header) other).fullHeader)); // state check
+        if (other == this) {
+            return true;
+        } else if (other instanceof Header) {
+            String currentHeader = fullHeader.toLowerCase();
+            String otherHeader = ((Header) other).fullHeader.toLowerCase();
+            if (currentHeader.contains(" ") && otherHeader.contains(" ")) {
+                return currentHeader.replaceAll("\\s", "")
+                        .equals(otherHeader.replaceAll("\\s", ""));
+            } else {
+                return currentHeader.equals(otherHeader);
+            }
+        }
+        return false;
     }
 
     @Override

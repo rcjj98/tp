@@ -49,7 +49,6 @@ public class Task {
 
         return otherTask != null
                 && (otherTask.getHeader().equals(getHeader()))
-                && (otherTask.getInformation().equals(getInformation()))
                 && (otherTask.getDate().equals(getDate())
                 && otherTask.getTime().equals(getTime()));
     }
@@ -69,8 +68,7 @@ public class Task {
         }
 
         Task otherTask = (Task) other;
-        return otherTask.getInformation().equals(getInformation())
-                && (otherTask.getHeader().equals(getHeader()))
+        return (otherTask.getHeader().equals(getHeader()))
                 && (otherTask.getDate().equals(getDate())
                 && otherTask.getTime().equals(getTime()));
     }
