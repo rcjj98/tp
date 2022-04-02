@@ -16,7 +16,7 @@ public class Time {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Time should be in the format HH:MM like 09:41"
-                    + "\n Time has to be valid. Example: 24:01 is an invalid time.";
+                    + "\n Time has to be valid (00:00-23:59). Example: 24:01 is an invalid time.";
     public final String value;
 
     /**
@@ -36,6 +36,9 @@ public class Time {
     public static boolean isValidTime(String test) {
         try {
             LocalTime.parse(test, DateTimeFormatter.ofPattern("HH:mm"));
+            if (test.equals("24:00")) {
+                return false;
+            }
         } catch (DateTimeParseException e) {
             return false;
         }

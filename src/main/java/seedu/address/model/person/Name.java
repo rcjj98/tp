@@ -53,9 +53,19 @@ public class Name {
 
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof Name // instanceof handles nulls
-                        && fullName.equals(((Name) other).fullName)); // state check
+        if (other == this) {
+            return true;
+        } else if (other instanceof Name) {
+            String currentName = fullName.toLowerCase();
+            String otherName = ((Name) other).fullName.toLowerCase();
+            if (currentName.contains(" ") && otherName.contains(" ")) {
+                return currentName.replaceAll("\\s", "")
+                        .equals(otherName.replaceAll("\\s", ""));
+            } else {
+                return currentName.equals(otherName);
+            }
+        }
+        return false;
     }
 
     @Override
