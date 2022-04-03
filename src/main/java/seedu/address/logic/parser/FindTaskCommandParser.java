@@ -32,7 +32,7 @@ public class FindTaskCommandParser extends FindCommandParser {
 
         for (String group : groups) {
             if (havePrefixesPresent(group, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB,
-                    PREFIX_STAGE, PREFIX_TIME, PREFIX_GROUP)) {
+                    PREFIX_STAGE, PREFIX_GROUP)) {
                 throw new ParseException("[" + group + "] Invalid flags are found.");
             }
 
