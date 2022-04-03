@@ -137,7 +137,7 @@ Finds job applicants whose data contain the given keywords.
 
 Use `g/` flags to find job applicants whose data contain **all** the keywords.
 
-:bulb: Tip: Use multiple `g/` flags as an **OR** command (e.g. `find g/n/alex g/j/software developer g/s/INPROGRESS`)
+:bulb: Tip: Use multiple `g/` flags as an **OR** command (e.g. `find [p] g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Notes:
 * Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
@@ -220,7 +220,7 @@ Finds interview slots with data containing any of the specified keywords.
 
 Use `g/` flags to find interview slot(s) with data containing **all** the keywords.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s/INPROGRESS`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [i] g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Notes:
 * Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
@@ -292,7 +292,7 @@ Find tasks with data containing any of the specified keywords.
 
 Use `g/` flags to find task(s) with data containing **all** the keywords.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/h/update t/10:10`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update t/10:10`)
 
 Notes:
 * Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
