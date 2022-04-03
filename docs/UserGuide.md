@@ -141,6 +141,8 @@ Use `g/` flags to find job applicants whose data contain **all** the keywords.
 
 Notes:
 * Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
+* If a keyword without a flag is used, an error will be raised.
+* Keywords are still required to follow the format defined as by the flags.
 
 Format: `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
 
@@ -221,14 +223,16 @@ Use `g/` flags to find interview slot(s) with data containing **all** the keywor
 :bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Notes:
-* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags
+* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
+* If a keyword without a flag is used, an error will be raised.
+* Keywords are still required to follow the format defined as by the flags.
 
 Format: `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
 
 Examples:
-* `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
-* `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
-* `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
+* `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
+* `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
+* `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
 
 
 ![find](images/find-interview.png)
@@ -292,6 +296,8 @@ Use `g/` flags to find task(s) with data containing **all** the keywords.
 
 Notes:
 * Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
+* If a keyword without a flag is used, an error will be raised.
+* Keywords are still required to follow the format defined as by the flags.
 
 Format: `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
 
