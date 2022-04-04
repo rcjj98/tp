@@ -11,18 +11,26 @@ Given below are my contributions to the project.
 
 # Summary of Contributions
 ##Code contributed
-Give a link to your code on tP Code Dashboard. The link is available in the Project List Page -- linked to the  icon under your profile picture.
+https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other
 ##Enhancements implemented
-A summary of the enhancements you implemented.
+- Add job and status field under person
+- Created Interview, Date, Time classes
+- Add interview commands (e.g. Add, Delete, List, Edit, Clear)
+- Add task commands (e.g. List, Edit, Clear)
 ##Contributions to the UG
 Which sections did you contribute to the UG?
+- Add all task commands to the UG with clear formatting
+- Add all task commands to the command summary table in UG
 ##Contributions to the DG
 Which sections did you contribute to the DG? Which UML diagrams did you add/updated?
 ##Contributions to team-based tasks
 ##Review/mentoring contributions
 Links to PRs reviewed, instances of helping team members in other ways.
+https://github.com/AY2122S2-CS2103T-W11-2/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me
 ##Contributions beyond the project team
 ##Evidence of helping others
 e.g. responses you posted in our forum, bugs you reported in other team's products,
+https://github.com/nus-cs2103-AY2122S2/forum/issues/175
+https://github.com/AY2122S2-CS2103T-W09-1/tp/issues
 ##Evidence of technical leadership
 e.g. sharing useful information in the forum
