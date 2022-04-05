@@ -64,11 +64,11 @@ public class ImportCommandParserTest {
 
         // check for missing fields
         assertParseFailure(parser, folderPath + "/too_little_fields.csv",
-            "Line 1: length of fields is not correct");
+            "Line 1: There is missing data on this line.");
 
         // check for additional fields
         assertParseFailure(parser, folderPath + "/excess_fields.csv",
-            "Line 1: length of fields is not correct");
+            "Line 1: There is extra data on this line.");
 
         // check if excess whitespace is trimmed
         assertParseSuccess(parser, folderPath + "/excess_whitespace.csv", importList);
