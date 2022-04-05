@@ -9,8 +9,8 @@ import seedu.address.model.Model;
 public abstract class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] to list all applicants"
-            + " or [i] to list all interviews";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] to clear all applicants"
+            + " or [i] to clear all interviews" + " or [t] to clear all tasks";
 
     @Override
     public abstract CommandResult execute(Model model) throws CommandException;

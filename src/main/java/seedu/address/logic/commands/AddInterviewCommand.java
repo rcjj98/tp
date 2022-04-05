@@ -11,10 +11,10 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.Type;
+import seedu.address.model.Date;
 import seedu.address.model.Model;
-import seedu.address.model.interview.Date;
+import seedu.address.model.Time;
 import seedu.address.model.interview.Interview;
-import seedu.address.model.interview.Time;
 import seedu.address.model.person.Person;
 
 /**
@@ -28,9 +28,9 @@ public class AddInterviewCommand extends AddCommand {
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_DATE + "DATE "
-            + PREFIX_TIME + "TIME "
-            + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_DATE + "26-May-2021"
+            + PREFIX_TIME + "TIME\n"
+            + "Example: " + COMMAND_WORD + " [i] 1 "
+            + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "05:29";
 
 

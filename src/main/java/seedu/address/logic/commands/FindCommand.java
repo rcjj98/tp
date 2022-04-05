@@ -1,10 +1,9 @@
 package seedu.address.logic.commands;
 
-
 import seedu.address.model.Model;
 
 /**
- * Finds and lists all persons or interviews in address book who contains  the argument keywords.
+ * Finds and lists all data in the address book which satisfies the search criteria.
  */
 public abstract class FindCommand extends Command {
 

@@ -1,5 +1,9 @@
 package seedu.address.ui;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -25,9 +29,13 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
+    private Label header;
+    @FXML
     private Label information;
     @FXML
     private Label date;
+    @FXML
+    private Label time;
 
     /**
      * Creates a {@code InterviewCode} with the given {@code Interview} and index to display.
@@ -36,8 +44,19 @@ public class TaskCard extends UiPart<Region> {
         super(FXML);
         this.task = task;
         id.setText(displayedIndex + ". ");
+        header.setText(task.getHeader().fullHeader);
         information.setText(task.getInformation().fullInformation);
-        date.setText("By: No Deadline");
+
+        String[] dateSplit = task.getDate().value.split("-");
+        LocalDate parsedDate = LocalDate.parse(task.getDate().value);
+        String formattedMonth = parsedDate.format(DateTimeFormatter.ofPattern("MMM"));
+        String formattedDate = dateSplit[2] + " " + formattedMonth + " " + dateSplit[0];
+        String[] timeSplit = task.getTime().value.split(":");
+        LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));
+        String formattedTime = parsedTime.format(DateTimeFormatter.ofPattern("hh:mma"));
+
+        date.setText("Date: " + formattedDate);
+        time.setText("Time: " + formattedTime);
     }
 
     @Override

@@ -17,16 +17,12 @@ import seedu.address.model.person.Person;
 public class DeletePersonCommand extends DeleteCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + " [p] : Deletes the applicant identified by the index number used in the displayed applicant list,\n"
-            + "Or deletes by identifying the applicant with their name\n"
             + "Parameters: INDEX (must be a positive integer),\n"
-            + "Example: " + COMMAND_WORD + " [p] 1\n"
-            + "Or, Parameters: NAME (must be a string), \n"
-            + "Example: " + COMMAND_WORD + " [p] Jeremy\n";
+            + "Example: " + COMMAND_WORD + " [p] 1\n";
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Applicant: %1$s";
 
     private final Index targetIndex;
-    private final String targetApplicant;
 
     /**
      * Constructor for DeletePersonCommand.
@@ -34,27 +30,13 @@ public class DeletePersonCommand extends DeleteCommand {
      */
     public DeletePersonCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
-        this.targetApplicant = "";
     }
 
-    /**
-     * Constructor to faciliate deletion of Job Applicant via name.
-     * @param targetApplicant the name of the user
-     */
-    public DeletePersonCommand(String targetApplicant, Index targetIndex) {
-        this.targetApplicant = targetApplicant;
-        this.targetIndex = targetIndex;
-    }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Person> lastShownPersonList = model.getFilteredPersonList();
-
-        // send to method that deletes applicant via name
-        if (!targetApplicant.isEmpty() || targetIndex == null) {
-            return deleteByName(model, lastShownPersonList, targetApplicant);
-        }
 
         if (targetIndex.getZeroBased() >= lastShownPersonList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
@@ -85,48 +67,6 @@ public class DeletePersonCommand extends DeleteCommand {
             }
         }
         return false;
-    }
-
-    /**
-     * Method that handles deletion of a person from the list via name.
-     * Need to find the position of the person in the list who matches the
-     * targetName
-     * @param model
-     * @param lastShownList A List of type Person
-     * @param targetApplicant
-     * @return CommandResult
-     */
-    private CommandResult deleteByName(Model model, List<Person> lastShownList, String targetApplicant)
-            throws CommandException {
-
-        if (targetApplicant.trim().equals("")) {
-            throw new CommandException(Messages.MESSAGE_INVALID_NAME_PROVIDED);
-        }
-
-        int pos = 0;
-        int len = lastShownList.size();
-
-        for (Person person : lastShownList) {
-            String name = person.getName().getFullName().toLowerCase();
-
-            if (name.equals(targetApplicant.toLowerCase().trim())) {
-                break;
-            } else {
-                ++pos;
-                continue;
-            }
-        }
-
-        // have gone past the limits of given list
-        if (pos >= len) {
-            throw new CommandException(Messages.MESSAGE_INVALID_NAME_PROVIDED);
-        }
-
-        // person to be deleted
-        Person personToDelete = lastShownList.get(pos);
-        model.deletePerson(personToDelete);
-
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
     }
 
     @Override

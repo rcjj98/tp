@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STAGE;
+import static seedu.address.logic.parser.Type.PERSON;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Address;
@@ -41,7 +43,7 @@ public class EditPersonCommand extends EditCommand {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_JOB + "JOB] "
-            + "[" + PREFIX_STAGE + "STAGE] "
+            + "[" + PREFIX_STAGE + "STAGE] \n"
             + "Example: " + COMMAND_WORD + " [p] 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -140,6 +142,11 @@ public class EditPersonCommand extends EditCommand {
         EditPersonCommand e = (EditPersonCommand) other;
         return index.equals(e.index)
                 && editPersonDescriptor.equals(e.editPersonDescriptor);
+    }
+
+    @Override
+    public Type getType() {
+        return PERSON;
     }
 
     /**

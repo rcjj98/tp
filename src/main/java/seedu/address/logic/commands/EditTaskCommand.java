@@ -1,7 +1,11 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_HEADER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INFORMATION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
+import static seedu.address.logic.parser.Type.TASK;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TASKS;
 
 import java.util.List;
@@ -11,7 +15,11 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Type;
+import seedu.address.model.Date;
 import seedu.address.model.Model;
+import seedu.address.model.Time;
+import seedu.address.model.tasks.Header;
 import seedu.address.model.tasks.Information;
 import seedu.address.model.tasks.Task;
 
@@ -21,9 +29,13 @@ public class EditTaskCommand extends EditCommand {
             + "by the index number used in the displayed task list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_INFORMATION + "INFORMATION] "
+            + "[" + PREFIX_HEADER + "HEADER] "
+            + "[" + PREFIX_DATE + "DATE] "
+            + "[" + PREFIX_TIME + "TIME] "
+            + "[" + PREFIX_INFORMATION + "INFORMATION] \n"
             + "Example: " + COMMAND_WORD + " [t] 1 "
-            + PREFIX_INFORMATION + "Update all of today's interviews statuses";
+            + PREFIX_HEADER + "Update interview statuses "
+            + PREFIX_DATE + "2021-05-06 ";
 
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Edited Task: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -50,7 +62,7 @@ public class EditTaskCommand extends EditCommand {
         List<Task> lastShownList = model.getFilteredTaskList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_INTERVIEW_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
         }
 
         Task taskToEdit = lastShownList.get(index.getZeroBased());
@@ -74,9 +86,12 @@ public class EditTaskCommand extends EditCommand {
             Task taskToEdit, EditTaskDescriptor editTaskDescriptor) {
         assert taskToEdit != null;
 
+        Header updatedHeader = editTaskDescriptor.getHeader().orElse(taskToEdit.getHeader());
         Information updatedInformation = editTaskDescriptor.getInformation().orElse(taskToEdit.getInformation());
+        Date updatedDate = editTaskDescriptor.getDate().orElse(taskToEdit.getDate());
+        Time updatedTime = editTaskDescriptor.getTime().orElse(taskToEdit.getTime());
 
-        return new Task(updatedInformation);
+        return new Task(updatedHeader, updatedDate, updatedTime, updatedInformation);
     }
 
     @Override
@@ -97,12 +112,20 @@ public class EditTaskCommand extends EditCommand {
                 && editTaskDescriptor.equals(e.editTaskDescriptor);
     }
 
+    @Override
+    public Type getType() {
+        return TASK;
+    }
+
     /**
      * Stores the details to edit the interview with. Each non-empty field value will replace the
      * corresponding field value of the interview.
      */
     public static class EditTaskDescriptor {
+        private Header header;
         private Information information;
+        private Date date;
+        private Time time;
 
         public EditTaskDescriptor() {}
 
@@ -111,14 +134,25 @@ public class EditTaskCommand extends EditCommand {
          *
          */
         public EditTaskDescriptor(EditTaskDescriptor toCopy) {
+            setHeader(toCopy.header);
             setInformation(toCopy.information);
+            setDate(toCopy.date);
+            setTime(toCopy.time);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(information);
+            return CollectionUtil.isAnyNonNull(header, information, date, time);
+        }
+
+        public void setHeader(Header header) {
+            this.header = header;
+        }
+
+        public Optional<Header> getHeader() {
+            return Optional.ofNullable(header);
         }
 
         public void setInformation(Information information) {
@@ -127,6 +161,22 @@ public class EditTaskCommand extends EditCommand {
 
         public Optional<Information> getInformation() {
             return Optional.ofNullable(information);
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
+
+        public Optional<Date> getDate() {
+            return Optional.ofNullable(date);
+        }
+
+        public void setTime(Time time) {
+            this.time = time;
+        }
+
+        public Optional<Time> getTime() {
+            return Optional.ofNullable(time);
         }
 
         @Override
@@ -144,7 +194,10 @@ public class EditTaskCommand extends EditCommand {
             // state check
             EditTaskDescriptor e = (EditTaskDescriptor) other;
 
-            return getInformation().equals(e.getInformation());
+            return getHeader().equals(e.getHeader())
+                    && getInformation().equals(e.getInformation())
+                    && getDate().equals(e.getDate())
+                    && getTime().equals(e.getTime());
         }
     }
 }

@@ -14,40 +14,38 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 
 import java.util.List;
 
-import seedu.address.logic.commands.FindPersonCommand;
+import seedu.address.logic.commands.FindTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.PersonContainsKeywordsPredicate;
+import seedu.address.model.tasks.TaskContainsKeywordPredicate;
 
-public class FindPersonCommandParser extends FindCommandParser {
+
+public class FindTaskCommandParser extends FindCommandParser {
 
     /**
      * Checks for any data that does not follow format.
      *
      * @param groups All groups captured by the g/ flag.
-     * @return A new FindPersonCommand Object ready for execution.
+     * @return A new FindTaskCommand Object ready for execution.
      * @throws ParseException An invalid input was found.
      */
-    public FindPersonCommand parse(List<String> groups) throws ParseException {
+    public FindTaskCommand parse(List<String> groups) throws ParseException {
 
         for (String group : groups) {
-
-            if (havePrefixesPresent(group, PREFIX_DATE, PREFIX_TIME, PREFIX_GROUP,
-                    PREFIX_INFORMATION, PREFIX_HEADER)) {
+            if (havePrefixesPresent(group, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB,
+                    PREFIX_STAGE, PREFIX_GROUP)) {
                 throw new ParseException("[" + group + "] Invalid flags are found.");
             }
 
-            ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_NAME, PREFIX_PHONE,
-                    PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE);
+            ArgumentMultimap fields = ArgumentTokenizer.tokenize(padding + group, PREFIX_HEADER,
+                    PREFIX_INFORMATION, PREFIX_DATE, PREFIX_TIME);
 
-            checkInvalidName(fields.getAllValues(PREFIX_NAME), group);
-            checkInvalidPhone(fields.getAllValues(PREFIX_PHONE), group);
-            checkInvalidEmail(fields.getAllValues(PREFIX_EMAIL), group);
-            checkInvalidAddress(fields.getAllValues(PREFIX_ADDRESS), group);
-            checkInvalidJob(fields.getAllValues(PREFIX_JOB), group);
-            checkInvalidStage(fields.getAllValues(PREFIX_STAGE), group);
+            checkInvalidHeader(fields.getAllValues(PREFIX_HEADER), group);
+            checkInvalidInformation(fields.getAllValues(PREFIX_INFORMATION), group);
+            checkInvalidDates(fields.getAllValues(PREFIX_DATE), group);
+            checkInvalidTime(fields.getAllValues(PREFIX_TIME), group);
         }
 
-        return new FindPersonCommand(new PersonContainsKeywordsPredicate(groups));
+        return new FindTaskCommand(new TaskContainsKeywordPredicate(groups));
     }
 }
 

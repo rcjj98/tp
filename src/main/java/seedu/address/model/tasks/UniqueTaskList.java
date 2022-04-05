@@ -39,6 +39,7 @@ public class UniqueTaskList implements Iterable<Task> {
             throw new DuplicateTaskException();
         }
         internalList.add(toAdd);
+        sortTasks();
     }
 
     /**
@@ -59,6 +60,7 @@ public class UniqueTaskList implements Iterable<Task> {
         }
 
         internalList.set(index, editedTask);
+        sortTasks();
     }
 
     /**
@@ -71,6 +73,11 @@ public class UniqueTaskList implements Iterable<Task> {
         if (!internalList.remove(toRemove)) {
             throw new TaskNotFoundException();
         }
+        sortTasks();
+    }
+
+    public void sortTasks() {
+        internalList.sort(new TaskDateTimeComparator());
     }
 
     public void clear() {
@@ -80,6 +87,7 @@ public class UniqueTaskList implements Iterable<Task> {
     public void setTasks(UniqueTaskList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
+        sortTasks();
     }
     /**
      * Replaces the contents of this list with {@code tasks}.
@@ -92,6 +100,7 @@ public class UniqueTaskList implements Iterable<Task> {
         }
 
         internalList.setAll(tasks);
+        sortTasks();
     }
 
     /**

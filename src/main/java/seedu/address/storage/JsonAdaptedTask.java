@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.Date;
+import seedu.address.model.Time;
+import seedu.address.model.tasks.Header;
 import seedu.address.model.tasks.Information;
 import seedu.address.model.tasks.Task;
 
@@ -15,13 +18,20 @@ public class JsonAdaptedTask {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Task's %s field is missing!";
 
+    private final String header;
+    private final String date;
+    private final String time;
     private final String information;
 
     /**
      * Constructs a {@code JsonAdaptedTask} with the given Task details.
      */
     @JsonCreator
-    public JsonAdaptedTask(@JsonProperty("information") String information) {
+    public JsonAdaptedTask(@JsonProperty("header") String header, @JsonProperty("date") String date,
+                           @JsonProperty("time") String time, @JsonProperty("information") String information) {
+        this.header = header;
+        this.date = date;
+        this.time = time;
         this.information = information;
     }
 
@@ -29,6 +39,9 @@ public class JsonAdaptedTask {
      * Converts a given {@code Task} into this class for Jackson use.
      */
     public JsonAdaptedTask(Task source) {
+        header = source.getHeader().fullHeader;
+        date = source.getDate().value;
+        time = source.getTime().value;
         information = source.getInformation().fullInformation;
     }
 
@@ -38,6 +51,16 @@ public class JsonAdaptedTask {
      * @throws IllegalValueException if there were any data constraints violated in the adapted person.
      */
     public Task toModelType() throws IllegalValueException {
+
+        if (header == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Header.class.getSimpleName()));
+        }
+
+        if (!Header.isValidHeader(header)) {
+            throw new IllegalValueException(Information.MESSAGE_CONSTRAINTS);
+        }
+        final Header modelHeader = new Header(header);
 
         if (information == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -49,6 +72,22 @@ public class JsonAdaptedTask {
         }
         final Information modelInformation = new Information(information);
 
-        return new Task(modelInformation);
+        if (date == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName()));
+        }
+        if (!Date.isValidDate(date)) {
+            throw new IllegalValueException(Date.MESSAGE_CONSTRAINTS);
+        }
+        final Date modelDate = new Date(date);
+
+        if (time == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Time.class.getSimpleName()));
+        }
+        if (!Time.isValidTime(time)) {
+            throw new IllegalValueException(Time.MESSAGE_CONSTRAINTS);
+        }
+        final Time modelTime = new Time(time);
+
+        return new Task(modelHeader, modelDate, modelTime, modelInformation);
     }
 }
