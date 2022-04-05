@@ -100,6 +100,7 @@ public class UniqueTaskList implements Iterable<Task> {
         }
 
         internalList.setAll(tasks);
+        sortTasks();
     }
 
     /**

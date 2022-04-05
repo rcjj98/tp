@@ -20,7 +20,7 @@ public class AddTaskCommand extends AddCommand {
             + PREFIX_DATE + "DATE "
             + PREFIX_TIME + "TIME "
             + PREFIX_INFORMATION + "INFORMATION\n"
-            + "Example: " + COMMAND_WORD + " "
+            + "Example: " + COMMAND_WORD + " [t] "
             + PREFIX_HEADER + "Update interview statuses "
             + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "05:29 "

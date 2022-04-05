@@ -55,8 +55,10 @@ public class InterviewCard extends UiPart<Region> {
         this.interview = interview;
         id.setText(displayedIndex + ". ");
 
-        String formattedDate = LocalDate.parse(interview.getDate().value)
-                .format(DateTimeFormatter.ofPattern("dd MMM YYYY"));
+        String[] dateSplit = interview.getDate().value.split("-");
+        LocalDate parsedDate = LocalDate.parse(interview.getDate().value);
+        String formattedMonth = parsedDate.format(DateTimeFormatter.ofPattern("MMM"));
+        String formattedDate = dateSplit[2] + " " + formattedMonth + " " + dateSplit[0];
         String[] timeSplit = interview.getTime().value.split(":");
         LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));
         String formattedTime = parsedTime.format(DateTimeFormatter.ofPattern("hh:mma"));

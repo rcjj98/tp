@@ -13,7 +13,7 @@ public class FindPersonCommand extends FindCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + " [p] : Finds all persons that meet search criteria.\n"
             + "Only accepts: g/, n/, p/, e/, a/, j/, and s/ flags\n"
-            + "Example: " + COMMAND_WORD + " [p] g/n/john j/software engineer g/e/gmail.com";
+            + "Example: " + COMMAND_WORD + " [p] g/n/john j/software engineer g/s/INPROGRESS";
 
     private PersonContainsKeywordsPredicate predicate;
 

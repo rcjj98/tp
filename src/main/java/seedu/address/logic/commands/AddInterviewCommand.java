@@ -29,7 +29,7 @@ public class AddInterviewCommand extends AddCommand {
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_DATE + "DATE "
             + PREFIX_TIME + "TIME\n"
-            + "Example: " + COMMAND_WORD + " 1 "
+            + "Example: " + COMMAND_WORD + " [i] 1 "
             + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "05:29";
 
