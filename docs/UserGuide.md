@@ -31,7 +31,7 @@ the progress of each applicant during the application process.
    * `clear [p]`: Deletes all applicants.
    * `exit`: Exits the app.
 
-6. Refer to the [Features](#Features) below for details of each command.
+6. Refer to _Features_ section directly below for details on each command.
 
 ## Features
 ### :information_source: Notes about the command format regarding Applicants:
@@ -83,7 +83,6 @@ Format: `exit`
 ### Adding a new job applicant: `add [p]` 
 Adds a new job applicant to the address book.
 
-* #### Adding a new job applicant 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
   Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
@@ -121,8 +120,7 @@ Example: `delete [p] 1` <br><br>
 ### Listing all job applicants: `list [p]`
 Shows a list of all job applicants in the address book.
 
-Format:
-* `list [p]`: Show all job applicants.
+Format:`list [p]`
 
 &nbsp;
 ### Clearing all job applicants: `clear [p]`
@@ -170,9 +168,7 @@ Examples:
 ### Adding a new interview slot for a job applicant: `add [i]`
 Adds a new job interview slot to the address book.
 
-* #### Adding a new interview
   Format: `add [i] INDEX d/DATE t/TIME` <br><br>
-
   Example: `add [i] 1 d/2021-06-25 t/17:30`
 
 ![add-interview](images/add-interview.png)
@@ -193,7 +189,6 @@ Edits an existing interview slot in the address book
 ### Deleting an interview slot: `delete [i]`
 Deletes an existing interview slot in the address book.
 
-* #### Deleting an interview slot
   Format: `delete [i] INDEX`
 
   Example: `delete [i] 1`
@@ -202,8 +197,7 @@ Deletes an existing interview slot in the address book.
 ### Listing all scheduled interviews: `list [i]`
 Shows a list of all scheduled interviews in the address book.
 
-Format:
-* `list [i]`: Show all scheduled interviews.
+Format: `list [i]`
 
 
 &nbsp;
@@ -265,7 +259,6 @@ Edits an existing task in the address book
 ### Deleting a task: `delete [t]`
 Deletes an existing task in the address book.
 
-* #### Deleting a task
   Format: `delete [t] INDEX`
 
   Example: `delete [t] 1`
@@ -274,8 +267,7 @@ Deletes an existing task in the address book.
 ### Listing all tasks: `list [t]`
 Shows a list of all tasks in the address book.
 
-Format:
-* `list [t]`: Show all tasks.
+Format: `list [t]`
 
 
 &nbsp;
@@ -316,7 +308,7 @@ AddressBook data are saved in the hard disk automatically after any command that
 
 &nbsp;
 ### Editing the data file
-AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 :exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
 
@@ -328,7 +320,7 @@ Imports all **job applicants** data from a *csv* or *json* save file generated f
 
 File Format:
 * CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
-* JSON: Follows the **entire** existing `[JAR file location]/data/addressbook.json` data structure and format. 
+* JSON: Follows the **entire** existing `PATH_TO_JAR_FILE/data/addressbook.json` data structure and format. 
 
 Notes:
 1. Filepath can be relative or absolute.
@@ -339,7 +331,7 @@ Notes:
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\data.json`
+Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv` or `import ..\test\data.json`
 
 &nbsp;
 ### Exporting to a csv data file: `export`
