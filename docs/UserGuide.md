@@ -40,14 +40,14 @@ the progress of each applicant during the application process.
   e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
 
 
-* Items in square brackets are optional. 
+* Items in angle brackets are optional. 
   
-  e.g n/NAME [p/PHONE_NUMBER] can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
+  e.g n/NAME <p/PHONE_NUMBER> can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
 
 
-* Items with ... after them can be used multiple times including zero times.
+* Items with elipsis (...) after them can be used multiple times including zero times.
 
-  e.g. [a/ADDRESS]... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
+  e.g. <a/ADDRESS>... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
 
 
 * Parameters can be supplied in any order.
@@ -95,8 +95,7 @@ Adds a new job applicant to the address book.
 ### Editing a job applicant:`edit [p]`
 Edits an existing job applicant in the address book
 
-* #### Editing a job applicant
-  Format: `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` <br>
+  Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
   Example: `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
 
 Before edit command executed.<br>
@@ -144,7 +143,7 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:
 * `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
@@ -182,10 +181,9 @@ Adds a new job interview slot to the address book.
 ### Editing an existing interview slot: `edit [i]`
 Edits an existing interview slot in the address book
 
-* #### Editing interview details
-  Format: `edit [i] INDEX [d/DATE] [t/TIME]` <br> 
+  Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
   
-  Examples: <br> `edit [i] 1 d/2021-12-30` <br>
+  Examples:  `edit [i] 1 d/2021-12-30` <br>
   `edit [i] 1 t/10:30` <br>
   `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
@@ -227,7 +225,7 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:
 * `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
@@ -256,9 +254,9 @@ Adds a new task to the address book.
 Edits an existing task in the address book
 
 * #### Editing task details
-  Format: `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]` <br>
+  Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
-  Examples: <br> `edit [t] 1 d/2021-12-30` <br>
+  Examples: `edit [t] 1 d/2021-12-30` <br>
   `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 [Upcoming Image]
@@ -299,7 +297,7 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:
 * `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find d/2022-03-04 OR h/update OR t/10:10` <br><br>
@@ -388,13 +386,13 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 |     Delete Interview | `delete [i] INDEX`                                                                          |
 | Delete Job Applicant | `delete [p] INDEX`                                                                          |
 |          Delete Task | `delete [t] INDEX`                                                                          |
-|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
-|   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
-|            Edit Task | `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]`                               |
+|       Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>`                                                          |
+|   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` |
+|            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>`                               |
 |                 Exit | `exit`                                                                                      |
-|       Find Interview | `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|            Find Task | `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
+|       Find Interview | `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|   Find Job Applicant | `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|            Find Task | `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
 |                 Help | `help`                                                                                      |
 |      List Interviews | `list [i]`                                                                                  |
 |  List Job Applicants | `list [p]`                                                                                  |
