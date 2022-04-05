@@ -38,8 +38,7 @@ public class ImportCommand extends Command {
         for (int i = 0; i < persons.size(); i++) {
             if (model.hasPerson(persons.get(i))) {
                 int entryNum = i + 1;
-                throw new CommandException("Line " + entryNum + " in csv file is already in address book."
-                        + "\nAborting now.");
+                throw new CommandException("Entry " + entryNum + ": is already in address book.\nAborting now.");
             }
         }
 

@@ -84,13 +84,11 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             }
         }
 
-        if (strippedFields.size() < NUM_OF_FIELDS) {
-            throw new ParseException("Line " + lineNo + ": There is missing data on this line.");
-        } else if (strippedFields.size() > NUM_OF_FIELDS) {
-            throw new ParseException("Line " + lineNo + ": There is extra data on this line.");
-        } else {
-            return strippedFields;
+        if (strippedFields.size() != NUM_OF_FIELDS) {
+            throw new ParseException("Line " + lineNo + ": length of fields is not correct");
         }
+
+        return strippedFields;
     }
 
     private Person createPerson(ArrayList<String> fields, int lineNo) throws ParseException {
