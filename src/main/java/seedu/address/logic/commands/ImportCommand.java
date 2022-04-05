@@ -12,11 +12,10 @@ import seedu.address.model.person.Person;
 public class ImportCommand extends Command {
 
     public static final String COMMAND_WORD = "import";
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + "Imports all job applicants data from csv/json file. Accepts absolute or relative path.\n"
-            + "The json file needs to follow the same format as the addressbook.json.\n"
+    public static final String MESSAGE_USAGE =
+            "Imports all job applicants data from csv file. Accepts absolute or relative path.\n"
             + "The csv file needs to contain the same fields as the 'add [p]' command.\n"
-            + "Parameters: filepath to csv/json file"
+            + "Parameters: filepath to csv file\n"
             + "Example: import ../../past_data.csv";
 
     private List<Person> persons;
@@ -35,11 +34,12 @@ public class ImportCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        // checks if any persons is duplicated
+        // checks if any persons is already in address book.
         for (int i = 0; i < persons.size(); i++) {
             if (model.hasPerson(persons.get(i))) {
                 int entryNum = i + 1;
-                throw new CommandException("Entry " + entryNum + ": is already in address book.\nAborting now.");
+                throw new CommandException("Line " + entryNum + " in csv file is already in address book."
+                        + "\nAborting now.");
             }
         }
 
