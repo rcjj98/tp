@@ -191,7 +191,7 @@ the aformentioned format above, then it is written into the user-specified csv f
 
 Step 7. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
-The following sequence diagram summarises how the export operation works
+The following sequence diagram summarises how the export operation works.
 
 // ADD SEQUENCE DIAGRAM.
 
@@ -202,11 +202,13 @@ The import feature takes in a csv file and adds all the job applicants stored in
 
 The csv file structure needs to follow the file structure as defined by the [export feature](#Export Feature).
 
-
+The invalid csv file path also follows the conditions as defined by the [export feature](#Export Feature).
 
 #### Implementation
 
-The following sequence diagram summarises how the import operation works
+The following sequence diagram summarises how the import operation works.
+
+// ADD SEQUENCE DIAGRAM.
 
 ### Find Feature
 
