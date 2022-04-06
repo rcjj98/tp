@@ -78,6 +78,7 @@ Format: `exit`
 
 
 ## Applicant Features
+----------
 ### Adding a new job applicant: `add [p]` 
 Adds a new job applicant to the address book.
 
