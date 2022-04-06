@@ -200,9 +200,9 @@ The following sequence diagram summarises how the export operation works.
 
 The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the application.
 
-The csv file structure needs to follow the file structure as defined by the [export feature](#Export-Feature).
+The csv file structure needs to follow the file structure as defined by the [export feature](#export-feature).
 
-The invalid csv file path also follows the conditions as defined by the [export feature](#Export-Feature).
+An invalid csv file path also follows the conditions as defined by the [export feature](#export-feature).
 
 #### Implementation
 
