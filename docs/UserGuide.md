@@ -6,7 +6,7 @@ title: User Guide
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
 the progress of each applicant during the application process.
 
-
+<h2>Table Of Contents</h2>
 * Table of Contents
 {:toc}
 
@@ -31,7 +31,27 @@ the progress of each applicant during the application process.
 
 6. Refer to _Features_ section directly below for details on each command.
 
-## Features
+
+## General Commands
+----------
+### Viewing Help: `help`
+Shows a message explaining how to access the help page and the basic flags.
+
+Format: `help`  
+
+&nbsp;
+### Exiting the program: `exit`
+Exits the program.
+
+Format: `exit`
+
+
+## Applicant Features
+----------
+:information_source: Notes about the command format regarding Applicants:
+* Words in `UPPER_CASE` are the parameters to be supplied by the user. 
+  
+  e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
 
 <div markdown="block" class="alert alert-info">
 
@@ -58,20 +78,7 @@ the progress of each applicant during the application process.
 </div>
 &nbsp;
 
-## General Features
-### Viewing Help: `help`
-Shows a message explaining how to access the help page and the basic flags.
-
-Format: `help`  
-&nbsp;
-### Exiting the program: `exit`
-Exits the program.
-
-Format: `exit`
-
-
-## Applicant Features
-### Adding a new job applicant: `add [p]` 
+### Adding a new job applicant: `add [p]`
 Adds a new job applicant to the address book.
 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
@@ -156,7 +163,8 @@ Examples:<br>
 
 
 ## Interview Features
-### :information_source: Notes about the command format regarding Interviews:
+----------
+:information_source: Notes about the command format regarding Interviews:
 
 &nbsp;
 ### Adding a new interview slot for a job applicant: `add [i]`
@@ -234,14 +242,14 @@ Examples:<br>
 ![find](images/find-interview.png)
 
 ## Task Features
-### :information_source: Notes about the command format regarding Tasks:
+----------
+:information_source: Notes about the command format regarding Tasks:
 
 &nbsp;
 ### Adding a new task to the miscellaneous task list: `add [t]`
 Adds a new task to the address book.
 
-* #### Adding a new task
-  Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
+Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
   Example:<br>
   `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
@@ -252,8 +260,7 @@ Adds a new task to the address book.
 ### Editing an existing task: `edit [t]`
 Edits an existing task in the address book
 
-* #### Editing task details
-  Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
+Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
   Examples:<br>
   <br> `edit [t] 1 d/2021-12-30` <br>
@@ -299,9 +306,9 @@ Notes:
 Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:<br>
-* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find d/2022-03-04 OR h/update OR t/10:10` <br><br>
-* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find d/2022-03-04 AND h/update AND t/10:10` <br><br>
-* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/update OR t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find [t] d/2022-03-04 AND h/update AND t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find [t] (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
 
 
 [Upcoming Image]
@@ -310,6 +317,7 @@ Examples:<br>
 
 &nbsp;
 ## Storage
+----------
 ### Saving the data
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
@@ -364,8 +372,33 @@ Format: `export FILEPATH`
 Absolute filepath example for WindowsOS: `export C:\Users\YOUR_USERNAME\Desktop\myData.csv` <br>
 Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
-Relative filepath example for MacOS: `export  ./myDataFile.csv
-`
+Relative filepath example for MacOS: `export  ./myDataFile.csv`
+
+## Flag Format
+
+| Flag | Format                                                                                              |
+|-----:|:----------------------------------------------------------------------------------------------------|
+|   a/ | Addresses can take any values, and it should not be blank                                           |
+|   d/ | Date should be in the format YYYY-MM-dd                                                             |
+|   e/ | Emails should be of the format `local-part@domain` (e.g. alice-tan@gmail.com)                       |
+|   g/ | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list |
+|   h/ | Header should only contain alphanumeric characters and spaces, and it should not be blank           |
+|   i/ | Information should only contain alphanumeric characters and spaces, and it should not be blank      |
+|   j/ | Job should only contain alphanumeric characters and spaces, and it should not be blank              |
+|   n/ | Names should only contain alphanumeric characters and spaces, and it should not be blank            |
+|   p/ | Phone numbers should only contain numbers, and it should be at least 3 digits long                  |
+|   s/ | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case sensitive)                            |
+|   t/ | Time should be in the format HH:MM                                                                  |
+
+
+## List Types
+
+| Type | Format                                            |
+|-----:|:--------------------------------------------------|
+|  [i] | Applies the current command to the interview list |
+|  [p] | Applies the current command to the persons list   |
+|  [t] | Applies the current command to the tasks list     |
+
 
 ## Command Summary
 
