@@ -337,7 +337,8 @@ Notes:
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv`
+Example:<br>
+`import C:\Users\YOUR_USERNAME\Desktop\data.csv`
 
 
 &nbsp;
