@@ -6,14 +6,31 @@ skinparam classBackgroundColor MODEL_COLOR
 
 AddressBook *-right-> "1" UniqueInterviewList
 AddressBook *-right-> "1" UniquePersonList
+AddressBook *-right-> "1" UniqueTaskList
 UniquePersonList -[hidden]down- UniqueInterviewList
 UniquePersonList -[hidden]down- UniqueInterviewList
+UniqueInterviewList -[hidden]down- UniqueTaskList
 
-UniquePersonList *-right-> "*" Person
-UniqueInterviewList -right-> Interview
+UniquePersonList -right-> "*" Person
+UniqueInterviewList -right-> "*"Interview
+UniqueTaskList -down-> "*"Task
+
+Person *-down-> Name
+Person *-down-> Phone
+Person *-down-> Email
+Person *-down-> Address
+Person *-down-> Job
+Person *-right-> Stage
+
+
 
 Interview -up-> "1" Person
 
 Interview *--> Date
 Interview *--> Time
+
+Task *--> Header
+Task *--> Information
+Task *--> Date
+Task *--> Time
 @enduml
