@@ -32,7 +32,23 @@ Table Of Contents:
 
 6. Refer to _Features_ section directly below for details on each command.
 
-## Features
+
+## General Features
+----------
+### Viewing Help: `help`
+Shows a message explaining how to access the help page and the basic flags.
+
+Format: `help`  
+
+&nbsp;
+### Exiting the program: `exit`
+Exits the program.
+
+Format: `exit`
+
+
+## Applicant Features
+----------
 :information_source: Notes about the command format regarding Applicants:
 * Words in `UPPER_CASE` are the parameters to be supplied by the user. 
   
@@ -64,23 +80,6 @@ Table Of Contents:
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 &nbsp;
-
-## General Features
-----------
-### Viewing Help: `help`
-Shows a message explaining how to access the help page and the basic flags.
-
-Format: `help`  
-
-&nbsp;
-### Exiting the program: `exit`
-Exits the program.
-
-Format: `exit`
-
-
-## Applicant Features
-----------
 ### Adding a new job applicant: `add [p]` 
 Adds a new job applicant to the address book.
 
