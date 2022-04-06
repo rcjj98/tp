@@ -77,7 +77,7 @@ Exits the program.
 Format: `exit`
 
 
-##Applicant Features
+## Applicant Features
 ### Adding a new job applicant: `add [p]` 
 Adds a new job applicant to the address book.
 
@@ -290,9 +290,9 @@ Notes:
 Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:
-* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find d/2022-03-04 OR h/update OR t/10:10` <br><br>
-* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find d/2022-03-04 AND h/update AND t/10:10` <br><br>
-* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/update OR t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find [t] d/2022-03-04 AND h/update AND t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find [t] (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
 
 
 [Upcoming Image]
