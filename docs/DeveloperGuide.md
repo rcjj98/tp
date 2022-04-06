@@ -159,7 +159,7 @@ This section describes some noteworthy details on how certain features are imple
 The export feature takes the current address book data stored in memory and exports the job applicants data into a user-specified
 csv file that is tab-delimited.
 
-The format for the csv file is defined as follows:
+The structure for the csv file is defined as follows:
 
 name | phone_number | email | address | job_title | current_application_progress
 
@@ -175,7 +175,7 @@ feature is facilitated by the `ExportCommandParser`.
 
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters their desired csv file path into the application.
+Step 1. User enters their desired csv file path into the application (e.g. `export ../../data,.csv`).
 
 Step 2. The `ExportCommandParser#parse()` checks the validity of the file path.
 
@@ -198,7 +198,11 @@ The following sequence diagram summarises how the export operation works
 
 ### Import Feature
 
-The import feature takes in a csv file and adds all the job applicants stored by the csv file back into the application.
+The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the application.
+
+The csv file structure needs to follow the file structure as defined by the [export feature](#Export Feature).
+
+
 
 #### Implementation
 
@@ -206,6 +210,7 @@ The following sequence diagram summarises how the import operation works
 
 ### Find Feature
 
+The find feature 
 
 #### Implementation
 
