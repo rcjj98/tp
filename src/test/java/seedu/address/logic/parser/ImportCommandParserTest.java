@@ -60,7 +60,7 @@ public class ImportCommandParserTest {
 
         // check for invalid values
         assertParseFailure(parser, folderPath + "/wrong_stage.csv",
-            "Line 1: Stage should be only INPROGRESS or ACCEPTED or REJECTED (case sensitive)");
+            "Line 1: Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)");
 
         // check for missing fields
         assertParseFailure(parser, folderPath + "/too_little_fields.csv",
