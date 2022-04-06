@@ -159,9 +159,9 @@ This section describes some noteworthy details on how certain features are imple
 The export feature takes the current address book data stored in memory and exports the job applicants data into a user-specified
 csv file that is tab-delimited.
 
-The format for the csv file is defined as (tab-delimited):
+The format for the csv file is defined as follows ("|" = tab-delimited):
 
-name    phone_number    email   address     job_title   current_application_progress
+* name | phone_number | email | address | job_title | current_application_progress
 
 An invalid file path is defined as follows:
 1. An empty string.
