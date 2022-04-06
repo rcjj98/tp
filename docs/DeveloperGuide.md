@@ -175,12 +175,11 @@ feature is facilitated by the `ExportCommandParser`.
 
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters their desired csv file path into the application (e.g. `export ../../my_data.csv`).
+Step 1. User enters the file path of the csv file into the application (e.g. `export ../../my_data.csv`).
 
 Step 2. The file path is passed to `ExportCommandParser#parse()` and `ExportCommandParser#checkFilePath()` checks the validity of the file path.
 
-Step 3. After checking that the file path is valid, the data type of the file path is converted from its
-*string* representation into a *Path* representation.
+Step 3. After checking that the file path is valid, the data type of the file path is converted from its *string* representation into a *Path* representation.
 
 Step 4. A new `ExportCommand` object is created with the file path as its parameter.
 
@@ -206,9 +205,28 @@ An invalid csv file path also follows the conditions as defined by the [export f
 
 #### Implementation
 
-The import feature is facilitated by the `ImportCommand` while the necessary checks for the import 
-feature is facilitated by the `ImportCommandParser`.
+The import feature is facilitated by the `ImportCommand` while the necessary checks for the import feature is facilitated by the `ImportCommandParser`.
 
+Given below is an example usage scenario and how the import mechanism behaves at each step.
+
+Step 1. User enters the file path of the csv file into the application (e.g. `import ../../past_data.csv`).
+
+Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportCommandParser#checkFilePath()` checks the validity of the file path.
+
+Step 3. After checking that the file path is valid, the data type of the file path is converted from its *string* representation into a *Path* representation.
+
+Step 4. The `ImportCommandParser#readCsv()` is called to parse the csv file. From there, 3 methods are called to ensure the correctness of the csv file. 
+ * `ImportCommandParser#getFields()`: ensures that the number of fields in each line matches the number of fields required by the application
+ * `ImportCommandParser#createPerson()`: ensures that each field is valid and correct and converts the line into a person object.
+ * `ImportCommandParser#updatePersons()`: ensures that each person in the csv file is unique with regards to the csv file.
+
+Step 5. The newly created person is added to a temporary list.
+
+Step 6. A new `ImportCommand` object is created with the aforementioned temporary list as its parameter.
+
+Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current application before adding each person into the current application.
+
+Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
 The following sequence diagram summarises how the import operation works.
 
