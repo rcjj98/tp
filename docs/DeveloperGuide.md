@@ -177,7 +177,7 @@ Given below is an example usage scenario and how the export mechanism behaves at
 
 Step 1. User enters their desired csv file path into the application (e.g. `export ../../my_data.csv`).
 
-Step 2. The `ExportCommandParser#parse()` checks the validity of the file path.
+Step 2. The file path is passed to `ExportCommandParser#parse()` and `ExportCommandParser#checkFilePath()` checks the validity of the file path.
 
 Step 3. After checking that the file path is valid, the data type of the file path is converted from its
 *string* representation into a *Path* representation.
@@ -205,6 +205,10 @@ The csv file structure needs to follow the file structure as defined by the [exp
 An invalid csv file path also follows the conditions as defined by the [export feature](#export-feature).
 
 #### Implementation
+
+The import feature is facilitated by the `ImportCommand` while the necessary checks for the import 
+feature is facilitated by the `ImportCommandParser`.
+
 
 The following sequence diagram summarises how the import operation works.
 
