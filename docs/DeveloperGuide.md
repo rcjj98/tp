@@ -175,7 +175,7 @@ feature is facilitated by the `ExportCommandParser`.
 
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters their desired csv file path into the application (e.g. `export ../../data,.csv`).
+Step 1. User enters their desired csv file path into the application (e.g. `export ../../my_data.csv`).
 
 Step 2. The `ExportCommandParser#parse()` checks the validity of the file path.
 
