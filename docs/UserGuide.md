@@ -331,7 +331,7 @@ Notes:
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv` or `import ..\test\data.json`
+Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv`
 
 &nbsp;
 ### Exporting to a csv data file: `export`
