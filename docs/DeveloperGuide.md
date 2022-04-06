@@ -184,10 +184,10 @@ Step 3. After checking that the file path is valid, the data type of the file pa
 
 Step 4. A new `ExportCommand` object is created with the file path as its parameter.
 
-Step 5. The `ExportCommand#execute()` method is called, and it gets the current persons list from the model itself.
+Step 5. The `ExportCommand#execute()` method is called, and it calls `Model#getFilteredPersonList()` to get the current list of job applicants.
 
-Step 6. For each person in the current persons list, the *string* representation of each field is obtained and concatenated into
-the aformentioned format and it is written into the user-specified csv file.
+Step 6. For each person in the persons list, the *string* representation of each field is obtained and concatenated into
+the aformentioned format above, then it is written into the user-specified csv file.
 
 Step 7. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
