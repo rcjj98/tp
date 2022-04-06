@@ -84,7 +84,8 @@ Adds a new job applicant to the address book.
 * #### Adding a new job applicant 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
+  Example:
+  `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
@@ -95,7 +96,9 @@ Edits an existing job applicant in the address book
 
 * #### Editing a job applicant
   Format: `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` <br>
-  Example: `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
+  
+  Example:
+  `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
 
 Before edit command executed.<br>
 ![edit](images/before-edit-contact-2.png) <br><br>
@@ -114,7 +117,8 @@ Deletes an existing job applicant from the address book.
 
 Format: `delete [p] INDEX`
 
-Example: `delete [p] 1` <br><br>
+Example:
+`delete [p] 1` <br><br>
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
@@ -175,7 +179,8 @@ Adds a new job interview slot to the address book.
   * `INDEX` in this context refers to the numerical position of the `Person` in the `Person` list, under 
   the `Person` tab.
 
-  Example: `add [i] 1 d/2021-06-25 t/17:30`
+  Example:
+  `add [i] 1 d/2021-06-25 t/17:30`
 
 ![add-interview](images/add-interview.png)
 
@@ -189,7 +194,8 @@ Edits an existing interview slot in the address book
   * `INDEX` in this context refers to the numerical position of the `Person` in the `Person` list, under 
   the `Person` tab.
 
-  Examples: <br> `edit [i] 1 d/2021-12-30` <br>
+  Examples:
+  <br> `edit [i] 1 d/2021-12-30` <br>
   `edit [i] 1 t/10:30` <br>
   `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
@@ -202,7 +208,8 @@ Deletes an existing interview slot in the address book.
 * #### Deleting an interview slot
   Format: `delete [i] INDEX`
 
-  Example: `delete [i] 1`
+  Example:
+  `delete [i] 1`
 
 &nbsp;
 ### Listing all scheduled interviews: `list [i]`
@@ -251,7 +258,8 @@ Adds a new task to the address book.
 * #### Adding a new task
   Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
-  Example: `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
+  Example:
+  `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
 
 [Upcoming Image]
 
@@ -262,7 +270,8 @@ Edits an existing task in the address book
 * #### Editing task details
   Format: `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]` <br>
 
-  Examples: <br> `edit [t] 1 d/2021-12-30` <br>
+  Examples:
+  <br> `edit [t] 1 d/2021-12-30` <br>
   `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 [Upcoming Image]
@@ -274,7 +283,8 @@ Deletes an existing task in the address book.
 * #### Deleting a task
   Format: `delete [t] INDEX`
 
-  Example: `delete [t] 1`
+  Example:
+  `delete [t] 1`
 
 &nbsp;
 ### Listing all tasks: `list [t]`
@@ -345,7 +355,8 @@ Notes:
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\data.json`
+Example:
+`import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\data.json`
 
 &nbsp;
 ### Exporting to a csv data file: `export`
