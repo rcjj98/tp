@@ -168,8 +168,8 @@ Adds a new job interview slot to the address book.
 * #### Adding a new interview
   Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
-  * `INDEX` in this context refers to the numerical position of the `Applicant` in the `job applicant` list, under
-  the `People` tab.<br>
+  * `INDEX` in this context refers to the numerical position of the `Applicant` in the job applicant list, under
+  the `People` tab.<br><br>
 
   Example:<br>
   `add [i] 1 d/2021-06-25 t/17:30`
@@ -183,8 +183,8 @@ Edits an existing interview slot in the address book
 * #### Editing interview details
   Format: `edit [i] INDEX [d/DATE] [t/TIME]` <br> 
   
-  * `INDEX` in this context refers to the numerical position of the `Interview` in the `Interview` list, under
-  the `Interviews` tab.
+  * `INDEX` in this context refers to the numerical position of the `Interview` in the interview list, under
+  the `Interviews` tab.<br><br>
 
   Examples:
   <br> `edit [i] 1 d/2021-12-30` <br>
