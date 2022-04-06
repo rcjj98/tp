@@ -395,13 +395,13 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 |       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
 |   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
 |            Edit Task | `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]`                               |
-|                 Exit | `exit`                                                                                      |
 |       Find Interview | `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
 |   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
 |            Find Task | `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|                 Help | `help`                                                                                      |
 |      List Interviews | `list [i]`                                                                                  |
 |  List Job Applicants | `list [p]`                                                                                  |
 |           List Tasks | `list [t]`                                                                                  |
 |               Import | `import FILEPATH`                                                                           |
 |               Export | `export FILEPATH`                                                                           |
+|                 Help | `help`                                                                                      |
+|                 Exit | `exit`                                                                                      |
