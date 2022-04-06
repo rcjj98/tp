@@ -53,6 +53,10 @@ public class PersonCard extends UiPart<Region> {
         email.setText(person.getEmail().value);
         job.setText(person.getJob().jobTitle);
         stage.setText(person.getStage().value);
+        editStageStyle(stage, person);
+    }
+
+    public void editStageStyle(Label label, Person person) {
         if (person.getStage().value.equals("INPROGRESS")) {
             stage.setStyle("-fx-text-fill: white; -fx-background-color: #d2691e; -fx-padding: 1 3 1 3; "
                     + "-fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11;");

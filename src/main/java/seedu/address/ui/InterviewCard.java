@@ -54,22 +54,35 @@ public class InterviewCard extends UiPart<Region> {
         super(FXML);
         this.interview = interview;
         id.setText(displayedIndex + ". ");
+        Person person = interview.getPerson();
+        name.setText(person.getName().fullName);
+        String formattedDate = formatDate(interview);
+        date.setText(formattedDate);
+        String formattedTime = formatTime(interview);
+        time.setText("@ " + formattedTime);
+        job.setText(person.getJob().jobTitle);
+        stage.setText(person.getStage().value);
+        editStageStyle(stage, person);
+        phone.setText(person.getPhone().value);
+        email.setText(person.getEmail().value);
+    }
 
+    public String formatDate(Interview interview) {
         String[] dateSplit = interview.getDate().value.split("-");
         LocalDate parsedDate = LocalDate.parse(interview.getDate().value);
         String formattedMonth = parsedDate.format(DateTimeFormatter.ofPattern("MMM"));
         String formattedDate = dateSplit[2] + " " + formattedMonth + " " + dateSplit[0];
+        return formattedDate;
+    }
+
+    public String formatTime(Interview interview) {
         String[] timeSplit = interview.getTime().value.split(":");
         LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));
         String formattedTime = parsedTime.format(DateTimeFormatter.ofPattern("hh:mma"));
+        return formattedTime;
+    }
 
-        Person person = interview.getPerson();
-
-        name.setText(person.getName().fullName);
-        date.setText(formattedDate);
-        time.setText("@ " + formattedTime);
-        job.setText(person.getJob().jobTitle);
-        stage.setText(person.getStage().value);
+    public void editStageStyle(Label label, Person person) {
         if (person.getStage().value.equals("INPROGRESS")) {
             stage.setStyle("-fx-text-fill: white; -fx-background-color: #d2691e; -fx-padding: 1 3 1 3; "
                     + "-fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11;");
@@ -80,8 +93,6 @@ public class InterviewCard extends UiPart<Region> {
             stage.setStyle("-fx-text-fill: white; -fx-background-color: #b22222; -fx-padding: 1 3 1 3; "
                     + "-fx-border-radius: 2; -fx-background-radius: 2; -fx-font-size: 11;");
         }
-        phone.setText(person.getPhone().value);
-        email.setText(person.getEmail().value);
     }
 
     @Override

@@ -212,7 +212,7 @@ public class MainWindow extends UiPart<Stage> {
             }
 
             changeTab(commandResult.getType());
-            
+
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);

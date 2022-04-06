@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.address.model.interview.Interview;
 import seedu.address.model.tasks.Task;
 
 public class TaskCard extends UiPart<Region> {
@@ -46,17 +47,25 @@ public class TaskCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         header.setText(task.getHeader().fullHeader);
         information.setText(task.getInformation().fullInformation);
+        String formattedDate = formatDate(task);
+        date.setText("Date: " + formattedDate);
+        String formattedTime = formatTime(task);
+        time.setText("Time: " + formattedTime);
+    }
 
+    public String formatDate(Task task) {
         String[] dateSplit = task.getDate().value.split("-");
         LocalDate parsedDate = LocalDate.parse(task.getDate().value);
         String formattedMonth = parsedDate.format(DateTimeFormatter.ofPattern("MMM"));
         String formattedDate = dateSplit[2] + " " + formattedMonth + " " + dateSplit[0];
+        return formattedDate;
+    }
+
+    public String formatTime(Task task) {
         String[] timeSplit = task.getTime().value.split(":");
         LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));
         String formattedTime = parsedTime.format(DateTimeFormatter.ofPattern("hh:mma"));
-
-        date.setText("Date: " + formattedDate);
-        time.setText("Time: " + formattedTime);
+        return formattedTime;
     }
 
     @Override
