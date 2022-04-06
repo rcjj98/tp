@@ -47,7 +47,7 @@ public class JsonAdaptedInterview {
      */
     public Interview toModelType() throws IllegalValueException {
         if (person == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "INDEX"));
         }
 
         final Person modelPerson = person.toModelType();
