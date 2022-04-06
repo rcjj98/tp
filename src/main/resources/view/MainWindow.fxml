@@ -49,7 +49,7 @@
 
         <StackPane minWidth="350" prefWidth="350" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
           <padding>
-            <Insets top="10" right="10" bottom="10" left="10" />
+            <Insets top="5" right="10" bottom="5" left="10" />
           </padding>
             <children>
               <TabPane fx:id="tabs" minWidth="350" tabClosingPolicy="UNAVAILABLE">

@@ -16,7 +16,7 @@ public class ExportCommandParser implements Parser<ExportCommand> {
     public static final String WRONG_FILE_TYPE = "Please include a .csv file extension with your file name.";
 
     /**
-     * Parses the user input of the path to target csv file to export job applicant data into.
+     * Parses the user input of the path to target csv file to export applicant data into.
      *
      * @param args String path to the csv file.
      * @return ExportCommand with path to csv file.
