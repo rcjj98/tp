@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.Type.PERSON;
 
 import java.io.File;
 import java.io.IOException;
@@ -58,6 +59,11 @@ public class ExportCommand extends Command {
             throw new CommandException(MISSING_CSV_FILE);
         }
         return new CommandResult("Exported " + personList.size() + " job applicants' data to "
-            + csvFilePath, Type.PERSON);
+            + csvFilePath, getType());
+    }
+
+    @Override
+    public Type getType() {
+        return PERSON;
     }
 }

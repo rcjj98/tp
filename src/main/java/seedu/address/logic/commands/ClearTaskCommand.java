@@ -13,7 +13,7 @@ public class ClearTaskCommand extends ClearCommand {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.resetTasks();
-        return new CommandResult(MESSAGE_SUCCESS, TASK);
+        return new CommandResult(MESSAGE_SUCCESS, getType());
     }
 
     @Override

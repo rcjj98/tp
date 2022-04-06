@@ -33,7 +33,7 @@ public class FindInterviewCommand extends FindCommand {
         requireNonNull(model);
         model.updateFilteredInterviewList(predicate);
         return new CommandResult(String.format(Messages.MESSAGE_INTERVIEWS_LISTED_OVERVIEW,
-                model.getFilteredInterviewList().size()), Type.INTERVIEW);
+                model.getFilteredInterviewList().size()), getType());
     }
 
     @Override
