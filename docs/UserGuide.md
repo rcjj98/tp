@@ -6,8 +6,8 @@ title: User Guide
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
 the progress of each applicant during the application process.
 
-
-Table Of Contents:
+&nbsp;
+<h2>Table Of Contents:</h2>
 * Table of Contents
 {:toc}
 
@@ -33,7 +33,7 @@ Table Of Contents:
 6. Refer to _Features_ section directly below for details on each command.
 
 
-## General Features
+## General Commands
 ----------
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic flags.
