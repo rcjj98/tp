@@ -356,8 +356,33 @@ Format: `export FILEPATH`
 Absolute filepath example for WindowsOS: `export C:\Users\YOUR_USERNAME\Desktop\myData.csv` <br>
 Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
-Relative filepath example for MacOS: `export  ./myDataFile.csv
-`
+Relative filepath example for MacOS: `export  ./myDataFile.csv`
+
+## Flag Format
+
+| Flag | Format                                                                                              |
+|-----:|:----------------------------------------------------------------------------------------------------|
+|   a/ | Addresses can take any values, and it should not be blank                                           |
+|   d/ | Date should be in the format YYYY-MM-dd                                                             |
+|   e/ | Emails should be of the format `local-part@domain` (e.g. alice-tan@gmail.com)                       |
+|   g/ | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list |
+|   h/ | Header should only contain alphanumeric characters and spaces, and it should not be blank           |
+|   i/ | Information should only contain alphanumeric characters and spaces, and it should not be blank      |
+|   j/ | Job should only contain alphanumeric characters and spaces, and it should not be blank              |
+|   n/ | Names should only contain alphanumeric characters and spaces, and it should not be blank            |
+|   p/ | Phone numbers should only contain numbers, and it should be at least 3 digits long                  |
+|   s/ | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case sensitive)                            |
+|   t/ | Time should be in the format HH:MM                                                                  |
+
+
+## List Types
+
+| Type | Format                                            |
+|-----:|:--------------------------------------------------|
+|  [i] | Applies the current command to the interview list |
+|  [p] | Applies the current command to the persons list   |
+|  [t] | Applies the current command to the tasks list     |
+
 
 ## Command Summary
 
