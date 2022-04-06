@@ -54,7 +54,7 @@
             <children>
               <TabPane fx:id="tabs" minWidth="340" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-              <Tab fx:id="personsTab" text="People">
+              <Tab fx:id="personsTab" text="Applicants">
                 <content>
                   <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                 </content>
