@@ -7,7 +7,6 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.Date;
 import seedu.address.model.Time;
 import seedu.address.model.interview.Interview;
-import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 
 /**
