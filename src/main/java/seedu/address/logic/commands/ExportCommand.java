@@ -17,7 +17,7 @@ import seedu.address.model.person.Person;
 public class ExportCommand extends Command {
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-        + ": Exports all data of the all job applicants into a CSV file. Accepts absolute path or relative path.\n"
+        + ": Exports all data of the all applicants into a CSV file. Accepts absolute path or relative path.\n"
         + "Parameters: filepath to the exported csv file"
         + "Example: export ../../past_data.csv";
     public static final String MISSING_CSV_FILE = "CSV file could not be created.";
@@ -27,7 +27,7 @@ public class ExportCommand extends Command {
     /**
      * Constructor for Export Command.
      *
-     * @param csvFilePath File path of CSV file to export job applicant data to.
+     * @param csvFilePath File path of CSV file to export applicant data to.
      */
     public ExportCommand(Path csvFilePath) {
         requireNonNull(csvFilePath);
@@ -44,7 +44,7 @@ public class ExportCommand extends Command {
             File csvFile = new File(csvFilePath.toString());
             PrintWriter pw = new PrintWriter(csvFile);
 
-            //export all persons data from addressbook.json into specified csv file
+            //export all applicants data from addressbook.json into specified csv file
             for (Person p : personList) {
                 String name = p.getName().toString();
                 String phone = p.getPhone().toString();
@@ -58,7 +58,7 @@ public class ExportCommand extends Command {
         } catch (IOException e) {
             throw new CommandException(MISSING_CSV_FILE);
         }
-        return new CommandResult("Exported " + personList.size() + " job applicants' data to "
+        return new CommandResult("Exported " + personList.size() + " applicants' data to "
             + csvFilePath, getType());
     }
 

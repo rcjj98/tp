@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.interview.Interview;
 import seedu.address.model.tasks.Task;
 
 public class TaskCard extends UiPart<Region> {
@@ -53,6 +52,12 @@ public class TaskCard extends UiPart<Region> {
         time.setText("Time: " + formattedTime);
     }
 
+    /**
+     * Format date to display in correct format
+     *
+     * @param task task
+     * @return date in correct format
+     */
     public String formatDate(Task task) {
         String[] dateSplit = task.getDate().value.split("-");
         LocalDate parsedDate = LocalDate.parse(task.getDate().value);
@@ -61,6 +66,12 @@ public class TaskCard extends UiPart<Region> {
         return formattedDate;
     }
 
+    /**
+     * Format time to display in correct format
+     *
+     * @param task task
+     * @return time in correct format
+     */
     public String formatTime(Task task) {
         String[] timeSplit = task.getTime().value.split(":");
         LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));

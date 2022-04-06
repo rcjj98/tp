@@ -11,7 +11,7 @@ import seedu.address.model.person.PersonContainsKeywordsPredicate;
 public class FindPersonCommand extends FindCommand {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " [p] : Finds all persons that meet search criteria.\n"
+            + " [p] : Finds all applicants that meet search criteria.\n"
             + "Only accepts: g/, n/, p/, e/, a/, j/, and s/ flags\n"
             + "Example: " + COMMAND_WORD + " [p] g/n/john j/software engineer g/s/INPROGRESS";
 
@@ -20,7 +20,7 @@ public class FindPersonCommand extends FindCommand {
     /**
      * Constructor for FindPersonCommand
      *
-     * @param predicate Search criteria to find persons
+     * @param predicate Search criteria to find applicants
      */
     public FindPersonCommand(PersonContainsKeywordsPredicate predicate) {
         requireNonNull(predicate);

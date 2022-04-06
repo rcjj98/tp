@@ -24,7 +24,7 @@ public class ImportCommand extends Command {
     /**
      * Constructor for Import Command.
      *
-     * @param persons List of persons to be added.
+     * @param persons List of applicants to be added.
      */
     public ImportCommand(List<Person> persons) {
         requireNonNull(persons);
@@ -44,7 +44,7 @@ public class ImportCommand extends Command {
         }
 
         persons.forEach(model::addPerson);
-        return new CommandResult("Added " + persons.size() + " people to address book.", getType());
+        return new CommandResult("Added " + persons.size() + " applicants to address book.", getType());
     }
 
     @Override

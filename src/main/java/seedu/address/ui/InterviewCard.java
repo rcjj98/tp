@@ -67,6 +67,12 @@ public class InterviewCard extends UiPart<Region> {
         email.setText(person.getEmail().value);
     }
 
+    /**
+     * Format date to display in the correct format
+     *
+     * @param interview interview
+     * @return date in correct format
+     */
     public String formatDate(Interview interview) {
         String[] dateSplit = interview.getDate().value.split("-");
         LocalDate parsedDate = LocalDate.parse(interview.getDate().value);
@@ -75,6 +81,12 @@ public class InterviewCard extends UiPart<Region> {
         return formattedDate;
     }
 
+    /**
+     * Format time to display in correct format
+     *
+     * @param interview interview
+     * @return time in correct format
+     */
     public String formatTime(Interview interview) {
         String[] timeSplit = interview.getTime().value.split(":");
         LocalTime parsedTime = LocalTime.parse(timeSplit[0] + timeSplit[1], DateTimeFormatter.ofPattern("HHmm"));
@@ -82,6 +94,12 @@ public class InterviewCard extends UiPart<Region> {
         return formattedTime;
     }
 
+    /**
+     * Edit style of stage
+     *
+     * @param label stage label
+     * @param person person
+     */
     public void editStageStyle(Label label, Person person) {
         if (person.getStage().value.equals("INPROGRESS")) {
             stage.setStyle("-fx-text-fill: white; -fx-background-color: #d2691e; -fx-padding: 1 3 1 3; "

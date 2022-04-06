@@ -56,6 +56,12 @@ public class PersonCard extends UiPart<Region> {
         editStageStyle(stage, person);
     }
 
+    /**
+     * Edit style of stage
+     *
+     * @param label stage label
+     * @param person person
+     */
     public void editStageStyle(Label label, Person person) {
         if (person.getStage().value.equals("INPROGRESS")) {
             stage.setStyle("-fx-text-fill: white; -fx-background-color: #d2691e; -fx-padding: 1 3 1 3; "

@@ -221,6 +221,10 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Toggle between different tabs based on type of command given
+     * @param type type of command
+     */
     public void changeTab(Type type) {
         SingleSelectionModel<Tab> selectionModel = tabs.getSelectionModel();
         if (type == PERSON) {
