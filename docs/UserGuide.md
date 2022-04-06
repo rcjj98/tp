@@ -183,8 +183,8 @@ Edits an existing interview slot in the address book
 * #### Editing interview details
   Format: `edit [i] INDEX [d/DATE] [t/TIME]` <br> 
   
-  * `INDEX` in this context refers to the numerical position of the `Person` in the `Person` list, under
-  the `Person` tab.
+  * `INDEX` in this context refers to the numerical position of the `Interview` in the `Interview` list, under
+  the `Interviews` tab.
 
   Examples:
   <br> `edit [i] 1 d/2021-12-30` <br>
