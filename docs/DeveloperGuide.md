@@ -552,7 +552,42 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### Adding a Job Applicant
+
+### Adding an Interview
+
+### Adding a Task
+
+### Editing a Job Applicant
+
+### Editing an Interview
+
+### Editing a Task
+
+### Deleting a Job Applicant
+
+### Deleting an Interview
+
+### Deleting a Task
+
+### Clearing all Job Applicants
+
+### Clearing all Interviews
+
+### Clearing all Tasks
+
+### Finding a Job Applicant
+
+### Finding an Interview
+
+### Finding a Task
+
+### Importing all Job Applicants
+
+### Export all Job Applicants
+
+
+
 
 ### Deleting a person
 
