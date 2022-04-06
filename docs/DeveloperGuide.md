@@ -156,19 +156,53 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Export Feature
 
+The export feature takes the current address book data stored in memory and exports the job applicants data into a user-specified
+csv file that is tab-delimited.
+
 #### Implementation
 
-#### Design Considerations
+The export feature is facilitated by the `ExportCommand` while the necessary checks for the export 
+feature is facilitated by the `ExportCommandParser`.
+
+The format for the csv file is defined as (tab-delimited):
+name    phone_number    email   address     job_title   current_application_progress
+
+An invalid file path is defined as follows:
+1. An empty string.
+2. A file path containing invalid characters (such as: "<" or ">" for Windows OS)
+3. A file path that does not end with `.csv`.
+
+Given below is an example usage scenario and how the export mechanism behaves at each step.
+
+Step 1. User enters their desired csv file path into the application.
+Step 2. The `ExportCommandParser#parse()` checks the validity of the file path.
+Step 3. After checking that the file path is valid, the data type of the file path is converted from its
+*string* representation into a *Path* representation.
+Step 4. A new `ExportCommand` object is created with the file path as its parameter.
+Step 5. The `ExportCommand#execute()` method is called, and it gets the current persons list from the model itself.
+Step 6. For each person in the current persons list, the *string* representation of each field is obtained and concatenated into
+the aformentioned format and it is written into the user-specified csv file.
+Step 21. A new `CommandResult` object is returned signifying that the command has executed successfully.
+
+The following sequence diagram summarises how the export operation works
+
+// ADD SEQUENCE DIAGRAM.
+
 
 ### Import Feature
 
+The import feature takes in a csv file and adds all the job applicants stored by the csv file back into the application.
+
 #### Implementation
 
-#### Design Considerations
+The following sequence diagram summarises how the import operation works
 
 ### Find Feature
 
+
 #### Implementation
+
+The following sequence diagram summarises how the find operation works
 
 #### Design Considerations
 
