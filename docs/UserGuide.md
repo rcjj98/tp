@@ -29,7 +29,7 @@ the progress of each applicant during the application process.
    * `clear [p]`: Deletes all applicants.
    * `exit`: Exits the app.
 
-6. Refer to the [Features](#Features) below for details of each command.
+6. Refer to _Features_ section directly below for details on each command.
 
 ## Features
 
@@ -37,14 +37,14 @@ the progress of each applicant during the application process.
 
 **:information_source: Notes about the command format regarding Applicants:**<br>
 
+* Items in angle brackets are optional.<br>
+  e.g n/NAME <p/PHONE_NUMBER> can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
+
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
 
-* Items in square brackets are optional.<br>
-  e.g n/NAME [p/PHONE_NUMBER] can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
-
-* Items with ... after them can be used multiple times including zero times.<br>
-  e.g. [a/ADDRESS]... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
+* Items with elipsis (...) after them can be used multiple times including zero times.<br>
+  e.g. <a/ADDRESS>... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
 
 * Parameters can be supplied in any order.<br>
   e.g. if the command requires n/NAME p/PHONE_NUMBER, <br> p/PHONE_NUMBER n/NAME is also acceptable.
@@ -74,7 +74,6 @@ Format: `exit`
 ### Adding a new job applicant: `add [p]` 
 Adds a new job applicant to the address book.
 
-* #### Adding a new job applicant 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
   Example:<br>
@@ -87,8 +86,7 @@ Adds a new job applicant to the address book.
 ### Editing a job applicant:`edit [p]`
 Edits an existing job applicant in the address book
 
-* #### Editing a job applicant
-  Format: `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` <br>
+  Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
   
   Example:<br>
   `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
@@ -117,8 +115,7 @@ Example:<br>
 ### Listing all job applicants: `list [p]`
 Shows a list of all job applicants in the address book.
 
-Format:
-* `list [p]`: Show all job applicants.
+Format:`list [p]`
 
 &nbsp;
 ### Clearing all job applicants: `clear [p]`
@@ -139,7 +136,7 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:<br>
 * `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
@@ -165,7 +162,6 @@ Examples:<br>
 ### Adding a new interview slot for a job applicant: `add [i]`
 Adds a new job interview slot to the address book.
 
-* #### Adding a new interview
   Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
   * `INDEX` in this context refers to the numerical position of the `Applicant` in the job applicant list, under
@@ -180,8 +176,7 @@ Adds a new job interview slot to the address book.
 ### Editing an existing interview slot: `edit [i]`
 Edits an existing interview slot in the address book
 
-* #### Editing interview details
-  Format: `edit [i] INDEX [d/DATE] [t/TIME]` <br> 
+  Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
   
   * `INDEX` in this context refers to the numerical position of the `Interview` in the interview list, under
   the `Interviews` tab.<br><br>
@@ -197,7 +192,6 @@ Edits an existing interview slot in the address book
 ### Deleting an interview slot: `delete [i]`
 Deletes an existing interview slot in the address book.
 
-* #### Deleting an interview slot
   Format: `delete [i] INDEX`
 
   Example:<br>
@@ -207,8 +201,7 @@ Deletes an existing interview slot in the address book.
 ### Listing all scheduled interviews: `list [i]`
 Shows a list of all scheduled interviews in the address book.
 
-Format:
-* `list [i]`: Show all scheduled interviews.
+Format: `list [i]`
 
 
 &nbsp;
@@ -230,7 +223,7 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:<br>
 * `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
@@ -260,7 +253,7 @@ Adds a new task to the address book.
 Edits an existing task in the address book
 
 * #### Editing task details
-  Format: `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]` <br>
+  Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
   Examples:<br>
   <br> `edit [t] 1 d/2021-12-30` <br>
@@ -272,7 +265,6 @@ Edits an existing task in the address book
 ### Deleting a task: `delete [t]`
 Deletes an existing task in the address book.
 
-* #### Deleting a task
   Format: `delete [t] INDEX`
 
   Example:<br>
@@ -282,8 +274,7 @@ Deletes an existing task in the address book.
 ### Listing all tasks: `list [t]`
 Shows a list of all tasks in the address book.
 
-Format:
-* `list [t]`: Show all tasks.
+Format: `list [t]`
 
 
 &nbsp;
@@ -305,7 +296,7 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 Examples:<br>
 * `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find d/2022-03-04 OR h/update OR t/10:10` <br><br>
@@ -324,7 +315,7 @@ AddressBook data are saved in the hard disk automatically after any command that
 
 &nbsp;
 ### Editing the data file
-AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 :exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
 
@@ -346,7 +337,8 @@ Notes:
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\<your username>\Desktop\data.csv`
+Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv`
+
 
 &nbsp;
 ### Exporting to a csv data file: `export`
@@ -354,8 +346,7 @@ Example: `import C:\Users\<your username>\Desktop\data.csv`
 Exports all **job applicants** data from the address book into a *csv* save file.
 
 File Format:
-* File to export from: JSON (addressbook.json)
-* File to export to: CSV (<YOUR_FILE_NAME.csv>) <br> 
+* CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
@@ -363,20 +354,15 @@ Notes:
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with back slash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
-4. Csv file **must** have .csv as a file extension.
-5. Only the current data within the addressbook.json will be exported into the specified csv file.
-6. Data exported into the specified CSV file will be seperated by tabs.
-   1. (\t) represents a tab spacing between each field of data.
-7. Each row of data inside the CSV file represents the details of 1 single person from the addressbook. 
-   1. name(\t)phone_number(\t)email_address(\t)address(\t)job_description(\t)application_stage
-8. If any error is found while executing the command, 
+4. Csv file **must** have .csv as a file extension. 
+5. If any error is found while executing the command, 
 **none** of the data from the addressbook will be exported into the specified csv file.
 
 Format: `export FILEPATH`
 
-Absolute filepath example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
+Absolute filepath example for WindowsOS: `export C:\Users\YOUR_USERNAME\Desktop\myData.csv` <br>
 Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
-Absolute filepath example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv` <br>
+Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
 Relative filepath example for MacOS: `export  ./myDataFile.csv
 `
 
@@ -393,12 +379,14 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 |     Delete Interview | `delete [i] INDEX`                                                                          |
 | Delete Job Applicant | `delete [p] INDEX`                                                                          |
 |          Delete Task | `delete [t] INDEX`                                                                          |
-|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
-|   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
-|            Edit Task | `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]`                               |
-|       Find Interview | `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|            Find Task | `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
+|       Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>`                                                          |
+|   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` |
+|            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>`                               |
+|                 Exit | `exit`                                                                                      |
+|       Find Interview | `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|   Find Job Applicant | `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|            Find Task | `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|                 Help | `help`                                                                                      |
 |      List Interviews | `list [i]`                                                                                  |
 |  List Job Applicants | `list [p]`                                                                                  |
 |           List Tasks | `list [t]`                                                                                  |

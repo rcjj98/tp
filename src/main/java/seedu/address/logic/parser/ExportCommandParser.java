@@ -13,7 +13,7 @@ public class ExportCommandParser implements Parser<ExportCommand> {
 
     public static final String INVALID_FILE_PATH = "That is not a valid file path\n"
         + "Please check for any illegal characters.";
-    public static final String WRONG_FILE_TYPE = "No json file extension found.";
+    public static final String WRONG_FILE_TYPE = "Please include a .csv file extension with your file name.";
 
     /**
      * Parses the user input of the path to target csv file to export job applicant data into.
