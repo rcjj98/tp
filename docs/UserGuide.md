@@ -3,14 +3,12 @@ layout: page
 title: User Guide
 ---
 
-# HRConnect
-
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
 the progress of each applicant during the application process.
 
 
-## Table of Contents
-  {:toc}
+* Table of Contents
+{:toc}
 
 
 ## Quick Start
@@ -66,7 +64,7 @@ the progress of each applicant during the application process.
 
 &nbsp;
 
-##General Features
+## General Features
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic flags.
 
@@ -316,22 +314,22 @@ AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.jso
 &nbsp;
 ### Importing the data file: `import`
 
-Imports all **job applicants** data from a *csv* or *json* save file generated from this address book.
+Imports all **job applicants** data from a *csv* save file generated from this address book.
 
 File Format:
 * CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
-* JSON: Follows the **entire** existing `PATH_TO_JAR_FILE/data/addressbook.json` data structure and format. 
 
 Notes:
 1. Filepath can be relative or absolute.
 2. No duplicates are allowed to be imported into the address book.
    1. Data in the address book has a higher priority than data in the save file.
-3. Save files needs to end with `.csv` or `.json` in order for the address book to recognise the save file. 
-4. If any error is found, **none** of the data in the save file will be imported into the address book. 
+3. Save files needs to end with `.csv` in order for the address book to recognise the save file. 
+4. If any error is found, **none** of the data in the save file will be imported into the address book.
 
 Format: `import FILEPATH`
 
 Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv`
+
 
 &nbsp;
 ### Exporting to a csv data file: `export`
