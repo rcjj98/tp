@@ -156,19 +156,19 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Export Feature
 
-#### Implmentation
+#### Implementation
 
 #### Design Considerations
 
 ### Import Feature
 
-#### Implmentation
+#### Implementation
 
 #### Design Considerations
 
 ### Find Feature
 
-#### Implmentation
+#### Implementation
 
 #### Design Considerations
 
