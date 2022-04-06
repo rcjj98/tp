@@ -174,6 +174,7 @@ The export feature is facilitated by the `ExportCommand` while the necessary che
 feature is facilitated by the `ExportCommandParser`.
 
 &nbsp;
+
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
 Step 1. User enters the file path of the csv file into the application (e.g. `export ../../my_data.csv`).
@@ -192,6 +193,7 @@ the aformentioned format above, then it is written into the user-specified csv f
 Step 7. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
 &nbsp;
+
 The following sequence diagram summarises how the export operation works.
 
 // ADD SEQUENCE DIAGRAM.
@@ -210,6 +212,7 @@ An invalid csv file path also follows the conditions as defined by the [export f
 The import feature is facilitated by the `ImportCommand` while the necessary checks for the import feature is facilitated by the `ImportCommandParser`.
 
 &nbsp;
+
 Given below is an example usage scenario and how the import mechanism behaves at each step.
 
 Step 1. User enters the file path of the csv file into the application (e.g. `import ../../past_data.csv`).
@@ -232,6 +235,7 @@ Step 7. The `ImportCommand#execute()` method is called. It checks that there are
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
 &nbsp;
+
 The following sequence diagram summarises how the import operation works.
 
 // ADD SEQUENCE DIAGRAM.
@@ -245,11 +249,13 @@ The find feature finds all data within a specified component (Person/Interview/T
 The find feature is facilitated by the subclasses of the `FindCommand` while the necessary checks for the find feature is facilitated by the subclasses of `FindCommandParser`. The actual checking is faciliated by the `{Component Name}ContainsKeywordsPredicate`
 
 &nbsp;
+
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
 Step 1. User enters the file path of the csv file into the application (e.g. `import ../../past_data.csv`).
 
 &nbsp;
+
 The following sequence diagram summarises how the find operation works
 
 #### Design Considerations
