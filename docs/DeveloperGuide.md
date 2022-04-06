@@ -160,6 +160,7 @@ The export feature takes the current address book data stored in memory and expo
 csv file that is tab-delimited.
 
 The format for the csv file is defined as (tab-delimited):
+
 name    phone_number    email   address     job_title   current_application_progress
 
 An invalid file path is defined as follows:
