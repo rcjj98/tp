@@ -7,7 +7,7 @@ HRConnect is a desktop application for managing the contacts of job applicants. 
 the progress of each applicant during the application process.
 
 
-<h2>Table Of Contents:</h2>
+Table Of Contents:
 * Table of Contents
 {:toc}
 
@@ -66,6 +66,7 @@ the progress of each applicant during the application process.
 &nbsp;
 
 ## General Features
+----------
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic flags.
 
@@ -162,6 +163,7 @@ Examples:
 
 
 ## Interview Features
+----------
 :information_source: Notes about the command format regarding Interviews:
 
 &nbsp;
@@ -230,6 +232,7 @@ Examples:
 ![find](images/find-interview.png)
 
 ## Task Features
+----------
 :information_source: Notes about the command format regarding Tasks:
 
 &nbsp;
