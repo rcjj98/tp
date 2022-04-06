@@ -154,6 +154,72 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Export Feature
+
+The export feature takes the current address book data stored in memory and exports the job applicants data into a user-specified
+csv file that is tab-delimited.
+
+The format for the csv file is defined as (tab-delimited):
+
+name    phone_number    email   address     job_title   current_application_progress
+
+An invalid file path is defined as follows:
+1. An empty string.
+2. A file path containing invalid characters (such as: "<" or ">" for Windows OS)
+3. A file path that does not end with `.csv`.
+
+#### Implementation
+
+The export feature is facilitated by the `ExportCommand` while the necessary checks for the export 
+feature is facilitated by the `ExportCommandParser`.
+
+Given below is an example usage scenario and how the export mechanism behaves at each step.
+
+Step 1. User enters their desired csv file path into the application.
+
+Step 2. The `ExportCommandParser#parse()` checks the validity of the file path.
+
+Step 3. After checking that the file path is valid, the data type of the file path is converted from its
+*string* representation into a *Path* representation.
+
+Step 4. A new `ExportCommand` object is created with the file path as its parameter.
+
+Step 5. The `ExportCommand#execute()` method is called, and it gets the current persons list from the model itself.
+
+Step 6. For each person in the current persons list, the *string* representation of each field is obtained and concatenated into
+the aformentioned format and it is written into the user-specified csv file.
+
+Step 7. A new `CommandResult` object is returned signifying that the command has executed successfully.
+
+The following sequence diagram summarises how the export operation works
+
+// ADD SEQUENCE DIAGRAM.
+
+
+### Import Feature
+
+The import feature takes in a csv file and adds all the job applicants stored by the csv file back into the application.
+
+#### Implementation
+
+The following sequence diagram summarises how the import operation works
+
+### Find Feature
+
+
+#### Implementation
+
+The following sequence diagram summarises how the find operation works
+
+#### Design Considerations
+
+* **Alternative 1:** Using AND, OR, NOT operators (i.e. `find john AND tom OR (gmail.com AND NOT 111)`).
+  * Pros: More intuitive to the technically inclined and more control over the search results.
+  * Cons: Harder to parse and implement.
+* **Alternative 2** Using free text queries (i.e. `find john tom gmail.com`)
+  * Pros: More intuitive as user expects queried person to contain all the search terms.
+  * Cons: Lacks the flexibility provided by AND and OR operators.
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -233,67 +299,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
-
-### Editing a person's details
-
-#### Overview:
-The edit command is able to edit 1 or more fields of details of a single person at a time. <br><br>
-For example, `edit 2 n/John Doe` edits the name of the 2nd indexed person within the contact list. <br>
-While `edit 2 n/John Doe p/98181234 j/2 INPROGRESS` edits the name, phone number and job application details
-of the 2nd indexed person. <br><br>
-The edit command requires the index of the person you wish to edit, for example `edit n/Bob` will result
-in an invalid input while `edit 1 n/Bob` is a valid input. <br>
-Each specified field of detail cannot be an empty string input, for example `edit 1 a/` will not work. <br>
-
-
-
-
-### Searching for persons with keywords
-
-#### Overview:
-The find feature uses the `g/` flag to simulate an AND operator. It checks if the data of current person contains all
-the keywords in the flag. For example, `find g/john orchard 111` finds all persons whose data contains `john`
-**AND** `orchard` **AND** `111`.
-
-Chaining together several `g/` flags simulates an OR operator. For example, `find g/john g/orchard g/111` 
-finds all persons whose data contains `john` **OR** `orchard` **OR** `111`.
-
-The find feature uses 2 keywords to distinguish application details from personal details. Namely `jobid:` and 
-`progress:`. If either parameters are misspelled, the find feature will treat these parameters as normal search terms 
-instead of special keywords.
-
-`jobid:` Checks if the person is applying for that specific job id.
-
-`progress:` Checks if the person is currently at that particular stage of the job application.
-
-
-#### Implementation Steps
-1. When the Find Command parses the query, it gets searches for all the `g/` flags and tokenizes the search terms wrapped
-inside the `g/` flag.
-   1. If any of the flags are empty, throw a new exception stating that the `g/` flag is empty
-   2. If parser cannot find and `g/` flag, throw a new exception stating that no `g/` flags can be found
-2. Create a new object in `PersonContainsKeywordsPredicate` with the list of search terms.
-3. Return a new `FindCommand` object using the newly created object from the previous step.
-4. smth smth
-
-The following sequence diagram shows how the find operation works:
-
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-&nbsp;
-#### Design considerations:
-* **Alternative 1:** Using AND, OR, NOT operators (i.e. `find john AND tom OR (gmail.com AND NOT 111)`).
-  * Pros: More intuitive to the technically inclined and more control over the search results.
-  * Cons: Harder to parse and implement.
-* **Alternative 2:** Enforcing the usage of flags for every search term (i.e. `find n/john p/123 e/john n/lee`)
-  * Pros: More control over the search query.
-  * Cons: Search query becomes long especially if search term appears in multiple fields.
-* **Alternative 3** Using free text queries (i.e. `find john tom gmail.com`)
-  * Pros: More intuitive as user expects queried person to contain all the search terms.
-  * Cons: Lacks the flexibility provided by AND and OR operators.
-
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -577,7 +582,42 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### Adding a Job Applicant
+
+### Adding an Interview
+
+### Adding a Task
+
+### Editing a Job Applicant
+
+### Editing an Interview
+
+### Editing a Task
+
+### Deleting a Job Applicant
+
+### Deleting an Interview
+
+### Deleting a Task
+
+### Clearing all Job Applicants
+
+### Clearing all Interviews
+
+### Clearing all Tasks
+
+### Finding a Job Applicant
+
+### Finding an Interview
+
+### Finding a Task
+
+### Importing all Job Applicants
+
+### Export all Job Applicants
+
+
+
 
 ### Deleting a person
 

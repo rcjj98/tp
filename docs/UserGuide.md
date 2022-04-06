@@ -3,14 +3,12 @@ layout: page
 title: User Guide
 ---
 
-# HRConnect
-
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
 the progress of each applicant during the application process.
 
-
-## Table of Contents
-  {:toc}
+<h2>Table Of Contents</h2>
+* Table of Contents
+{:toc}
 
 
 ## Quick Start
@@ -31,42 +29,11 @@ the progress of each applicant during the application process.
    * `clear [p]`: Deletes all applicants.
    * `exit`: Exits the app.
 
-6. Refer to the [Features](#Features) below for details of each command.
-
-## Features
-### :information_source: Notes about the command format regarding Applicants:
-* Words in `UPPER_CASE` are the parameters to be supplied by the user. 
-  
-  e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
+6. Refer to _Features_ section directly below for details on each command.
 
 
-* Items in square brackets are optional. 
-  
-  e.g n/NAME [p/PHONE_NUMBER] can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
-
-
-* Items with ... after them can be used multiple times including zero times.
-
-  e.g. [a/ADDRESS]... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
-
-
-* Parameters can be supplied in any order.
-    
-  e.g. if the command requires n/NAME p/PHONE_NUMBER, <br> p/PHONE_NUMBER n/NAME is also acceptable.
-
-
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.
-
-  e.g. if you specify p/12341234 p/56785678, only p/56785678 will be taken.
-
-
-* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.
-
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
-
-&nbsp;
-
-##General Features
+## General Commands
+----------
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic flags.
 
@@ -79,14 +46,45 @@ Exits the program.
 Format: `exit`
 
 
-##Applicant Features
-### Adding a new job applicant: `add [p]` 
+## Applicant Features
+----------
+:information_source: Notes about the command format regarding Applicants:
+* Words in `UPPER_CASE` are the parameters to be supplied by the user. 
+  
+  e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command format regarding Applicants:**<br>
+
+* Items in angle brackets are optional.<br>
+  e.g n/NAME <p/PHONE_NUMBER> can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
+
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+  e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
+
+* Items with elipsis (...) after them can be used multiple times including zero times.<br>
+  e.g. <a/ADDRESS>... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
+
+* Parameters can be supplied in any order.<br>
+  e.g. if the command requires n/NAME p/PHONE_NUMBER, <br> p/PHONE_NUMBER n/NAME is also acceptable.
+
+* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+  e.g. if you specify p/12341234 p/56785678, only p/56785678 will be taken.
+
+* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.<br>
+  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+
+</div>
+&nbsp;
+
+### Adding a new job applicant: `add [p]`
 Adds a new job applicant to the address book.
 
-* #### Adding a new job applicant 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
+  Example:<br>
+  `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
@@ -95,9 +93,10 @@ Adds a new job applicant to the address book.
 ### Editing a job applicant:`edit [p]`
 Edits an existing job applicant in the address book
 
-* #### Editing a job applicant
-  Format: `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` <br>
-  Example: `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
+  Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
+  
+  Example:<br>
+  `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
 
 Before edit command executed.<br>
 ![edit](images/before-edit-contact-2.png) <br><br>
@@ -116,14 +115,14 @@ Deletes an existing job applicant from the address book.
 
 Format: `delete [p] INDEX`
 
-Example: `delete [p] 1` <br><br>
+Example:<br>
+`delete [p] 1` <br><br>
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
 Shows a list of all job applicants in the address book.
 
-Format:
-* `list [p]`: Show all job applicants.
+Format:`list [p]`
 
 &nbsp;
 ### Clearing all job applicants: `clear [p]`
@@ -144,9 +143,9 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-Examples:
+Examples:<br>
 * `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
 `find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
@@ -163,18 +162,21 @@ Examples:
 &nbsp;
 
 
-
 ## Interview Features
-### :information_source: Notes about the command format regarding Interviews:
+----------
+:information_source: Notes about the command format regarding Interviews:
 
 &nbsp;
 ### Adding a new interview slot for a job applicant: `add [i]`
 Adds a new job interview slot to the address book.
 
-* #### Adding a new interview
   Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
-  Example: `add [i] 1 d/2021-06-25 t/17:30`
+  * `INDEX` in this context refers to the numerical position of the `Applicant` in the job applicant list, under
+  the `People` tab.<br><br>
+
+  Example:<br>
+  `add [i] 1 d/2021-06-25 t/17:30`
 
 ![add-interview](images/add-interview.png)
 
@@ -182,10 +184,13 @@ Adds a new job interview slot to the address book.
 ### Editing an existing interview slot: `edit [i]`
 Edits an existing interview slot in the address book
 
-* #### Editing interview details
-  Format: `edit [i] INDEX [d/DATE] [t/TIME]` <br> 
+  Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
   
-  Examples: <br> `edit [i] 1 d/2021-12-30` <br>
+  * `INDEX` in this context refers to the numerical position of the `Interview` in the interview list, under
+  the `Interviews` tab.<br><br>
+
+  Examples:
+  <br> `edit [i] 1 d/2021-12-30` <br>
   `edit [i] 1 t/10:30` <br>
   `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
@@ -195,17 +200,16 @@ Edits an existing interview slot in the address book
 ### Deleting an interview slot: `delete [i]`
 Deletes an existing interview slot in the address book.
 
-* #### Deleting an interview slot
   Format: `delete [i] INDEX`
 
-  Example: `delete [i] 1`
+  Example:<br>
+  `delete [i] 1`
 
 &nbsp;
 ### Listing all scheduled interviews: `list [i]`
 Shows a list of all scheduled interviews in the address book.
 
-Format:
-* `list [i]`: Show all scheduled interviews.
+Format: `list [i]`
 
 
 &nbsp;
@@ -227,9 +231,9 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-Examples:
+Examples:<br>
 * `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
 * `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
 * `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
@@ -238,16 +242,17 @@ Examples:
 ![find](images/find-interview.png)
 
 ## Task Features
-### :information_source: Notes about the command format regarding Tasks:
+----------
+:information_source: Notes about the command format regarding Tasks:
 
 &nbsp;
 ### Adding a new task to the miscellaneous task list: `add [t]`
 Adds a new task to the address book.
 
-* #### Adding a new task
-  Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
+Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
-  Example: `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
+  Example:<br>
+  `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
 
 [Upcoming Image]
 
@@ -255,10 +260,10 @@ Adds a new task to the address book.
 ### Editing an existing task: `edit [t]`
 Edits an existing task in the address book
 
-* #### Editing task details
-  Format: `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]` <br>
+Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
-  Examples: <br> `edit [t] 1 d/2021-12-30` <br>
+  Examples:<br>
+  <br> `edit [t] 1 d/2021-12-30` <br>
   `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 [Upcoming Image]
@@ -267,17 +272,16 @@ Edits an existing task in the address book
 ### Deleting a task: `delete [t]`
 Deletes an existing task in the address book.
 
-* #### Deleting a task
   Format: `delete [t] INDEX`
 
-  Example: `delete [t] 1`
+  Example:<br>
+  `delete [t] 1`
 
 &nbsp;
 ### Listing all tasks: `list [t]`
 Shows a list of all tasks in the address book.
 
-Format:
-* `list [t]`: Show all tasks.
+Format: `list [t]`
 
 
 &nbsp;
@@ -299,12 +303,12 @@ Notes:
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-Format: `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`
+Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-Examples:
-* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find d/2022-03-04 OR h/update OR t/10:10` <br><br>
-* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find d/2022-03-04 AND h/update AND t/10:10` <br><br>
-* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
+Examples:<br>
+* `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/update OR t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find [t] d/2022-03-04 AND h/update AND t/10:10` <br><br>
+* `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find [t] (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
 
 
 [Upcoming Image]
@@ -313,12 +317,13 @@ Examples:
 
 &nbsp;
 ## Storage
+----------
 ### Saving the data
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 &nbsp;
 ### Editing the data file
-AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 :exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
 
@@ -326,22 +331,23 @@ AddressBook data are saved as a JSON file `[JAR file location]/data/addressbook.
 &nbsp;
 ### Importing the data file: `import`
 
-Imports all **job applicants** data from a *csv* or *json* save file generated from this address book.
+Imports all **job applicants** data from a *csv* save file generated from this address book.
 
 File Format:
 * CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
-* JSON: Follows the **entire** existing `[JAR file location]/data/addressbook.json` data structure and format. 
 
 Notes:
 1. Filepath can be relative or absolute.
 2. No duplicates are allowed to be imported into the address book.
    1. Data in the address book has a higher priority than data in the save file.
-3. Save files needs to end with `.csv` or `.json` in order for the address book to recognise the save file. 
-4. If any error is found, **none** of the data in the save file will be imported into the address book. 
+3. Save files needs to end with `.csv` in order for the address book to recognise the save file. 
+4. If any error is found, **none** of the data in the save file will be imported into the address book.
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\data.json`
+Example:<br>
+`import C:\Users\YOUR_USERNAME\Desktop\data.csv`
+
 
 &nbsp;
 ### Exporting to a csv data file: `export`
@@ -349,8 +355,7 @@ Example: `import C:\Users\<your username>\Desktop\data.csv` or `import ..\test\d
 Exports all **job applicants** data from the address book into a *csv* save file.
 
 File Format:
-* File to export from: JSON (addressbook.json)
-* File to export to: CSV (<YOUR_FILE_NAME.csv>) <br> 
+* CSV (tab delimited): name    phone_number    email_address    address    job_description    application_stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
@@ -358,22 +363,42 @@ Notes:
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with back slash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
-4. Csv file **must** have .csv as a file extension.
-5. Only the current data within the addressbook.json will be exported into the specified csv file.
-6. Data exported into the specified CSV file will be seperated by tabs.
-   1. (\t) represents a tab spacing between each field of data.
-7. Each row of data inside the CSV file represents the details of 1 single person from the addressbook. 
-   1. name(\t)phone_number(\t)email_address(\t)address(\t)job_description(\t)application_stage
-8. If any error is found while executing the command, 
+4. Csv file **must** have .csv as a file extension. 
+5. If any error is found while executing the command, 
 **none** of the data from the addressbook will be exported into the specified csv file.
 
 Format: `export FILEPATH`
 
-Absolute filepath example for WindowsOS: `export C:\Users\<YOUR_USERNAME>\Desktop\myData.csv` <br>
+Absolute filepath example for WindowsOS: `export C:\Users\YOUR_USERNAME\Desktop\myData.csv` <br>
 Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
-Absolute filepath example for MacOS: `export  /Users/<YOUR_USERNAME>/Downloads/myDataFile.csv` <br>
-Relative filepath example for MacOS: `export  ./myDataFile.csv
-`
+Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
+Relative filepath example for MacOS: `export  ./myDataFile.csv`
+
+## Flag Format
+
+| Flag | Format                                                                                              |
+|-----:|:----------------------------------------------------------------------------------------------------|
+|   a/ | Addresses can take any values, and it should not be blank                                           |
+|   d/ | Date should be in the format YYYY-MM-dd                                                             |
+|   e/ | Emails should be of the format `local-part@domain` (e.g. alice-tan@gmail.com)                       |
+|   g/ | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list |
+|   h/ | Header should only contain alphanumeric characters and spaces, and it should not be blank           |
+|   i/ | Information should only contain alphanumeric characters and spaces, and it should not be blank      |
+|   j/ | Job should only contain alphanumeric characters and spaces, and it should not be blank              |
+|   n/ | Names should only contain alphanumeric characters and spaces, and it should not be blank            |
+|   p/ | Phone numbers should only contain numbers, and it should be at least 3 digits long                  |
+|   s/ | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case sensitive)                            |
+|   t/ | Time should be in the format HH:MM                                                                  |
+
+
+## List Types
+
+| Type | Format                                            |
+|-----:|:--------------------------------------------------|
+|  [i] | Applies the current command to the interview list |
+|  [p] | Applies the current command to the persons list   |
+|  [t] | Applies the current command to the tasks list     |
+
 
 ## Command Summary
 
@@ -388,16 +413,18 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv
 |     Delete Interview | `delete [i] INDEX`                                                                          |
 | Delete Job Applicant | `delete [p] INDEX`                                                                          |
 |          Delete Task | `delete [t] INDEX`                                                                          |
-|       Edit Interview | `edit [i] INDEX [d/DATE] [t/TIME]`                                                          |
-|   Edit Job Applicant | `edit [p] INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [j/JOB_POSITION] [s/STAGE]` |
-|            Edit Task | `edit [t] INDEX [h/HEADER] [d/DATE] [t/TIME] [i/INFORMATION]`                               |
+|       Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>`                                                          |
+|   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` |
+|            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>`                               |
 |                 Exit | `exit`                                                                                      |
-|       Find Interview | `find [i] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|   Find Job Applicant | `find [p] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
-|            Find Task | `find [t] g/KEYWORD [KEYWORDS]... [g/KEYWORD [KEYWORDS]...]...`                             |
+|       Find Interview | `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|   Find Job Applicant | `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
+|            Find Task | `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
 |                 Help | `help`                                                                                      |
 |      List Interviews | `list [i]`                                                                                  |
 |  List Job Applicants | `list [p]`                                                                                  |
 |           List Tasks | `list [t]`                                                                                  |
 |               Import | `import FILEPATH`                                                                           |
 |               Export | `export FILEPATH`                                                                           |
+|                 Help | `help`                                                                                      |
+|                 Exit | `exit`                                                                                      |
