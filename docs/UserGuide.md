@@ -55,6 +55,8 @@ Exits the program.
 
 Format: `exit`
 
+## Applicant, Interview and Task Features
+----------
 
 <div markdown="block" class="alert alert-info">
 
