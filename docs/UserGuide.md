@@ -6,7 +6,7 @@ title: User Guide
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
 the progress of each applicant during the application process.
 
-
+Table Of Contents:
 * Table of Contents
 {:toc}
 
@@ -32,7 +32,7 @@ the progress of each applicant during the application process.
 6. Refer to _Features_ section directly below for details on each command.
 
 ## Features
-### :information_source: Notes about the command format regarding Applicants:
+:information_source: Notes about the command format regarding Applicants:
 * Words in `UPPER_CASE` are the parameters to be supplied by the user. 
   
   e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
@@ -160,7 +160,7 @@ Examples:
 
 
 ## Interview Features
-### :information_source: Notes about the command format regarding Interviews:
+:information_source: Notes about the command format regarding Interviews:
 
 &nbsp;
 ### Adding a new interview slot for a job applicant: `add [i]`
@@ -228,7 +228,7 @@ Examples:
 ![find](images/find-interview.png)
 
 ## Task Features
-### :information_source: Notes about the command format regarding Tasks:
+:information_source: Notes about the command format regarding Tasks:
 
 &nbsp;
 ### Adding a new task to the miscellaneous task list: `add [t]`
