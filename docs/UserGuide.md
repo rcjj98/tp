@@ -53,38 +53,38 @@ Format: `exit`
   
   e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
 
+<div markdown="block" class="alert alert-info">
 
-* Items in angle brackets are optional. 
-  
+**:information_source: Notes about the command format regarding Applicants:**<br>
+
+* Items in angle brackets are optional.<br>
   e.g n/NAME <p/PHONE_NUMBER> can be used as n/John Doe p/PHONE_NUMBER or as n/John Doe.
 
+* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+  e.g. in add n/NAME, NAME is a parameter which can be used as add n/John Doe.
 
-* Items with elipsis (...) after them can be used multiple times including zero times.
-
+* Items with elipsis (...) after them can be used multiple times including zero times.<br>
   e.g. <a/ADDRESS>... can be used as   (i.e. 0 times), a/ADDRESS, a/ADDRESS etc.
 
-
-* Parameters can be supplied in any order.
-    
+* Parameters can be supplied in any order.<br>
   e.g. if the command requires n/NAME p/PHONE_NUMBER, <br> p/PHONE_NUMBER n/NAME is also acceptable.
 
-
-* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.
-
+* If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify p/12341234 p/56785678, only p/56785678 will be taken.
 
-
-* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.
-
+* Extraneous parameters for commands that do not take in parameters (such as help, list, exit and clear) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
+</div>
 &nbsp;
-### Adding a new job applicant: `add [p]` 
+
+### Adding a new job applicant: `add [p]`
 Adds a new job applicant to the address book.
 
   Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-  Example: `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
+  Example:<br>
+  `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
 
 ![add-applicant](images/add-applicant.png)
 
@@ -94,7 +94,9 @@ Adds a new job applicant to the address book.
 Edits an existing job applicant in the address book
 
   Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
-  Example: `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
+  
+  Example:<br>
+  `edit [p] 2 n/Amanda Tan j/Software Developer s/REJECTED` <br><br>
 
 Before edit command executed.<br>
 ![edit](images/before-edit-contact-2.png) <br><br>
@@ -113,7 +115,8 @@ Deletes an existing job applicant from the address book.
 
 Format: `delete [p] INDEX`
 
-Example: `delete [p] 1` <br><br>
+Example:<br>
+`delete [p] 1` <br><br>
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
@@ -142,7 +145,7 @@ Notes:
 
 Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-Examples:
+Examples:<br>
 * `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
 `find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
@@ -159,7 +162,6 @@ Examples:
 &nbsp;
 
 
-
 ## Interview Features
 ----------
 :information_source: Notes about the command format regarding Interviews:
@@ -169,7 +171,12 @@ Examples:
 Adds a new job interview slot to the address book.
 
   Format: `add [i] INDEX d/DATE t/TIME` <br><br>
-  Example: `add [i] 1 d/2021-06-25 t/17:30`
+
+  * `INDEX` in this context refers to the numerical position of the `Applicant` in the job applicant list, under
+  the `People` tab.<br><br>
+
+  Example:<br>
+  `add [i] 1 d/2021-06-25 t/17:30`
 
 ![add-interview](images/add-interview.png)
 
@@ -179,7 +186,11 @@ Edits an existing interview slot in the address book
 
   Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
   
-  Examples:  `edit [i] 1 d/2021-12-30` <br>
+  * `INDEX` in this context refers to the numerical position of the `Interview` in the interview list, under
+  the `Interviews` tab.<br><br>
+
+  Examples:
+  <br> `edit [i] 1 d/2021-12-30` <br>
   `edit [i] 1 t/10:30` <br>
   `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
@@ -191,7 +202,8 @@ Deletes an existing interview slot in the address book.
 
   Format: `delete [i] INDEX`
 
-  Example: `delete [i] 1`
+  Example:<br>
+  `delete [i] 1`
 
 &nbsp;
 ### Listing all scheduled interviews: `list [i]`
@@ -221,7 +233,7 @@ Notes:
 
 Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-Examples:
+Examples:<br>
 * `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
 * `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
 * `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
@@ -239,7 +251,8 @@ Adds a new task to the address book.
 
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
-Example: `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
+  Example:<br>
+  `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
 
 [Upcoming Image]
 
@@ -249,7 +262,8 @@ Edits an existing task in the address book
 
 Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
-Examples: `edit [t] 1 d/2021-12-30` <br>
+  Examples:<br>
+  <br> `edit [t] 1 d/2021-12-30` <br>
   `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 [Upcoming Image]
@@ -260,7 +274,8 @@ Deletes an existing task in the address book.
 
   Format: `delete [t] INDEX`
 
-  Example: `delete [t] 1`
+  Example:<br>
+  `delete [t] 1`
 
 &nbsp;
 ### Listing all tasks: `list [t]`
@@ -290,7 +305,7 @@ Notes:
 
 Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-Examples:
+Examples:<br>
 * `find [t] g/d/2022-03-04 g/h/update g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/update OR t/10:10` <br><br>
 * `find [t] g/d/2022-03-04 h/update t/10:10` is logically equivalent to `find [t] d/2022-03-04 AND h/update AND t/10:10` <br><br>
 * `find [t] g/d/2022-03-04 h/update g/t/10:10` is logically equivalent to `find [t] (d/2022-03-04 AND h/update) OR t/10:10` <br><br>
@@ -330,7 +345,8 @@ Notes:
 
 Format: `import FILEPATH`
 
-Example: `import C:\Users\YOUR_USERNAME\Desktop\data.csv`
+Example:<br>
+`import C:\Users\YOUR_USERNAME\Desktop\data.csv`
 
 
 &nbsp;
@@ -410,3 +426,5 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv`
 |           List Tasks | `list [t]`                                                                                  |
 |               Import | `import FILEPATH`                                                                           |
 |               Export | `export FILEPATH`                                                                           |
+|                 Help | `help`                                                                                      |
+|                 Exit | `exit`                                                                                      |
