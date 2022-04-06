@@ -171,15 +171,15 @@ Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * Keywords are still required to follow the format defined as by the flags.
 
 Examples:<br>
-* `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
+`find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
 `find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
 
-* `find [p] g/j/Software Developer s/REJECTED` is logically equivalent to <br> 
+`find [p] g/j/Software Developer s/REJECTED` is logically equivalent to <br> 
 `find [p] j/Software Developer AND s/REJECTED` <br> <br>
 ![find](images/find-applicant-AND-example.png)
 
-* `find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
+`find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
 `find [p] (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
 ![find](images/find-applicant-AND-OR-example.png)
 
@@ -274,11 +274,11 @@ Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
 
 Examples:<br>
-* `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
+`find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
 ![find](images/find-interview-OR-example.PNG) <br> <br>
-* `find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
+`find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
 ![find](images/find-interview-AND-example.PNG) <br> <br>
-* `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
+`find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
 ![find](images/find-interview-AND-OR-example.PNG) <br> <br>
 
 ## Task Features
@@ -363,11 +363,11 @@ Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * Keywords are still required to follow the format defined as by the flags.
 
 Examples:<br>
-* `find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br>
+`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br>
 ![find](images/find-task-OR-example.PNG)
-* `find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br>
+`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br>
 ![find](images/find-task-AND-example.PNG)
-* `find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br>
+`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br>
 ![find](images/find-task-AND-OR-example.PNG)
 
 
@@ -381,7 +381,7 @@ AddressBook data are saved in the hard disk automatically after any command that
 ### Editing the data file
 AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-:exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run.
+:exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run. <br><br>
 :exclamation: **Caution:** Inconsistent data resulting from manual modification of the data file should not be considered as unexpected behaviour.
 
 &nbsp;
