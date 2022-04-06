@@ -155,7 +155,10 @@ Format:`list [p]`
 ### Clearing all job applicants: `clear [p]`
 Clears all job applicants from the address book.
 
+:exclamation: **Take note:** Cannot clear applicant list if interview list is not empty.
+
 Format: `clear [p]`
+* Clear command does not throw an error even if applicant list is already empty and success message is shown.
 
 &nbsp;
 ### Finding job applicant(s) by keywords: `find [p]` 
@@ -258,6 +261,7 @@ Format: `list [i]`
 Clears all interviews from the address book.
 
 Format: `clear [i]`
+* Clear command does not throw an error even if interview list is already empty and success message is shown.
 
 &nbsp;
 ### Finding scheduled interview slot(s) by keywords: `find [i]`
@@ -348,6 +352,7 @@ Format: `list [t]`
 Clears all tasks from the address book.
 
 Format: `clear [t]`
+* Clear command does not throw an error even if task list is already empty and success message is shown.
 
 &nbsp;
 ### Finding task(s) by keywords: `find [t]`

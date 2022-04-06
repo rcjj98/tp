@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.Type.PERSON;
 import java.util.List;
 
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
@@ -43,7 +44,7 @@ public class ImportCommand extends Command {
         }
 
         persons.forEach(model::addPerson);
-        return new CommandResult("Added " + persons.size() + " people to address book.", PERSON);
+        return new CommandResult("Added " + persons.size() + " people to address book.", getType());
     }
 
     @Override
@@ -68,5 +69,10 @@ public class ImportCommand extends Command {
         // state check
         ImportCommand e = (ImportCommand) other;
         return this.toString().equals(e.toString());
+    }
+
+    @Override
+    public Type getType() {
+        return PERSON;
     }
 }
