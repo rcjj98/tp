@@ -234,10 +234,9 @@ Examples:
 ### Adding a new task to the miscellaneous task list: `add [t]`
 Adds a new task to the address book.
 
-* #### Adding a new task
-  Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
+Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
-  Example: `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
+Example: `add [i] h/Add interview slots  d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
 
 [Upcoming Image]
 
@@ -245,10 +244,9 @@ Adds a new task to the address book.
 ### Editing an existing task: `edit [t]`
 Edits an existing task in the address book
 
-* #### Editing task details
-  Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
+Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
-  Examples: `edit [t] 1 d/2021-12-30` <br>
+Examples: `edit [t] 1 d/2021-12-30` <br>
   `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 [Upcoming Image]
