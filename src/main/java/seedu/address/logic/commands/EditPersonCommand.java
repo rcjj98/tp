@@ -77,14 +77,13 @@ public class EditPersonCommand extends EditCommand {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        if (personHasInterview(personToEdit, model)) {
-            throw new CommandException(MESSAGE_PERSON_HAS_INTERVIEW);
-        }
-
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+        if (personHasInterview(personToEdit, model)) {
+            throw new CommandException(MESSAGE_PERSON_HAS_INTERVIEW);
         }
 
         model.setPerson(personToEdit, editedPerson);
