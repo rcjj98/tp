@@ -40,7 +40,7 @@ activate ExportCommand
 
 ExportCommand -> Model : getFilteredPersonList()
 activate Model
-Model --> ExportCommand : filteredPersons
+Model --> ExportCommand : filteredPersonsList
 deactivate Model
 
 ref over ExportCommand, Person
