@@ -11,7 +11,7 @@ the progress of each applicant during the application process.
 {:toc}
 
 
-## Quick Start
+# Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
 2. Download the latest `HRConnect.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp/releases">here</a>
 3. Copy the file to the folder you want to use as the *home folder* for your HRConnect.
@@ -23,40 +23,15 @@ the progress of each applicant during the application process.
 
     Some sample commands to try:
    * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
-   j/Software Developer s/INPROGRESS`: Adds a new contact name Bob Tan to the address book
-   * `list [p]`: Lists all contacts
+   j/Software Developer s/INPROGRESS`: Adds a new applicant name Bob Tan to the address book
+   * `list [p]`: Lists all applicants
    * `delete [p] 1`: Deletes job applicant index **1** from the address book
    * `clear [p]`: Clear all applicants.
    * `exit`: Exits the app.
 
 6. Refer to _Features_ section directly below for details on each command.
 
-
-## General Commands
-----------
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about the command format regarding General Commands:**<br>
-
-* Extraneous parameters for commands that do not take in parameters (such as help and exit) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
-
-</div>
-
-### Viewing Help: `help`
-Shows a message explaining how to access the help page and the basic flags.
-
-Format: `help`  
-
-&nbsp;
-### Exiting the program: `exit`
-Exits the program.
-
-Format: `exit`
-
-## Applicant, Interview and Task Features
-----------
+# Features
 
 <div markdown="block" class="alert alert-info">
 
@@ -77,12 +52,37 @@ Format: `exit`
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify p/12341234 p/56785678, only p/56785678 will be taken.
 
-
 </div>
 &nbsp;
 
+## General Features
+----------
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Notes about the command format regarding General Commands:**<br>
+
+* Extraneous parameters for commands that do not take in parameters (such as help and exit) will be ignored.<br>
+  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+
+</div>
+
+### Viewing Help: `help`
+Shows a message explaining how to access the help page and the basic flags.
+
+Format: `help`  
+
+&nbsp;
+
+### Exiting the program: `exit`
+Exits the program.
+
+Format: `exit`
+
+
 ## Applicant Features
 ----------
+
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Notes about the Applicant List:**<br>
@@ -109,13 +109,12 @@ Adds a new job applicant to the address book.
 
 ![add-applicant](images/add-applicant.png)
 
-
 &nbsp;
+
 ### Editing a job applicant:`edit [p]`
 Edits an existing job applicant in the address book
 
 :exclamation: **Take note:** Cannot edit an applicant if he/she has an interview scheduled.
-
 
   Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
 
@@ -125,11 +124,10 @@ Edits an existing job applicant in the address book
   Example:<br>
   `edit [p] 2 n/Amanda Tan j/Software Developer s/INPROGRESS` <br><br>
 
-Before edit command executed.<br>
-![edit](images/before-edit-contact-3.png) <br><br>
+|                   Before                    |                   After                    |
+|:-------------------------------------------:|:------------------------------------------:|
+|  ![edit](images/before-edit-contact-3.png)  |  ![edit](images/after-edit-contact-3.png)  |
 
-After edit command is executed. <br>
-![edit](images/after-edit-contact-3.png) <br><br>
 
 
 &nbsp;
@@ -140,7 +138,10 @@ Deletes an existing job applicant from the address book.
 
 Format: `delete [p] INDEX`
 
-* Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the applicant in the applicant list. The index must be a positive integer 1, 2, 3, …​
+* Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the applicant in the applicant list.
+
+Constraints:
+* `INDEX` must be a positive integer 1, 2, 3, …​ and must be a valid task index.=
 
 Example:<br>
 `delete [p] 1` <br><br>
@@ -158,6 +159,7 @@ Clears all job applicants from the address book.
 :exclamation: **Take note:** Cannot clear applicant list if interview list is not empty.
 
 Format: `clear [p]`
+
 * Clear command does not throw an error even if applicant list is already empty and success message is shown.
 
 &nbsp;
@@ -169,6 +171,7 @@ Use `g/` flags to find job applicants whose data contain **all** the keywords.
 :bulb: Tip: Use multiple `g/` flags as an **OR** command (e.g. `find [p] g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+
 * Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
@@ -236,7 +239,11 @@ Edits an existing interview slot in the address book
   Examples: <br> 
   `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
-![edit-interview](images/edit-interview.png)
+|                     Before                     |                    After                    |
+|:----------------------------------------------:|:-------------------------------------------:|
+| ![edit-interview](images/edit-interview-1.png) |![edit-interview](images/edit-interview.png) |
+
+
 
 &nbsp;
 ### Deleting an interview slot: `delete [i]`
@@ -261,6 +268,7 @@ Format: `list [i]`
 Clears all interviews from the address book.
 
 Format: `clear [i]`
+
 * Clear command does not throw an error even if interview list is already empty and success message is shown.
 
 &nbsp;
@@ -272,6 +280,7 @@ Use `g/` flags to find interview slot(s) with data containing **all** the keywor
 :bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [i] g/n/alex g/j/software developer g/s/INPROGRESS`)
 
 Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+
 * Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
@@ -305,6 +314,7 @@ Examples:<br>
 Adds a new task to the address book.
 
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
+
 * Duplicate tasks cannot be added. Tasks are considered to be duplicates if they share the same header AND date AND time.
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
 * If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces.
@@ -322,19 +332,26 @@ Example:<br>
 Edits an existing task in the address book
 
 Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
+
 * At least one of the optional fields must be provided. <br>
 * Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
 
 Examples: <br>
 `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
-![edit-task](images/edit-task.PNG)
+|                 Before                 |               After                |
+|:--------------------------------------:|:----------------------------------:|
+| ![edit-task-2](images/edit-task-2.PNG) | ![edit-task](images/edit-task.PNG) |
+
+
+
 
 &nbsp;
 ### Deleting a task: `delete [t]`
 Deletes an existing task in the address book.
 
   Format: `delete [t] INDEX`
+
   * Deletes the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
 
   Example:<br>
@@ -352,6 +369,7 @@ Format: `list [t]`
 Clears all tasks from the address book.
 
 Format: `clear [t]`
+
 * Clear command does not throw an error even if task list is already empty and success message is shown.
 
 &nbsp;
@@ -363,6 +381,7 @@ Use `g/` flags to find task(s) with data containing **all** the keywords.
 :bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update t/10:10`)
 
 Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+
 * Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
@@ -434,21 +453,21 @@ Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
-## Flag Format
+## Flag & Parameter Format Constraints
 
-| Flag | Format                                                                                              |
-|-----:|:----------------------------------------------------------------------------------------------------|
-|   a/ | Addresses can take any values, and it should not be blank                                           |
-|   d/ | Date should be in the format YYYY-MM-dd                                                             |
-|   e/ | Emails should be of the format `local-part@domain` (e.g. alice-tan@gmail.com)                       |
-|   g/ | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list |
-|   h/ | Header should only contain alphanumeric characters and spaces, and it should not be blank           |
-|   i/ | Information should only contain alphanumeric characters and spaces, and it should not be blank      |
-|   j/ | Job should only contain alphanumeric characters and spaces, and it should not be blank              |
-|   n/ | Names should only contain alphanumeric characters and spaces, and it should not be blank            |
-|   p/ | Phone numbers should only contain numbers, and it should be at least 3 digits long                  |
-|   s/ | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case sensitive)                            |
-|   t/ | Time should be in the format HH:MM                                                                  |
+| Flag | Parameter    | Format Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|-----:|--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|   d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|   e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
+|   g/ |              | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|   h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|   i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|   j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|   n/ | NAME         | Names should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|   p/ | PHONE_NUMBER | Phone numbers should only contain numbers, and it should be at least 3 digits long                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|   s/ | STAGE        | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|   t/ | TIME         | Time should be in the format HH:MM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 
 ## List Types
