@@ -67,10 +67,10 @@ public class SampleDataUtil {
 
     public static Task[] getSampleTasks() {
         return new Task[] {
-            new Task(new Header("Contact Jerry"), new Date("2022-01-09"),
-                    new Time("09:10"), new Information("Ask Jerry for John number")),
-            new Task(new Header("Call Thomas"), new Date("2022-01-19"),
-                    new Time("19:10"), new Information("Ask when he is free for interview")),
+            new Task(new Header("Add interview slots"), new Date("2022-01-09"),
+                    new Time("09:10"), new Information("Add all interviews happening in the following week")),
+            new Task(new Header("Update applicants statuses"), new Date("2022-01-19"),
+                    new Time("19:10"), new Information("Update all applicants statuses")),
             new Task(new Header("Write report"), new Date("2022-02-01"),
                     new Time("18:20"), new Information("Finish up writing annual report")),
         };
