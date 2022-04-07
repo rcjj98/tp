@@ -396,7 +396,7 @@ Imports all **job applicants** data from a *csv* save file generated from this a
 
 File Structure for csv file (tab delimited): 
    
-name | phone_number | email_address | address | job_description | application_stage
+name | phone_number | email | address | job_title | current_application_progress
 
 Notes:
 1. Filepath can be relative or absolute.
@@ -417,7 +417,7 @@ Exports all **job applicants** data from the address book into a *csv* save file
 
 File Structure for csv file (tab delimited): 
    
-name | phone_number | email_address | address | job_description | application_stage
+name | phone_number | email | address | job_title | current_application_progress
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
