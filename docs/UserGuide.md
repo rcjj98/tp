@@ -104,7 +104,7 @@ e.g. `Alex Tan` and `alex tan` are duplicate applicants.
 e.g. `Alex Tan` and `Alex      Tan` are duplicate applicants.
 e.g. `Alex Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces. 
     
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)  
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
 Example:<br>
 `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
@@ -123,16 +123,16 @@ Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_P
 * At least one of the optional fields must be provided. <br>
 * Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the applicant list. The index must be a positive integer 1, 2, 3, …​
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Example:<br>
 `edit [p] 2 n/Amanda Tan j/Software Developer s/INPROGRESS` <br><br>
 
-|                   Before                    |                   After                    |
-|:-------------------------------------------:|:------------------------------------------:|
-|  ![edit](images/before-edit-contact-3.png)  |  ![edit](images/after-edit-contact-3.png)  |
+Before
+![edit](images/before-edit-contact-3.png)
 
-
+After
+![edit](images/after-edit-contact-3.png)
 
 &nbsp;
 ### Deleting job applicant: `delete [p]` 
@@ -180,7 +180,7 @@ Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)  
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
 Examples:<br>
 `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
@@ -228,7 +228,7 @@ Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 * Duplicate interviews cannot be added. Interviews are considered to be duplicates if they share the same date AND time.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)  
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
 Example:<br>
 `add [i] 1 d/2021-06-25 t/17:30`
@@ -244,16 +244,16 @@ Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
 * At least one of the optional fields must be provided. <br>  
 * Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. The index must be a positive integer 1, 2, 3, …​
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples: <br> 
 `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
-|                     Before                     |                    After                    |
-|:----------------------------------------------:|:-------------------------------------------:|
-| ![edit-interview](images/edit-interview-1.png) |![edit-interview](images/edit-interview.png) |
+Before
+![edit-interview](images/edit-interview-1.png)
 
-
+After
+![edit-interview](images/edit-interview.png)
 
 &nbsp;
 ### Deleting an interview slot: `delete [i]`
@@ -295,7 +295,7 @@ Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
 `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
@@ -332,7 +332,7 @@ e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the 
 e.g. `Update interview list` and `Update         interview list` are duplicate headers.
 e.g. `Update interview list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Example:<br>
 `add [t] h/Add interview slots d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
@@ -348,15 +348,16 @@ Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 * At least one of the optional fields must be provided. <br>
 * Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples: <br>
 `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
-|                 Before                 |               After                |
-|:--------------------------------------:|:----------------------------------:|
-| ![edit-task-2](images/edit-task-2.PNG) | ![edit-task](images/edit-task.PNG) |
+Before
+![edit-task-2](images/edit-task-2.PNG)
 
+After
+![edit-task](images/edit-task.PNG)
 
 
 
@@ -400,7 +401,7 @@ Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-View constraints on flags and parameters [here](#flags-&-parameters-format-constraints)
+View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
 `find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br>
@@ -454,9 +455,9 @@ File Format:
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
-2. File name of csv file **cannot** contain any front or back slashes.
+2. File name of csv file **cannot** contain any front or backslashes.
    1. Invalid csv file name with front slash: myCSVfile\\.csv
-   2. Invalid csv file name with back slash: myCSVfile/.csv
+   2. Invalid csv file name with backslash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
 4. Csv file **must** have .csv as a file extension. 
 5. If any error is found while executing the command, 
@@ -470,7 +471,7 @@ Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myD
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
 # Summary
-## Flags & Parameters Format Constraints
+## Flags and Parameters Format Constraints
 
 | Flags | Parameters   | Format Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |------:|--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
