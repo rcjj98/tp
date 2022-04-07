@@ -246,7 +246,12 @@ Step 8. A new `CommandResult` object is returned signifying that the command has
 
 The following sequence diagram summarises how the import operation works.
 
-// ADD SEQUENCE DIAGRAM.
+<p align="center">
+  <img src="images/ImportSequenceDiagram.png" alt="Interactions for Import Command"/>
+</p>
+<p align="center">
+  <img src="images/ImportCheckSequenceDiagram.png" alt="Interactions for Import checking Command"/>
+</p>
 
 ### Find Feature
 
