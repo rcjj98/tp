@@ -394,8 +394,9 @@ AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.jso
 
 Imports all **job applicants** data from a *csv* save file generated from this address book.
 
-File Format:
-* CSV (tab delimited): name | phone_number | email_address | address | job_description | application_stage
+File Structure for csv file (tab delimited): 
+   
+name | phone_number | email_address | address | job_description | application_stage
 
 Notes:
 1. Filepath can be relative or absolute.
@@ -414,8 +415,9 @@ Example:<br>
 
 Exports all **job applicants** data from the address book into a *csv* save file.
 
-File Format:
-* CSV (tab delimited): name | phone_number | email_address | address | job_description | application_stage
+File Structure for csv file (tab delimited): 
+   
+name | phone_number | email_address | address | job_description | application_stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
