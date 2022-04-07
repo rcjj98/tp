@@ -200,8 +200,12 @@ Step 7. A new `CommandResult` object is returned signifying that the command has
 
 The following sequence diagram summarises how the export operation works.
 
-// ADD SEQUENCE DIAGRAM.
-
+<p align="center">
+  <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
+</p>
+<p align="center">
+  <img src="images/WriteToFileSequenceDiagram.png" alt="Interactions Inside the Export Command"/>
+</p>
 
 ### Import Feature
 
