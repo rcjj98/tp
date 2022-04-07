@@ -181,7 +181,7 @@ feature is facilitated by the `ExportCommandParser`.
 
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters the file path of the csv file into the application (e.g. `export ../../my_data.csv`).
+Step 1. User enters `export ../../my_data.csv` into the application.
 
 Step 2. The file path is passed to `ExportCommandParser#parse()` and `ExportCommandParser#checkFilePath()` checks the validity of the file path.
 
@@ -223,7 +223,7 @@ The import feature is facilitated by the `ImportCommand` while the necessary che
 
 Given below is an example usage scenario and how the import mechanism behaves at each step.
 
-Step 1. User enters the file path of the csv file into the application (e.g. `import ../../past_data.csv`).
+Step 1. User enters `import ../../past_data.csv` into the application.
 
 Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportCommandParser#checkFilePath()` checks the validity of the file path.
 
@@ -265,7 +265,16 @@ The find feature is facilitated by the subclasses of the `FindCommand` while the
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
-Step 1. User enters the file path of the csv file into the application (e.g. `import ../../past_data.csv`).
+Step 1. User enters `find [p] g/n/alex g/n/tan` into the application.
+
+Step 2. The search criteria is passed to `ImportCommandParser#parse()` and its component is determined.
+
+Step 3. Next, the search criteria is checked for any invalid groups.
+
+Step 4. The list of groups are then passed into `FindPersonCommandParser#parse()` to check for any invalid flags or formats.
+
+Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
+
 
 &nbsp;
 
