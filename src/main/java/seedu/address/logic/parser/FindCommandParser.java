@@ -216,7 +216,7 @@ public class FindCommandParser implements Parser<FindCommand> {
      * Checks the current group for any invalid information.
      *
      * @param group Current group of tokens.
-     * @throws ParseException A stage was found to have invalid format.
+     * @throws ParseException An information  was found to have invalid format.
      */
     protected static void checkInvalidInformation(List<String> infos, String group) throws ParseException {
         if (infos.stream().anyMatch(i -> !Information.isValidInformation(i))) {

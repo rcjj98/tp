@@ -8,7 +8,7 @@ import javafx.scene.layout.Region;
 import seedu.address.model.tasks.Task;
 
 /**
- * Panel containing the list of Tasks.
+ * Panel containing the list of tasks.
  */
 public class TaskListPanel extends UiPart<Region> {
 

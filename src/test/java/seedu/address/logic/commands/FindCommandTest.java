@@ -62,7 +62,7 @@ public class FindCommandTest {
         assertNotEquals(null, findFirstCommand);
         assertNotEquals(null, findSecondCommand);
 
-        // different person -> returns false
+        // different applicant -> returns false
         assertNotEquals(findFirstCommand, findSecondCommand);
     }
 

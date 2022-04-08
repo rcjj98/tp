@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Task's Header in the taskList.
+ * Represents a task's header in the taskList.
  * Guarantees: immutable; is valid as declared in {@link #isValidHeader(String)}
  */
 public class Header {
@@ -37,11 +37,6 @@ public class Header {
         return test.matches(VALIDATION_REGEX);
     }
 
-    /**
-     * Checks if current Header contains the substring
-     * @param s the header to check with
-     * @return true if current Header contains the substring of the checked Header
-     */
     public boolean contains(String s) {
         return fullHeader.toLowerCase().contains(s.toLowerCase());
     }

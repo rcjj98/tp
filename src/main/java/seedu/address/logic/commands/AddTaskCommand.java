@@ -12,6 +12,9 @@ import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
 import seedu.address.model.tasks.Task;
 
+/**
+ * Adds a task to the address book.
+ */
 public class AddTaskCommand extends AddCommand {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + " [t] : Adds a task to the list of tasks.\n"
