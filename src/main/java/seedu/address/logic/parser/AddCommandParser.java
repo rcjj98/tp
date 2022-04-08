@@ -17,17 +17,17 @@ public class AddCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
-
         String type = ArgumentTokenizer.getType(args.trim());
         String removedType = args.trim().substring(3);
 
-        if (type.equals(TYPE_PERSON)) {
+        switch (type) {
+        case TYPE_PERSON:
             return new AddPersonCommandParser().parse(removedType);
-        } else if (type.equals(TYPE_INTERVIEW)) {
+        case TYPE_INTERVIEW:
             return new AddInterviewCommandParser().parse(removedType);
-        } else if (type.equals(TYPE_TASK)) {
+        case TYPE_TASK:
             return new AddTaskCommandParser().parse(removedType);
-        } else {
+        default:
             return null;
         }
     }

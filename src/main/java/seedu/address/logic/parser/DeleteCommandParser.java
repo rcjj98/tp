@@ -23,13 +23,14 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         String type = ArgumentTokenizer.getType(args.trim());
         String removedType = args.trim().substring(3);
 
-        if (type.equals(TYPE_PERSON)) {
+        switch (type) {
+        case TYPE_PERSON:
             return new DeletePersonCommandParser().parse(removedType);
-        } else if (type.equals(TYPE_INTERVIEW)) {
+        case TYPE_INTERVIEW:
             return new DeleteInterviewCommandParser().parse(removedType);
-        } else if (type.equals(TYPE_TASK)) {
+        case TYPE_TASK:
             return new DeleteTaskCommandParser().parse(removedType);
-        } else {
+        default:
             return null;
         }
     }
