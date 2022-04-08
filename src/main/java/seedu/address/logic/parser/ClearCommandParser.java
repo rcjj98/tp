@@ -21,13 +21,16 @@ public class ClearCommandParser {
 
         if (removedType.length() != 0) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ClearCommand.MESSAGE_USAGE));
-        } else if (type.equals(TYPE_PERSON)) {
+        }
+
+        switch (type) {
+        case TYPE_PERSON:
             return new ClearPersonCommand();
-        } else if (type.equals(TYPE_INTERVIEW)) {
+        case TYPE_INTERVIEW:
             return new ClearInterviewCommand();
-        } else if (type.equals(TYPE_TASK)) {
+        case TYPE_TASK:
             return new ClearTaskCommand();
-        } else {
+        default:
             return null;
         }
     }

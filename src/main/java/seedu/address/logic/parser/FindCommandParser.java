@@ -62,7 +62,6 @@ public class FindCommandParser implements Parser<FindCommand> {
         ArgumentMultimap groupTokens = ArgumentTokenizer.tokenize(args, PREFIX_GROUP);
         List<String> allGroups = groupTokens.getAllValues(PREFIX_GROUP);
 
-
         switch (type) {
         case TYPE_PERSON:
             checkValidGroups(allGroups, args, FindPersonCommand.MESSAGE_USAGE);
