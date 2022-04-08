@@ -307,232 +307,524 @@ The following sequence diagram summarises how the find operation works
 
 **Target user profile**: Tech HR Recruiters
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Required to manage a significant number of contacts.
+* Prefer desktop apps over other types.
+* Proficient typists.
+* Prefers typing to mouse interactions. 
+* Reasonably comfortable using CLI apps.
 
 **Value proposition**:
-* manage contacts faster than a typical mouse/GUI driven app
-* categorize applicants based on job role they are interested in & current stage of application process
-* consolidate/group applicants and employers of relevant department together
-* keep track of applicant's interviews/upcoming calls
-* task list for themselves to keep track of miscellaneous things
+* Manage contacts more efficiently using CLI as compared to a typical mouse/GUI driven app.
+* Find applicants based on their details, e.g. name, position applied, stage of application.
+* Archive/Retrieve applicants' details for long term storage/ easy transfer of data into address book.
+* Keep track of applicant's upcoming and past interviews.
+* A task list to keep track of miscellaneous information.
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                                                                                               | I want to …​                                                                                                            | So that I can…​                                                                                     |
-|----------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `*`      | Tech HR Recruiter                                                                                                     | share information with other recruiters                                                                                 | easily liaise with them                                                                             |
-| `* * *`  | Tech HR Recruiter                                                                                                     | rank applicants                                                                                                         | find out who to contact in the event the top few applicants reject the offer                        |
-| `* * *`  | Tech HR Recruiter                                                                                                     | categorize employers by the job position they are hiring for                                                            | find out who to contact regarding a specific job position                                           |
-| `*`      | Tech HR Recruiter                                                                                                     | utilise a task list                                                                                                     | keep track of my daily schedule                                                                     |
-| `*`      | Tech HR Recruiter                                                                                                     | schedule meetings/interviews between employers and applicants                                                           | help them progress in the application process                                                       |
-| `* *`    | Tech HR Recruiter                                                                                                     | easily view the details of a contact without needing to click on their profile                                          | skim through my contacts quickly                                                                    |
-| `* *`    | Tech HR Recruiter                                                                                                     | send applicant details to respective employers                                                                          | delegate information seamlessly                                                                     |
-| `*`      | Tech HR Recruiter                                                                                                     | easily view the applicants social media page                                                                            | gain some insight into how they carry themselves                                                    |
-| `* * *`  | Tech HR Recruiter                                                                                                     | sort contacts by name                                                                                                   | find the right contact easily                                                                       |
-| `* * *`  | tech HR recruiter                                                                                                     | list all the applicants and employers that are in my address book.                                                      |                                                                                                     |
-| `* * *`  | tech HR recruiter                                                                                                     | add an applicant's contact information in my address book                                                               | keep track of who might be a suitable applicant                                                     |
-| `* * *`  | tech HR recruiter                                                                                                     | add an employer's contact information in my address book                                                                | keep track of who is currently looking for people to hire                                           |
-| `* * *`  | tech HR recruiter                                                                                                     | delete applicants or employers from my address book                                                                     | remove unnecessary data                                                                             |
-| `* * *`  | tech HR recruiter                                                                                                     | update applicants or employers contact in my address book                                                               | easily edit their contact details without needing to delete them                                    |
-| `* * *`  | tech HR recruiter                                                                                                     | search up an applicant or an employer easily                                                                            | view all their details and information quickly instead of needing to scroll through the entire list |
-| `*`      | tech HR recruiter                                                                                                     | send an email to any contact                                                                                            | easily communicate anything                                                                         |
-| `*`      | tech HR recruiter                                                                                                     | view which applicants have required but missing information                                                             | quickly contact them to request it                                                                  |
-| `*`      | tech HR recruiter                                                                                                     | sort the applicants into different containers based on their job application                                            | easily find who are the potential candidates for that job role                                      |
-| `*`      | tech HR recruiter                                                                                                     | sort the applicants into different containers based on their current application process                                | easily identify what is the next stage in their application                                         |
-| `*`      | tech HR recruiter                                                                                                     | parse the information of the applicants                                                                                 | easily understand the strengths and weaknesses of the applicants                                    |
-| `*`      | tech HR recruiter                                                                                                     | sort job descriptions based on priority levels (based on date deadline)                                                 | settle more urgent job descriptions first                                                           |
-| `*`      | tech HR recruiter                                                                                                     | select multiple contacts to group together                                                                              | easily create a group with the desired contacts                                                     |
-| `*`      | tech HR recruiter                                                                                                     | consolidate similar job descriptions to the job role that the applicant has applied for and push them out to applicants | mass send job openings to applicants                                                                |
-| `*`      | tech HR recruiter                                                                                                     | I can send an email to multiple contacts at a time                                                                      | can easily broadcast anything.                                                                      |
-| `*`      | tech HR recruiter, I can reach out to other recruiters in my network                                                  | can connect with them.                                                                                                  |                                                                                                     |
-| `* * *`  | tech HR recruiter, I can easily view the status of the applicant’s application process                                | can follow up on it.                                                                                                    |                                                                                                     |
-|
-| `* * *`  | tech HR recruiter, I can automatically remove applicants who already successfully found a job                         | can keep the list of applicants well updated.                                                                           |                                                                                                     |
-| `*`      | tech HR recruiter, I can find applicants who are taking too long to move to the next stage of the application process | can follow up on it                                                                                                     |                                                                                                     |
-|
-| `* * *`  | tech HR recruiter, I can favorite contacts                                                                            | can easily see who to take note of.                                                                                     |                                                                                                     |
-| `*`      | tech HR recruiter, I can set up meetings/HR calls with the potential applicants                                       | can easily reach out to the applicants.                                                                                 |                                                                                                     |
+| Priority | As a …​           | I want to …​                                     | So that I can…​                                        |
+|----------|-------------------|--------------------------------------------------|--------------------------------------------------------|
+| `* * *`  | Tech HR Recruiter | add applicants to my address book                | record their details                                   |
+| `* * *`  | Tech HR Recruiter | take note of scheduled interviews for applicants | keep track of their interview dates                    |
+| `* * *`  | Tech HR Recruiter | record miscellaneous information                 | keep track of any important details                    |
+| `* * *`  | Tech HR Recruiter | view the details of all contacts                 | see all my contacts at a glance                        |
+| `* * *`  | Tech HR Recruiter | view all scheduled interviews                    | see all upcoming and past interviews                   |
+| `* * *`  | Tech HR Recruiter | view all recorded miscellaneous information      | see all important information at a glance              |
+| `* * *`  | Tech HR Recruiter | remove any applicant from my contact list        | delete any applicant that is no longer of interest     |
+| `* * *`  | Tech HR Recruiter | remove a scheduled interview                     | delete any interview that is cancelled                 |
+| `* * *`  | Tech HR Recruiter | remove any recorded information                  | delete tasks/information off my task list              |
+| `* * *`  | tech HR recruiter | update any applicant's details                   | edit any mistakes in the applicant's detail            |
+| `* * *`  | tech HR recruiter | update the details of a scheduled interview      | edit any mistakes in the scheduled interview           |
+| `* * *`  | tech HR recruiter | update any task/information details              | edit any mistakes in the miscellaneous information     |
+| `* * *`  | tech HR recruiter | find an applicant in my address book             | locate them easily                                     |
+| `* * *`  | tech HR recruiter | find a scheduled interview                       | locate a specific interview                            |
+| `* * *`  | tech HR recruiter | find specific information I recorded             | locate details and information quickly                 |
+| `* * *`  | tech HR recruiter | clear all applicants from my addressbook         | easily empty my address book                           |
+| `* * *`  | tech HR recruiter | clear all schedule interviews                    | easily remove all schedule interviews                  |
+| `* * *`  | tech HR recruiter | clear all recorded miscellaneous information     | easily remove all recorded information                 |
+| `* *`    | tech HR recruiter | export details of all applicants                 | archive the data for future reference                  |
+| `* *`    | tech HR recruiter | import details of applicants                     | easily transfer applicant details into my address book |
 
-*{More to be added}*
+
 
 ### Use cases
+For all use cases below, the **System** is the `HRConnect` and the **Actor** is the `Tech HR Recruiter`, unless specified otherwise.
 
-(For all use cases below, the **System** is the `HRConnect` and the **Actor** is the `Tech HR Recruiter`, unless specified otherwise)
 
-
-**Use case: Add a person**
+**Use case: UC1 - Add an applicant**
 
 **MSS**
 
-1. User requests to add a person in the address book
-2. AddressBook adds the person to person list
+1. User requests to add an applicant in the address book.
+2. HRConnect adds the applicant to person list.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The type is invalid.
+* 1a. The type provided is invalid.
 
-  * 2a1. AddressBook shows an error message.
+  * 1a1. HRConnect requests for the correct type.
+  * 1a2. User enters new type. <br>
+  Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+  Use case resumes from step 2. <br><br>
 
-    Use case only adds person with type field '[p]'.
+* 1b. The details for some field(s) provided are invalid.
 
-* 2b. The job position is invalid.
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-    * 2b1. AddressBook shows an error message.
-
-      Use case only adds contact with valid job position.
-
-**Use case: Add an interview**
+**Use case: UC2 - Add an interview**
 
 **MSS**
 
-1. User requests to add an interview in the address book
-2. AddressBook adds the interview to interview list
+1. User requests to add an interview to the interview list.
+2. HRConnect adds the interview to interview list.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. The type is invalid.
+* 1a. The type is invalid.
 
-    * 2a1. AddressBook shows an error message.
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-      Use case only adds interview with type field '[i]'.
+* 1b. The INDEX is out of bounds.
 
-* 2b. The INDEX is out of bounds.
-
-    * 2b1. AddressBook shows an error message.
-
-      Use case only adds interview with valid index based on length of person list.
-
-**Use case: Delete a person**
-
-**MSS**
-
-1. User requests to delete a person in the address book
-2. AddressBook deletes the person from the person list
-
-   Use case ends.
-
-**Extensions**
-
-* 2a. The type is invalid.
-
-    * 2a1. AddressBook shows an error message.
-
-      Use case only deletes person with type field '[p]'.
-
-* 2b. The INDEX is out of bounds.
-
-    * 2b1. AddressBook shows an error message.
-
-      Use case only deletes person with valid index based on length of person list.
-  
-* 2c. The given person has an interview.
-
-    * 2c1. AddressBook shows an error message.
-
-      Use case only can delete person if person does not have any interviews.
-
-* 2d. The given person does not exist in the database.
+    * 1b1. HRConnect requests for a valid INDEX.
+    * 1b2. User enters new INDEX. <br>
+      Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
+      Use case resumes from step 2. <br><br>
     
-    * 2d1. AddressBook shows an error message.
-
-      Use case only deletes person with a valid name, provided the person's name exists in the database.
-
-**Use case: Delete an interview**
+**Use case: UC3 - Add a task**
 
 **MSS**
 
-1. User requests to delete a interview in the address book
-2. AddressBook deletes the interview from the interview list
+1. User requests to add a task to the task list.
+2. HRConnect adds the task to task list.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. The type is invalid.
+* 1a. The type is invalid.
 
-    * 2a1. AddressBook shows an error message.
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-      Use case only deletes interview with type field '[i]'.
+* 1b. The details for some field(s) provided are invalid.
 
-* 2b. The INDEX is out of bounds.
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-    * 2b1. AddressBook shows an error message.
-
-      Use case only deletes interview with valid index based on length of interview list.
-
-
-**Use case: List person list**
+**Use case: UC4 - Delete an applicant**
 
 **MSS**
 
-1. User requests to see all people in the address book
-2. AddressBook display person list
+1. User requests to delete an applicant from the address book.
+2. HRConnect deletes the applicant from the person list.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. The type is invalid.
+* 1a. The type is invalid.
 
-    * 2a1. AddressBook shows an error message.
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-      Use case only display people with type field '[p]'.
+* 1b. The INDEX is out of bounds.
 
-**Use case: List interview list**
+    * 1b1. HRConnect requests for a valid INDEX.
+    * 1b2. User enters new INDEX. <br>
+      Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
+      Use case resumes from step 2. <br><br>
+  
+* 1c. The given applicant has an interview.
+
+    * 1c1. HRConnect requests for the user to delete the interview.
+    * 1c2. User deletes interview. <br>
+    Steps 1c1-1c2 are repeated until the correct interview has been deleted. <br>
+    Use case resumes from step 2.<br><br>
+
+**Use case: UC5 - Delete an interview**
 
 **MSS**
 
-1. User requests to see all interviews in the address book
-2. AddressBook display interview list
+1. User requests to delete a interview in the address book.
+2. AddressBook deletes the interview from the interview list.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. The type is invalid.
+* 1a. The type is invalid.
 
-    * 2a1. AddressBook shows an error message.
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-      Use case only display interviews with type field '[i]'.
+* 1b. The INDEX is out of bounds.
 
-**Use case: Edit a person's particulars**
+    * 1b1. HRConnect requests for a valid INDEX.
+    * 1b2. User enters new INDEX. <br>
+      Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC6 - Delete a task**
 
 **MSS**
 
-1.  User requests to update a specific persons' details
-2.  HRConnect shows person with their updated details
+1. User requests to delete a task from the task list.
+2. HRConnect deletes the task from the task list.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The INDEX is out of bounds.
+
+    * 1b1. HRConnect requests for a valid INDEX.
+    * 1b2. User enters new INDEX. <br>
+      Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
+      Use case resumes from step 2. <br><br>
+
+
+**Use case: UC7 - List applicant list**
+
+**MSS**
+
+1. User requests to list all people in the address book.
+2. HRConnect displays list of applicants.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC8 - List interview list**
+
+**MSS**
+
+1. User requests to see all scheduled interviews in the address book.
+2. HRConnect displays interview list.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC9 - List task list**
+
+**MSS**
+
+1. User requests to see all tasks in the address book.
+2. HRConnect displays task list.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC10 - Clear applicant list**
+
+**MSS**
+
+1. User requests to clear all applicants in the address book.
+2. HRConnect clears all applicants.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC11 - Clear interview list**
+
+**MSS**
+
+1. User requests to clear all scheduled interviews in the address book.
+2. HRConnect clears all interviews from interview list.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC12 - Clear task list**
+
+**MSS**
+
+1. User requests to clear all tasks from the task list.
+2. HRConnect clears task list.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC13 - Edit an applicant's particulars**
+
+**MSS**
+
+1.  User requests to update a specific applicants' details.
+2.  HRConnect shows applicant with their updated details.
 
     Use case ends.
 
 **Extensions**
 
-* 1a. HRConnect detects an error in the entered data
+* 1a. The type is invalid.
 
-  * 1a1. HRConnect request for the correct data
-  * 1a2. User enters new data
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-    Steps 1a1 - 1a2 are repeated until the data entered are correct
+* 1b. The details for some field(s) provided are invalid.
 
-    Use case resumes from step 2.
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
 
-*{More to be added}*
+**Use case: UC14 - Edit an interview**
+
+**MSS**
+
+1.  User requests to update a specific interview.
+2.  HRConnect shows interview with it's updated details
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The details for some field(s) provided are invalid.
+
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC15 - Edit a task**
+
+**MSS**
+
+1.  User requests to update a specific task.
+2.  HRConnect shows task with it's updated details
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The details for some field(s) provided are invalid.
+
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC16 - Find an applicant**
+
+**MSS**
+
+1.  User requests to find a specific applicant.
+2.  HRConnect shows applicant with the specified details.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The details for some field(s) provided are invalid.
+
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC17 - Find a scheduled interview**
+
+**MSS**
+
+1.  User requests to find a specific interview.
+2.  HRConnect shows interview with the specified details
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The details for some field(s) provided are invalid.
+
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC18 - Find a task**
+
+**MSS**
+
+1.  User requests to find a specific task.
+2.  HRConnect shows task with the specified details
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The type is invalid.
+
+    * 1a1. HRConnect requests for the correct type.
+    * 1a2. User enters new type. <br>
+      Steps 1a1-1a2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The details for some field(s) provided are invalid.
+
+    * 1b1. HRConnect requests for valid details.
+    * 1b2. User enters new details for field(s). <br>
+      Steps 1b1-1b2 are repeated until the data entered are correct. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC19 - Export data from address book**
+
+**MSS**
+
+1.  User requests to export data.
+2.  HRConnect exports data to specified csv file.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The filepath to csv file is invalid.
+
+    * 1a1. HRConnect requests for the valid filepath.
+    * 1a2. User enters new filepath. <br>
+      Steps 1a1-1a2 are repeated until the filepath entered is valid. <br>
+      Use case resumes from step 2. <br><br>
+
+* 1b. The filename is missing a .csv file extension.
+
+    * 1b1. HRConnect requests for a valid filename with the correct file extension.
+    * 1b2. User enters new filename. <br>
+      Steps 1b1-1b2 are repeated until the filename entered is valid. <br>
+      Use case resumes from step 2. <br><br>
+
+**Use case: UC20 - Import data to address book**
+
+**MSS**
+
+1.  User requests to import data.
+2.  HRConnect shows all applicants imported into the address book. 
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The filepath is invalid.
+
+    * 1a1. HRConnect requests for the valid filepath.
+    * 1a2. User enters new filepath. <br>
+      Steps 1a1-1a2 are repeated until the filepath entered is valid. <br>
+      Use case resumes from step 2. <br><br>
+  
+* 1b. Duplicate applicant found in address book
+
+    * 1a1. HRConnect alerts user that applicant is already in address book and aborts the import.
+    * 1b1. User deletes applicant from address book. (UC4)  
+      Use case resumes from step 1. <br><br>
+
 
 ### Non-Functional Requirements
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4. Should only be used by Tech HR Recruiters
+4. Should only be used by Tech HR Recruiters.
 
 *{More to be added}*
 
