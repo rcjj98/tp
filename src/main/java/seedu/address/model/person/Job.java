@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents the job applied by a person in the address book.
+ * Represents the job applied by an applicant in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidJob(String)}
  */
 public class Job {

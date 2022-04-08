@@ -49,8 +49,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the applicant list with {@code persons}.
+     * {@code persons} must not contain duplicate applicants.
      */
     public void setPersons(List<Person> persons) {
         this.persons.setPersons(persons);
@@ -86,7 +86,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// person-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if an applicant with the same identity as {@code person} exists in the address book.
      */
     public boolean hasPerson(Person person) {
         requireNonNull(person);
@@ -94,17 +94,18 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds an applicant to the address book.
+     * The applicant must not already exist in the address book.
      */
     public void addPerson(Person p) {
         persons.add(p);
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
+     * Replaces the given applicant {@code target} in the list with {@code editedPerson}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The applicant identity of {@code editedPerson} must not be the same as another
+     * existing applicant in the address book.
      */
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
@@ -121,7 +122,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Resets the existing person list.
+     * Resets the existing applicant list.
      */
     public void resetPersons() {
         this.persons.clear();
@@ -131,7 +132,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// interview-level operations
 
     /**
-     * Returns true if a interview with the same identity as {@code interview} exists in the address book.
+     * Returns true if an interview with the same identity as {@code interview} exists in the address book.
      */
     public boolean hasInterview(Interview interview) {
         requireNonNull(interview);
@@ -139,7 +140,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Adds a interview to the address book.
+     * Adds an interview to the address book.
      * The interview must not already exist in the address book.
      */
     public void addInterview(Interview i) {
@@ -225,7 +226,7 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public String toString() {
-        return persons.asUnmodifiableObservableList().size() + " persons";
+        return persons.asUnmodifiableObservableList().size() + " applicants";
     }
 
     @Override

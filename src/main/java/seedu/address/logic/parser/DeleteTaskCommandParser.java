@@ -6,9 +6,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.DeleteTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-/**
- * Delete a task via its index.
- */
 public class DeleteTaskCommandParser {
 
     /**

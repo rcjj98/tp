@@ -39,8 +39,8 @@ public class Task {
     }
 
     /**
-     * Returns true if both Tasks have the same header, date and time.
-     * This defines a weaker notion of equality between two Tasks.
+     * Returns true if both tasks have the same header, date and time.
+     * This defines a weaker notion of equality between two tasks.
      */
     public boolean isSameTask(Task otherTask) {
         if (otherTask == this) {
