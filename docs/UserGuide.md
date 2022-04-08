@@ -23,7 +23,7 @@ the progress of each applicant during the application process.
 
     Some sample commands to try:
    * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
-   j/Software Developer s/INPROGRESS`: Adds a new applicant name Bob Tan to the address book
+   j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
    * `list [p]`: Lists all applicants
    * `delete [i] 1`: Deletes interview index **1** from the interview list
    * `clear [i]`: Clear all interviews.
@@ -91,7 +91,6 @@ Format: `exit`
   e.g If Alex Tan was added before Alex Wong, Alex Tan would be listed before Alex Wong.
 
 </div>
-&nbsp;
 
 ### Adding a new job applicant: `add [p]`
 Adds a new job applicant to the address book.
@@ -112,8 +111,7 @@ Example:<br>
 ![add-applicant](images/add-applicant.png)
 
 &nbsp;
-
-### Editing a job applicant:`edit [p]`
+### Editing a job applicant: `edit [p]`
 Edits an existing job applicant in the address book
 
 :exclamation: **Take note: Cannot edit an applicant if he/she has an interview scheduled.**
@@ -152,7 +150,7 @@ Example:<br>
 ### Listing all job applicants: `list [p]`
 Shows a list of all job applicants in the address book.
 
-Format:`list [p]`
+Format: `list [p]`
 
 &nbsp;
 ### Clearing all job applicants: `clear [p]`
@@ -211,12 +209,8 @@ Examples:<br>
 * Interview list can contain interviews with applicants in any stages
   e.g. A rejected applicant can still be scheduled for an interview
 
-
 </div>
-&nbsp;
 
-
-&nbsp;
 ### Adding a new interview slot for a job applicant: `add [i]`
 Adds a new job interview slot to the address book.
 
@@ -224,7 +218,7 @@ Adds a new job interview slot to the address book.
 
 Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
-* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` must be a positive integer 1, 2, 3, …​<br><br>
+* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br><br>
 * Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
 
@@ -247,7 +241,7 @@ Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
-Examples: <br> 
+Example: <br> 
 `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
 Before
@@ -318,16 +312,14 @@ Examples:<br>
 * Task list can contain tasks with date and time before the current date and time. <br>
   e.g. If current date time is 4 April 2022, task list can still contain task with date 30 March 2022.
 
-
 </div>
-&nbsp;
 
 ### Adding a new task to the miscellaneous task list: `add [t]`
 Adds a new task to the address book.
 
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
-* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header AND date AND time**.
+* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**.
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
 * If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces.
 e.g. `Update interview list` and `Update         interview list` are duplicate headers.
@@ -352,7 +344,7 @@ Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
-Examples: <br>
+Example: <br>
 `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 Before
