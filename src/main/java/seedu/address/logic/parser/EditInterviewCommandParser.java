@@ -13,6 +13,7 @@ public class EditInterviewCommandParser implements Parser<EditInterviewCommand> 
     /**
      * Parses the given {@code String} of arguments in the context of the EditInterviewCommand
      * and returns an EditInterviewCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public EditInterviewCommand parse(String args) throws ParseException {

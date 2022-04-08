@@ -73,8 +73,7 @@ public class AddInterviewCommand extends AddCommand {
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a {@code Interview}.
      */
     private static Interview createInterview(Person personToInterview, Date date, Time time) {
         assert personToInterview != null;
