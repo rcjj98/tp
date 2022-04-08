@@ -121,7 +121,7 @@ Edits an existing job applicant in the address book
 Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
 
 * At least one of the optional fields must be provided. <br>
-* Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the applicant list. The index must be a positive integer 1, 2, 3, …​
+* Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the applicant list. `INDEX` must be a positive integer 1, 2, 3, …​
 
 View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -142,10 +142,7 @@ Deletes an existing job applicant from the address book.
 
 Format: `delete [p] INDEX`
 
-* Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the applicant in the applicant list.
-
-Constraints:
-* `INDEX` must be a positive integer 1, 2, 3, …​ and must be a valid task index.=
+* Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the applicant in the applicant list.`INDEX` must be a positive integer 1, 2, 3, …​ and must be a valid task index.=
 
 Example:<br>
 `delete [p] 1` <br><br>
@@ -210,6 +207,8 @@ Examples:<br>
   e.g An interview scheduled on 29 March 2020 is listed above an interview scheduled on 2 April 2020.
 * Interview list can contain interviews with date and time past the current date and time. <br>
   e.g. If current date time is 4 April 2022, interview list can still contain interview with date 30 March 2022.
+* Interview list can contain interviews with applicants in any stages
+  e.g. A rejected applicant can still be scheduled for an interview
 
 
 </div>
@@ -224,7 +223,7 @@ Adds a new job interview slot to the address book.
 
 Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
-* `INDEX` refers to the numerical position of the applicant in the applicant list. The index must be a positive integer 1, 2, 3, …​<br><br>
+* `INDEX` refers to the numerical position of the applicant in the applicant list. `INDEX` must be a positive integer 1, 2, 3, …​<br><br>
 * Duplicate interviews cannot be added. Interviews are considered to be duplicates if they share the same date AND time.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
 
@@ -242,7 +241,7 @@ Edits an existing interview slot in the address book
 Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
 
 * At least one of the optional fields must be provided. <br>  
-* Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. The index must be a positive integer 1, 2, 3, …​
+* Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. `INDEX` must be a positive integer 1, 2, 3, …​
 
 View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -261,7 +260,7 @@ Deletes an existing interview slot in the address book.
 
 Format: `delete [i] INDEX`
 
-* Deletes the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. The index must be a positive integer 1, 2, 3, …​
+* Deletes the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. `INDEX` must be a positive integer 1, 2, 3, …​
 
 Example:<br>
 `delete [i] 1`
@@ -346,7 +345,7 @@ Edits an existing task in the address book
 Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
 * At least one of the optional fields must be provided. <br>
-* Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
+* Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. `INDEX` must be a positive integer 1, 2, 3, …​
 
 View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -367,7 +366,7 @@ Deletes an existing task in the address book.
 
 Format: `delete [t] INDEX`
 
-* Deletes the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
+* Deletes the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. `INDEX` must be a positive integer 1, 2, 3, …​
 
 Example:<br>
 `delete [t] 1`
