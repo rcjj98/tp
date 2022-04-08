@@ -13,24 +13,29 @@ Given below are my contributions to the project.
 ##Code contributed
 https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other
 ##Enhancements implemented
-- Add job and status field under person
-- Created Interview, Date, Time classes
-- Add interview commands (e.g. Add, Delete, List, Edit, Clear)
-- Add task commands (e.g. List, Edit, Clear)
+- Add job and stage field for applicant
+- Created Interview, Date, Time, Header, Information classes
+- Add some interview commands (e.g. Add, Delete, List, Edit, Clear)
+- Add some task commands (e.g. List, Edit, Clear)
+- Used OOP principles to make some commands abstract to reduce repetition of code
 ##Contributions to the UG
-Which sections did you contribute to the UG?
 - Add all task commands to the UG with clear formatting
 - Add all task commands to the command summary table in UG
+- Add constraint pointers to some commands like deleting and editing applicant
+- Add notes for Interview and Task features
+- Solve some UG bugs highlighted from PE-D
+- Helped to format the UG
 ##Contributions to the DG
-Which sections did you contribute to the DG? Which UML diagrams did you add/updated?
+- Edited model and storage section of DG
+- Edited UML diagrams for model and storage section namely BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
 ##Contributions to team-based tasks
+- Created a few milestones and issues for team
+- Ensure team completes all team-based tasks on time
 ##Review/mentoring contributions
-Links to PRs reviewed, instances of helping team members in other ways.
-https://github.com/AY2122S2-CS2103T-W11-2/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me
-##Contributions beyond the project team
+- Links to team members PRs reviewed: https://github.com/AY2122S2-CS2103T-W11-2/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me
+- Helped to solve bugs in other team members features
 ##Evidence of helping others
-e.g. responses you posted in our forum, bugs you reported in other team's products,
-https://github.com/nus-cs2103-AY2122S2/forum/issues/175
-https://github.com/AY2122S2-CS2103T-W09-1/tp/issues
+- Bugs reported in other team products: https://github.com/AY2122S2-CS2103T-W09-1/tp/issues
 ##Evidence of technical leadership
-e.g. sharing useful information in the forum
+- Helped teammates when they faced issues or need help with coding their parts
+
