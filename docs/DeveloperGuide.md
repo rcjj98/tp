@@ -121,14 +121,14 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person`, `Interview`, `Task` objects (which are contained in a `UniquePersonList`, `UniqueInterviewList` and `UniqueTaskList` object respectively).
+* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object), all `Interview` objects (which are contained in a `UniqueInterviewList` object), all `Task` objects (which are contained in a `UniqueTaskList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores the currently 'selected' `Interview` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Interview>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores the currently 'selected' `Task` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Task>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. <br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below for `Person`, `Interview` and `Task` separately. <br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
 
