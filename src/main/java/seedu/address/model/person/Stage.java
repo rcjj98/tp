@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Stage {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Stage should be only INPROGRESS or ACCEPTED or REJECTED (case sensitive)";
+            "Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)";
 
     public static final String VALIDATION_REGEX = "INPROGRESS|ACCEPTED|REJECTED";
 

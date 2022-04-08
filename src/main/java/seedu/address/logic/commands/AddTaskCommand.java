@@ -24,7 +24,7 @@ public class AddTaskCommand extends AddCommand {
             + PREFIX_HEADER + "Update interview statuses "
             + PREFIX_DATE + "2021-05-06 "
             + PREFIX_TIME + "05:29 "
-            + PREFIX_INFORMATION + "Update Alex John Mary statuses to ACCEPTED";
+            + PREFIX_INFORMATION + "Update all interview statuses to ACCEPTED";
 
     public static final String MESSAGE_SUCCESS = "Added Task: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the task list";

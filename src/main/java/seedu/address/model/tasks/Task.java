@@ -70,7 +70,8 @@ public class Task {
         Task otherTask = (Task) other;
         return (otherTask.getHeader().equals(getHeader()))
                 && (otherTask.getDate().equals(getDate())
-                && otherTask.getTime().equals(getTime()));
+                && otherTask.getTime().equals(getTime()))
+                && otherTask.getInformation().equals(getInformation());
     }
 
     @Override

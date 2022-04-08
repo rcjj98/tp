@@ -69,7 +69,7 @@ public class AddInterviewCommand extends AddCommand {
         }
 
         model.addInterview(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), INTERVIEW);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), getType());
     }
 
     /**

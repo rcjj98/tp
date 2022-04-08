@@ -1,0 +1,87 @@
+@startuml
+!include style.puml
+
+mainframe **sd** perform necessary checks
+
+box Logic LOGIC_COLOR_T1
+participant ":ImportCommandParser" as ImportCommandParser LOGIC_COLOR
+participant ":ParserUtil" as ParserUtil LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Person" as Person MODEL_COLOR
+end box
+
+activate ImportCommandParser
+
+ImportCommandParser -> ImportCommandParser : checkFilePath
+activate ImportCommandParser
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
+
+ImportCommandParser -> ImportCommandParser : readCsv
+activate ImportCommandParser
+
+loop until last entry is parsed
+ImportCommandParser -> ImportCommandParser : getFields
+activate ImportCommandParser
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
+
+ImportCommandParser -> ImportCommandParser : createPerson
+activate ImportCommandParser
+
+ImportCommandParser -> ParserUtil : parseName
+activate ParserUtil
+ParserUtil --> ImportCommandParser : Name
+deactivate ParserUtil
+
+ImportCommandParser -> ParserUtil : parsePhone
+activate ParserUtil
+ParserUtil --> ImportCommandParser : phone
+deactivate ParserUtil
+
+ImportCommandParser -> ParserUtil : parseEmail
+activate ParserUtil
+ParserUtil --> ImportCommandParser : email
+deactivate ParserUtil
+
+ImportCommandParser -> ParserUtil : parseAddress
+activate ParserUtil
+ParserUtil --> ImportCommandParser : address
+deactivate ParserUtil
+
+ImportCommandParser -> ParserUtil : parseJob
+activate ParserUtil
+ParserUtil --> ImportCommandParser : job
+deactivate ParserUtil
+
+ImportCommandParser -> ParserUtil : parseStage
+activate ParserUtil
+ParserUtil --> ImportCommandParser : stage
+deactivate ParserUtil
+
+create Person
+ImportCommandParser -> Person
+activate Person
+Person --> ImportCommandParser
+deactivate Person
+
+
+
+
+
+
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
+
+ImportCommandParser -> ImportCommandParser : updatePersons
+activate ImportCommandParser
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
+
+end
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
+
+@enduml

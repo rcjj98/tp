@@ -22,6 +22,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.Type;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -210,21 +211,28 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
             }
 
-            SingleSelectionModel<Tab> selectionModel = tabs.getSelectionModel();
-
-            if (commandResult.getType() == PERSON) {
-                selectionModel.select(0);
-            } else if (commandResult.getType() == INTERVIEW) {
-                selectionModel.select(1);
-            } else if (commandResult.getType() == TASK) {
-                selectionModel.select(2);
-            }
+            changeTab(commandResult.getType());
 
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());
             throw e;
+        }
+    }
+
+    /**
+     * Toggle between different tabs based on type of command given
+     * @param type type of command
+     */
+    public void changeTab(Type type) {
+        SingleSelectionModel<Tab> selectionModel = tabs.getSelectionModel();
+        if (type == PERSON) {
+            selectionModel.select(0);
+        } else if (type == INTERVIEW) {
+            selectionModel.select(1);
+        } else if (type == TASK) {
+            selectionModel.select(2);
         }
     }
 }

@@ -1,0 +1,67 @@
+@startuml
+!include style.puml
+
+mainframe **sd**  write to csv file
+
+box Logic LOGIC_COLOR_T1
+participant "e:ExportCommand" as ExportCommand LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Person" as Person MODEL_COLOR
+end box
+
+participant "PrintWriter" as PrintWriter MODEL_COLOR
+participant "f:File" as File MODEL_COLOR
+
+
+create File
+ExportCommand -> File
+activate File
+File --> ExportCommand : f
+deactivate File
+
+create PrintWriter
+ExportCommand -> PrintWriter : f
+activate PrintWriter
+PrintWriter --> ExportCommand
+deactivate PrintWriter
+
+loop until end of job applicant list
+    ExportCommand -> Person : getName().toString()
+    activate Person
+    Person --> ExportCommand : name
+    deactivate Person
+
+    ExportCommand -> Person : getPhone().toString()
+    activate Person
+    Person --> ExportCommand : phone
+    deactivate Person
+
+    ExportCommand -> Person : getEmail().toString()
+    activate Person
+    Person --> ExportCommand : email
+    deactivate Person
+
+    ExportCommand -> Person : getAddress().toString()
+    activate Person
+    Person --> ExportCommand : address
+    deactivate Person
+
+    ExportCommand -> Person : getJob().toString()
+    activate Person
+    Person --> ExportCommand : job title
+    deactivate Person
+
+    ExportCommand -> Person : getStage().toString()
+    activate Person
+    Person --> ExportCommand : stage
+    deactivate Person
+
+    ExportCommand -> PrintWriter : printf()
+    activate PrintWriter
+    PrintWriter --> ExportCommand
+    deactivate PrintWriter
+end
+
+@enduml

@@ -15,7 +15,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
- * Adds a person to the address book.
+ * Adds an applicant to the address book.
  */
 public class AddPersonCommand extends AddCommand {
 
@@ -57,7 +57,7 @@ public class AddPersonCommand extends AddCommand {
         }
 
         model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), PERSON);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), getType());
     }
 
     @Override

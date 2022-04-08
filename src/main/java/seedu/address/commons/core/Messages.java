@@ -16,7 +16,6 @@ public class Messages {
     public static final String MESSAGE_NO_TYPE_GIVEN = "No type given. Type should be either [p] or [i] or [t].";
     public static final String MESSAGE_INVALID_TYPE_GIVEN = "Invalid type given. Type should be either [p] or [i]"
             + " or [t].";
-    public static final String MESSAGE_INVALID_NAME_PROVIDED = "The name provided is invalid, please try again!";
     public static final String MESSAGE_INTERVIEW_LIST_NOT_EMPTY = "Interview list is not empty. "
             + "Please clear interview list first.";
     public static final String MESSAGE_PERSON_HAS_INTERVIEW = "Applicant has interview. "

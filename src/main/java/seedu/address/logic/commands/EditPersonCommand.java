@@ -30,12 +30,12 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.Stage;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing applicant in the address book.
 */
 public class EditPersonCommand extends EditCommand {
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] : Edits the details of the person identified "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [p] : Edits the details of the applicant identified "
+            + "by the index number used in the displayed applicant list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_NAME + "NAME] "
@@ -48,16 +48,16 @@ public class EditPersonCommand extends EditCommand {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
+    public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Applicant: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This applicant already exists in the address book.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
     /**
-     * @param index of the person in the filtered person list to edit
-     * @param editPersonDescriptor details to edit the person with
+     * @param index of the applicant in the filtered applicant list to edit
+     * @param editPersonDescriptor details to edit the applicant with
      */
     public EditPersonCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
         requireNonNull(index);
@@ -77,14 +77,13 @@ public class EditPersonCommand extends EditCommand {
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
-        if (personHasInterview(personToEdit, model)) {
-            throw new CommandException(MESSAGE_PERSON_HAS_INTERVIEW);
-        }
-
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
 
         if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+        if (personHasInterview(personToEdit, model)) {
+            throw new CommandException(MESSAGE_PERSON_HAS_INTERVIEW);
         }
 
         model.setPerson(personToEdit, editedPerson);
@@ -93,11 +92,11 @@ public class EditPersonCommand extends EditCommand {
     }
 
     /**
-     * Check if person that we wish to edit has interview
+     * Check if applicant that we wish to edit has interview
      *
-     * @param person person
+     * @param person applicant
      * @param model model
-     * @return true if person has interview
+     * @return true if applicant has interview
      */
     public boolean personHasInterview(Person person, Model model) {
         List<Interview> lastShownInterviewList = model.getFilteredInterviewList();
@@ -150,8 +149,8 @@ public class EditPersonCommand extends EditCommand {
     }
 
     /**
-     * Stores the details to edit the person with. Each non-empty field value will replace the
-     * corresponding field value of the person.
+     * Stores the details to edit the applicant with. Each non-empty field value will replace the
+     * corresponding field value of the applicant.
      */
     public static class EditPersonDescriptor {
         private Name name;
@@ -165,7 +164,6 @@ public class EditPersonCommand extends EditCommand {
 
         /**
          * Copy constructor.
-         * A defensive copy of {@code tags} is used internally.
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);

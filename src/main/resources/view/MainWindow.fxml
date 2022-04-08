@@ -47,14 +47,14 @@
           </padding>
         </StackPane>
 
-        <StackPane minWidth="340" prefWidth="340" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+        <StackPane minWidth="350" prefWidth="350" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
           <padding>
-            <Insets top="10" right="10" bottom="10" left="10" />
+            <Insets top="5" right="10" bottom="5" left="10" />
           </padding>
             <children>
-              <TabPane fx:id="tabs" minWidth="340" tabClosingPolicy="UNAVAILABLE">
+              <TabPane fx:id="tabs" minWidth="350" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-              <Tab fx:id="personsTab" text="People">
+              <Tab fx:id="personsTab" text="Applicants">
                 <content>
                   <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                 </content>
@@ -64,7 +64,7 @@
                     <StackPane fx:id="interviewListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                   </content>
                 </Tab>
-                <Tab fx:id="taskListTab" text="Tasks">
+                <Tab fx:id="tasksTab" text="Tasks">
                   <content>
                     <StackPane fx:id="taskListPanelPlaceHolder" VBox.vgrow="ALWAYS" />
                   </content>

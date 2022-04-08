@@ -114,7 +114,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         if (isUniquePerson) {
             persons.add(newPerson);
         } else {
-            throw new ParseException("Line " + lineNo + " person is duplicated in csv file.");
+            throw new ParseException("Line " + lineNo + " applicant is duplicated in csv file.");
         }
     }
 }

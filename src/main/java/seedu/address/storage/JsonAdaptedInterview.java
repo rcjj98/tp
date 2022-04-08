@@ -7,7 +7,6 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.Date;
 import seedu.address.model.Time;
 import seedu.address.model.interview.Interview;
-import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 
 /**
@@ -47,7 +46,7 @@ public class JsonAdaptedInterview {
      */
     public Interview toModelType() throws IllegalValueException {
         if (person == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "INDEX"));
         }
 
         final Person modelPerson = person.toModelType();

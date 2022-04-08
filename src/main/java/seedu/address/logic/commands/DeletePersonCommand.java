@@ -49,15 +49,15 @@ public class DeletePersonCommand extends DeleteCommand {
         }
 
         model.deletePerson(personToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), Type.PERSON);
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete), getType());
     }
 
     /**
-     * Check if person that we wish to delete has interview
+     * Check if applicant that we wish to delete has interview
      *
-     * @param person person
+     * @param person applicant
      * @param model model
-     * @return true if person has interview
+     * @return true if applicant has interview
      */
     public boolean personHasInterview(Person person, Model model) {
         List<Interview> lastShownInterviewList = model.getFilteredInterviewList();

@@ -114,7 +114,7 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
 
@@ -123,10 +123,14 @@ The `Model` component,
 
 * stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the address book data i.e., all `Interview` objects (which are contained in a `UniqueInterviewList` object).
+* stores the currently 'selected' `Interview` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Interview>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the address book data i.e., all `Task` objects (which are contained in a `UniqueTaskList` object).
+* stores the currently 'selected' `Task` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Task>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. <br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
 
@@ -135,7 +139,7 @@ The `Model` component,
 
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -159,9 +163,9 @@ This section describes some noteworthy details on how certain features are imple
 The export feature takes the current address book data stored in memory and exports the job applicants data into a user-specified
 csv file that is tab-delimited.
 
-The format for the csv file is defined as (tab-delimited):
+The structure for the csv file is defined as follows:
 
-name    phone_number    email   address     job_title   current_application_progress
+name | phone_number | email | address | job_title | current_application_progress
 
 An invalid file path is defined as follows:
 1. An empty string.
@@ -173,41 +177,106 @@ An invalid file path is defined as follows:
 The export feature is facilitated by the `ExportCommand` while the necessary checks for the export 
 feature is facilitated by the `ExportCommandParser`.
 
+&nbsp;
+
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters their desired csv file path into the application.
+Step 1. User enters `export ../../my_data.csv` into the application.
 
-Step 2. The `ExportCommandParser#parse()` checks the validity of the file path.
+Step 2. The file path is passed to `ExportCommandParser#parse()` and `ExportCommandParser#checkFilePath()` checks the validity of the file path.
 
-Step 3. After checking that the file path is valid, the data type of the file path is converted from its
-*string* representation into a *Path* representation.
+Step 3. After checking that the file path is valid, the data type of the file path is converted from its *string* representation into a *Path* representation.
 
 Step 4. A new `ExportCommand` object is created with the file path as its parameter.
 
-Step 5. The `ExportCommand#execute()` method is called, and it gets the current persons list from the model itself.
+Step 5. The `ExportCommand#execute()` method is called, and it calls `Model#getFilteredPersonList()` to get the current list of job applicants.
 
-Step 6. For each person in the current persons list, the *string* representation of each field is obtained and concatenated into
-the aformentioned format and it is written into the user-specified csv file.
+Step 6. For each person in the persons list, the *string* representation of each field is obtained and concatenated into
+the aformentioned format above, then it is written into the user-specified csv file.
 
 Step 7. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
-The following sequence diagram summarises how the export operation works
+&nbsp;
 
-// ADD SEQUENCE DIAGRAM.
+The following sequence diagram summarises how the export operation works.
 
+<p align="center">
+  <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
+</p>
+<p align="center">
+  <img src="images/WriteToFileSequenceDiagram.png" alt="Interactions Inside the Export Command"/>
+</p>
 
 ### Import Feature
 
-The import feature takes in a csv file and adds all the job applicants stored by the csv file back into the application.
+The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the application.
+
+The csv file structure needs to follow the file structure as defined by the [export feature](#export-feature).
+
+An invalid csv file path also follows the conditions as defined by the [export feature](#export-feature).
 
 #### Implementation
 
-The following sequence diagram summarises how the import operation works
+The import feature is facilitated by the `ImportCommand` while the necessary checks for the import feature is facilitated by the `ImportCommandParser`.
+
+&nbsp;
+
+Given below is an example usage scenario and how the import mechanism behaves at each step.
+
+Step 1. User enters `import ../../past_data.csv` into the application.
+
+Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportCommandParser#checkFilePath()` checks the validity of the file path.
+
+Step 3. After checking that the file path is valid, the data type of the file path is converted from its *string* representation into a *Path* representation.
+
+Step 4. The `ImportCommandParser#readCsv()` is called to parse the csv file. From there, 3 methods are called to ensure the correctness of the csv file. 
+ * `ImportCommandParser#getFields()`: ensures that the number of fields in each line matches the number of fields required by the application
+ * `ImportCommandParser#createPerson()`: ensures that each field is valid and correct and converts the line into a person object.
+ * `ImportCommandParser#updatePersons()`: ensures that each person in the csv file is unique with regards to the csv file.
+
+Step 5. The newly created person is added to a temporary list.
+
+Step 6. A new `ImportCommand` object is created with the aforementioned temporary list as its parameter.
+
+Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current application before adding each person into the current application.
+
+Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
+
+&nbsp;
+
+The following sequence diagram summarises how the import operation works.
+
+<p align="center">
+  <img src="images/ImportSequenceDiagram.png" alt="Interactions for Import Command"/>
+</p>
+<p align="center">
+  <img src="images/ImportCheckSequenceDiagram.png" alt="Interactions for Import checking Command"/>
+</p>
 
 ### Find Feature
 
+The find feature finds all data within a specified component (Person/Interview/Task) such that it matches the search criteria.
 
 #### Implementation
+
+The find feature is facilitated by the subclasses of the `FindCommand` while the necessary checks for the find feature is facilitated by the subclasses of `FindCommandParser`. The actual checking is faciliated by the `{Component Name}ContainsKeywordsPredicate`
+
+&nbsp;
+
+Given below is an example usage scenario and how the find mechanism behaves at each step.
+
+Step 1. User enters `find [p] g/n/alex g/n/tan` into the application.
+
+Step 2. The search criteria is passed to `ImportCommandParser#parse()` and its component is determined.
+
+Step 3. Next, the search criteria is checked for any invalid groups.
+
+Step 4. The list of groups are then passed into `FindPersonCommandParser#parse()` to check for any invalid flags or formats.
+
+Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
+
+
+&nbsp;
 
 The following sequence diagram summarises how the find operation works
 
@@ -219,86 +288,6 @@ The following sequence diagram summarises how the find operation works
 * **Alternative 2** Using free text queries (i.e. `find john tom gmail.com`)
   * Pros: More intuitive as user expects queried person to contain all the search terms.
   * Cons: Lacks the flexibility provided by AND and OR operators.
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="250" />
-
-#### Design considerations:
-
-**Aspect: How undo & redo executes:**
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -582,41 +571,22 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-### Adding a Job Applicant
-
-### Adding an Interview
-
 ### Adding a Task
-
-### Editing a Job Applicant
 
 ### Editing an Interview
 
-### Editing a Task
-
 ### Deleting a Job Applicant
 
-### Deleting an Interview
-
-### Deleting a Task
+// test for if got interviews 
 
 ### Clearing all Job Applicants
 
-### Clearing all Interviews
-
-### Clearing all Tasks
+// test for if got interviews 
 
 ### Finding a Job Applicant
 
-### Finding an Interview
 
-### Finding a Task
-
-### Importing all Job Applicants
-
-### Export all Job Applicants
-
-
+// THIS BOTTOM ARE JUST EXAMPLES
 
 
 ### Deleting a person
