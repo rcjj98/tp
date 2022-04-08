@@ -146,14 +146,14 @@ public interface Model {
 
     /**
      * Adds the given task.
-     * {@code person} must not already exist in the address book.
+     * {@code task} must not already exist in the address book.
      */
     void addTask(Task task);
 
     /**
      * Replaces the given task {@code target} with {@code editedTask}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedTask} must not be the same as another existing task in the address book.
+     * The task identity of {@code editedTask} must not be the same as another existing task in the address book.
      */
     void setTask(Task target, Task editedTask);
 

@@ -13,13 +13,13 @@ import seedu.address.model.Date;
 import seedu.address.model.Time;
 
 /**
- * Parses input arguments and creates a new AddCommand object
+ * Parses input arguments and creates a new AddInterviewCommand object
  */
 public class AddInterviewCommandParser implements Parser<AddInterviewCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddInterviewCommand
-     * and returns an AddCommand object for execution.
+     * and returns an AddInterviewCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddInterviewCommand parse(String args) throws ParseException {

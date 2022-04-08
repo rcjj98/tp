@@ -13,8 +13,8 @@ public class DeleteTaskCommandParser {
 
     /**
      * Parses the given {@code String} of arguments in the context of the
-     * DeleteTaskCommand
-     * and returns a DeleteTaskCommand object for execution.
+     * DeleteTaskCommand and returns a DeleteTaskCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeleteTaskCommand parse(String args) throws ParseException {
