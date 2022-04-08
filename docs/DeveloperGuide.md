@@ -275,10 +275,13 @@ Step 4. The list of groups are then passed into `FindPersonCommandParser#parse()
 
 Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
 
-
 &nbsp;
 
 The following sequence diagram summarises how the find operation works
+
+<p align="center">
+  <img src="images/FindPersonCommandSequenceDiagram.png" alt="Interactions for Find Person Command"/>
+</p>
 
 #### Design Considerations
 
