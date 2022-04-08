@@ -219,6 +219,7 @@ Adds a new job interview slot to the address book.
 Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
 * `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br><br>
+* `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
 * Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
 
@@ -236,6 +237,7 @@ Edits an existing interview slot in the address book
 Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
  
 * Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
+* `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
 * At least **one** of the optional fields must be provided. 
 * Existing values will be updated to the input values.
 
@@ -319,6 +321,7 @@ Adds a new task to the address book.
 
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
+* `DATE` and `TIME` refers to the due date and time of the task.
 * Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**.
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
 * If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces.
@@ -338,6 +341,7 @@ Edits an existing task in the address book
 
 Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
+* `DATE` and `TIME` refers to the due date and time of the task.
 * Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the **task in the task list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * At least **one** of the optional fields must be provided.
 * Existing values will be updated to the input values.
