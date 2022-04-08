@@ -4,7 +4,8 @@ skinparam arrowThickness 1.1
 skinparam arrowColor LOGIC_COLOR_T4
 skinparam classBackgroundColor LOGIC_COLOR
 
-Class "{abstract}\nCommand" as Command
+Class "{abstract}\nCommand" as Command 
+Class "{abstract}\nXYZCommand" as XYZCommand
 
 package "Parser classes"{
 Class "<<interface>>\nParser" as Parser
@@ -15,7 +16,6 @@ Class ParserUtil
 Class ArgumentMultimap
 Class ArgumentTokenizer
 Class Prefix
-Class "{abstract}\nXYZCommand"
 Class XYZTYPECommandParser
 Class XYZTYPECommand
 enum Type
@@ -34,8 +34,9 @@ XYZCommandParser ..> CliSyntax
 XYZCommandParser ..> XYZTYPECommandParser : creates >
 XYZTYPECommandParser ..> XYZTYPECommand : creates >
 XYZTYPECommandParser ..> XYZCommand : returns >
-XYZTYPECommand -up-|> XYZCommand
 XYZTYPECommandParser .up.|> Parser
+XYZTYPECommand -up-|> XYZCommand
+XYZTYPECommandParser -up-|> Type
 ArgumentTokenizer .left.> ArgumentMultimap
 CliSyntax ..> Prefix
 XYZCommandParser ..> ParserUtil

@@ -112,6 +112,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* All `XYZTYPECommandParser` classes (`XYZ` refers to the specific command, and `TYPE` refers to either Person, Task or Interview Objects. `AddTaskCommandParser`,`DeletePersonCommandParser`, ...) are created by the `XYZCommandParser` classes, which return an `XYZCommand` (`XYZCommand` referring to the specific command e.g. `Add`, `Delete`, etc ...).
+* `XYZCommand` is an abstract class, which inherits from the abstract `Command` class, so they may be treated similarly where possible.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
