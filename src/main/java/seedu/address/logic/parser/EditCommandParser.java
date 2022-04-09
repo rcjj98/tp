@@ -14,8 +14,7 @@ public class EditCommandParser implements Parser<EditCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the
-     * EditCommand
-     * and returns a EditCommand object for execution.
+     * EditCommand and returns a EditCommand object for execution.
      *
      * @throws ParseException if the user input does not conform the expected format
      */
@@ -23,13 +22,14 @@ public class EditCommandParser implements Parser<EditCommand> {
         String type = ArgumentTokenizer.getType(args.trim());
         String removedType = args.trim().substring(3);
 
-        if (type.equals(TYPE_PERSON)) {
+        switch (type) {
+        case TYPE_PERSON:
             return new EditPersonCommandParser().parse(removedType);
-        } else if (type.equals(TYPE_INTERVIEW)) {
+        case TYPE_INTERVIEW:
             return new EditInterviewCommandParser().parse(removedType);
-        } else if (type.equals(TYPE_TASK)) {
+        case TYPE_TASK:
             return new EditTaskCommandParser().parse(removedType);
-        } else {
+        default:
             return null;
         }
     }

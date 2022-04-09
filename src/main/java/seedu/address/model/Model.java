@@ -57,39 +57,40 @@ public interface Model {
     ReadOnlyAddressBook getAddressBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if an applicant with the same identity as {@code person} exists in the address book.
      */
     boolean hasPerson(Person person);
 
     /**
-     * Deletes the given person.
-     * The person must exist in the address book.
+     * Deletes the given applicant.
+     * The applicant must exist in the address book.
      */
     void deletePerson(Person target);
 
     /**
-     * Adds the given person.
+     * Adds the given applicant.
      * {@code person} must not already exist in the address book.
      */
     void addPerson(Person person);
 
     /**
-     * Replaces the given person {@code target} with {@code editedPerson}.
+     * Replaces the given applicant {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The applicant identity of {@code editedPerson} must not be the same as
+     * another existing applicant in the address book.
      */
     void setPerson(Person target, Person editedPerson);
 
     /**
-     * Replaces person list data.
+     * Replaces applicant list data.
      */
     void resetPersons();
 
-    /** Returns an unmodifiable view of the filtered person list */
+    /** Returns an unmodifiable view of the filtered applicant list */
     ObservableList<Person> getFilteredPersonList();
 
     /**
-     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * Updates the filter of the filtered applicant list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
@@ -146,14 +147,14 @@ public interface Model {
 
     /**
      * Adds the given task.
-     * {@code person} must not already exist in the address book.
+     * {@code task} must not already exist in the address book.
      */
     void addTask(Task task);
 
     /**
      * Replaces the given task {@code target} with {@code editedTask}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedTask} must not be the same as another existing task in the address book.
+     * The task identity of {@code editedTask} must not be the same as another existing task in the address book.
      */
     void setTask(Task target, Task editedTask);
 

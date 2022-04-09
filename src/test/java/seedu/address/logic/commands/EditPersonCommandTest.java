@@ -112,7 +112,7 @@ public class EditPersonCommandTest {
     public void execute_duplicatePersonFilteredList_failure() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
-        // edit person in filtered list into a duplicate in address book
+        // edit applicant in filtered applicant list into a duplicate in address book
         Person personInList = model.getAddressBook().getPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
         EditPersonCommand editCommand = new EditPersonCommand(INDEX_FIRST_PERSON,
                 new EditPersonDescriptorBuilder(personInList).build());
@@ -130,7 +130,7 @@ public class EditPersonCommandTest {
     }
 
     /**
-     * Edit filtered list where index is larger than size of filtered list,
+     * Edit filtered applicant list where index is larger than size of filtered applicant list,
      * but smaller than size of address book
      */
     @Test

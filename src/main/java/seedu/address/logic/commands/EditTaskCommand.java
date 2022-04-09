@@ -45,8 +45,8 @@ public class EditTaskCommand extends EditCommand {
     private final EditTaskDescriptor editTaskDescriptor;
 
     /**
-     * @param index of the interview in the filtered interview list to edit
-     * @param editTaskDescriptor details to edit the person with
+     * @param index of the task in the filtered task list to edit
+     * @param editTaskDescriptor details to edit the task with
      */
     public EditTaskCommand(Index index, EditTaskDescriptor editTaskDescriptor) {
         requireNonNull(index);
@@ -79,8 +79,8 @@ public class EditTaskCommand extends EditCommand {
     }
 
     /**
-     * Creates and returns a {@code Interview} with the details of {@code interviewToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a {@code Task} with the details of {@code taskToEdit}
+     * edited with {@code editTaskDescriptor}.
      */
     private static Task createEditedTask(
             Task taskToEdit, EditTaskDescriptor editTaskDescriptor) {
@@ -118,8 +118,8 @@ public class EditTaskCommand extends EditCommand {
     }
 
     /**
-     * Stores the details to edit the interview with. Each non-empty field value will replace the
-     * corresponding field value of the interview.
+     * Stores the details to edit the task with. Each non-empty field value will replace the
+     * corresponding field value of the task.
      */
     public static class EditTaskDescriptor {
         private Header header;

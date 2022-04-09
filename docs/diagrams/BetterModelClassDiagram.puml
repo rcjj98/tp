@@ -24,7 +24,7 @@ Person *-right-> Stage
 
 
 
-Interview -up-> "1" Person
+Interview *-up->  Person
 
 Interview *--> Date
 Interview *--> Time

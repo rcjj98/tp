@@ -23,10 +23,10 @@ the progress of each applicant during the application process.
 
     Some sample commands to try:
    * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
-   j/Software Developer s/INPROGRESS`: Adds a new applicant name Bob Tan to the address book
+   j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
    * `list [p]`: Lists all applicants
-   * `delete [p] 1`: Deletes job applicant index **1** from the address book
-   * `clear [p]`: Clear all applicants.
+   * `delete [i] 1`: Deletes interview index **1** from the interview list
+   * `clear [i]`: Clear all interviews.
    * `exit`: Exits the app.
 
 6. Refer to [Features](#features) section directly below for details on each command.
@@ -88,23 +88,22 @@ Format: `exit`
 **:information_source: Notes about the Applicant List:**<br>
 
 * Applicant list is sorted in order in which the applicant was added into the list.<br>
-  e.g If Alex Tan was added before Alex Wong, Alex Tan would be listed above Alex Wong.
+  e.g If Alex Tan was added before Alex Wong, Alex Tan would be listed before Alex Wong.
 
 </div>
-&nbsp;
 
 ### Adding a new job applicant: `add [p]`
 Adds a new job applicant to the address book.
 
 Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-* Duplicate applicants cannot be added. Applicants are considered to be duplicates if they share the same name (case-insensitive).
+* Duplicate applicants **cannot** be added. Applicants are considered to be duplicates if they share the **same name (case-insensitive)**.
 e.g. `Alex Tan` and `alex tan` are duplicate applicants.
 * If the `NAME` input contain empty spaces, it will be trimmed and each applicant will be considered as a duplicate even if their names differ in the amount of empty spaces.
 e.g. `Alex Tan` and `Alex      Tan` are duplicate applicants.
 e.g. `Alex Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces. 
-    
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
+
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
 Example:<br>
 `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
@@ -112,18 +111,18 @@ Example:<br>
 ![add-applicant](images/add-applicant.png)
 
 &nbsp;
-
-### Editing a job applicant:`edit [p]`
+### Editing a job applicant: `edit [p]`
 Edits an existing job applicant in the address book
 
-:exclamation: **Take note:** Cannot edit an applicant if he/she has an interview scheduled.
+:exclamation: **Take note: Cannot edit an applicant if he/she has an interview scheduled.**
 
 Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
 
-* At least one of the optional fields must be provided. <br>
-* Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the applicant list. The index must be a positive integer 1, 2, 3, …​
+* Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
+* At least **one** of the optional fields must be provided.
+* Existing values will be updated to the input values.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Example:<br>
 `edit [p] 2 n/Amanda Tan j/Software Developer s/INPROGRESS` <br><br>
@@ -138,14 +137,11 @@ After
 ### Deleting job applicant: `delete [p]` 
 Deletes an existing job applicant from the address book.
 
-:exclamation: **Take note:** Cannot delete an applicant if he/she has an interview scheduled.
+:exclamation: **Take note: Cannot delete an applicant if he/she has an interview scheduled.**
 
 Format: `delete [p] INDEX`
 
-* Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the applicant in the applicant list.
-
-Constraints:
-* `INDEX` must be a positive integer 1, 2, 3, …​ and must be a valid task index.=
+* Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**.`INDEX` **must** be a positive integer 1, 2, 3, …​
 
 Example:<br>
 `delete [p] 1` <br><br>
@@ -154,17 +150,17 @@ Example:<br>
 ### Listing all job applicants: `list [p]`
 Shows a list of all job applicants in the address book.
 
-Format:`list [p]`
+Format: `list [p]`
 
 &nbsp;
 ### Clearing all job applicants: `clear [p]`
 Clears all job applicants from the address book.
 
-:exclamation: **Take note:** Cannot clear applicant list if interview list is not empty.
+:exclamation: **Take note: Cannot clear applicant list if interview list is not empty.**
 
 Format: `clear [p]`
 
-* Clear command does not throw an error even if applicant list is already empty and success message is shown.
+* Clear command does not throw an error even if applicant list is already empty and success message will still be shown.
 
 &nbsp;
 ### Finding job applicant(s) by keywords: `find [p]` 
@@ -180,7 +176,7 @@ Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
 Examples:<br>
 `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
@@ -207,28 +203,27 @@ Examples:<br>
 **:information_source: Notes about the Interview List:**<br>
 
 * Interview list is sorted in date time chronological order.<br>
-  e.g An interview scheduled on 29 March 2020 is listed above an interview scheduled on 2 April 2020.
-* Interview list can contain interviews with date and time past the current date and time. <br>
+  e.g An interview scheduled on 29 March 2020 is listed before an interview scheduled on 2 April 2020.
+* Interview list can contain interviews with date and time before the current date and time. <br>
   e.g. If current date time is 4 April 2022, interview list can still contain interview with date 30 March 2022.
-
+* Interview list can contain interviews with applicants in any stages
+  e.g. A rejected applicant can still be scheduled for an interview
 
 </div>
-&nbsp;
 
-
-&nbsp;
 ### Adding a new interview slot for a job applicant: `add [i]`
 Adds a new job interview slot to the address book.
 
-:exclamation: **Take note:** Only can add an interview for an applicant that is present in applicant list.
+:exclamation: **Take note: Only can add an interview for an applicant that is present in applicant list.**
 
 Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
-* `INDEX` refers to the numerical position of the applicant in the applicant list. The index must be a positive integer 1, 2, 3, …​<br><br>
-* Duplicate interviews cannot be added. Interviews are considered to be duplicates if they share the same date AND time.
+* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br><br>
+* `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
+* Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
 Example:<br>
 `add [i] 1 d/2021-06-25 t/17:30`
@@ -240,17 +235,19 @@ Example:<br>
 Edits an existing interview slot in the address book
 
 Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
+ 
+* Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
+* `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
+* At least **one** of the optional fields must be provided. 
+* Existing values will be updated to the input values.
 
-* At least one of the optional fields must be provided. <br>  
-* Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. The index must be a positive integer 1, 2, 3, …​
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
-
-Examples: <br> 
+Example: <br> 
 `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
 Before
-![edit-interview](images/edit-interview-1.png)
+![edit-interview](images/edit-interview-1.PNG)
 
 After
 ![edit-interview](images/edit-interview.png)
@@ -261,7 +258,7 @@ Deletes an existing interview slot in the address book.
 
 Format: `delete [i] INDEX`
 
-* Deletes the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the interview in the interview list. The index must be a positive integer 1, 2, 3, …​
+* Deletes the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 
 Example:<br>
 `delete [i] 1`
@@ -279,7 +276,7 @@ Clears all interviews from the address book.
 
 Format: `clear [i]`
 
-* Clear command does not throw an error even if interview list is already empty and success message is shown.
+* Clear command does not throw an error even if interview list is already empty and success message will still be shown.
 
 &nbsp;
 ### Finding scheduled interview slot(s) by keywords: `find [i]`
@@ -295,7 +292,7 @@ Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
 `find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
@@ -313,26 +310,25 @@ Examples:<br>
 **:information_source: Notes about the Task List:**<br>
 
 * Task list is sorted in date time chronological order.<br>
-  e.g An task scheduled on 29 March 2020 is listed above a task scheduled on 2 April 2020.
-* Task list can contain tasks with date and time past the current date and time. <br>
+  e.g An task scheduled on 29 March 2020 is listed before a task scheduled on 2 April 2020.
+* Task list can contain tasks with date and time before the current date and time. <br>
   e.g. If current date time is 4 April 2022, task list can still contain task with date 30 March 2022.
 
-
 </div>
-&nbsp;
 
 ### Adding a new task to the miscellaneous task list: `add [t]`
 Adds a new task to the address book.
 
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
-* Duplicate tasks cannot be added. Tasks are considered to be duplicates if they share the same header AND date AND time.
+* `DATE` and `TIME` refers to the due date and time of the task.
+* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**.
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
 * If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces.
 e.g. `Update interview list` and `Update         interview list` are duplicate headers.
 e.g. `Update interview list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Example:<br>
 `add [t] h/Add interview slots d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
@@ -345,12 +341,14 @@ Edits an existing task in the address book
 
 Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
-* At least one of the optional fields must be provided. <br>
-* Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
+* `DATE` and `TIME` refers to the due date and time of the task.
+* Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the **task in the task list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
+* At least **one** of the optional fields must be provided.
+* Existing values will be updated to the input values.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
-Examples: <br>
+Example: <br>
 `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
 
 Before
@@ -367,7 +365,7 @@ Deletes an existing task in the address book.
 
 Format: `delete [t] INDEX`
 
-* Deletes the task at the specified `INDEX`. `INDEX` refers to the numerical position of the task in the task list. The index must be a positive integer 1, 2, 3, …​
+* Deletes the task at the specified `INDEX`. `INDEX` refers to the numerical position of the **task in the task list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 
 Example:<br>
 `delete [t] 1`
@@ -385,7 +383,7 @@ Clears all tasks from the address book.
 
 Format: `clear [t]`
 
-* Clear command does not throw an error even if task list is already empty and success message is shown.
+* Clear command does not throw an error even if task list is already empty and success message will still be shown.
 
 &nbsp;
 ### Finding task(s) by keywords: `find [t]`
@@ -401,7 +399,7 @@ Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
 `find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br>
@@ -472,6 +470,10 @@ Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
+:exclamation: **Important:** Data in exported csv file will look different depending on the application used to view the
+file even though the data is seperated by tabs.
+
+
 # Summary
 ## Flags and Parameters Format Constraints
 
@@ -480,7 +482,7 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv`
 |    a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |    e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
-|    g/ |              | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|    g/ | KEYWORD      | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |    h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |    j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -501,29 +503,29 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
 ## Command Summary
 
-|               Action | Format                                                                                      |
-|---------------------:|:--------------------------------------------------------------------------------------------|
-|        Add Interview | `add [i] 1 d/DATE t/TIME`                                                                   |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`                    |
-|             Add Task | `add [t] h/HEADER d/DATE t/TIME i/INFORMATION`                                              |
-|     Clear Interviews | `clear [i]`                                                                                 |
-| Clear Job Applicants | `clear [p]`                                                                                 |
-|          Clear Tasks | `clear [t]`                                                                                 |
-|     Delete Interview | `delete [i] INDEX`                                                                          |
-| Delete Job Applicant | `delete [p] INDEX`                                                                          |
-|          Delete Task | `delete [t] INDEX`                                                                          |
-|       Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>`                                                          |
-|   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` |
-|            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>`                               |
-|                 Exit | `exit`                                                                                      |
-|       Find Interview | `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
-|   Find Job Applicant | `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
-|            Find Task | `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                             |
-|                 Help | `help`                                                                                      |
-|      List Interviews | `list [i]`                                                                                  |
-|  List Job Applicants | `list [p]`                                                                                  |
-|           List Tasks | `list [t]`                                                                                  |
-|               Import | `import FILEPATH`                                                                           |
-|               Export | `export FILEPATH`                                                                           |
-|                 Help | `help`                                                                                      |
-|                 Exit | `exit`                                                                                      |
+|               Action | Format                                                                                                                                                            |
+|---------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        Add Interview | `add [i] INDEX d/DATE t/TIME` (`INDEX` refers to numerical position of applicant in applicant list)                                                               |
+|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`                                                                                          |
+|             Add Task | `add [t] h/HEADER d/DATE t/TIME i/INFORMATION`                                                                                                                    |
+|     Clear Interviews | `clear [i]`                                                                                                                                                       |
+| Clear Job Applicants | `clear [p]`                                                                                                                                                       |
+|          Clear Tasks | `clear [t]`                                                                                                                                                       |
+|     Delete Interview | `delete [i] INDEX` (`INDEX` refers to numerical position of interview in interview list)                                                                          |
+| Delete Job Applicant | `delete [p] INDEX` (`INDEX` refers to numerical position of applicant in applicant list)                                                                          |
+|          Delete Task | `delete [t] INDEX` (`INDEX` refers to numerical position of task in task list)                                                                                    |
+|       Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>` (`INDEX` refers to numerical position of interview in interview list)                                                          |
+|   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` (`INDEX` refers to numerical position of applicant in applicant list) |
+|            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` (`INDEX` refers to numerical position of task in task list)                                         |
+|                 Exit | `exit`                                                                                                                                                            |
+|       Find Interview | `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                                                                                                   |
+|   Find Job Applicant | `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                                                                                                   |
+|            Find Task | `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                                                                                                   |
+|                 Help | `help`                                                                                                                                                            |
+|      List Interviews | `list [i]`                                                                                                                                                        |
+|  List Job Applicants | `list [p]`                                                                                                                                                        |
+|           List Tasks | `list [t]`                                                                                                                                                        |
+|               Import | `import FILEPATH`                                                                                                                                                 |
+|               Export | `export FILEPATH`                                                                                                                                                 |
+|                 Help | `help`                                                                                                                                                            |
+|                 Exit | `exit`                                                                                                                                                            |

@@ -38,7 +38,7 @@ public class UniqueInterviewList implements Iterable<Interview> {
     }
 
     /**
-     * Adds a interview to the list.
+     * Adds an interview to the list.
      * The interview must not already exist in the list.
      */
     public void add(Interview toAdd) {
@@ -53,7 +53,7 @@ public class UniqueInterviewList implements Iterable<Interview> {
     /**
      * Replaces the interview {@code target} in the list with {@code editedInterview}.
      * {@code target} must exist in the list.
-     * The Interview identity of {@code editedInterview} must not be the same as another existing interview in the list.
+     * The interview identity of {@code editedInterview} must not be the same as another existing interview in the list.
      */
     public void setInterview(Interview target, Interview editedInterview) {
         requireAllNonNull(target, editedInterview);
@@ -71,8 +71,8 @@ public class UniqueInterviewList implements Iterable<Interview> {
     }
 
     /**
-     * Removes the equivalent Interview from the list.
-     * The Interview must exist in the list.
+     * Removes the equivalent interview from the list.
+     * The interview must exist in the list.
      */
     public void remove(Interview toRemove) {
         requireNonNull(toRemove);

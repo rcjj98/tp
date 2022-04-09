@@ -11,9 +11,6 @@ import java.util.function.Predicate;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
 
-/**
- * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
- */
 public class TaskContainsKeywordPredicate implements Predicate<Task> {
     private final List<String> keywords;
 

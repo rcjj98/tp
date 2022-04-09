@@ -39,8 +39,8 @@ public class Task {
     }
 
     /**
-     * Returns true if both Tasks have the same Information.
-     * This defines a weaker notion of equality between two Tasks.
+     * Returns true if both tasks have the same header, date and time.
+     * This defines a weaker notion of equality between two tasks.
      */
     public boolean isSameTask(Task otherTask) {
         if (otherTask == this) {
@@ -54,8 +54,8 @@ public class Task {
     }
 
     /**
-     * Returns true if both interviews have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both tasks have the same identity and data fields.
+     * This defines a stronger notion of equality between two tasks.
      */
     @Override
     public boolean equals(Object other) {
