@@ -120,7 +120,7 @@ Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_P
 
 * Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * At least **one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -222,6 +222,7 @@ Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
 * Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
+e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 1 d/2021-06-30 t/12:30` are **NOT** adding duplicate interviews as the same applicant can have more than 1 interview.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
 
@@ -239,7 +240,7 @@ Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
 * Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
 * At least **one** of the optional fields must be provided. 
-* Existing values will be updated to the input values.
+* Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -344,7 +345,7 @@ Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 * `DATE` and `TIME` refers to the due date and time of the task.
 * Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the **task in the task list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * At least **one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 

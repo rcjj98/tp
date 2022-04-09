@@ -154,7 +154,7 @@ public class ArgumentTokenizer {
         if (trimmedArgsString.equals("") || trimmedArgsString.length() < 3) {
             throw new ParseException(MESSAGE_NO_TYPE_GIVEN);
         } else if (trimmedArgsString.charAt(0) != '[' || trimmedArgsString.charAt(2) != ']') {
-            throw new ParseException(MESSAGE_NO_TYPE_GIVEN);
+            throw new ParseException(MESSAGE_INVALID_TYPE_GIVEN);
         } else if (trimmedArgsString.charAt(1) != 'p' && trimmedArgsString.charAt(1) != 'i'
             && trimmedArgsString.charAt(1) != 't') {
             throw new ParseException(MESSAGE_INVALID_TYPE_GIVEN);
