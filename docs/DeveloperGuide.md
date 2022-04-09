@@ -174,7 +174,7 @@ An invalid file path is defined as follows:
 
 #### Implementation
 
-The export feature is facilitated by the `ExportCommand` while the necessary checks for the export 
+The export feature is facilitated by the `ExportCommand` while the necessary checks for the export
 feature is facilitated by the `ExportCommandParser`.
 
 &nbsp;
@@ -229,7 +229,7 @@ Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportComm
 
 Step 3. After checking that the file path is valid, the data type of the file path is converted from its *string* representation into a *Path* representation.
 
-Step 4. The `ImportCommandParser#readCsv()` is called to parse the csv file. From there, 3 methods are called to ensure the correctness of the csv file. 
+Step 4. The `ImportCommandParser#readCsv()` is called to parse the csv file. From there, 3 methods are called to ensure the correctness of the csv file.
  * `ImportCommandParser#getFields()`: ensures that the number of fields in each line matches the number of fields required by the application
  * `ImportCommandParser#createPerson()`: ensures that each field is valid and correct and converts the line into a person object.
  * `ImportCommandParser#updatePersons()`: ensures that each person in the csv file is unique with regards to the csv file.
@@ -313,7 +313,7 @@ The following sequence diagram summarises how the find operation works
 * Required to manage a significant number of contacts.
 * Prefer desktop apps over other types.
 * Proficient typists.
-* Prefers typing to mouse interactions. 
+* Prefers typing to mouse interactions.
 * Reasonably comfortable using CLI apps.
 
 **Value proposition**:
@@ -405,7 +405,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new INDEX. <br>
       Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
       Use case resumes from step 2. <br><br>
-    
+
 **Use case: UC3 - Add a task**
 
 **MSS**
@@ -455,7 +455,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new INDEX. <br>
       Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
       Use case resumes from step 2. <br><br>
-  
+
 * 1c. The given applicant has an interview.
 
     * 1c1. HRConnect requests for the user to delete the interview.
@@ -802,7 +802,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1.  User requests to import data.
-2.  HRConnect shows all applicants imported into the address book. 
+2.  HRConnect shows all applicants imported into the address book.
 
     Use case ends.
 
@@ -814,11 +814,11 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1a2. User enters new filepath. <br>
       Steps 1a1-1a2 are repeated until the filepath entered is valid. <br>
       Use case resumes from step 2. <br><br>
-  
+
 * 1b. Duplicate applicant found in address book
 
     * 1a1. HRConnect alerts user that applicant is already in address book and aborts the import.
-    * 1b1. User deletes applicant from address book. (UC4)  
+    * 1b1. User deletes applicant from address book. (UC4)
       Use case resumes from step 1. <br><br>
 
 
@@ -872,11 +872,11 @@ testers are expected to do more *exploratory* testing.
 
 ### Deleting a Job Applicant
 
-// test for if got interviews 
+// test for if got interviews
 
 ### Clearing all Job Applicants
 
-// test for if got interviews 
+// test for if got interviews
 
 ### Finding a Job Applicant
 
@@ -898,11 +898,11 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
-  
+
    1. Test case: `delete Jeremy`<br>
-      Expected: Person with name "Jeremy" is deleted. If name does not exist in the database, error is thrown. 
-      Error details shown in the status message. 
- 
+      Expected: Person with name "Jeremy" is deleted. If name does not exist in the database, error is thrown.
+      Error details shown in the status message.
+
 1. _{ more test cases …​ }_
 
 ### Saving data
