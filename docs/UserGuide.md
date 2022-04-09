@@ -428,9 +428,9 @@ AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.jso
 
 Imports all **job applicants** data from a *csv* save file generated from this address book.
 
-File Structure for csv file (tab delimited): 
-   
-name | phone_number | email | address | job_title | current_application_progress
+File structure for csv file (tab delimited): 
+
+name | phone number | email | address | job title | stage
 
 Notes:
 1. Filepath can be relative or absolute.
@@ -449,9 +449,9 @@ Example:<br>
 
 Exports all **job applicants** data from the address book into a *csv* save file.
 
-File Structure for csv file (tab delimited): 
-   
-name | phone_number | email | address | job_title | current_application_progress
+File structure for csv file (tab delimited): 
+
+name | phone number | email | address | job title | stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
@@ -482,7 +482,7 @@ file even though the data is seperated by tabs.
 |    a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |    e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
-|    g/ | KEYWORD      | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|    g/ | GROUP        | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |    h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |    j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
