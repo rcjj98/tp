@@ -318,7 +318,7 @@ The following sequence diagram summarises how the find operation works
 * Find applicants based on their details, e.g. name, position applied, stage of application.
 * Archive/Retrieve applicants' details for long term storage/ easy transfer of data into address book.
 * Keep track of applicant's upcoming and past interviews.
-* A task list to keep track of miscellaneous information.
+* A task list to keep track of miscellaneous tasks.
 
 ### User stories
 
@@ -328,24 +328,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 |----------|-------------------|--------------------------------------------------|--------------------------------------------------------|
 | `* * *`  | Tech HR Recruiter | add applicants to my address book                | record their details                                   |
 | `* * *`  | Tech HR Recruiter | take note of scheduled interviews for applicants | keep track of their interview dates                    |
-| `* * *`  | Tech HR Recruiter | record miscellaneous information                 | keep track of any important details                    |
+| `* * *`  | Tech HR Recruiter | record miscellaneous task                        | keep track of any important details                    |
 | `* * *`  | Tech HR Recruiter | view the details of all contacts                 | see all my contacts at a glance                        |
 | `* * *`  | Tech HR Recruiter | view all scheduled interviews                    | see all upcoming and past interviews                   |
-| `* * *`  | Tech HR Recruiter | view all recorded miscellaneous information      | see all important information at a glance              |
+| `* * *`  | Tech HR Recruiter | view all recorded miscellaneous task             | see all important tasks at a glance                    |
 | `* * *`  | Tech HR Recruiter | remove any applicant from my contact list        | delete any applicant that is no longer of interest     |
 | `* * *`  | Tech HR Recruiter | remove a scheduled interview                     | delete any interview that is cancelled                 |
-| `* * *`  | Tech HR Recruiter | remove any recorded information                  | delete tasks/information off my task list              |
-| `* * *`  | tech HR recruiter | update any applicant's details                   | edit any mistakes in the applicant's detail            |
-| `* * *`  | tech HR recruiter | update the details of a scheduled interview      | edit any mistakes in the scheduled interview           |
-| `* * *`  | tech HR recruiter | update any task/information details              | edit any mistakes in the miscellaneous information     |
-| `* * *`  | tech HR recruiter | find an applicant in my address book             | locate them easily                                     |
-| `* * *`  | tech HR recruiter | find a scheduled interview                       | locate a specific interview                            |
-| `* * *`  | tech HR recruiter | find specific information I recorded             | locate details and information quickly                 |
-| `* * *`  | tech HR recruiter | clear all applicants from my addressbook         | easily empty my address book                           |
-| `* * *`  | tech HR recruiter | clear all schedule interviews                    | easily remove all schedule interviews                  |
-| `* * *`  | tech HR recruiter | clear all recorded miscellaneous information     | easily remove all recorded information                 |
-| `* *`    | tech HR recruiter | export details of all applicants                 | archive the data for future reference                  |
-| `* *`    | tech HR recruiter | import details of applicants                     | easily transfer applicant details into my address book |
+| `* * *`  | Tech HR Recruiter | remove any recorded tasks                        | delete tasks off my task list                          |
+| `* * *`  | Tech HR Recruiter | update any applicant's details                   | edit any mistakes in the applicant's detail            |
+| `* * *`  | Tech HR Recruiter | update the details of a scheduled interview      | edit any mistakes in the scheduled interview           |
+| `* * *`  | Tech HR Recruiter | update any task details                          | edit any mistakes in the miscellaneous tasks           |
+| `* *`    | Tech HR Recruiter | find an applicant in my address book             | locate them easily                                     |
+| `* *`    | Tech HR Recruiter | find a scheduled interview                       | locate a specific interview                            |
+| `* *`    | Tech HR Recruiter | find specific tasks I recorded                   | locate the quickly                                     |
+| `* * *`  | Tech HR Recruiter | clear all applicants from my addressbook         | easily empty my address book                           |
+| `* * *`  | Tech HR Recruiter | clear all schedule interviews                    | easily remove all schedule interviews                  |
+| `* * *`  | Tech HR Recruiter | clear all recorded miscellaneous task            | easily remove all recorded tasks                       |
+| `* *`    | Tech HR Recruiter | export details of all applicants                 | archive the data for future reference                  |
+| `* *`    | Tech HR Recruiter | import details of applicants                     | easily transfer applicant details into my address book |
 
 
 
@@ -824,17 +824,13 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4. Should only be used by Tech HR Recruiters.
-
-*{More to be added}*
 
 ### Glossary
 
+* **Applicant**: A person who is applying for a job position in the company.
+* **Tech HR Recruiters**: A Human Resource employee that assists in the proper staffing of technical positions within an organization.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 
-* **Private contact detail**: A contact detail that is not meant to be shared with others
-
-* **Tech HR Recruiters**: a Human Resource specialist that assists in the proper staffing of technical positions within an organization
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -865,47 +861,109 @@ testers are expected to do more *exploratory* testing.
 
 ### Adding a Task
 
+1. Adding a Task into the task list. <br>
+   1. Test case: `add [t] h/Add Stacy into contacts d/2021-05-06 t/10:10 i/Stacy called today` <br>
+    Expected: The task specified is added to the task list. Details of the added tasks shown in a message. <br><br>
+   
+   2. Test case: `add [t] h/Add Stacy into contacts d/6th May 2021 t/10:10 i/Stacy called today` <br> 
+   Expected: No task is added. Error details shown in the status message <br><br>
+   
+   3. Test case: `add [t] h/Add Stacy into contacts d/2021-05-06 t/10:10pm i/Stacy called today`
+   Expected: No task is added. Error details shown in the status message  <br><br>
+
+   4. Test case: `add [t] h/Add Stacy into contacts d/2021-05-06 t/10:10`
+      Expected: No task is added. Error details shown in the status message  <br><br>
+
 ### Editing an Interview
 
-### Deleting a Job Applicant
+1. Editing an Interview in the interview list. <br>
+    1. Test case: `edit [i] 1 d/2021-05-06 t/10:30` <br>
+       Expected: The interview specified is edited. Details of the edited interview shown in a message. <br><br>
 
-// test for if got interviews 
+    2. Test case: `edit [i] 1 d/6th May 2021 t/10:30` <br>
+       Expected: No task is added. Error details shown in the status message <br><br>
 
-### Clearing all Job Applicants
+    3. Test case: `edit [i] 1 d/2021-05-06 t/10:30pm` <br>
+       Expected: No task is added. Error details shown in the status message  <br><br>
+   
+    4. Test case: `edit [i] 1 d/2021-05-06` <br>
+       Expected: No task is added. Error details shown in the status message  <br><br>
+    
 
-// test for if got interviews 
+### Deleting a job applicant with a scheduled interview
 
+1. Add an applicant to an empty address book
+
+    1. `add [p] n/John Doe p/01234567 e/johnd@example.com a/Pasir Ris BLK121 j/Software Engineer s/INPROGRESS`
+    <br><br>
+
+2. Schedule an interview for John Doe
+
+    1. `add [i] 1 d/2021-05-06 t/10:30`
+    <br><br>
+    
+3. Delete John Doe from address book
+
+    1. Test case: Do a. then b.
+       1. `delete [i] 1`
+       2. `delete [p] 1` <br>
+       Expected: John Doe removed from address book. Details of deleted applicant shown in the status message.  
+       <br>
+    2. Test case:`delete [p] 1` <br> 
+    Expected: No applicant deleted from address book. Error details shown in the status message  <br><br>
+
+### Clearing all Job Applicants 
+
+1. Clear all applicants in address book with 0 scheduled interviews in interview list.
+
+    1. Test case: `clear [p]`  <br>
+    Expected: All applicants cleared from address book. Message indicating successful clearing of all applicants shown in status window
+       <br><br>
+    
+2. Clear all applicants in address book with 1 or more interview(s) in interview list.
+
+    1. Test case: `clear [p]` <br> 
+    Expected: No applicants cleared from address book. Error details shown in the status message  <br><br>
+    
 ### Finding a Job Applicant
 
+1. Finding all applicants in the ACCEPTED stage. <br><br>
+    1. Test case: `find [p] g/ s/ACCEPTED` <br>
+       Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-// THIS BOTTOM ARE JUST EXAMPLES
+    2. Test case: `find [p] g/ ACCEPTED` <br>
+       Expected: No applicant found. Error details shown in the status message <br><br>
+
+    3. Test case: `find [p] s/ACCEPTED`
+       Expected: No applicant found. Error details shown in the status message <br><br>
+
+    4. Test case: `find g/ s/ACCEPTED`
+       Expected: No applicant found. Error details shown in the status message <br><br>
 
 
-### Deleting a person
+2. Finding all applicants applying for Computer System Analyst job position **and** in the ACCEPTED stage. <br><br>
+    1. Test case: `find [p] g/ j/Computer System Analyst s/ACCEPTED` <br>
+       Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-1. Deleting a person while all persons are being shown
+    2. Test case: `find [p] g/ Computer System Analyst s/ACCEPTED` <br>
+       Expected: No applicant found. Error details shown in the status message <br><br>
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    3. Test case: `find [p] j/Computer System Analyst s/ACCEPTED`
+       Expected: No applicant found. Error details shown in the status message <br><br>
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+    4. Test case: `find g/ j/Computer System Analyst s/ACCEPTED`
+       Expected: No applicant found. Error details shown in the status message <br><br>
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
-  
-   1. Test case: `delete Jeremy`<br>
-      Expected: Person with name "Jeremy" is deleted. If name does not exist in the database, error is thrown. 
-      Error details shown in the status message. 
- 
-1. _{ more test cases …​ }_
+2. Finding all applicants applying for Computer Systems Analyst job position **or** in the ACCEPTED stage. <br><br>
+    1. Test case: `find [p] g/ j/Computer Systems Analyst g/ s/ACCEPTED` <br>
+       Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-### Saving data
+    2. Test case: `find [p] g/ Computer Systems Analyst g/ s/ACCEPTED` <br>
+       Expected: No applicant found. Error details shown in the status message <br><br>
 
-1. Dealing with missing/corrupted data files
+    3. Test case: `find [p] j/Computer Systems Analyst s/ACCEPTED`
+       Expected: No applicant found. Error details shown in the status message <br><br>
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
+    4. Test case: `find g/ j/Computer Systems Analyst g/ s/ACCEPTED`
+       Expected: No applicant found. Error details shown in the status message <br><br>
