@@ -915,76 +915,76 @@ testers are expected to do more *exploratory* testing.
 
 1. Add an applicant to an empty address book
 
-    1. `add [p] n/John Doe p/01234567 e/johnd@example.com a/Pasir Ris BLK121 j/Software Engineer s/INPROGRESS`
+    1a. `add [p] n/John Doe p/01234567 e/johnd@example.com a/Pasir Ris BLK121 j/Software Engineer s/INPROGRESS`
     <br><br>
 
 2. Schedule an interview for John Doe
 
-    1. `add [i] 1 d/2021-05-06 t/10:30`
+   2a. `add [i] 1 d/2021-05-06 t/10:30`
     <br><br>
     
 3. Delete John Doe from address book
 
-    1. Test case: Do a. then b.
-       1. `delete [i] 1`
-       2. `delete [p] 1` <br>
+   3a. Test case: Do 3a1 then 3a2 <br>
+       3a1. `delete [i] 1` <br>
+       3a2.`delete [p] 1` <br>
        Expected: John Doe removed from address book. Details of deleted applicant shown in the status message.  
        <br>
-    2. Test case:`delete [p] 1` <br> 
+   3b. Test case:`delete [p] 1` <br> 
     Expected: No applicant deleted from address book. Error details shown in the status message  <br><br>
 
 ### Clearing all Job Applicants 
 
 1. Clear all applicants in address book with 0 scheduled interviews in interview list.
 
-    1. Test case: `clear [p]`  <br>
+    1a. Test case: `clear [p]`  <br>
     Expected: All applicants cleared from address book. Message indicating successful clearing of all applicants shown in status window
        <br><br>
     
 2. Clear all applicants in address book with 1 or more interview(s) in interview list.
 
-    1. Test case: `clear [p]` <br> 
+    2a. Test case: `clear [p]` <br> 
     Expected: No applicants cleared from address book. Error details shown in the status message  <br><br>
     
 ### Finding a Job Applicant
 
 1. Finding all applicants in the ACCEPTED stage. <br><br>
-    1. Test case: `find [p] g/ s/ACCEPTED` <br>
+    1a. Test case: `find [p] g/ s/ACCEPTED` <br>
        Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-    2. Test case: `find [p] g/ ACCEPTED` <br>
+    1b. Test case: `find [p] g/ ACCEPTED` <br>
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    3. Test case: `find [p] s/ACCEPTED`
+    1c. Test case: `find [p] s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    4. Test case: `find g/ s/ACCEPTED`
+    1d. Test case: `find g/ s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
 
 2. Finding all applicants applying for Computer System Analyst job position **and** in the ACCEPTED stage. <br><br>
-    1. Test case: `find [p] g/ j/Computer System Analyst s/ACCEPTED` <br>
+    2a. Test case: `find [p] g/ j/Computer System Analyst s/ACCEPTED` <br>
        Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-    2. Test case: `find [p] g/ Computer System Analyst s/ACCEPTED` <br>
+    2b. Test case: `find [p] g/ Computer System Analyst s/ACCEPTED` <br>
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    3. Test case: `find [p] j/Computer System Analyst s/ACCEPTED`
+    2c. Test case: `find [p] j/Computer System Analyst s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    4. Test case: `find g/ j/Computer System Analyst s/ACCEPTED`
+    2d. Test case: `find g/ j/Computer System Analyst s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
 
-2. Finding all applicants applying for Computer Systems Analyst job position **or** in the ACCEPTED stage. <br><br>
-    1. Test case: `find [p] g/ j/Computer Systems Analyst g/ s/ACCEPTED` <br>
+3. Finding all applicants applying for Computer Systems Analyst job position **or** in the ACCEPTED stage. <br><br>
+    3a. Test case: `find [p] g/ j/Computer Systems Analyst g/ s/ACCEPTED` <br>
        Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-    2. Test case: `find [p] g/ Computer Systems Analyst g/ s/ACCEPTED` <br>
+    3b. Test case: `find [p] g/ Computer Systems Analyst g/ s/ACCEPTED` <br>
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    3. Test case: `find [p] j/Computer Systems Analyst s/ACCEPTED`
+    3c. Test case: `find [p] j/Computer Systems Analyst s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    4. Test case: `find g/ j/Computer Systems Analyst g/ s/ACCEPTED`
+    3d. Test case: `find g/ j/Computer Systems Analyst g/ s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
