@@ -8,10 +8,9 @@ skinparam classBackgroundColor LOGIC_COLOR
 package "Parser classes"{
 Class "<<interface>>\nParser" as Parser
 Class "{abstract}\nCommand" as Command
-Class "{abstract}\nXYZCommand" as XYZCommand
+Class "{abstract}\nXYZCommand" as XYZAbstractCommand
 Class AddressBookParser
 Class XYZCommandParser
-Class ABCCommandParser
 Class CliSyntax
 Class ParserUtil
 Class ArgumentMultimap
@@ -19,7 +18,7 @@ Class ArgumentTokenizer
 Class Prefix
 Class XYZTYPECommandParser
 Class XYZTYPECommand
-Class ABCCommand
+Class XYZCommand
 enum Type
 }
 
@@ -27,31 +26,26 @@ Class HiddenOutside #FFFFFF
 HiddenOutside ..> AddressBookParser
 
 AddressBookParser .down.> XYZCommandParser: creates >
-AddressBookParser .down.> ABCCommandParser: creates >
 AddressBookParser ..> Command : returns >
-XYZCommandParser ..> XYZCommand : creates >
+XYZCommandParser ..> XYZTYPECommand : creates >
 XYZCommandParser .up.|> Parser
 XYZCommandParser ..> ArgumentMultimap
 XYZCommandParser ..> ArgumentTokenizer
 XYZCommandParser ..> CliSyntax
-XYZCommandParser ..> XYZTYPECommandParser : creates >
-ABCCommandParser ..> ABCCommand : creates >
-ABCCommandParser .up.|> Parser
-ABCCommandParser ..> ArgumentMultimap
-ABCCommandParser ..> ArgumentTokenizer
-ABCCommandParser ..> CliSyntax
+XYZCommandParser ..> XYZCommand : creates >
+XYZCommandParser ..> XYZAbstractCommand : returns >
 XYZTYPECommandParser ..> XYZTYPECommand : creates >
-XYZTYPECommandParser ..> XYZCommand : returns >
 XYZTYPECommandParser .up.|> Parser
-XYZTYPECommand -up-|> XYZCommand
+XYZTYPECommand -up-|> XYZAbstractCommand
 XYZTYPECommandParser -up-|> Type
 ArgumentTokenizer .left.> ArgumentMultimap
 CliSyntax ..> Prefix
 XYZCommandParser ..> ParserUtil
 ParserUtil .down.> Prefix
 ArgumentTokenizer .down.> Prefix
+XYZAbstractCommand -right-|> Command
 XYZCommand -up-|> Command
 XYZCommandParser ..> XYZTYPECommandParser: creates >
-ABCCommand -up|> Command
+
 
 @enduml
