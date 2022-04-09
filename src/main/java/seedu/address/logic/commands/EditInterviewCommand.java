@@ -39,7 +39,7 @@ public class EditInterviewCommand extends EditCommand {
 
     /**
      * @param index of the interview in the filtered interview list to edit
-     * @param editInterviewDescriptor details to edit the person with
+     * @param editInterviewDescriptor details to edit the interview with
      */
     public EditInterviewCommand(Index index, EditInterviewDescriptor editInterviewDescriptor) {
         requireNonNull(index);
@@ -73,7 +73,7 @@ public class EditInterviewCommand extends EditCommand {
 
     /**
      * Creates and returns a {@code Interview} with the details of {@code interviewToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * edited with {@code editInterviewDescriptor}.
      */
     private static Interview createEditedInterview(
             Interview interviewToEdit, EditInterviewDescriptor editInterviewDescriptor) {

@@ -73,7 +73,7 @@ public class FindCommandParserTest {
         assertParseSuccess(
                 interview, " [i] g/n/bob tan j/data scientist g/n/connor lee j/accountant", findInterview);
 
-        // finding persons
+        // finding applicants
         FindPersonCommand findPerson = new FindPersonCommand(new PersonContainsKeywordsPredicate(groups));
         assertParseSuccess(
                 person, " [p] g/n/bob tan j/data scientist g/n/connor lee j/accountant", findPerson);

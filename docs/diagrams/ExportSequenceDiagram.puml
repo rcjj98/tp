@@ -32,7 +32,7 @@ deactivate ExportCommand
 [<-- ExportCommandParser : e
 deactivate ExportCommandParser
 
-[<-[hidden]- ExportCommandParser : e
+[<-[hidden]- ExportCommandParser
 destroy ExportCommandParser
 
 [-> ExportCommand : execute()

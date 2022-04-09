@@ -23,7 +23,7 @@ import seedu.address.model.tasks.Task;
 @JsonRootName(value = "addressbook")
 class JsonSerializableAddressBook {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Applicant list contains duplicate applicant(s).";
     public static final String MESSAGE_DUPLICATE_INTERVIEW = "Interview list contains duplicate interview(s).";
     public static final String MESSAGE_DUPLICATE_TASK = "Task list contains duplicate task(s).";
     public static final String MESSAGE_NONEXISTENT_PERSON = "%s does not exist in database";
@@ -33,7 +33,7 @@ class JsonSerializableAddressBook {
     private final List<JsonAdaptedTask> tasks = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons and interviews.
+     * Constructs a {@code JsonSerializableAddressBook} with the given applicants and interviews and tasks.
      */
     @JsonCreator
     public JsonSerializableAddressBook(@JsonProperty("persons") List<JsonAdaptedPerson> persons,
@@ -72,13 +72,6 @@ class JsonSerializableAddressBook {
 
         for (JsonAdaptedInterview jsonAdaptedInterview : interviews) {
             Interview interview = jsonAdaptedInterview.toModelType();
-            Person currPerson = interview.getPerson();
-
-            // check if the person exists in the addressBook
-            if (!addressBook.hasPerson(currPerson)) {
-                throw new IllegalValueException(String.format(MESSAGE_NONEXISTENT_PERSON, currPerson.getName()));
-            }
-
             if (addressBook.hasInterview(interview)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_INTERVIEW);
             }

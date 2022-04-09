@@ -27,6 +27,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -160,9 +161,8 @@ public class ParserUtil {
     /**
      * Parses a {@code String header} into a {@code Header}.
      * Leading and trailing whitespaces will be trimmed.
-     * @param header
-     * @return Header
-     * @throws ParseException
+     *
+     * @throws ParseException if the given {@code header} is invalid.
      */
     public static Header parseHeader(String header) throws ParseException {
         requireNonNull(header);
@@ -176,9 +176,8 @@ public class ParserUtil {
     /**
      * Parses a {@code String information} into a {@code Information}.
      * Leading and trailing whitespaces will be trimmed.
-     * @param information
-     * @return Information
-     * @throws ParseException
+     *
+     * @throws ParseException if the given {@code information} is invalid.
      */
     public static Information parseInformation(String information) throws ParseException {
         requireNonNull(information);

@@ -12,7 +12,16 @@ import seedu.address.model.tasks.exceptions.DuplicateTaskException;
 import seedu.address.model.tasks.exceptions.TaskNotFoundException;
 
 /**
- * A list containing Tasks that has only the add and delete methods.
+ * A list of tasks that enforces uniqueness between its elements and does not allow nulls.
+ * A task is considered unique by comparing using {@code Task#isSameTask(Task)}.
+ * As such, adding and updating of Tasks uses Task#isSameTask(Task)
+ * for equality so as to ensure that the task being added or updated is unique in terms of
+ * identity in the UniqueTaskList. However, the removal of a task uses Task#equals(Object)
+ * so as to ensure that the task with exactly the same fields will be removed.
+ *
+ * Supports a minimal set of list operations.
+ *
+ * @see Task#isSameTask(Task)
  */
 public class UniqueTaskList implements Iterable<Task> {
 
@@ -29,8 +38,8 @@ public class UniqueTaskList implements Iterable<Task> {
     }
 
     /**
-     * Adds a Task to the list.
-     * The Task must not already exist in the list.
+     * Adds a task to the list.
+     * The task must not already exist in the list.
      * @throws Exception
      */
     public void add(Task toAdd) {
@@ -64,8 +73,8 @@ public class UniqueTaskList implements Iterable<Task> {
     }
 
     /**
-     * Removes the equivalent Task from the list.
-     * The Task must exist in the list.
+     * Removes the equivalent task from the list.
+     * The task must exist in the list.
      * @throws Exception
      */
     public void remove(Task toRemove) {

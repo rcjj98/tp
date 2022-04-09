@@ -16,9 +16,16 @@ import seedu.address.model.tasks.Header;
 import seedu.address.model.tasks.Information;
 import seedu.address.model.tasks.Task;
 
+/**
+ * Parses input arguments and creates a new AddTaskCommand object
+ */
 public class AddTaskCommandParser implements Parser<AddTaskCommand> {
 
-    @Override
+    /**
+     * Parses the given {@code String} of arguments in the context of the AddTaskCommand
+     * and returns an AddTaskCommand object for execution.
+     * @throws ParseException if the user input does not conform the expected format
+     */
     public AddTaskCommand parse(String args) throws ParseException {
 
         ArgumentMultimap argMultimap =

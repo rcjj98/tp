@@ -231,7 +231,7 @@ public class AddPersonCommandTest {
     }
 
     /**
-     * A Model stub that contains a single person.
+     * A Model stub that contains a single applicant.
      */
     private class ModelStubWithPerson extends ModelStub {
         private final Person person;
@@ -249,7 +249,7 @@ public class AddPersonCommandTest {
     }
 
     /**
-     * A Model stub that always accept the person being added.
+     * A Model stub that always accept the applicant being added.
      */
     private class ModelStubAcceptingPersonAdded extends ModelStub {
         final ArrayList<Person> personsAdded = new ArrayList<>();

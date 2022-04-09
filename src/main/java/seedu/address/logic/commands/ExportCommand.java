@@ -18,8 +18,8 @@ public class ExportCommand extends Command {
     public static final String COMMAND_WORD = "export";
     public static final String MESSAGE_USAGE = COMMAND_WORD
         + ": Exports all data of the all applicants into a CSV file. Accepts absolute path or relative path.\n"
-        + "Parameters: filepath to the exported csv file"
-        + "Example: export ../../past_data.csv";
+        + "Parameters: filepath to the exported csv file\n"
+        + "Example: export ../../myDataFile.csv";
     public static final String MISSING_CSV_FILE = "CSV file could not be created.";
 
     private final Path csvFilePath;

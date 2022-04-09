@@ -5,7 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Objects;
 
 /**
- * Represents a Person in the address book.
+ * Represents an applicant in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -57,8 +57,8 @@ public class Person {
         return stage;
     }
     /**
-     * Returns true if both persons have the same name.
-     * This defines a weaker notion of equality between two persons.
+     * Returns true if both applicants have the same name.
+     * This defines a weaker notion of equality between two applicants.
      */
     public boolean isSamePerson(Person otherPerson) {
         if (otherPerson == this) {
@@ -70,8 +70,8 @@ public class Person {
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
-     * This defines a stronger notion of equality between two persons.
+     * Returns true if both applicants have the same identity and data fields.
+     * This defines a stronger notion of equality between two applicants.
      */
     @Override
     public boolean equals(Object other) {
