@@ -60,16 +60,15 @@ public class ImportCommandParserTest {
 
         // check for invalid values
         assertParseFailure(parser, folderPath + "/wrong_stage.csv",
-            "Line 1: Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)"
-                    + "\nAborting now.");
+            "Line 1: Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)");
 
         // check for missing fields
         assertParseFailure(parser, folderPath + "/too_little_fields.csv",
-            "Line 1 has missing data.\nAborting now.");
+            "Line 1: length of fields is not correct");
 
         // check for additional fields
         assertParseFailure(parser, folderPath + "/excess_fields.csv",
-            "Line 1 has extra data detected.\nAborting now.");
+            "Line 1: length of fields is not correct");
 
         // check if excess whitespace is trimmed
         assertParseSuccess(parser, folderPath + "/excess_whitespace.csv", importList);
