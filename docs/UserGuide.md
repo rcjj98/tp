@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of 
+HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of
 the progress of each applicant during the application process.
 
 <h2>Table Of Contents</h2>
@@ -16,13 +16,13 @@ the progress of each applicant during the application process.
 2. Download the latest `HRConnect.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp/releases">here</a>
 3. Copy the file to the folder you want to use as the *home folder* for your HRConnect.
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
-   
+
   ![Ui](images/Ui.png)
 
-5. Type your command into the command box and press `Enter` to execute it. 
+5. Type your command into the command box and press `Enter` to execute it.
 
     Some sample commands to try:
-   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125 
+   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125
    j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
    * `list [p]`: Lists all applicants
    * `delete [i] 1`: Deletes interview index **1** from the interview list
@@ -70,7 +70,7 @@ the progress of each applicant during the application process.
 ### Viewing Help: `help`
 Shows a message explaining how to access the help page and the basic flags.
 
-Format: `help`  
+Format: `help`
 
 &nbsp;
 
@@ -101,9 +101,9 @@ Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 e.g. `Alex Tan` and `alex tan` are duplicate applicants.
 * If the `NAME` input contain empty spaces, it will be trimmed and each applicant will be considered as a duplicate even if their names differ in the amount of empty spaces.
 e.g. `Alex Tan` and `Alex      Tan` are duplicate applicants.
-e.g. `Alex Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces. 
+e.g. `Alex Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces.
 
-:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Example:<br>
 `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
@@ -134,7 +134,7 @@ After
 ![edit](images/after-edit-contact-3.png)
 
 &nbsp;
-### Deleting job applicant: `delete [p]` 
+### Deleting job applicant: `delete [p]`
 Deletes an existing job applicant from the address book.
 
 :exclamation: **Take note: Cannot delete an applicant if he/she has an interview scheduled.**
@@ -163,7 +163,7 @@ Format: `clear [p]`
 * Clear command does not throw an error even if applicant list is already empty and success message will still be shown.
 
 &nbsp;
-### Finding job applicant(s) by keywords: `find [p]` 
+### Finding job applicant(s) by keywords: `find [p]`
 Finds job applicants whose data contain the given keywords.
 
 Use `g/` flags to find job applicants whose data contain **all** the keywords.
@@ -176,14 +176,14 @@ Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 * If a keyword without a flag is used, an error will be raised.
 * Keywords are still required to follow the format defined as by the flags.
 
-:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
 `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
 `find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
 
-`find [p] g/j/Software Developer s/REJECTED` is logically equivalent to <br> 
+`find [p] g/j/Software Developer s/REJECTED` is logically equivalent to <br>
 `find [p] j/Software Developer AND s/REJECTED` <br> <br>
 ![find](images/find-applicant-AND-example.png)
 
@@ -223,7 +223,7 @@ Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 * Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
 
-:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)  
+:bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Example:<br>
 `add [i] 1 d/2021-06-25 t/17:30`
@@ -234,16 +234,16 @@ Example:<br>
 ### Editing an existing interview slot: `edit [i]`
 Edits an existing interview slot in the address book
 
-Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br> 
- 
+Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
+
 * Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
-* At least **one** of the optional fields must be provided. 
+* At least **one** of the optional fields must be provided.
 * Existing values will be updated to the input values.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
-Example: <br> 
+Example: <br>
 `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
 
 Before
@@ -428,15 +428,15 @@ AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.jso
 
 Imports all **job applicants** data from a *csv* save file generated from this address book.
 
-File Structure for csv file (tab delimited): 
-   
+File Structure for csv file (tab delimited):
+
 name | phone_number | email | address | job_title | current_application_progress
 
 Notes:
 1. Filepath can be relative or absolute.
 2. No duplicates are allowed to be imported into the address book.
    1. Data in the address book has a higher priority than data in the save file.
-3. Save files needs to end with `.csv` in order for the address book to recognise the save file. 
+3. Save files needs to end with `.csv` in order for the address book to recognise the save file.
 4. If any error is found, **none** of the data in the save file will be imported into the address book.
 
 Format: `import FILEPATH`
@@ -449,8 +449,8 @@ Example:<br>
 
 Exports all **job applicants** data from the address book into a *csv* save file.
 
-File Structure for csv file (tab delimited): 
-   
+File Structure for csv file (tab delimited):
+
 name | phone_number | email | address | job_title | current_application_progress
 
 Notes:
@@ -459,8 +459,8 @@ Notes:
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with backslash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
-4. Csv file **must** have .csv as a file extension. 
-5. If any error is found while executing the command, 
+4. Csv file **must** have .csv as a file extension.
+5. If any error is found while executing the command,
 **none** of the data from the addressbook will be exported into the specified csv file.
 
 Format: `export FILEPATH`
