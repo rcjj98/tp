@@ -33,7 +33,7 @@ Contributions to team-based tasks
 Review/mentoring contributions
 * Reviewed some PRs
 * Fixed some merge conflicts
-* Helped to fix some bugs
+* Helped to fix some bugsss
 <<<<<<< HEAD
 =======
 
