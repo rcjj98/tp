@@ -40,7 +40,7 @@ public class PersonContainsKeywordsPredicateTest {
         // null -> returns false
         assertNotEquals(null, firstPredicate);
 
-        // different person -> returns false
+        // different applicant -> returns false
         assertNotEquals(firstPredicate, secondPredicate);
     }
 

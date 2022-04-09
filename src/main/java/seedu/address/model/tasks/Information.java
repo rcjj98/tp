@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Task's Information in the taskList.
+ * Represents a task's information in the taskList.
  * Guarantees: immutable; is valid as declared in {@link #isValidInformation(String)}
  */
 public class Information {
@@ -31,17 +31,12 @@ public class Information {
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid information.
      */
     public static boolean isValidInformation(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
-    /**
-     * Checks if current name contains the substring
-     * @param s the information to check with
-     * @return true if current name contains the substring of the checked name
-     */
     public boolean contains(String s) {
         return fullInformation.toLowerCase().contains(s.toLowerCase());
     }

@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's name in the address book.
+ * Represents an applicant's name in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
  */
 public class Name {
@@ -38,9 +38,6 @@ public class Name {
         return test.matches(VALIDATION_REGEX);
     }
 
-    public String getFullName() {
-        return this.fullName;
-    }
 
     public boolean contains(String s) {
         return fullName.toLowerCase().contains(s.toLowerCase());

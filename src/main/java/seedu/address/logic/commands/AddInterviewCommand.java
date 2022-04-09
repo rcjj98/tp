@@ -18,13 +18,13 @@ import seedu.address.model.interview.Interview;
 import seedu.address.model.person.Person;
 
 /**
- * Adds a person to the address book.
+ * Adds an interview to the address book.
  */
 public class AddInterviewCommand extends AddCommand {
 
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " [i] : Adds a interview to the interview list. "
-            + "by the index number used in the displayed person list. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " [i] : Adds an interview to the interview list "
+            + "by the index number used in the displayed applicant list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_DATE + "DATE "
@@ -73,8 +73,7 @@ public class AddInterviewCommand extends AddCommand {
     }
 
     /**
-     * Creates and returns a {@code Person} with the details of {@code personToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * Creates and returns a {@code Interview}.
      */
     private static Interview createInterview(Person personToInterview, Date date, Time time) {
         assert personToInterview != null;

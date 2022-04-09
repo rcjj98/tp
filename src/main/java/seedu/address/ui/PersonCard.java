@@ -60,7 +60,7 @@ public class PersonCard extends UiPart<Region> {
      * Edit style of stage
      *
      * @param label stage label
-     * @param person person
+     * @param person applicant
      */
     public void editStageStyle(Label label, Person person) {
         if (person.getStage().value.equals("INPROGRESS")) {

@@ -34,3 +34,7 @@ Review/mentoring contributions
 * Reviewed some PRs
 * Fixed some merge conflicts
 * Helped to fix some bugs
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25fd9aa156d77ae67a1139e3d5820962d9a5c012
