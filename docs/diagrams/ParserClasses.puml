@@ -19,7 +19,7 @@ Class Prefix
 Class XYZTYPECommandParser
 Class XYZTYPECommand
 enum Type
-Class AAACommand
+Class ABCCommand
 }
 
 Class HiddenOutside #FFFFFF
@@ -45,7 +45,7 @@ ParserUtil .down.> Prefix
 ArgumentTokenizer .down.> Prefix
 XYZCommand -up-|> Command
 XYZCommandParser ..> XYZTYPECommandParser: creates >
-AAACommand -up|> Command
-XYZCommandParser ..> AAACommand : creates >
+ABCCommand -up|> Command
+XYZCommandParser ..> ABCCommand : creates >
 
 @enduml
