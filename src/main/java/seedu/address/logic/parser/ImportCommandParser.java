@@ -84,11 +84,13 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             }
         }
 
-        if (strippedFields.size() != NUM_OF_FIELDS) {
-            throw new ParseException("Line " + lineNo + ": length of fields is not correct");
+        if (strippedFields.size() > NUM_OF_FIELDS) {
+            throw new ParseException("Line " + lineNo + " has extra data detected.\nAborting now.");
+        } else if (strippedFields.size() < NUM_OF_FIELDS) {
+            throw new ParseException("Line " + lineNo + " has missing data.\nAborting now.");
+        } else {
+            return strippedFields;
         }
-
-        return strippedFields;
     }
 
     private Person createPerson(ArrayList<String> fields, int lineNo) throws ParseException {
@@ -103,7 +105,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
             Stage stage = ParserUtil.parseStage(fields.get(5).strip());
             return new Person(name, phone, email, address, job, stage);
         } catch (ParseException e) {
-            throw new ParseException("Line " + lineNo + ": " + e.getMessage());
+            throw new ParseException("Line " + lineNo + ": " + e.getMessage() + "\nAborting now.");
         }
     }
 
@@ -114,7 +116,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         if (isUniquePerson) {
             persons.add(newPerson);
         } else {
-            throw new ParseException("Line " + lineNo + " applicant is duplicated in csv file.");
+            throw new ParseException("Line " + lineNo + " applicant is duplicated in csv file.\nAborting now.");
         }
     }
 }
