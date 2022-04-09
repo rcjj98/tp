@@ -72,13 +72,6 @@ class JsonSerializableAddressBook {
 
         for (JsonAdaptedInterview jsonAdaptedInterview : interviews) {
             Interview interview = jsonAdaptedInterview.toModelType();
-            Person currPerson = interview.getPerson();
-
-            // check if the person exists in the addressBook
-            if (!addressBook.hasPerson(currPerson)) {
-                throw new IllegalValueException(String.format(MESSAGE_NONEXISTENT_PERSON, currPerson.getName()));
-            }
-
             if (addressBook.hasInterview(interview)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_INTERVIEW);
             }
