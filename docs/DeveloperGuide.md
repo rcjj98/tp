@@ -73,7 +73,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `InterviewListPanel`, `TaskListPanel``StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `InterviewListPanel`, `TaskListPanel`,`StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -111,11 +111,9 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* When called upon to parse a user command, the `AddressBookParser` class also creates an `ABCCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `HelpCommandParser`) which uses the other classes shown above to parse the user command and create a `ABCCommand` object (e.g., `HelpCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) and `ABCCommandParser` classes (e.g. `HelpCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
-* All `XYZTYPECommandParser` classes (`XYZ` refers to the specific command, and `TYPE` refers to either `Person`, `Task` or `Interview` objects e.g., `AddTaskCommandParser`,`DeletePersonCommandParser`, ...) are created by the `XYZCommandParser` classes, which return an `XYZCommand` (`XYZCommand` referring to the specific command e.g. `AddCommand`, `DeleteCommand`, ...).
-* `XYZCommand` is an abstract class, which inherits from the abstract `Command` class, so they may be treated similarly where possible.
-* `ABCCommand` is a class that inherits from `Command` class and is created by the `ABCCommandParser` classes. Specifically, `ABC` in `ABCCommand` is a placeholder to represent the following commands : `Help`, `Exit`, `Export` and `Import`.
+* All `XYZCommandParser` (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* All `XYZTYPECommandParser` classes (`XYZ` refers to the specific command, and `TYPE` refers to either `Person`, `Task` or `Interview` objects e.g., `AddTaskCommandParser`,`DeletePersonCommandParser`, ...) are created by the `XYZCommandParser` classes, which return an `XYZTYPECommand` (`XYZTYPECommand` referring to the specific command e.g. `AddPersonCommand`, `DeleteTaskCommand`, ...).
+* `XYZCommand` like `AddCommand` and `DeleteCommand` are abstract classes, which inherits from the abstract `Command` class, so they may be treated similarly where possible. However `XYZCommand` like `HelpCommand` and `ExitCommand are non-abstract classes but also inherits from abstract class Command.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
