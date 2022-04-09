@@ -457,12 +457,13 @@ name | phone number | email | address | job title | stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
-2. File name of csv file **cannot** contain any front or backslashes.
+2. File name of csv file should only contain any front or backslashes.
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with backslash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
 4. Csv file **must** have .csv as a file extension.
-5. If any error is found while executing the command,
+5. Csv file name cannot contain any non-alphanumeric characters.
+6. If any error is found while executing the command,
 **none** of the data from the addressbook will be exported into the specified csv file.
 
 Format: `export FILEPATH`
