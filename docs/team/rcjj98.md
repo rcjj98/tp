@@ -15,10 +15,10 @@ Given below are my contributions to the project.
   * Highlights: to be added soon
 
 * **Export Feature**: Added the ability to export the data from the address book to a csv file.
-  * What it does: allows the user to export the details from the most current version of the address book to a csv 
+  * What it does: allows the user to export the details from the most current version of the address book to a csv
   file.
-  * Justification: This feature improves the product significantly because a user's address book can start to fill up 
-  with contacts that are no longer important and the app should provide a convenient way to archive data. 
+  * Justification: This feature improves the product significantly because a user's address book can start to fill up
+  with contacts that are no longer important and the app should provide a convenient way to archive data.
 
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=rcjj98&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=zoom&zFR=false&zA=rcjj98&zR=AY2122S2-CS2103T-W11-2%2Ftp%5Bmaster%5D&zACS=198.13128430296376&zS=2022-02-18&zFS=&zU=2022-04-08&zMG=false&zFTF=commit&zFGS=groupByRepos)

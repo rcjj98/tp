@@ -52,7 +52,7 @@ The rest of the App consists of four components.
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete [p] 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
@@ -98,9 +98,9 @@ How the `Logic` component works:
 1. The command can communicate with the `Model` when it is executed (e.g. to add a person).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
-The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
+The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete [p] 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `delete [p] 1` Command](images/DeleteSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
@@ -112,6 +112,9 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* All `XYZTYPECommandParser` classes (`XYZ` refers to the specific command, and `TYPE` refers to either Person, Task or Interview Objects. `AddTaskCommandParser`,`DeletePersonCommandParser`, ...) are created by the `XYZCommandParser` classes, which return an `XYZCommand` (`XYZCommand` referring to the specific command e.g. `Add`, `Delete`, etc ...).
+* `XYZCommand` is an abstract class, which inherits from the abstract `Command` class, so they may be treated similarly where possible.
+* `AAACommand` is a class that inherits from `Command` class and is created by the `XYZCommandParser` classes. Specifically, `AAA` in `AAACommand` is a placeholder to represent the following commands : `Help`, `Exit`, `Find`, `Export` and `Import`.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
@@ -172,7 +175,7 @@ An invalid file path is defined as follows:
 
 #### Implementation
 
-The export feature is facilitated by the `ExportCommand` while the necessary checks for the export 
+The export feature is facilitated by the `ExportCommand` while the necessary checks for the export
 feature is facilitated by the `ExportCommandParser`.
 
 &nbsp;
@@ -227,7 +230,7 @@ Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportComm
 
 Step 3. After checking that the file path is valid, the data type of the file path is converted from its *string* representation into a *Path* representation.
 
-Step 4. The `ImportCommandParser#readCsv()` is called to parse the csv file. From there, 3 methods are called to ensure the correctness of the csv file. 
+Step 4. The `ImportCommandParser#readCsv()` is called to parse the csv file. From there, 3 methods are called to ensure the correctness of the csv file.
  * `ImportCommandParser#getFields()`: ensures that the number of fields in each line matches the number of fields required by the application
  * `ImportCommandParser#createPerson()`: ensures that each field is valid and correct and converts the line into a person object.
  * `ImportCommandParser#updatePersons()`: ensures that each person in the csv file is unique with regards to the csv file.
@@ -311,7 +314,7 @@ The following sequence diagram summarises how the find operation works
 * Required to manage a significant number of contacts.
 * Prefer desktop apps over other types.
 * Proficient typists.
-* Prefers typing to mouse interactions. 
+* Prefers typing to mouse interactions.
 * Reasonably comfortable using CLI apps.
 
 **Value proposition**:
@@ -403,7 +406,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new INDEX. <br>
       Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
       Use case resumes from step 2. <br><br>
-    
+
 **Use case: UC3 - Add a task**
 
 **MSS**
@@ -453,7 +456,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new INDEX. <br>
       Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
       Use case resumes from step 2. <br><br>
-  
+
 * 1c. The given applicant has an interview.
 
     * 1c1. HRConnect requests for the user to delete the interview.
@@ -800,7 +803,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1.  User requests to import data.
-2.  HRConnect shows all applicants imported into the address book. 
+2.  HRConnect shows all applicants imported into the address book.
 
     Use case ends.
 
@@ -812,11 +815,11 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1a2. User enters new filepath. <br>
       Steps 1a1-1a2 are repeated until the filepath entered is valid. <br>
       Use case resumes from step 2. <br><br>
-  
+
 * 1b. Duplicate applicant found in address book
 
     * 1a1. HRConnect alerts user that applicant is already in address book and aborts the import.
-    * 1b1. User deletes applicant from address book. (UC4)  
+    * 1b1. User deletes applicant from address book. (UC4)
       Use case resumes from step 1. <br><br>
 
 

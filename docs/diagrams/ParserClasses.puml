@@ -5,7 +5,7 @@ skinparam arrowColor LOGIC_COLOR_T4
 skinparam classBackgroundColor LOGIC_COLOR
 
 Class "{abstract}\nCommand" as Command
-Class XYZCommand
+Class "{abstract}\nXYZCommand" as XYZCommand
 
 package "Parser classes"{
 Class "<<interface>>\nParser" as Parser
@@ -16,23 +16,36 @@ Class ParserUtil
 Class ArgumentMultimap
 Class ArgumentTokenizer
 Class Prefix
+Class XYZTYPECommandParser
+Class XYZTYPECommand
+enum Type
+Class AAACommand
 }
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> AddressBookParser
 
 AddressBookParser .down.> XYZCommandParser: creates >
-
-XYZCommandParser ..> XYZCommand : creates >
 AddressBookParser ..> Command : returns >
+XYZCommandParser ..> XYZCommand : creates >
 XYZCommandParser .up.|> Parser
 XYZCommandParser ..> ArgumentMultimap
 XYZCommandParser ..> ArgumentTokenizer
-ArgumentTokenizer .left.> ArgumentMultimap
 XYZCommandParser ..> CliSyntax
+XYZCommandParser ..> XYZTYPECommandParser : creates >
+XYZTYPECommandParser ..> XYZTYPECommand : creates >
+XYZTYPECommandParser ..> XYZCommand : returns >
+XYZTYPECommandParser .up.|> Parser
+XYZTYPECommand -up-|> XYZCommand
+XYZTYPECommandParser -up-|> Type
+ArgumentTokenizer .left.> ArgumentMultimap
 CliSyntax ..> Prefix
 XYZCommandParser ..> ParserUtil
 ParserUtil .down.> Prefix
 ArgumentTokenizer .down.> Prefix
 XYZCommand -up-|> Command
+XYZCommandParser ..> XYZTYPECommandParser: creates >
+AAACommand -up|> Command
+XYZCommandParser ..> AAACommand : creates >
+
 @enduml
