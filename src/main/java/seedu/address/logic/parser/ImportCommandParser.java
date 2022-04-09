@@ -85,9 +85,9 @@ public class ImportCommandParser implements Parser<ImportCommand> {
         }
 
         if (strippedFields.size() > NUM_OF_FIELDS) {
-            throw new ParseException("Line " + lineNo + ": extra data detected.\nAborting now.");
+            throw new ParseException("Line " + lineNo + " has extra data detected.\nAborting now.");
         } else if (strippedFields.size() < NUM_OF_FIELDS) {
-            throw new ParseException("Line " + lineNo + ": has missing data.\nAborting now.");
+            throw new ParseException("Line " + lineNo + " has missing data.\nAborting now.");
         } else {
             return strippedFields;
         }
