@@ -11,6 +11,7 @@ package "Parser classes"{
 Class "<<interface>>\nParser" as Parser
 Class AddressBookParser
 Class XYZCommandParser
+Class ABCCommandParser
 Class CliSyntax
 Class ParserUtil
 Class ArgumentMultimap
@@ -26,6 +27,7 @@ Class HiddenOutside #FFFFFF
 HiddenOutside ..> AddressBookParser
 
 AddressBookParser .down.> XYZCommandParser: creates >
+AddressBookParser .down.> ABCCommandParser: creates >
 AddressBookParser ..> Command : returns >
 XYZCommandParser ..> XYZCommand : creates >
 XYZCommandParser .up.|> Parser
@@ -46,6 +48,6 @@ ArgumentTokenizer .down.> Prefix
 XYZCommand -up-|> Command
 XYZCommandParser ..> XYZTYPECommandParser: creates >
 ABCCommand -up|> Command
-XYZCommandParser ..> ABCCommand : creates >
+ABCCommandParser ..> ABCCommand : creates >
 
 @enduml
