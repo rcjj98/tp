@@ -26,7 +26,7 @@ https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&break
 
 - Add all task commands to the UG with clear formatting
 - Add all task commands to the command summary table in UG
-- Add constraint pointers to some commands like deleting and editing applicant
+- Add constraint pointers to some commands like clearing applicant and adding interview
 - Add notes for Interview and Task features
 - Solve some UG bugs highlighted from PE-D
 - Helped to format the UG
@@ -43,7 +43,7 @@ https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&break
 
 ## Review/mentoring contributions
 
-- Links to team members PRs reviewed: https://github.com/AY2122S2-CS2103T-W11-2/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me
+- Reviewed and approved some team members PRs with some comments and suggestions
 - Helped to solve bugs in other team members features
 
 ## Evidence of helping others
@@ -52,5 +52,5 @@ https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&break
 
 ## Evidence of technical leadership
 
-- Helped teammates when they faced issues or need help with coding their parts
+- Helped teammates when they faced issues or need help with their parts
 
