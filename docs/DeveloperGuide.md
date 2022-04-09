@@ -362,7 +362,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1. User requests to add an applicant in the address book.
-2. HRConnect adds the applicant to person list.
+2. HRConnect adds the applicant to applicant list.
 
     Use case ends.
 
@@ -437,7 +437,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1. User requests to delete an applicant from the address book.
-2. HRConnect deletes the applicant from the person list.
+2. HRConnect deletes the applicant from the applicant list.
 
    Use case ends.
 
@@ -519,7 +519,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to list all people in the address book.
+1. User requests to list all applicants in the address book.
 2. HRConnect displays list of applicants.
 
    Use case ends.
@@ -538,7 +538,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1. User requests to see all scheduled interviews in the address book.
-2. HRConnect displays interview list.
+2. HRConnect displays list of interviews.
 
    Use case ends.
 
@@ -556,7 +556,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1. User requests to see all tasks in the address book.
-2. HRConnect displays task list.
+2. HRConnect displays list of tasks.
 
    Use case ends.
 
@@ -574,7 +574,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 **MSS**
 
 1. User requests to clear all applicants in the address book.
-2. HRConnect clears all applicants.
+2. HRConnect clears all applicants from applicant list.
 
    Use case ends.
 
@@ -586,6 +586,13 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1a2. User enters new type. <br>
       Steps 1a1-1a2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+
+* 1b. The interview list is not empty.
+
+    * 1c1. HRConnect requests for the user to clear the interview list.
+    * 1c2. User clears interview list. <br>
+      Steps 1c1-1c2 are repeated until the interview list has been cleared. <br>
+      Use case resumes from step 2.<br><br>
 
 **Use case: UC11 - Clear interview list**
 
@@ -604,13 +611,14 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1a2. User enters new type. <br>
       Steps 1a1-1a2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+    
 
 **Use case: UC12 - Clear task list**
 
 **MSS**
 
 1. User requests to clear all tasks from the task list.
-2. HRConnect clears task list.
+2. HRConnect clears all tasks from task list.
 
    Use case ends.
 
@@ -647,6 +655,13 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new details for field(s). <br>
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+
+* 1c. The given applicant has an interview.
+
+    * 1c1. HRConnect requests for the user to delete the interview.
+    * 1c2. User deletes interview. <br>
+      Steps 1c1-1c2 are repeated until the correct interview has been deleted. <br>
+      Use case resumes from step 2.<br><br>
 
 **Use case: UC14 - Edit an interview**
 
@@ -866,16 +881,16 @@ testers are expected to do more *exploratory* testing.
 ### Adding a Task
 
 1. Adding a Task into the task list. <br>
-   1. Test case: `add [t] h/Add Stacy into contacts d/2021-05-06 t/10:10 i/Stacy called today` <br>
+   1. Test case: `add [t] h/Update applicant statuses d/2021-05-06 t/10:10 i/Update statuses of all applicants from last week interviews` <br>
     Expected: The task specified is added to the task list. Details of the added tasks shown in a message. <br><br>
    
-   2. Test case: `add [t] h/Add Stacy into contacts d/6th May 2021 t/10:10 i/Stacy called today` <br> 
+   2. Test case: `add [t] h/Update applicant statuses d/6th May 2021 t/10:10 i/Update statuses of all applicants from last week interviews` <br> 
    Expected: No task is added. Error details shown in the status message <br><br>
    
-   3. Test case: `add [t] h/Add Stacy into contacts d/2021-05-06 t/10:10pm i/Stacy called today`
+   3. Test case: `add [t] h/Update applicant statuses d/2021-05-06 t/10:10pm i/Update statuses of all applicants from last week interviews`
    Expected: No task is added. Error details shown in the status message  <br><br>
 
-   4. Test case: `add [t] h/Add Stacy into contacts d/2021-05-06 t/10:10`
+   4. Test case: `add [t] h/Update applicant statuses d/2021-05-06 t/10:10`
       Expected: No task is added. Error details shown in the status message  <br><br>
 
 ### Editing an Interview
