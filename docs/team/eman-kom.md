@@ -8,9 +8,9 @@ This product is for tech HR recruiters who prefer to use CLI to store contacts o
 
 Enhancements implemented:
 * Implemented import feature
-  * 
+  *
 * Implemented enhanced find feature
-  * 
+  *
 
 Contributions to the UG
 * Drafted the initial version of the UG

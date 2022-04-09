@@ -35,7 +35,7 @@ DeleteCommandParser -> DeletePersonCommandParser
 activate DeletePersonCommandParser
 
 create DeletePersonCommand
-DeletePersonCommandParser -> DeletePersonCommand : parse(1)
+DeletePersonCommandParser -> DeletePersonCommand : parse("1")
 activate DeletePersonCommand
 
 
@@ -57,7 +57,7 @@ deactivate AddressBookParser
 LogicManager -> DeletePersonCommand : execute(model)
 activate DeletePersonCommand
 
-DeletePersonCommand -> Model : deletePerson(person)
+DeletePersonCommand -> Model : deletePerson(1)
 activate Model
 
 Model --> DeletePersonCommand
