@@ -924,9 +924,9 @@ testers are expected to do more *exploratory* testing.
     
 3. Delete John Doe from address book
 
-    1. Test case: Do a. then b.
-       1. `delete [i] 1`
-       2. `delete [p] 1` <br>
+    1. Test case: Do 1a then 1b <br>
+       1a. `delete [i] 1` <br>
+       1b.`delete [p] 1` <br>
        Expected: John Doe removed from address book. Details of deleted applicant shown in the status message.  
        <br>
     2. Test case:`delete [p] 1` <br> 
