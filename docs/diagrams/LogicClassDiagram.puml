@@ -33,6 +33,7 @@ AddressBookParser ..> XYZCommand : creates >
 AddressBookParser ..> ABCCommand : creates >
 
 XYZCommand -up-|> Command
+ABCCommand -up-|> Command
 LogicManager .left.> Command : executes >
 
 LogicManager --> Model
