@@ -120,7 +120,7 @@ Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_P
 
 * Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * At least **one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -222,6 +222,7 @@ Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
 * Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
 e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
+e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 1 d/2021-06-30 t/12:30` are **NOT** adding duplicate interviews as the same applicant can have more than 1 interview.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -238,8 +239,8 @@ Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
 
 * Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
-* At least **one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* At least **one** of the optional fields must be provided. 
+* Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -344,7 +345,7 @@ Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 * `DATE` and `TIME` refers to the due date and time of the task.
 * Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the **task in the task list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * At least **one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -428,9 +429,9 @@ AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.jso
 
 Imports all **job applicants** data from a *csv* save file generated from this address book.
 
-File Structure for csv file (tab delimited):
+File structure for csv file (tab delimited):
 
-name | phone_number | email | address | job_title | current_application_progress
+name | phone number | email | address | job title | stage
 
 Notes:
 1. Filepath can be relative or absolute.
@@ -449,9 +450,9 @@ Example:<br>
 
 Exports all **job applicants** data from the address book into a *csv* save file.
 
-File Structure for csv file (tab delimited):
+File structure for csv file (tab delimited):
 
-name | phone_number | email | address | job_title | current_application_progress
+name | phone number | email | address | job title | stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
@@ -482,7 +483,7 @@ file even though the data is seperated by tabs.
 |    a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |    e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
-|    g/ | KEYWORD      | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|    g/ | GROUP        | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |    h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |    j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
