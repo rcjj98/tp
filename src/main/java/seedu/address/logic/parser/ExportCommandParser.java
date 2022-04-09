@@ -2,18 +2,22 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.util.FileUtil.isValidPath;
+import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ExportCommandParser implements Parser<ExportCommand> {
-
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9]+$";
     public static final String INVALID_FILE_PATH = "That is not a valid file path\n"
         + "Please check for any illegal characters.";
     public static final String WRONG_FILE_TYPE = "Please include a .csv file extension with your file name.";
+    public static final String INVALID_FILE_NAME = "File name should only contain alphanumeric characters";
 
     /**
      * Parses the user input of the path to target csv file to export applicant data into.
@@ -44,6 +48,8 @@ public class ExportCommandParser implements Parser<ExportCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_PATH));
         } else if (!isValidCsvFile(path)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, WRONG_FILE_TYPE));
+        } else if (!isValidCsvFileName(path)) {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_NAME));
         }
     }
 
@@ -55,5 +61,20 @@ public class ExportCommandParser implements Parser<ExportCommand> {
      */
     private boolean isValidCsvFile(String path) {
         return path.endsWith(".csv");
+    }
+
+    /**
+     * Returns true if a given string is a valid csv file name.
+     */
+    public static boolean isValidCsvFileName(String test) {
+        String[] CsvFilePath = test.split("/");
+        int sizeOfCsvFilePathArr = CsvFilePath.length;
+        String CsvFile = CsvFilePath[sizeOfCsvFilePathArr - 1];
+        String[] CsvFileName = CsvFile.split(".csv");
+
+        Pattern pattern = Pattern.compile(VALIDATION_REGEX);
+
+        Matcher matcher = pattern.matcher(CsvFileName[0]);
+        return matcher.matches();
     }
 }

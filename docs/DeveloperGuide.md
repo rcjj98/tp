@@ -172,6 +172,7 @@ An invalid file path is defined as follows:
 1. An empty string.
 2. A file path containing invalid characters (such as: "<" or ">" for Windows OS)
 3. A file path that does not end with `.csv`.
+4. A file path that contains a csv file name with non-alphanumeric characters.
 
 #### Implementation
 
