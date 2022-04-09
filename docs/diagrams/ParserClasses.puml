@@ -35,6 +35,11 @@ XYZCommandParser ..> ArgumentMultimap
 XYZCommandParser ..> ArgumentTokenizer
 XYZCommandParser ..> CliSyntax
 XYZCommandParser ..> XYZTYPECommandParser : creates >
+ABCCommandParser ..> ABCCommand : creates >
+ABCCommandParser .up.|> Parser
+ABCCommandParser ..> ArgumentMultimap
+ABCCommandParser ..> ArgumentTokenizer
+ABCCommandParser ..> CliSyntax
 XYZTYPECommandParser ..> XYZTYPECommand : creates >
 XYZTYPECommandParser ..> XYZCommand : returns >
 XYZTYPECommandParser .up.|> Parser
@@ -48,6 +53,5 @@ ArgumentTokenizer .down.> Prefix
 XYZCommand -up-|> Command
 XYZCommandParser ..> XYZTYPECommandParser: creates >
 ABCCommand -up|> Command
-ABCCommandParser ..> ABCCommand : creates >
 
 @enduml
