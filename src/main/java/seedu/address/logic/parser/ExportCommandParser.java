@@ -13,10 +13,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ExportCommandParser implements Parser<ExportCommand> {
     public static final String VALIDATION_REGEX = "^[a-zA-Z0-9]+$";
-    public static final String INVALID_FILE_PATH = "That is not a valid file path\n"
-        + "Please check for any illegal characters.";
-    public static final String WRONG_FILE_TYPE = "Please include a .csv file extension with your file name.";
     public static final String INVALID_FILE_NAME = "File name should only contain alphanumeric characters";
+    public static final String INVALID_FILE_PATH = "That is not a valid file path\n" + INVALID_FILE_NAME;
+    public static final String WRONG_FILE_TYPE = "Please include a .csv file extension with your file name.";
 
     /**
      * Parses the user input of the path to target csv file to export applicant data into.
