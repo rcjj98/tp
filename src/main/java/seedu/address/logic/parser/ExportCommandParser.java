@@ -2,7 +2,6 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.util.FileUtil.isValidPath;
-import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -49,7 +48,7 @@ public class ExportCommandParser implements Parser<ExportCommand> {
         } else if (!isValidCsvFile(path)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, WRONG_FILE_TYPE));
         } else if (!isValidCsvFileName(path)) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_NAME));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_NAME));
         }
     }
 
