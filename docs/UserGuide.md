@@ -90,7 +90,7 @@ Format: `exit`
 </div>
 
 ### Adding a new job applicant: `add [p]`
-Adds a new job applicant to the address book.
+Adds a new job applicant to the HRConnect.
 
 Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
@@ -109,7 +109,7 @@ Example:<br>
 
 &nbsp;
 ### Editing a job applicant: `edit [p]`
-Edits an existing job applicant in the address book
+Edits an existing job applicant in the HRConnect
 
 :exclamation: **Take note: Cannot edit an applicant if he/she has an interview scheduled.**
 
@@ -133,7 +133,7 @@ After
 <div style="page-break-after: always;"></div>
 
 ### Deleting job applicant: `delete [p]`
-Deletes an existing job applicant from the address book.
+Deletes an existing job applicant from the HRConnect.
 
 :exclamation: **Take note: Cannot delete an applicant if he/she has an interview scheduled.**
 
@@ -146,13 +146,13 @@ Example:<br>
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
-Shows a list of all job applicants in the address book.
+Shows a list of all job applicants in the HRConnect.
 
 Format: `list [p]`
 
 &nbsp;
 ### Clearing all job applicants: `clear [p]`
-Clears all job applicants from the address book.
+Clears all job applicants from the HRConnect.
 
 :exclamation: **Take note: Cannot clear applicant list if interview list is not empty.**
 
@@ -213,7 +213,7 @@ Examples:<br>
 </div>
 
 ### Adding a new interview slot for a job applicant: `add [i]`
-Adds a new job interview slot to the address book.
+Adds a new job interview slot to the HRConnect.
 
 :exclamation: **Take note: Only can add an interview for an applicant that is present in applicant list.**
 
@@ -234,7 +234,7 @@ Example:<br>
 
 &nbsp;
 ### Editing an existing interview slot: `edit [i]`
-Edits an existing interview slot in the address book
+Edits an existing interview slot in the HRConnect
 
 Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
 
@@ -257,7 +257,7 @@ After
 <div style="page-break-after: always;"></div>
 
 ### Deleting an interview slot: `delete [i]`
-Deletes an existing interview slot in the address book.
+Deletes an existing interview slot in the HRConnect.
 
 Format: `delete [i] INDEX`
 
@@ -268,14 +268,14 @@ Example:<br>
 
 &nbsp;
 ### Listing all scheduled interviews: `list [i]`
-Shows a list of all scheduled interviews in the address book.
+Shows a list of all scheduled interviews in the HRConnect.
 
 Format: `list [i]`
 
 
 &nbsp;
 ### Clearing all interviews: `clear [i]`
-Clears all interviews from the address book.
+Clears all interviews from the HRConnect.
 
 Format: `clear [i]`
 
@@ -324,7 +324,7 @@ Examples:<br>
 </div>
 
 ### Adding a new task to the miscellaneous task list: `add [t]`
-Adds a new task to the address book.
+Adds a new task to the HRConnect.
 
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
@@ -344,7 +344,7 @@ Example:<br>
 
 &nbsp;
 ### Editing an existing task: `edit [t]`
-Edits an existing task in the address book
+Edits an existing task in the HRConnect
 
 Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 
@@ -367,7 +367,7 @@ After
 <div style="page-break-after: always;"></div>
 
 ### Deleting a task: `delete [t]`
-Deletes an existing task in the address book.
+Deletes an existing task in the HRConnect.
 
 Format: `delete [t] INDEX`
 
@@ -378,14 +378,14 @@ Example:<br>
 
 &nbsp;
 ### Listing all tasks: `list [t]`
-Shows a list of all tasks in the address book.
+Shows a list of all tasks in the HRConnect.
 
 Format: `list [t]`
 
 
 &nbsp;
 ### Clearing all tasks: `clear [t]`
-Clears all tasks from the address book.
+Clears all tasks from the HRConnect.
 
 Format: `clear [t]`
 
@@ -425,20 +425,20 @@ Examples:<br>
 ## Storage
 ----------
 ### Saving the data
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+HRConnect data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 &nbsp;
 ### Editing the data file
-AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+HRConnect data are saved as a JSON file `PATH_TO_JAR_FILE/data/HRConnect.json`. Advanced users are welcome to update data directly by editing that data file.
 
-:exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run. <br><br>
+:exclamation: **Caution:** If your changes to the data file makes its format invalid, the HRConnect will discard all data and start with an empty data file at the next run. <br><br>
 :exclamation: **Caution:** Manual modification of the JSON file is **NOT** a supported feature. Inconsistent data resulting from manual modification of the data file should **NOT** be considered as unexpected behaviour. <br>
 Example: Manually editing the `NAME` of applicant in the applicant list of the data file but not on interview list will lead to inconsistent data vice versa and any unusual behaviour caused by this should **NOT** be seen as a bug.
 
 &nbsp;
 ### Importing the data file: `import`
 
-Imports all **job applicants** data from a *csv* save file generated from this address book.
+Imports all **job applicants** data from a *csv* save file generated from this HRConnect.
 
 File structure for csv file (tab delimited):
 
@@ -446,10 +446,10 @@ name | phone number | email | address | job position | stage
 
 Notes:
 1. Filepath can be relative or absolute.
-2. No duplicates are allowed to be imported into the address book.
-   1. Data in the address book has a higher priority than data in the save file.
-3. Save files needs to end with `.csv` in order for the address book to recognise the save file.
-4. If any error is found, **none** of the data in the save file will be imported into the address book.
+2. No duplicates are allowed to be imported into the HRConnect.
+   1. Data in the HRConnect has a higher priority than data in the save file.
+3. Save files needs to end with `.csv` in order for the HRConnect to recognise the save file.
+4. If any error is found, **none** of the data in the save file will be imported into the HRConnect.
 
 Format: `import FILEPATH`
 
@@ -459,7 +459,7 @@ Example:<br>
 &nbsp;
 ### Exporting to a csv data file: `export`
 
-Exports all **job applicants** data from the address book into a *csv* save file.
+Exports all **job applicants** data from the HRConnect into a *csv* save file.
 
 File structure for csv file (tab delimited):
 
@@ -474,7 +474,7 @@ Notes:
 4. Csv file **must** have .csv as a file extension.
 5. Csv file name cannot contain any non-alphanumeric characters.
 6. If any error is found while executing the command,
-**none** of the data from the addressbook will be exported into the specified csv file.
+**none** of the data from the HRConnect will be exported into the specified csv file.
 
 Format: `export FILEPATH`
 
