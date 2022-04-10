@@ -173,7 +173,7 @@ Use `g/` flags to find job applicants whose data contain **all** the search term
 Format: `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
 * `find [p]` **is required** to start with a `g/` flag.
-* Finding job applicants `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
+* Finding job applicants `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags.
 * If a SEARCH_TERM without a flag (e.g. `find [p] g/alex`) is used, an error will be raised.
 * SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
@@ -399,7 +399,7 @@ Use `g/` flags to find task(s) with data containing **all** the search terms.
 Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
 * `find [t]` **is required** to start with a `g/` flag.
-* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
+* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags.
 * If a SEARCH_TERM without a flag (e.g. `find [t] g/update`) is used, an error will be raised.
 * SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
