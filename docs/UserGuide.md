@@ -9,7 +9,7 @@ It can also be used to keep track of: <br>
 * interviews with each applicant
 * miscellaneous tasks that need to be completed
 
-![combined](images/alltogether.png)
+![combined](images/alltogether.PNG)
 
 <div style="page-break-after: always;"></div>
 
@@ -33,6 +33,7 @@ It can also be used to keep track of: <br>
     * `exit`: Exits the app
 6. Refer to [Features](#features) section directly below for details on each command.
 
+<div style="page-break-after: always;"></div>
 
 # Features
 
@@ -539,14 +540,14 @@ file even though the data is seperated by tabs.
 
 ## Command Summary
 
-### General Command Summary
+**General Command Summary** <br><br>
 
 | Action | Format |
 |:------:|:------:|
 |  Help  | `help` |
 |  Exit  | `exit` |
 
-### Applicant Command Summary
+**Applicant Command Summary** <br><br>
 
 |                Action | Format                                                                                                                                                            |
 |----------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -557,7 +558,7 @@ file even though the data is seperated by tabs.
 |  Clear Job Applicants | `clear [p]`                                                                                                                                                       |
 | Find Job Applicant(s) | `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                     |
 
-### Interview Command Summary
+**Interview Command Summary** <br><br>
 
 |            Action | Format                                                                                                   |
 |------------------:|:---------------------------------------------------------------------------------------------------------|
@@ -570,7 +571,7 @@ file even though the data is seperated by tabs.
 
 <div style="page-break-after: always;"></div>
 
-### Task Command Summary
+**Task Command Summary** <br><br>
 
 |       Action | Format                                                                                                                    |
 |-------------:|:--------------------------------------------------------------------------------------------------------------------------|
@@ -581,7 +582,7 @@ file even though the data is seperated by tabs.
 |  Clear Tasks | `clear [t]`                                                                                                               |
 | Find Task(s) | `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                             |
 
-### Storage Command Summary
+**Storage Command Summary** <br><br>
 
 |        Action        |                                                                                                                                                           Format                                                                                                                                                            |
 |:--------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
