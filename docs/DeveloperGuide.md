@@ -270,7 +270,7 @@ Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created usin
 
 Step 6. A new `FindPersonCommand` object is created with the aforementioned predicate object as its parameter.
 
-Step 7. The `FindPersonCommand#execute()` method is called. It filters the current address book such that it satisfies the perdicate object and displays it on the screen.
+Step 7. The `FindPersonCommand#execute()` method is called. It filters the current address book such that it satisfies the predicate object and displays it on the screen.
 
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
