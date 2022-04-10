@@ -388,18 +388,18 @@ Format: `clear [t]`
 
 &nbsp;
 ### Finding task(s) by keywords: `find [t]`
-Find tasks with data containing any of the specified keywords.
+Find tasks with data containing any of the specified search terms.
 
-Use `g/` flags to find task(s) with data containing **all** the keywords.
+Use `g/` flags to find task(s) with data containing **all** the search terms.
 
 :bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update t/10:10`)
 
-Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
 * `find [t]` **is required** to start with a `g/` flag.
-* If a keyword without a flag is used, an error will be raised.
+* If a SEARCH_TERM without a flag is used, an error will be raised.
 * Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
-* Keywords are still required to follow the format defined as by their respective flags.
+* SEARCH_TERMs are still required to follow the format defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
