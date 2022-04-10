@@ -258,19 +258,19 @@ The find feature is facilitated by the subclasses of the `FindCommand` while the
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
-Step 1. User enters `find [p] g/n/alex g/n/tan` into the application.
+Step 1. User enters `find [t] g/i/update` into the application.
 
-Step 2. The input is passed to `ImportCommandParser#parse()` and its section is determined.
+Step 2. The input is passed to `FindCommandParser#parse()` and its section is determined.
 
 Step 3. Next, the input is parsed and checked for any invalid groups.
 
-Step 4. The list of groups are then passed into `FindPersonCommandParser#parse()` to check for any invalid flags or formats.
+Step 4. The list of groups are then passed into `FindTaskCommandParser#parse()` to check for any invalid flags or formats.
 
-Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
+Step 5. A new `TaskContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
 
-Step 6. A new `FindPersonCommand` object is created with the aforementioned predicate object as its parameter.
+Step 6. A new `FindTaskCommand` object is created with the aforementioned predicate object as its parameter.
 
-Step 7. The `FindPersonCommand#execute()` method is called. It filters the current address book such that it satisfies the predicate object and displays it on the screen.
+Step 7. The `FindTaskCommand#execute()` method is called. It filters the current address book such that it satisfies the predicate object and displays it on the screen.
 
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
@@ -280,7 +280,7 @@ Step 8. A new `CommandResult` object is returned signifying that the command has
 The following sequence diagram summarises how the find operation works
 
 <p align="center">
-  <img src="images/FindPersonCommandSequenceDiagram.png" alt="Interactions for Find Person Command"/>
+  <img src="images/FindCommandSequenceDiagram.png" alt="Interactions for Find Task Command"/>
 </p>
 
 #### Design Considerations

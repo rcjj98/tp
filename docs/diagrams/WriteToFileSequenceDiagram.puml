@@ -3,6 +3,7 @@
 
 mainframe **sd**  write to csv file
 
+
 box Logic LOGIC_COLOR_T1
 participant "e:ExportCommand" as ExportCommand LOGIC_COLOR
 end box
@@ -11,18 +12,20 @@ box Model MODEL_COLOR_T1
 participant ":Person" as Person MODEL_COLOR
 end box
 
-participant "PrintWriter" as PrintWriter MODEL_COLOR
-participant "f:File" as File MODEL_COLOR
+participant ":PrintWriter" as PrintWriter MODEL_COLOR
+participant ":File" as File MODEL_COLOR
 
+create ExportCommand
+activate ExportCommand
 
 create File
 ExportCommand -> File
 activate File
-File --> ExportCommand : f
+File --> ExportCommand
 deactivate File
 
 create PrintWriter
-ExportCommand -> PrintWriter : f
+ExportCommand -> PrintWriter
 activate PrintWriter
 PrintWriter --> ExportCommand
 deactivate PrintWriter
