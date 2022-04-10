@@ -15,7 +15,7 @@ the progress of each applicant during the application process.
 1. Ensure you have `Java 11` or above installed in your computer.
 2. Download the latest `HRConnect.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp/releases">here</a>
 3. Copy the file to the folder you want to use as the *home folder* for your HRConnect.
-4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data. <br> ![Ui](images/Ui.png) <br> <div style="page-break-after: always;"></div>
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data. <br> ![Ui](images/Ui.png)
 5. Type your command into the command box and press `Enter` to execute it.<br> Some sample commands to try:
     * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125
       j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
