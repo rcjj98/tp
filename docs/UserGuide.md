@@ -33,6 +33,7 @@ It can also be used to keep track of: <br>
     * `exit`: Exits the app
 6. Refer to [Features](#features) section directly below for details on each command.
 
+<div style="page-break-after: always;"></div>
 
 # Features
 
