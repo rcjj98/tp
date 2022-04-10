@@ -518,27 +518,48 @@ file even though the data is seperated by tabs.
 
 ## Command Summary
 
+### General Command Summary
+
+| Action | Format |
+|-------:|:-------|
+|   Help | `help` |
+|   Exit | `exit` |
+
+### Applicant Command Summary
+
+|                Action | Format                                                                                                                                                            |
+|----------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`                                                                                          |
+|    Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` (`INDEX` refers to numerical position of applicant in applicant list) |
+|  Delete Job Applicant | `delete [p] INDEX` (`INDEX` refers to numerical position of applicant in applicant list)                                                                          |
+|   List Job Applicants | `list [p]`                                                                                                                                                        |
+|  Clear Job Applicants | `clear [p]`                                                                                                                                                       |
+| Find Job Applicant(s) | `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                     |
+
+### Interview Command Summary
+
+|            Action | Format                                                                                                   |
+|------------------:|:---------------------------------------------------------------------------------------------------------|
+|     Add Interview | `add [i] INDEX d/DATE t/TIME` (`INDEX` refers to numerical position of applicant in applicant list)      |
+|    Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>` (`INDEX` refers to numerical position of interview in interview list) |
+|  Delete Interview | `delete [i] INDEX` (`INDEX` refers to numerical position of interview in interview list)                 |
+|   List Interviews | `list [i]`                                                                                               |
+|  Clear Interviews | `clear [i]`                                                                                              |
+| Find Interview(s) | `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                            |
+
+### Task Command Summary
+
+|       Action | Format                                                                                                                    |
+|-------------:|:--------------------------------------------------------------------------------------------------------------------------|
+|     Add Task | `add [t] h/HEADER d/DATE t/TIME i/INFORMATION`                                                                            |
+|    Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` (`INDEX` refers to numerical position of task in task list) |
+|  Delete Task | `delete [t] INDEX` (`INDEX` refers to numerical position of task in task list)                                            |
+|   List Tasks | `list [t]`                                                                                                                |
+|  Clear Tasks | `clear [t]`                                                                                                               |
+| Find Task(s) | `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                             |
+
+### Storage Command Summary
 |               Action | Format                                                                                                                                                                                                                                                                                                                      |
 |---------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        Add Interview | `add [i] INDEX d/DATE t/TIME` (`INDEX` refers to numerical position of applicant in applicant list)                                                                                                                                                                                                                         |
-|    Add Job Applicant | `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`                                                                                                                                                                                                                                                    |
-|             Add Task | `add [t] h/HEADER d/DATE t/TIME i/INFORMATION`                                                                                                                                                                                                                                                                              |
-|     Clear Interviews | `clear [i]`                                                                                                                                                                                                                                                                                                                 |
-| Clear Job Applicants | `clear [p]`                                                                                                                                                                                                                                                                                                                 |
-|          Clear Tasks | `clear [t]`                                                                                                                                                                                                                                                                                                                 |
-|     Delete Interview | `delete [i] INDEX` (`INDEX` refers to numerical position of interview in interview list)                                                                                                                                                                                                                                    |
-| Delete Job Applicant | `delete [p] INDEX` (`INDEX` refers to numerical position of applicant in applicant list)                                                                                                                                                                                                                                    |
-|          Delete Task | `delete [t] INDEX` (`INDEX` refers to numerical position of task in task list)                                                                                                                                                                                                                                              |
-|       Edit Interview | `edit [i] INDEX <d/DATE> <t/TIME>` (`INDEX` refers to numerical position of interview in interview list)                                                                                                                                                                                                                    |
-|   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` (`INDEX` refers to numerical position of applicant in applicant list)                                                                                                                                                           |
-|            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` (`INDEX` refers to numerical position of task in task list)                                                                                                                                                                                                   |
-|       Find Interview | `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                                                                                                                                                                               |
-|   Find Job Applicant | `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                                                                                                                                                                               |
-|            Find Task | `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                                                                                                                                                                               |
-|      List Interviews | `list [i]`                                                                                                                                                                                                                                                                                                                  |
-|  List Job Applicants | `list [p]`                                                                                                                                                                                                                                                                                                                  |
-|           List Tasks | `list [t]`                                                                                                                                                                                                                                                                                                                  |
 |               Import | `import FILEPATH`                                                                                                                                                                                                                                                                                                           |
 |               Export | `export FILEPATH`                                                                                                                                                                                                                                                                                                           |
-|                 Help | `help`                                                                                                                                                                                                                                                                                                                      |
-|                 Exit | `exit`                                                                                                                                                                                                                                                                                                                      |
