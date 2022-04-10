@@ -43,6 +43,9 @@ import seedu.address.model.tasks.Information;
 public class FindCommandParser implements Parser<FindCommand> {
 
     protected static String padding = " ";
+    private static final String NO_FLAGS_ERROR = "No flags found.\n";
+    private static final String NO_KEYWORDS_ERROR = "No keywords found.\n";
+    private static final String EXTRA_FLAG_ERROR = "Extra g/ flag found.\n";
     private static Logger logger = LogsCenter.getLogger(FindCommandParser.class);
 
     /**
@@ -86,7 +89,15 @@ public class FindCommandParser implements Parser<FindCommand> {
         boolean stillHasGroupFlag = allGroups.stream()
                 .anyMatch(grp -> grp.strip().startsWith(String.valueOf(PREFIX_GROUP)));
 
-        if (isCompletelyEmpty || hasNoKeywords || hasNoSpaceBetweenInitialFlags || stillHasGroupFlag) {
+        if (hasNoKeywords) {
+            throw new ParseException(NO_KEYWORDS_ERROR + msg);
+        }
+
+        if (stillHasGroupFlag) {
+            throw new ParseException(EXTRA_FLAG_ERROR + msg);
+        }
+
+        if (isCompletelyEmpty || hasNoSpaceBetweenInitialFlags) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, msg));
         }
 
@@ -97,7 +108,7 @@ public class FindCommandParser implements Parser<FindCommand> {
             if (!havePrefixesPresent(padding + firstArg, PREFIX_NAME, PREFIX_PHONE,
                     PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_JOB, PREFIX_STAGE, PREFIX_DATE, PREFIX_TIME,
                     PREFIX_GROUP, PREFIX_INFORMATION, PREFIX_HEADER)) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, "No flags found in group"));
+                throw new ParseException(NO_KEYWORDS_ERROR + msg);
             }
         }
     }
