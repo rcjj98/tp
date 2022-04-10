@@ -12,7 +12,7 @@ Given below are my contributions to the project.
 # Summary of Contributions
 ## Code contributed
 
-https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other
+<a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other">https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other</a>
 
 ## Enhancements implemented
 
@@ -48,7 +48,7 @@ https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&break
 
 ## Evidence of helping others
 
-- Bugs reported in other team products: https://github.com/AY2122S2-CS2103T-W09-1/tp/issues
+- Bugs reported in other team products during PE-D
 
 ## Evidence of technical leadership
 
