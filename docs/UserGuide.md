@@ -6,7 +6,7 @@ title: User Guide
 HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of
 the progress of each applicant during the application process.
 
-<h2>Table Of Contents</h2>
+<h1>Table Of Contents</h1>
 * Table of Contents
 {:toc}
 
@@ -18,6 +18,8 @@ the progress of each applicant during the application process.
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
 
   ![Ui](images/Ui.png)
+
+<div style="page-break-after: always;"></div>
 
 5. Type your command into the command box and press `Enter` to execute it.
 
@@ -54,6 +56,7 @@ the progress of each applicant during the application process.
 
 </div>
 &nbsp;
+<div style="page-break-after: always;"></div>
 
 ## General Features
 ----------
@@ -79,6 +82,7 @@ Exits the program.
 
 Format: `exit`
 
+<div style="page-break-after: always;"></div>
 
 ## Applicant Features
 ----------
@@ -195,6 +199,7 @@ Examples:<br>
 
 &nbsp;
 
+<div style="page-break-after: always;"></div>
 
 ## Interview Features
 ----------
@@ -304,6 +309,8 @@ Examples:<br>
 ![find](images/find-interview-AND-example.PNG) <br> <br>
 `find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
 ![find](images/find-interview-AND-OR-example.PNG) <br> <br>
+
+<div style="page-break-after: always;"></div>
 
 ## Task Features
 ----------
@@ -415,6 +422,9 @@ Examples:<br>
 
 
 &nbsp;
+
+<div style="page-break-after: always;"></div>
+
 ## Storage
 ----------
 ### Saving the data
@@ -479,6 +489,7 @@ Relative filepath example for MacOS: `export  ./myDataFile.csv`
 :exclamation: **Important:** Data in exported csv file will look different depending on the application used to view the
 file even though the data is seperated by tabs.
 
+<div style="page-break-after: always;"></div>
 
 # Summary
 ## Flags and Parameters Format Constraints

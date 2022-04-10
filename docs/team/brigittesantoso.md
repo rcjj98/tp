@@ -5,14 +5,14 @@ title: Brigitte Puteri Santoso's Project Portfolio Page
 
 # Project: HRConnect
 
-HRConnect is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of the progress of each applicant during the application process.
 
 Given below are my contributions to the project.
 
 # Summary of Contributions
 ## Code contributed
 
-https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other
+<a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other">https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other</a>
 
 ## Enhancements implemented
 
@@ -45,12 +45,10 @@ https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&break
 
 - Reviewed and approved some team members PRs with some comments and suggestions
 - Helped to solve bugs in other team members features
-
-## Evidence of helping others
-
-- Bugs reported in other team products: https://github.com/AY2122S2-CS2103T-W09-1/tp/issues
-
-## Evidence of technical leadership
-
 - Helped teammates when they faced issues or need help with their parts
 
+
+## Contributions beyond team-projects
+
+- Bugs reported in other team products during PE-D
+- Some forum contribution
