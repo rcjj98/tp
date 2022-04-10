@@ -281,17 +281,18 @@ Format: `clear [i]`
 
 &nbsp;
 ### Finding scheduled interview slot(s) by keywords: `find [i]`
-Finds interview slots with data containing any of the specified keywords.
+Finds interview slots with data containing any of the specified search terms.
 
-Use `g/` flags to find interview slot(s) with data containing **all** the keywords.
+Use `g/` flags to find interview slot(s) with data containing **all** the search terms.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [i] g/n/alex g/j/software developer g/s/INPROGRESS`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [i] g/n/alex g/d/2022-01-20 g/t/15:03`)
 
-Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+Format: `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
+* `find [i]` **is required** to start with a `g/` flag.
+* If a SEARCH_TERM without a flag is used, an error will be raised.
 * Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
-* If a keyword without a flag is used, an error will be raised.
-* Keywords are still required to follow the format defined as by the flags.
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -399,7 +400,7 @@ Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...
 * `find [t]` **is required** to start with a `g/` flag.
 * If a SEARCH_TERM without a flag is used, an error will be raised.
 * Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
-* SEARCH_TERMs are still required to follow the format defined as by their respective flags.
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
