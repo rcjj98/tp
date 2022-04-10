@@ -9,7 +9,7 @@ It can also be used to keep track of: <br>
 * interviews with each applicant
 * miscellaneous tasks that need to be completed
 
-![combined](images/alltogether.png)
+![combined](images/alltogether.PNG)
 
 <div style="page-break-after: always;"></div>
 
