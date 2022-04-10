@@ -165,12 +165,7 @@ csv file that is tab-delimited.
 
 The structure for the csv file is defined as follows:
 
-name | phone_number | email | address | job_title | current_application_progress
-
-An invalid file path is defined as follows:
-1. An empty string.
-2. A file path containing invalid characters (such as: "<" or ">" for Windows OS)
-3. A file path that does not end with `.csv`.
+name | phone number | email | address | job position | stage
 
 #### Implementation
 
@@ -181,7 +176,7 @@ feature is facilitated by the `ExportCommandParser`.
 
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters `export ../../my_data.csv` into the application.
+Step 1. User enters `export ./mydata.csv` into the application.
 
 Step 2. The file path is passed to `ExportCommandParser#parse()` and `ExportCommandParser#checkFilePath()` checks the validity of the file path.
 
@@ -198,7 +193,7 @@ Step 7. A new `CommandResult` object is returned signifying that the command has
 
 &nbsp;
 
-The following sequence diagram summarises how the export operation works.
+The following sequence diagram summarises how `export ./mydata.csv` works.
 
 <p align="center">
   <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
@@ -209,11 +204,9 @@ The following sequence diagram summarises how the export operation works.
 
 ### Import Feature
 
-The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the application.
+The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the address book.
 
 The csv file structure needs to follow the file structure as defined by the [export feature](#export-feature).
-
-An invalid csv file path also follows the conditions as defined by the [export feature](#export-feature).
 
 #### Implementation
 
@@ -223,7 +216,7 @@ The import feature is facilitated by the `ImportCommand` while the necessary che
 
 Given below is an example usage scenario and how the import mechanism behaves at each step.
 
-Step 1. User enters `import ../../past_data.csv` into the application.
+Step 1. User enters `import ./mydata.csv` into the application.
 
 Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportCommandParser#checkFilePath()` checks the validity of the file path.
 
@@ -238,13 +231,13 @@ Step 5. The newly created person is added to a temporary list.
 
 Step 6. A new `ImportCommand` object is created with the aforementioned temporary list as its parameter.
 
-Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current application before adding each person into the current application.
+Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current address book before adding each person into the current address book.
 
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
 &nbsp;
 
-The following sequence diagram summarises how the import operation works.
+The following sequence diagram summarises how `import ./mydata.csv` works.
 
 <p align="center">
   <img src="images/ImportSequenceDiagram.png" alt="Interactions for Import Command"/>
@@ -255,32 +248,39 @@ The following sequence diagram summarises how the import operation works.
 
 ### Find Feature
 
-The find feature finds all data within a specified component (Person/Interview/Task) such that it matches the search criteria.
+The find feature finds all data within a specified section (Person/Interview/Task) such that it matches the search criteria.
 
 #### Implementation
 
-The find feature is facilitated by the subclasses of the `FindCommand` while the necessary checks for the find feature is facilitated by the subclasses of `FindCommandParser`. The actual checking is faciliated by the `{Component Name}ContainsKeywordsPredicate`
+The find feature is facilitated by the subclasses of the `FindCommand` while the necessary validity checks for the find feature is facilitated by the subclasses of `FindCommandParser`. The actual filtering is faciliated by the `{Section}ContainsKeywordsPredicate`
 
 &nbsp;
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
-Step 1. User enters `find [p] g/n/alex g/n/tan` into the application.
+Step 1. User enters `find [t] g/i/update` into the application.
 
-Step 2. The search criteria is passed to `ImportCommandParser#parse()` and its component is determined.
+Step 2. The input is passed to `FindCommandParser#parse()` and its section is determined.
 
-Step 3. Next, the search criteria is checked for any invalid groups.
+Step 3. Next, the input is parsed and checked for any invalid groups.
 
-Step 4. The list of groups are then passed into `FindPersonCommandParser#parse()` to check for any invalid flags or formats.
+Step 4. The list of groups are then passed into `FindTaskCommandParser#parse()` to check for any invalid flags or formats.
 
-Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
+Step 5. A new `TaskContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
+
+Step 6. A new `FindTaskCommand` object is created with the aforementioned predicate object as its parameter.
+
+Step 7. The `FindTaskCommand#execute()` method is called. It filters the current address book such that it satisfies the predicate object and displays it on the screen.
+
+Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
+
 
 &nbsp;
 
-The following sequence diagram summarises how the find operation works
+The following sequence diagram summarises how `find [t] g/i/update` works
 
 <p align="center">
-  <img src="images/FindPersonCommandSequenceDiagram.png" alt="Interactions for Find Person Command"/>
+  <img src="images/FindCommandSequenceDiagram.png" alt="Interactions for Find Task Command"/>
 </p>
 
 #### Design Considerations
@@ -912,76 +912,76 @@ testers are expected to do more *exploratory* testing.
 
 1. Add an applicant to an empty address book
 
-    1. `add [p] n/John Doe p/01234567 e/johnd@example.com a/Pasir Ris BLK121 j/Software Engineer s/INPROGRESS`
+    1a. `add [p] n/John Doe p/01234567 e/johnd@example.com a/Pasir Ris BLK121 j/Software Engineer s/INPROGRESS`
     <br><br>
 
 2. Schedule an interview for John Doe
 
-    1. `add [i] 1 d/2021-05-06 t/10:30`
+   2a. `add [i] 1 d/2021-05-06 t/10:30`
     <br><br>
     
 3. Delete John Doe from address book
 
-    1. Test case: Do a. then b.
-       1. `delete [i] 1`
-       2. `delete [p] 1` <br>
+   3a. Test case: Do 3a1 then 3a2 <br>
+       3a1. `delete [i] 1` <br>
+       3a2.`delete [p] 1` <br>
        Expected: John Doe removed from address book. Details of deleted applicant shown in the status message.  
        <br>
-    2. Test case:`delete [p] 1` <br> 
+   3b. Test case:`delete [p] 1` <br> 
     Expected: No applicant deleted from address book. Error details shown in the status message  <br><br>
 
 ### Clearing all Job Applicants 
 
 1. Clear all applicants in address book with 0 scheduled interviews in interview list.
 
-    1. Test case: `clear [p]`  <br>
+    1a. Test case: `clear [p]`  <br>
     Expected: All applicants cleared from address book. Message indicating successful clearing of all applicants shown in status window
        <br><br>
     
 2. Clear all applicants in address book with 1 or more interview(s) in interview list.
 
-    1. Test case: `clear [p]` <br> 
+    2a. Test case: `clear [p]` <br> 
     Expected: No applicants cleared from address book. Error details shown in the status message  <br><br>
     
 ### Finding a Job Applicant
 
 1. Finding all applicants in the ACCEPTED stage. <br><br>
-    1. Test case: `find [p] g/ s/ACCEPTED` <br>
+    1a. Test case: `find [p] g/ s/ACCEPTED` <br>
        Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-    2. Test case: `find [p] g/ ACCEPTED` <br>
+    1b. Test case: `find [p] g/ ACCEPTED` <br>
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    3. Test case: `find [p] s/ACCEPTED`
+    1c. Test case: `find [p] s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    4. Test case: `find g/ s/ACCEPTED`
+    1d. Test case: `find g/ s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
 
 2. Finding all applicants applying for Computer System Analyst job position **and** in the ACCEPTED stage. <br><br>
-    1. Test case: `find [p] g/ j/Computer System Analyst s/ACCEPTED` <br>
+    2a. Test case: `find [p] g/ j/Computer System Analyst s/ACCEPTED` <br>
        Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-    2. Test case: `find [p] g/ Computer System Analyst s/ACCEPTED` <br>
+    2b. Test case: `find [p] g/ Computer System Analyst s/ACCEPTED` <br>
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    3. Test case: `find [p] j/Computer System Analyst s/ACCEPTED`
+    2c. Test case: `find [p] j/Computer System Analyst s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    4. Test case: `find g/ j/Computer System Analyst s/ACCEPTED`
+    2d. Test case: `find g/ j/Computer System Analyst s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
 
-2. Finding all applicants applying for Computer Systems Analyst job position **or** in the ACCEPTED stage. <br><br>
-    1. Test case: `find [p] g/ j/Computer Systems Analyst g/ s/ACCEPTED` <br>
+3. Finding all applicants applying for Computer Systems Analyst job position **or** in the ACCEPTED stage. <br><br>
+    3a. Test case: `find [p] g/ j/Computer Systems Analyst g/ s/ACCEPTED` <br>
        Expected: All applicants in the ACCEPTED stage are listed. Details of found applicants shown in status message. <br><br>
 
-    2. Test case: `find [p] g/ Computer Systems Analyst g/ s/ACCEPTED` <br>
+    3b. Test case: `find [p] g/ Computer Systems Analyst g/ s/ACCEPTED` <br>
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    3. Test case: `find [p] j/Computer Systems Analyst s/ACCEPTED`
+    3c. Test case: `find [p] j/Computer Systems Analyst s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>
 
-    4. Test case: `find g/ j/Computer Systems Analyst g/ s/ACCEPTED`
+    3d. Test case: `find g/ j/Computer Systems Analyst g/ s/ACCEPTED`
        Expected: No applicant found. Error details shown in the status message <br><br>

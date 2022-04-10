@@ -5,14 +5,16 @@ import static seedu.address.commons.util.FileUtil.isValidPath;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 public class ExportCommandParser implements Parser<ExportCommand> {
-
-    public static final String INVALID_FILE_PATH = "That is not a valid file path\n"
-        + "Please check for any illegal characters.";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9]+$";
+    public static final String INVALID_FILE_NAME = "File name should only contain alphanumeric characters";
+    public static final String INVALID_FILE_PATH = "That is not a valid file path\n" + INVALID_FILE_NAME;
     public static final String WRONG_FILE_TYPE = "Please include a .csv file extension with your file name.";
 
     /**
@@ -44,6 +46,8 @@ public class ExportCommandParser implements Parser<ExportCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_PATH));
         } else if (!isValidCsvFile(path)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, WRONG_FILE_TYPE));
+        } else if (!isValidCsvFileName(path)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INVALID_FILE_NAME));
         }
     }
 
@@ -55,5 +59,20 @@ public class ExportCommandParser implements Parser<ExportCommand> {
      */
     private boolean isValidCsvFile(String path) {
         return path.endsWith(".csv");
+    }
+
+    /**
+     * Returns true if a given string is a valid csv file name.
+     */
+    public static boolean isValidCsvFileName(String test) {
+        String[] csvFilePath = test.split("/");
+        int sizeOfCsvFilePathArr = csvFilePath.length;
+        String csvFile = csvFilePath[sizeOfCsvFilePathArr - 1];
+        String[] csvFileName = csvFile.split(".csv");
+
+        Pattern pattern = Pattern.compile(VALIDATION_REGEX);
+
+        Matcher matcher = pattern.matcher(csvFileName[0]);
+        return matcher.matches();
     }
 }

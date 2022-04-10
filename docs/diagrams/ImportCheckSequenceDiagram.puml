@@ -5,7 +5,7 @@ mainframe **sd** perform necessary checks
 
 box Logic LOGIC_COLOR_T1
 participant ":ImportCommandParser" as ImportCommandParser LOGIC_COLOR
-participant ":ParserUtil" as ParserUtil LOGIC_COLOR
+participant "<<class>>\nParserUtil" as ParserUtil LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -14,49 +14,49 @@ end box
 
 activate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : checkFilePath
+ImportCommandParser -> ImportCommandParser : checkFilePath()
 activate ImportCommandParser
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : readCsv
+ImportCommandParser -> ImportCommandParser : readCsv()
 activate ImportCommandParser
 
 loop until last entry is parsed
-ImportCommandParser -> ImportCommandParser : getFields
+ImportCommandParser -> ImportCommandParser : getFields()
 activate ImportCommandParser
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : createPerson
+ImportCommandParser -> ImportCommandParser : createPerson()
 activate ImportCommandParser
 
-ImportCommandParser -> ParserUtil : parseName
+ImportCommandParser -> ParserUtil : parseName()
 activate ParserUtil
-ParserUtil --> ImportCommandParser : Name
+ParserUtil --> ImportCommandParser : name
 deactivate ParserUtil
 
-ImportCommandParser -> ParserUtil : parsePhone
+ImportCommandParser -> ParserUtil : parsePhone()
 activate ParserUtil
 ParserUtil --> ImportCommandParser : phone
 deactivate ParserUtil
 
-ImportCommandParser -> ParserUtil : parseEmail
+ImportCommandParser -> ParserUtil : parseEmail()
 activate ParserUtil
 ParserUtil --> ImportCommandParser : email
 deactivate ParserUtil
 
-ImportCommandParser -> ParserUtil : parseAddress
+ImportCommandParser -> ParserUtil : parseAddress()
 activate ParserUtil
 ParserUtil --> ImportCommandParser : address
 deactivate ParserUtil
 
-ImportCommandParser -> ParserUtil : parseJob
+ImportCommandParser -> ParserUtil : parseJob()
 activate ParserUtil
 ParserUtil --> ImportCommandParser : job
 deactivate ParserUtil
 
-ImportCommandParser -> ParserUtil : parseStage
+ImportCommandParser -> ParserUtil : parseStage()
 activate ParserUtil
 ParserUtil --> ImportCommandParser : stage
 deactivate ParserUtil
@@ -75,7 +75,7 @@ deactivate Person
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : updatePersons
+ImportCommandParser -> ImportCommandParser : updatePersons()
 activate ImportCommandParser
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
