@@ -16,7 +16,7 @@ end box
 activate ExportCommandParser
 
 
-ExportCommandParser -> ExportCommandParser : checkFilePath("../mydata.csv")
+ExportCommandParser -> ExportCommandParser : checkFilePath()
 activate ExportCommandParser
 
 ExportCommandParser --> ExportCommandParser
