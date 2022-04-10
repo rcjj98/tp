@@ -5,7 +5,7 @@ title: Brigitte Puteri Santoso's Project Portfolio Page
 
 # Project: HRConnect
 
-HRConnect is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of the progress of each applicant during the application process.
 
 Given below are my contributions to the project.
 
@@ -45,12 +45,10 @@ Given below are my contributions to the project.
 
 - Reviewed and approved some team members PRs with some comments and suggestions
 - Helped to solve bugs in other team members features
-
-## Evidence of helping others
-
-- Bugs reported in other team products during PE-D
-
-## Evidence of technical leadership
-
 - Helped teammates when they faced issues or need help with their parts
 
+
+## Contributions beyond team-projects
+
+- Bugs reported in other team products during PE-D
+- Some forum contribution
