@@ -37,21 +37,21 @@ public class FindCommandParserTest {
 
         // check for empty g/ flags
         assertParseFailure(person, " [p] g/",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+                FindCommandParser.NO_KEYWORDS_ERROR + FindPersonCommand.MESSAGE_USAGE);
         assertParseFailure(interview, " [i] g/",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+                FindCommandParser.NO_KEYWORDS_ERROR + FindInterviewCommand.MESSAGE_USAGE);
         assertParseFailure(person, " [p] g/n/test g/",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+                FindCommandParser.NO_KEYWORDS_ERROR + FindPersonCommand.MESSAGE_USAGE);
         assertParseFailure(interview, " [i] g/n/test g/",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+                FindCommandParser.NO_KEYWORDS_ERROR + FindInterviewCommand.MESSAGE_USAGE);
         assertParseFailure(person, " [p] g/n/test g/ g/j/software",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+                FindCommandParser.NO_KEYWORDS_ERROR + FindPersonCommand.MESSAGE_USAGE);
         assertParseFailure(interview, " [i] g/n/test g/ g/j/software",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+                FindCommandParser.NO_KEYWORDS_ERROR + FindInterviewCommand.MESSAGE_USAGE);
         assertParseFailure(person, " [p] g/g/",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+                FindCommandParser.EXTRA_FLAG_ERROR + FindPersonCommand.MESSAGE_USAGE);
         assertParseFailure(interview, " [i] g/g/",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindInterviewCommand.MESSAGE_USAGE));
+                FindCommandParser.EXTRA_FLAG_ERROR + FindInterviewCommand.MESSAGE_USAGE);
     }
 
     @Test

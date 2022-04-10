@@ -162,18 +162,19 @@ Format: `clear [p]`
 
 <div style="page-break-after: always;"></div>
 
-### Finding job applicant(s) by keywords: `find [p]`
-Finds job applicants whose data contain the given keywords.
+### Finding job applicant(s) by search terms: `find [p]`
+Finds job applicants with data containing any of the specified search terms.
 
-Use `g/` flags to find job applicants whose data contain **all** the keywords.
+Use `g/` flags to find job applicants whose data contain **all** the search terms.
 
 :bulb: Tip: Use multiple `g/` flags as an **OR** command (e.g. `find [p] g/n/alex g/j/software developer g/s/INPROGRESS`)
 
-Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+Format: `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
-* Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
-* If a keyword without a flag is used, an error will be raised.
-* Keywords are still required to follow the format defined as by the flags.
+* `find [p]` **is required** to start with a `g/` flag.
+* Finding job applicants `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags.
+* If a SEARCH_TERM without a flag (e.g. `find [p] g/alex`) is used, an error will be raised.
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -282,18 +283,19 @@ Format: `clear [i]`
 
 <div style="page-break-after: always;"></div>
 
-### Finding scheduled interview slot(s) by keywords: `find [i]`
-Finds interview slots with data containing any of the specified keywords.
+### Finding scheduled interview slot(s) by search terms: `find [i]`
+Finds interview slots with data containing any of the specified search terms.
 
-Use `g/` flags to find interview slot(s) with data containing **all** the keywords.
+Use `g/` flags to find interview slot(s) with data containing **all** the search terms.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [i] g/n/alex g/j/software developer g/s/INPROGRESS`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [i] g/n/alex g/d/2022-01-20 g/t/15:03`)
 
-Format: `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+Format: `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
+* `find [i]` **is required** to start with a `g/` flag.
 * Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
-* If a keyword without a flag is used, an error will be raised.
-* Keywords are still required to follow the format defined as by the flags.
+* If a SEARCH_TERM without a flag (e.g. `find [i] g/alex`) is used, an error will be raised.
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -391,27 +393,28 @@ Format: `clear [t]`
 
 <div style="page-break-after: always;"></div>
 
-### Finding task(s) by keywords: `find [t]`
-Find tasks with data containing any of the specified keywords.
+### Finding task(s) by search terms: `find [t]`
+Find tasks with data containing any of the specified search terms.
 
-Use `g/` flags to find task(s) with data containing **all** the keywords.
+Use `g/` flags to find task(s) with data containing **all** the search terms.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update t/10:10`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update g/t/10:10`)
 
-Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
-* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
-* If a keyword without a flag is used, an error will be raised.
-* Keywords are still required to follow the format defined as by the flags.
+* `find [t]` **is required** to start with a `g/` flag.
+* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags.
+* If a SEARCH_TERM without a flag (e.g. `find [t] g/update`) is used, an error will be raised.
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
-`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br>
+`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br><br>
 ![find](images/find-task-OR-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br>
+`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br><br>
 ![find](images/find-task-AND-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br>
+`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br><br>
 ![find](images/find-task-AND-OR-example.PNG)
 
 
@@ -439,7 +442,7 @@ Imports all **job applicants** data from a *csv* save file generated from this a
 
 File structure for csv file (tab delimited):
 
-name | phone number | email | address | job title | stage
+name | phone number | email | address | job position | stage
 
 Notes:
 1. Filepath can be relative or absolute.
@@ -460,16 +463,17 @@ Exports all **job applicants** data from the address book into a *csv* save file
 
 File structure for csv file (tab delimited):
 
-name | phone number | email | address | job title | stage
+name | phone number | email | address | job position | stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
-2. File name of csv file **cannot** contain any front or backslashes.
+2. File name of csv file should only contain any front or backslashes.
    1. Invalid csv file name with front slash: myCSVfile\\.csv
    2. Invalid csv file name with backslash: myCSVfile/.csv
 3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
 4. Csv file **must** have .csv as a file extension.
-5. If any error is found while executing the command,
+5. Csv file name cannot contain any non-alphanumeric characters.
+6. If any error is found while executing the command,
 **none** of the data from the addressbook will be exported into the specified csv file.
 
 Format: `export FILEPATH`
@@ -492,7 +496,7 @@ file even though the data is seperated by tabs.
 |    a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |    e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
-|    g/ | GROUP        | Compulsory (and used only in) `find` command. Used in combination with the other flags on this list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|    g/ | SEARCH_TERM        | Only used in the `find` command. Used in combination with the other flags on this list.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |    h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |    i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |    j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -529,9 +533,9 @@ file even though the data is seperated by tabs.
 |   Edit Job Applicant | `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` (`INDEX` refers to numerical position of applicant in applicant list) |
 |            Edit Task | `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` (`INDEX` refers to numerical position of task in task list)                                         |
 |                 Exit | `exit`                                                                                                                                                            |
-|       Find Interview | `find [i] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                                                                                                   |
-|   Find Job Applicant | `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                                                                                                   |
-|            Find Task | `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`                                                                                                   |
+|       Find Interview | `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                                   |
+|   Find Job Applicant | `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                                   |
+|            Find Task | `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                                   |
 |                 Help | `help`                                                                                                                                                            |
 |      List Interviews | `list [i]`                                                                                                                                                        |
 |  List Job Applicants | `list [p]`                                                                                                                                                        |
