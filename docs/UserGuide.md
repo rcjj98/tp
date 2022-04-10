@@ -280,7 +280,7 @@ Format: `clear [i]`
 * Clear command does not throw an error even if interview list is already empty and success message will still be shown.
 
 &nbsp;
-### Finding scheduled interview slot(s) by keywords: `find [i]`
+### Finding scheduled interview slot(s) by search terms: `find [i]`
 Finds interview slots with data containing any of the specified search terms.
 
 Use `g/` flags to find interview slot(s) with data containing **all** the search terms.
@@ -388,7 +388,7 @@ Format: `clear [t]`
 * Clear command does not throw an error even if task list is already empty and success message will still be shown.
 
 &nbsp;
-### Finding task(s) by keywords: `find [t]`
+### Finding task(s) by search terms: `find [t]`
 Find tasks with data containing any of the specified search terms.
 
 Use `g/` flags to find task(s) with data containing **all** the search terms.
