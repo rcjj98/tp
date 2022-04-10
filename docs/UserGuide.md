@@ -346,7 +346,8 @@ Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION`
 * Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**. <br>
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
 * If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces. Let `(space)` denote an empty space. <br>
-e.g. `Update(space)interview(space)list` and `Update(space)(space)interview(space)list` are duplicate headers. <br>
+e.g. `Update(space)interview(space)list` and <br>
+`Update(space)(space)interview(space)list` are duplicate headers. <br>
 e.g. `Update(space)interview(space)list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
