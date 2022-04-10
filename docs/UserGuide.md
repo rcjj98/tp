@@ -15,23 +15,16 @@ the progress of each applicant during the application process.
 1. Ensure you have `Java 11` or above installed in your computer.
 2. Download the latest `HRConnect.jar` from <a href="https://github.com/AY2122S2-CS2103T-W11-2/tp/releases">here</a>
 3. Copy the file to the folder you want to use as the *home folder* for your HRConnect.
-4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.
-
-  ![Ui](images/Ui.png)
-
-<div style="page-break-after: always;"></div>
-
-5. Type your command into the command box and press `Enter` to execute it.
-
-    Some sample commands to try:
-   * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125
-   j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
-   * `list [p]`: Lists all applicants
-   * `delete [i] 1`: Deletes interview index **1** from the interview list
-   * `clear [i]`: Clear all interviews.
-   * `exit`: Exits the app.
-
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data. <br> ![Ui](images/Ui.png) <br> <div style="page-break-after: always;"></div>
+5. Type your command into the command box and press `Enter` to execute it.<br> Some sample commands to try:
+    * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125
+      j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
+    * `list [p]`: Lists all applicants
+    * `delete [i] 1`: Deletes interview index **1** from the interview list
+    * `clear [i]`: Clear all interviews.
+    * `exit`: Exits the app.
 6. Refer to [Features](#features) section directly below for details on each command.
+
 
 # Features
 
@@ -137,7 +130,8 @@ Before
 After
 ![edit](images/after-edit-contact-3.png)
 
-&nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Deleting job applicant: `delete [p]`
 Deletes an existing job applicant from the address book.
 
@@ -166,7 +160,8 @@ Format: `clear [p]`
 
 * Clear command does not throw an error even if applicant list is already empty and success message will still be shown.
 
-&nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Finding job applicant(s) by keywords: `find [p]`
 Finds job applicants whose data contain the given keywords.
 
@@ -258,7 +253,8 @@ Before
 After
 ![edit-interview](images/edit-interview.png)
 
-&nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Deleting an interview slot: `delete [i]`
 Deletes an existing interview slot in the address book.
 
@@ -284,7 +280,8 @@ Format: `clear [i]`
 
 * Clear command does not throw an error even if interview list is already empty and success message will still be shown.
 
-&nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Finding scheduled interview slot(s) by keywords: `find [i]`
 Finds interview slots with data containing any of the specified keywords.
 
@@ -365,9 +362,8 @@ Before
 After
 ![edit-task](images/edit-task.PNG)
 
+<div style="page-break-after: always;"></div>
 
-
-&nbsp;
 ### Deleting a task: `delete [t]`
 Deletes an existing task in the address book.
 
@@ -393,7 +389,8 @@ Format: `clear [t]`
 
 * Clear command does not throw an error even if task list is already empty and success message will still be shown.
 
-&nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Finding task(s) by keywords: `find [t]`
 Find tasks with data containing any of the specified keywords.
 
@@ -513,6 +510,7 @@ file even though the data is seperated by tabs.
 |  [p] | Applies the current command to the applicant list |
 |  [t] | Applies the current command to the task list      |
 
+<div style="page-break-after: always;"></div>
 
 ## Command Summary
 
