@@ -163,18 +163,19 @@ Format: `clear [p]`
 * Clear command does not throw an error even if applicant list is already empty and success message will still be shown.
 
 &nbsp;
-### Finding job applicant(s) by keywords: `find [p]`
-Finds job applicants whose data contain the given keywords.
+### Finding job applicant(s) by search terms: `find [p]`
+Finds job applicants with data containing any of the specified search terms.
 
-Use `g/` flags to find job applicants whose data contain **all** the keywords.
+Use `g/` flags to find job applicants whose data contain **all** the search terms.
 
 :bulb: Tip: Use multiple `g/` flags as an **OR** command (e.g. `find [p] g/n/alex g/j/software developer g/s/INPROGRESS`)
 
-Format: `find [p] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
+Format: `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
-* Finding persons `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
-* If a keyword without a flag is used, an error will be raised.
-* Keywords are still required to follow the format defined as by the flags.
+* `find [p]` **is required** to start with a `g/` flag.
+* If a SEARCH_TERM without a flag is used, an error will be raised.
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
+* Finding job applicants `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -393,7 +394,7 @@ Find tasks with data containing any of the specified search terms.
 
 Use `g/` flags to find task(s) with data containing **all** the search terms.
 
-:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update t/10:10`)
+:bulb: Hint: Use multiple `g/` flags to simulate an **OR** command (e.g. `find [t] g/h/update g/t/10:10`)
 
 Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
