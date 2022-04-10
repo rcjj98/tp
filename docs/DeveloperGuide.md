@@ -176,7 +176,7 @@ feature is facilitated by the `ExportCommandParser`.
 
 Given below is an example usage scenario and how the export mechanism behaves at each step.
 
-Step 1. User enters `export ../../my_data.csv` into the application.
+Step 1. User enters `export ./mydata.csv` into the application.
 
 Step 2. The file path is passed to `ExportCommandParser#parse()` and `ExportCommandParser#checkFilePath()` checks the validity of the file path.
 
@@ -193,7 +193,7 @@ Step 7. A new `CommandResult` object is returned signifying that the command has
 
 &nbsp;
 
-The following sequence diagram summarises how the export operation works.
+The following sequence diagram summarises how `export ./mydata.csv` works.
 
 <p align="center">
   <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
@@ -216,7 +216,7 @@ The import feature is facilitated by the `ImportCommand` while the necessary che
 
 Given below is an example usage scenario and how the import mechanism behaves at each step.
 
-Step 1. User enters `import ../../past_data.csv` into the application.
+Step 1. User enters `import ./mydata.csv` into the application.
 
 Step 2. The file path is passed to `ImportCommandParser#parse()` and `ImportCommandParser#checkFilePath()` checks the validity of the file path.
 
@@ -237,7 +237,7 @@ Step 8. A new `CommandResult` object is returned signifying that the command has
 
 &nbsp;
 
-The following sequence diagram summarises how the import operation works.
+The following sequence diagram summarises how `import ./mydata.csv` works.
 
 <p align="center">
   <img src="images/ImportSequenceDiagram.png" alt="Interactions for Import Command"/>
@@ -277,7 +277,7 @@ Step 8. A new `CommandResult` object is returned signifying that the command has
 
 &nbsp;
 
-The following sequence diagram summarises how the find operation works
+The following sequence diagram summarises how `find [t] g/i/update` works
 
 <p align="center">
   <img src="images/FindCommandSequenceDiagram.png" alt="Interactions for Find Task Command"/>
