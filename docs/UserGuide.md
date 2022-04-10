@@ -472,6 +472,9 @@ Notes:
 4. If any error is found while executing the command,
 **none** of the data from the HRConnect will be exported into the specified csv file.
 
+:exclamation: **Important:** Some invalid naming conventions for the specified csv file might be allowed 
+on different OS. E.g. `.csv` is a valid name on MacOS but not on WindowsOS  
+
 Format: `export FILEPATH`
 
 Absolute filepath example for WindowsOS: `export C:\Users\YOUR_USERNAME\Desktop\myData.csv` <br>
@@ -480,7 +483,7 @@ Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myD
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
 :exclamation: **Important:** Data in exported csv file will look different depending on the application used to view the
-file even though the data is seperated by tabs.
+file even though the data is seperated by tabs. 
 
 <div style="page-break-after: always;"></div>
 
