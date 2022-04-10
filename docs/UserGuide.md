@@ -3,13 +3,21 @@ layout: page
 title: User Guide
 ---
 
-HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of
-the progress of each applicant during the application process.
+HRConnect is a desktop application for managing the contacts of job applicants. <br>
+It can also be used to keep track of: <br>
+* stage progress of each applicant during the application process
+* interviews with each applicant
+* miscellaneous tasks that need to be completed
+
+![combined](images/alltogether.png)
+
+<div style="page-break-after: always;"></div>
 
 <h1>Table Of Contents</h1>
 * Table of Contents
 {:toc}
 
+<div style="page-break-after: always;"></div>
 
 # Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
@@ -193,9 +201,6 @@ Examples:<br>
 `find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
 `find [p] (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
 ![find](images/find-applicant-AND-OR-example.png) <br> <br>
-
-
-&nbsp;
 
 <div style="page-break-after: always;"></div>
 
@@ -432,9 +437,6 @@ Examples:<br>
 `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br> <br>
 ![find](images/find-task-AND-OR-example.PNG) <br> <br>
 
-
-&nbsp;
-
 <div style="page-break-after: always;"></div>
 
 ## Storage
@@ -565,6 +567,7 @@ file even though the data is seperated by tabs.
 |   List Interviews | `list [i]`                                                                                               |
 |  Clear Interviews | `clear [i]`                                                                                              |
 | Find Interview(s) | `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                            |
+
 <div style="page-break-after: always;"></div>
 
 ### Task Command Summary
