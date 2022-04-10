@@ -396,18 +396,19 @@ Use `g/` flags to find task(s) with data containing **all** the keywords.
 
 Format: `find [t] g/KEYWORD <KEYWORDS>... <g/KEYWORD <KEYWORDS>...>...`
 
-* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
+* `find [t]` **is required** to start with a `g/` flag.
 * If a keyword without a flag is used, an error will be raised.
-* Keywords are still required to follow the format defined as by the flags.
+* Finding tasks `[t]` **only** accepts `g/`,`h/`, `d/`, `t/`, and `i/` flags
+* Keywords are still required to follow the format defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
-`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br>
+`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br><br>
 ![find](images/find-task-OR-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br>
+`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br><br>
 ![find](images/find-task-AND-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br>
+`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br><br>
 ![find](images/find-task-AND-OR-example.PNG)
 
 
