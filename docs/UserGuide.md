@@ -18,11 +18,11 @@ the progress of each applicant during the application process.
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data. <br> ![Ui](images/Ui.png)
 5. Type your command into the command box and press `Enter` to execute it.<br> Some sample commands to try:
     * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125
-      j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
+      j/Software Developer s/INPROGRESS`: Adds a new applicant, Bob Tan, to the applicant list
     * `list [p]`: Lists all applicants
-    * `delete [i] 1`: Deletes interview index **1** from the interview list
-    * `clear [i]`: Clear all interviews.
-    * `exit`: Exits the app.
+    * `delete [i] 1`: Deletes interview index 1 from the interview list
+    * `clear [i]`: Clear all interviews
+    * `exit`: Exits the app
 6. Refer to [Features](#features) section directly below for details on each command.
 
 
@@ -58,7 +58,7 @@ the progress of each applicant during the application process.
 
 **:information_source: Notes about the command format regarding General Features:**<br>
 
-* Extraneous parameters for commands that do not take in parameters (such as help and exit) will be ignored.<br>
+* Extraneous parameters for commands that do not take in parameters (e.g. `help` and `exit`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
@@ -94,11 +94,11 @@ Adds a new job applicant to the HRConnect.
 
 Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-* Duplicate applicants **cannot** be added. Applicants are considered to be duplicates if they share the **same name (case-insensitive)**.
+* Duplicate applicants **cannot** be added. Applicants are considered to be duplicates if they share the **same name (case-insensitive)**. <br>
 e.g. `Alex Tan` and `alex tan` are duplicate applicants.
-* If the `NAME` input contain empty spaces, it will be trimmed and each applicant will be considered as a duplicate even if their names differ in the amount of empty spaces.
-e.g. `Alex Tan` and `Alex      Tan` are duplicate applicants.
-e.g. `Alex Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces.
+* If the `NAME` input contain empty spaces, it will be trimmed and each applicant will be considered as a duplicate even if their names differ in the amount of empty spaces. Let `(space)` denote an empty space ` `. <br>
+e.g. `Alex(space)Tan` and `Alex(space)(space)Tan` are duplicate applicants. <br>
+e.g. `Alex(space)Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -142,7 +142,7 @@ Format: `delete [p] INDEX`
 * Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**.`INDEX` **must** be a positive integer 1, 2, 3, …​
 
 Example:<br>
-`delete [p] 1` <br><br>
+`delete [p] 1`
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
@@ -182,11 +182,9 @@ Examples:<br>
 `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
 `find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
-
 `find [p] g/j/Software Developer s/REJECTED` is logically equivalent to <br>
 `find [p] j/Software Developer AND s/REJECTED` <br> <br>
 ![find](images/find-applicant-AND-example.png)
-
 `find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
 `find [p] (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
 ![find](images/find-applicant-AND-OR-example.png)
@@ -207,8 +205,8 @@ Examples:<br>
   e.g An interview scheduled on 29 March 2020 is listed before an interview scheduled on 2 April 2020.
 * Interview list can contain interviews with date and time before the current date and time. <br>
   e.g. If current date time is 4 April 2022, interview list can still contain interview with date 30 March 2022.
-* Interview list can contain interviews with applicants in any stages
-  e.g. A rejected applicant can still be scheduled for an interview
+* Interview list can contain interviews with applicants in any stages. <br>
+  e.g. A rejected applicant can still be scheduled for an interview.
 
 </div>
 
@@ -219,11 +217,11 @@ Adds a new job interview slot to the HRConnect.
 
 Format: `add [i] INDEX d/DATE t/TIME` <br><br>
 
-* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br><br>
+* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br>
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
-* Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
-e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
-e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 1 d/2021-06-30 t/12:30` are **NOT** adding duplicate interviews as the same applicant can have more than 1 interview.
+* Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**. <br>
+e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews. <br>
+e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 1 d/2021-06-30 t/12:30` are **NOT** adding duplicate interviews as the same applicant can have more than 1 interview as long as it is not the same date and time.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -272,7 +270,6 @@ Shows a list of all scheduled interviews in the HRConnect.
 
 Format: `list [i]`
 
-
 &nbsp;
 ### Clearing all interviews: `clear [i]`
 Clears all interviews from the HRConnect.
@@ -300,11 +297,14 @@ Format: `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
-`find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
+`find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to <br>
+`find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br> <br>
 ![find](images/find-interview-OR-example.PNG) <br> <br>
-`find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
+`find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to <br>
+`find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br> <br>
 ![find](images/find-interview-AND-example.PNG) <br> <br>
-`find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
+`find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to 
+`find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br> <br>
 ![find](images/find-interview-AND-OR-example.PNG) <br> <br>
 
 <div style="page-break-after: always;"></div>
@@ -329,11 +329,11 @@ Adds a new task to the HRConnect.
 Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
 
 * `DATE` and `TIME` refers to the due date and time of the task.
-* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**.
+* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**. <br>
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
-* If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces.
-e.g. `Update interview list` and `Update         interview list` are duplicate headers.
-e.g. `Update interview list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
+* If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces. Let `(space)` denote an empty space ` `. <br>
+e.g. `Update(space)interview(space)list` and `Update(space)(space)interview(space)list` are duplicate headers. <br>
+e.g. `Update(space)interview(space)list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -382,7 +382,6 @@ Shows a list of all tasks in the HRConnect.
 
 Format: `list [t]`
 
-
 &nbsp;
 ### Clearing all tasks: `clear [t]`
 Clears all tasks from the HRConnect.
@@ -410,12 +409,15 @@ Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
-`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br><br>
-![find](images/find-task-OR-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br><br>
-![find](images/find-task-AND-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br><br>
-![find](images/find-task-AND-OR-example.PNG)
+`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to <br>
+`find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br> <br>
+![find](images/find-task-OR-example.PNG) <br> <br>
+`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to <br>
+`find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br> <br>
+![find](images/find-task-AND-example.PNG) <br> <br>
+`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to <br>
+`find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br> <br>
+![find](images/find-task-AND-OR-example.PNG) <br> <br>
 
 
 &nbsp;
