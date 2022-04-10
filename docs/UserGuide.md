@@ -425,7 +425,7 @@ AddressBook data are saved in the hard disk automatically after any command that
 AddressBook data are saved as a JSON file `PATH_TO_JAR_FILE/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 :exclamation: **Caution:** If your changes to the data file makes its format invalid, the address book will discard all data and start with an empty data file at the next run. <br><br>
-:exclamation: **Caution:** Inconsistent data resulting from manual modification of the data file should **NOT** be considered as unexpected behaviour. <br>
+:exclamation: **Caution:** Manual modification of the JSON file is **NOT** a supported feature. Inconsistent data resulting from manual modification of the data file should **NOT** be considered as unexpected behaviour. <br>
 Example: Manually editing the `NAME` of applicant in the applicant list of the data file but not on interview list will lead to inconsistent data vice versa and any unusual behaviour caused by this should **NOT** be seen as a bug.
 
 &nbsp;
