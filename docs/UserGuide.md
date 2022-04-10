@@ -467,19 +467,15 @@ name | phone number | email | address | job position | stage
 
 Notes:
 1. Filepath of specified CSV file can be relative or absolute.
-2. File name of csv file should only contain any front or backslashes.
-   1. Invalid csv file name with front slash: myCSVfile\\.csv
-   2. Invalid csv file name with backslash: myCSVfile/.csv
-3. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
-4. Csv file **must** have .csv as a file extension.
-5. Csv file name cannot contain any non-alphanumeric characters.
-6. If any error is found while executing the command,
+2. Specifying the same csv file name and path will overwrite the data inside the specified csv file.
+3. Csv file **must** have .csv as a file extension. 
+4. If any error is found while executing the command,
 **none** of the data from the HRConnect will be exported into the specified csv file.
 
 Format: `export FILEPATH`
 
 Absolute filepath example for WindowsOS: `export C:\Users\YOUR_USERNAME\Desktop\myData.csv` <br>
-Relative filepath example for WindowsOS: `export ./myData.csv` <br><br>
+Relative filepath example for WindowsOS: `export .\myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
