@@ -65,14 +65,14 @@ public class ExportCommandParser implements Parser<ExportCommand> {
      * Returns true if a given string is a valid csv file name.
      */
     public static boolean isValidCsvFileName(String test) {
-        String[] CsvFilePath = test.split("/");
-        int sizeOfCsvFilePathArr = CsvFilePath.length;
-        String CsvFile = CsvFilePath[sizeOfCsvFilePathArr - 1];
-        String[] CsvFileName = CsvFile.split(".csv");
+        String[] csvFilePath = test.split("/");
+        int sizeOfCsvFilePathArr = csvFilePath.length;
+        String csvFile = csvFilePath[sizeOfCsvFilePathArr - 1];
+        String[] csvFileName = csvFile.split(".csv");
 
         Pattern pattern = Pattern.compile(VALIDATION_REGEX);
 
-        Matcher matcher = pattern.matcher(CsvFileName[0]);
+        Matcher matcher = pattern.matcher(csvFileName[0]);
         return matcher.matches();
     }
 }
