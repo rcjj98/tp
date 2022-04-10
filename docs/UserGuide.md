@@ -173,7 +173,7 @@ Use `g/` flags to find job applicants whose data contain **all** the search term
 Format: `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
 * `find [p]` **is required** to start with a `g/` flag.
-* If a SEARCH_TERM without a flag is used, an error will be raised.
+* If a SEARCH_TERM without a flag (e.g. `find [p] g/alex`) is used, an error will be raised.
 * Finding job applicants `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
 * SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
