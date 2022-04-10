@@ -174,8 +174,8 @@ Format: `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...
 
 * `find [p]` **is required** to start with a `g/` flag.
 * If a SEARCH_TERM without a flag is used, an error will be raised.
-* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 * Finding job applicants `[p]` **only** accepts `g/`, `n/`, `p/`, `e/`, `a/`, `j/`, and `s/` flags
+* SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
