@@ -165,13 +165,7 @@ csv file that is tab-delimited.
 
 The structure for the csv file is defined as follows:
 
-name | phone_number | email | address | job_title | current_application_progress
-
-An invalid file path is defined as follows:
-1. An empty string.
-2. A file path containing invalid characters (such as: "<" or ">" for Windows OS)
-3. A file path that does not end with `.csv`.
-4. A file path that contains a csv file name with non-alphanumeric characters.
+name | phone number | email | address | job position | stage
 
 #### Implementation
 
@@ -210,11 +204,9 @@ The following sequence diagram summarises how the export operation works.
 
 ### Import Feature
 
-The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the application.
+The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the address book.
 
 The csv file structure needs to follow the file structure as defined by the [export feature](#export-feature).
-
-An invalid csv file path also follows the conditions as defined by the [export feature](#export-feature).
 
 #### Implementation
 
@@ -239,7 +231,7 @@ Step 5. The newly created person is added to a temporary list.
 
 Step 6. A new `ImportCommand` object is created with the aforementioned temporary list as its parameter.
 
-Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current application before adding each person into the current application.
+Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current address book before adding each person into the current address book.
 
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
@@ -256,11 +248,11 @@ The following sequence diagram summarises how the import operation works.
 
 ### Find Feature
 
-The find feature finds all data within a specified component (Person/Interview/Task) such that it matches the search criteria.
+The find feature finds all data within a specified section (Person/Interview/Task) such that it matches the search criteria.
 
 #### Implementation
 
-The find feature is facilitated by the subclasses of the `FindCommand` while the necessary checks for the find feature is facilitated by the subclasses of `FindCommandParser`. The actual checking is faciliated by the `{Component Name}ContainsKeywordsPredicate`
+The find feature is facilitated by the subclasses of the `FindCommand` while the necessary validity checks for the find feature is facilitated by the subclasses of `FindCommandParser`. The actual filtering is faciliated by the `{Section}ContainsKeywordsPredicate`
 
 &nbsp;
 
@@ -268,13 +260,20 @@ Given below is an example usage scenario and how the find mechanism behaves at e
 
 Step 1. User enters `find [p] g/n/alex g/n/tan` into the application.
 
-Step 2. The search criteria is passed to `ImportCommandParser#parse()` and its component is determined.
+Step 2. The input is passed to `ImportCommandParser#parse()` and its section is determined.
 
-Step 3. Next, the search criteria is checked for any invalid groups.
+Step 3. Next, the input is parsed and checked for any invalid groups.
 
 Step 4. The list of groups are then passed into `FindPersonCommandParser#parse()` to check for any invalid flags or formats.
 
 Step 5. A new `PersonContainsKeywordsPredicate` predicate object is created using the list of groups as its parameter.
+
+Step 6. A new `FindPersonCommand` object is created with the aforementioned predicate object as its parameter.
+
+Step 7. The `FindPersonCommand#execute()` method is called. It filters the current address book such that it satisfies the perdicate object and displays it on the screen.
+
+Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
+
 
 &nbsp;
 
