@@ -43,7 +43,7 @@ import seedu.address.model.tasks.Information;
 public class FindCommandParser implements Parser<FindCommand> {
 
     public static final String EXTRA_FLAG_ERROR = "Extra g/ flag found.\n";
-    public static final String NO_KEYWORDS_ERROR = "No keywords found.\n";
+    public static final String NO_KEYWORDS_ERROR = "No search terms found.\n";
     protected static String padding = " ";
     private static Logger logger = LogsCenter.getLogger(FindCommandParser.class);
 
