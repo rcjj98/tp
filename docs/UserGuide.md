@@ -547,6 +547,8 @@ file even though the data is seperated by tabs.
 |  Help  | `help` |
 |  Exit  | `exit` |
 
+<br>
+
 **Applicant Command Summary** <br><br>
 
 |                Action | Format                                                                                                                                                            |
@@ -557,6 +559,8 @@ file even though the data is seperated by tabs.
 |   List Job Applicants | `list [p]`                                                                                                                                                        |
 |  Clear Job Applicants | `clear [p]`                                                                                                                                                       |
 | Find Job Applicant(s) | `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                     |
+
+<div style="page-break-after: always;"></div>
 
 **Interview Command Summary** <br><br>
 
@@ -581,6 +585,8 @@ file even though the data is seperated by tabs.
 |   List Tasks | `list [t]`                                                                                                                |
 |  Clear Tasks | `clear [t]`                                                                                                               |
 | Find Task(s) | `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                             |
+
+<br>
 
 **Storage Command Summary** <br><br>
 
