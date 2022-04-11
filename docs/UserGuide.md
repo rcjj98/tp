@@ -302,7 +302,7 @@ Use `g/` flags to find interview slot(s) with data containing **all** the search
 Format: `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
 * `find [i]` **is required** to start with a `g/` flag.
-* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
+* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/` flags.
 * If a SEARCH_TERM without a flag (e.g. `find [i] g/alex`) is used, an error will be raised.
 * SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
