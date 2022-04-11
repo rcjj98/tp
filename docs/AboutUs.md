@@ -38,7 +38,7 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 [[portfolio](team/eman-kom.md)]
 
 * Role: Developer
-* Responsibilities: tbc
+* Responsibilities: Find and Import Feature
 
 ### Imraj Singh Sandhu
 
