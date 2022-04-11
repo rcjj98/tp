@@ -40,9 +40,13 @@ Given below are the contributions I have made to this project.
   * Changed the design of the features section
   * Solved some bugs as was highighted in the PE-D
 
-## Contributions to team-based tasks
+## Team
 
 * Brainstormed user stories and product features with team
+* Reviewed the following PRs:
+[#159](https://github.com/AY2122S2-CS2103T-W11-2/tp/pull/159)
+[#54](https://github.com/AY2122S2-CS2103T-W11-2/tp/pull/54)
+[#41](https://github.com/AY2122S2-CS2103T-W11-2/tp/pull/41)
 
 ## Code Review contributions
 
