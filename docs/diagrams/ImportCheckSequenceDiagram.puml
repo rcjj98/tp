@@ -13,13 +13,6 @@ end box
 
 activate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : checkFilePath()
-activate ImportCommandParser
-ImportCommandParser --> ImportCommandParser
-deactivate ImportCommandParser
-
-ImportCommandParser -> ImportCommandParser : readCsv()
-activate ImportCommandParser
 
 loop until last entry is parsed
 ImportCommandParser -> ImportCommandParser : getFields()
@@ -50,7 +43,5 @@ ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
 
 end
-ImportCommandParser --> ImportCommandParser
-deactivate ImportCommandParser
 
 @enduml
