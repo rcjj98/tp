@@ -720,6 +720,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC15 - Edit a task**
 
 **MSS**
