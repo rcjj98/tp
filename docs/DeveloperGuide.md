@@ -408,6 +408,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
    Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Extensions**
 
 * 1a. The type is invalid.
@@ -448,6 +450,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new details for field(s). <br>
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC4 - Delete an applicant**
 
@@ -490,6 +494,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
    Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Extensions**
 
 * 1a. The type is invalid.
@@ -531,6 +537,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
 
 **Use case: UC7 - List applicant list**
 
@@ -567,6 +574,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1a2. User enters new type. <br>
       Steps 1a1-1a2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC9 - List task list**
 
@@ -611,6 +620,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1c1-1c2 are repeated until the interview list has been cleared. <br>
       Use case resumes from step 2.<br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC11 - Clear interview list**
 
 **MSS**
@@ -648,6 +659,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1a1-1a2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC13 - Edit an applicant's particulars**
 
 **MSS**
@@ -679,6 +692,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1c2. User deletes interview. <br>
       Steps 1c1-1c2 are repeated until the correct interview has been deleted. <br>
       Use case resumes from step 2.<br><br>
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC14 - Edit an interview**
 
@@ -730,6 +745,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC16 - Find an applicant**
 
 **MSS**
@@ -763,6 +780,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 2.  HRConnect shows interview with the specified details
 
     Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Extensions**
 
@@ -805,6 +824,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC19 - Export data from HRConnect**
 
 **MSS**
@@ -829,6 +850,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new filename. <br>
       Steps 1b1-1b2 are repeated until the filename entered is valid. <br>
       Use case resumes from step 2. <br><br>
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC20 - Import data to HRConnect**
 
@@ -915,6 +938,8 @@ testers are expected to do more *exploratory* testing.
 
    4. Test case: `add [t] h/Update applicant statuses d/2021-05-06 t/10:10`
       Expected: No task is added. Error details shown in the status message  <br><br>
+
+<div style="page-break-after: always;"></div>
 
 ### Editing an Interview
 
