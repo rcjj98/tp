@@ -14,12 +14,12 @@ end box
 [-> ImportCommandParser : parse("../mydata.csv")
 activate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : checkFilePath()
+ImportCommandParser -> ImportCommandParser : checkFilePath("../mydata.csv")
 activate ImportCommandParser
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : readCsv()
+ImportCommandParser -> ImportCommandParser : readCsv("../mydata.csv")
 activate ImportCommandParser
 
 ref over ImportCommandParser
@@ -45,15 +45,15 @@ destroy ImportCommandParser
 [-> ImportCommand : execute()
 activate ImportCommand
 
-loop until end of job applicants list
-ImportCommand -> Model : hasPerson()
+loop until end of persons list
+ImportCommand -> Model : hasPerson(person)
 activate Model
 Model --> ImportCommand
 deactivate Model
 end
 
-loop until end of job applicants list
-ImportCommand -> Model : addPerson()
+loop until end of persons list
+ImportCommand -> Model : addPerson(person)
 activate Model
 Model --> ImportCommand
 deactivate Model
