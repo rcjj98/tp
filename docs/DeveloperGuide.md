@@ -9,7 +9,7 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* Built upon and referenced from [AB-3](https://github.com/nus-cs2103-AY2122S2/tp)
 
 --------------------------------------------------------------------------------------------------------------------
 
