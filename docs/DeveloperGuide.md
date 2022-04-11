@@ -198,9 +198,6 @@ The following sequence diagram summarises how `export ./mydata.csv` works.
 <p align="center">
   <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
 </p>
-<p align="center">
-  <img src="images/WriteToFileSequenceDiagram.png" alt="Interactions Inside the Export Command"/>
-</p>
 
 ### Import Feature
 
