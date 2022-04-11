@@ -3,12 +3,12 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.Type.PERSON;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 
 import javafx.collections.ObservableList;
+import seedu.address.commons.util.FileUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.Type;
 import seedu.address.model.Model;
@@ -41,10 +41,8 @@ public class ExportCommand extends Command {
 
         try {
             //create new csv file to export data into
-            File csvFile = new File(csvFilePath.toString());
-            PrintWriter pw = new PrintWriter(csvFile);
-
-            //export all applicants data from addressbook.json into specified csv file
+            FileUtil.createFile(csvFilePath);
+            PrintWriter pw = new PrintWriter(csvFilePath.toString());
             for (Person p : personList) {
                 String name = p.getName().toString();
                 String phone = p.getPhone().toString();
