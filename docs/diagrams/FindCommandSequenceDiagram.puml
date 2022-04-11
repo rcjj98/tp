@@ -17,7 +17,7 @@ end box
 [-> FindCommandParser : parse("[t] g/i/update")
 activate FindCommandParser
 
-FindCommandParser -> FindCommandParser : checkValidGroups()
+FindCommandParser -> FindCommandParser : checkValidGroups(["i/update"])
 activate FindCommandParser
 FindCommandParser --> FindCommandParser
 deactivate FindCommandParser
@@ -31,7 +31,7 @@ deactivate FindTaskCommandParser
 FindCommandParser -> FindTaskCommandParser : parse(["i/update"])
 activate FindTaskCommandParser
 
-FindTaskCommandParser -> FindCommandParser : checkInvalidInformation()
+FindTaskCommandParser -> FindCommandParser : checkInvalidInformation(["i/update"])
 FindCommandParser --> FindTaskCommandParser
 
 create TaskContainsKeywordsPredicate
