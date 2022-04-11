@@ -529,7 +529,7 @@ file even though the data is seperated by tabs.
 |    t/ | TIME         | Time should be in the format HH:MM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 
-## List Types
+## Section Types
 
 | Type | Format                                            |
 |-----:|:--------------------------------------------------|
