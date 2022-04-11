@@ -45,15 +45,15 @@ destroy ImportCommandParser
 [-> ImportCommand : execute()
 activate ImportCommand
 
-loop until end of applicant list
-ImportCommand -> Model : hasPerson(applicant)
+loop until end of persons list
+ImportCommand -> Model : hasPerson(person)
 activate Model
 Model --> ImportCommand
 deactivate Model
 end
 
-loop until end of job applicant list
-ImportCommand -> Model : addPerson(applicant)
+loop until end of persons list
+ImportCommand -> Model : addPerson(person)
 activate Model
 Model --> ImportCommand
 deactivate Model
