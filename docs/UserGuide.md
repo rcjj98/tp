@@ -474,7 +474,6 @@ Notes:
 
 :exclamation: **Important:** Some invalid naming conventions for the specified csv file might be allowed 
 on different OS. E.g. `my:Data.csv` is a valid name on MacOS but not on WindowsOS.
-:exclamation: **Important:** Different OS might have different valid filepaths
 
 Format: `export FILEPATH`
 
@@ -483,7 +482,6 @@ Relative filepath example for WindowsOS: `export .\myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
-:exclamation: **Important:** Different OS might have different valid filepath. 
 
 :exclamation: **Important:** Data in exported csv file will look different depending on the application used to view the
 file even though the data is seperated by tabs. 
