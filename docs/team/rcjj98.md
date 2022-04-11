@@ -1,5 +1,6 @@
 ---
-layout: page title: Ryan Chang's Project Portfolio Page
+layout: page
+title: Ryan Chang's Project Portfolio Page
 ---
 
 ### Project: HRConnect
