@@ -26,6 +26,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
@@ -67,6 +69,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
@@ -83,6 +87,8 @@ The `UI` component,
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person`, `Interview`, `Task` objects residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -115,6 +121,8 @@ How the parsing works:
 * All `XYZTYPECommandParser` classes (`XYZ` refers to the specific command, and `TYPE` refers to either `Person`, `Task` or `Interview` objects e.g., `AddTaskCommandParser`, `DeletePersonCommandParser`, ...) are created by the `XYZCommandParser` classes, which return an `XYZTYPECommand` (`XYZTYPECommand` referring to the specific command e.g. `AddPersonCommand`, `DeleteTaskCommand`, ...).
 * `XYZCommand` like `AddCommand` and `DeleteCommand` are abstract classes, which inherits from the abstract `Command` class, so they may be treated similarly where possible. However `XYZCommand` like `HelpCommand` and `ExitCommand` are non-abstract classes but also inherits from abstract class Command.
 
+<div style="page-break-after: always;"></div>
+
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
@@ -136,6 +144,7 @@ The `Model` component,
 
 </div>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -153,6 +162,8 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -199,6 +210,8 @@ The following sequence diagram summarises how `export ./mydata.csv` works.
   <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
 </p>
 
+<div style="page-break-after: always;"></div>
+
 ### Import Feature
 
 The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the HRConnect.
@@ -242,6 +255,8 @@ The following sequence diagram summarises how `import ./mydata.csv` works.
 <p align="center">
   <img src="images/ImportCheckSequenceDiagram.png" alt="Interactions for Import checking Command"/>
 </p>
+
+<div style="page-break-after: always;"></div>
 
 ### Find Feature
 
@@ -290,6 +305,7 @@ The following sequence diagram summarises how `find [t] g/i/update` works
   * Cons: Lacks the flexibility provided by AND and OR operators.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -320,6 +336,8 @@ The following sequence diagram summarises how `find [t] g/i/update` works
 * Keep track of applicant's upcoming and past interviews.
 * A task list to keep track of miscellaneous tasks.
 
+<div style="page-break-after: always;"></div>
+
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
@@ -348,6 +366,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | Tech HR Recruiter | import details of applicants                     | easily transfer applicant details into my HRConnect |
 
 
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 For all use cases below, the **System** is the `HRConnect` and the **Actor** is the `Tech HR Recruiter`, unless specified otherwise.
@@ -833,6 +852,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b1. User deletes applicant from HRConnect. (UC4)
       Use case resumes from step 1. <br><br>
 
+<div style="page-break-after: always;"></div>
 
 ### Non-Functional Requirements
 
@@ -851,6 +871,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
