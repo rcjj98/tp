@@ -20,25 +20,35 @@ Link: <a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigit
 
 ## Enhancements implemented
 
-- Add job and stage field for applicant
-- Created Interview, Date, Time, Header, Information classes
-- Add some interview commands (e.g. Add, Delete, List, Edit, Clear)
-- Add some task commands (e.g. List, Edit, Clear)
-- Used OOP principles to make some commands abstract to reduce repetition of code (e.g. AddCommand for AddPersonCommand, AddInterviewCommand and AddTaskCommand)
+- Implemented several object/field classes
+e.g. Job, Stage, Interview, Date, Time, Header, Information
+- Added some interview commands and parsers
+e.g. Add, Delete, List, Edit, Clear
+- Added some task commands and parsers 
+e.g. List, Edit, Clear
+- Introduced types into code to distinguish between applicant, interview and task 
+e.g. `[p]`, `[i]`, `[t]`
+- Used OOP principles to make some commands abstract to reduce repetition of code 
+e.g. `AddCommand` for `AddPersonCommand`, `AddInterviewCommand` and `AddTaskCommand`)
+- Enhanced UI of the application
+e.g. Adding tabs feature and adding different colors to represent different stages of progress
 
 ## Contributions to the UG
 
 - Add all task commands to the UG with clear formatting
 - Add all task commands to the command summary table in UG
-- Add constraint pointers to some commands like clearing applicant and adding interview
+- Add constraint pointers to some commands
+e.g. Clearing applicant list and Adding interview
 - Add notes for Interview and Task features
+e.g. Listed in chronological date time order
 - Solve some UG bugs highlighted from PE-D
 - Helped to format the UG by adding appropriate page breaks for PDF submission
 
 ## Contributions to the DG
 
-- Edited model and storage section of DG
-- Edited UML diagrams for model and storage section namely BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
+- Edited Model and Storage section of DG by elaborating how the components in these sections worked
+- Edited UML diagrams for Model and Storage section
+e.g. BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
 
 ## Contributions to team-based tasks
 
