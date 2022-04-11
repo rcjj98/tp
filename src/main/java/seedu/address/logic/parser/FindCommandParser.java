@@ -156,7 +156,7 @@ public class FindCommandParser implements Parser<FindCommand> {
      */
     public static void checkInvalidHeader(List<String> header, String group) throws ParseException {
         if (header.stream().anyMatch(h -> !Header.isValidHeader(h.strip()))) {
-            throw new ParseException("Group " + group + ": contains invalid header\n" + Header.MESSAGE_CONSTRAINTS);
+            throw new ParseException("[" + group + "] contains invalid header\n" + Header.MESSAGE_CONSTRAINTS);
         }
     }
 

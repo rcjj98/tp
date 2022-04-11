@@ -3,13 +3,21 @@ layout: page
 title: User Guide
 ---
 
-HRConnect is a desktop application for managing the contacts of job applicants. It can also be used to keep track of
-the progress of each applicant during the application process.
+HRConnect is a desktop application for managing the contacts of job applicants. <br>
+It can also be used to keep track of: <br>
+* stage progress of each applicant during the application process
+* interviews with each applicant
+* miscellaneous tasks that need to be completed
+
+![combined](images/alltogether.PNG)
+
+<div style="page-break-after: always;"></div>
 
 <h1>Table Of Contents</h1>
 * Table of Contents
 {:toc}
 
+<div style="page-break-after: always;"></div>
 
 # Quick Start
 1. Ensure you have `Java 11` or above installed in your computer.
@@ -18,13 +26,14 @@ the progress of each applicant during the application process.
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data. <br> ![Ui](images/Ui.png)
 5. Type your command into the command box and press `Enter` to execute it.<br> Some sample commands to try:
     * `add [p] n/Bob Tan p/98765876 e/bot@gmail.com a/262 Serangoon Central Drive 1-125
-      j/Software Developer s/INPROGRESS`: Adds a new applicant named Bob Tan to the applicant list
+      j/Software Developer s/INPROGRESS`: Adds a new applicant, Bob Tan, to the applicant list
     * `list [p]`: Lists all applicants
-    * `delete [i] 1`: Deletes interview index **1** from the interview list
-    * `clear [i]`: Clear all interviews.
-    * `exit`: Exits the app.
+    * `delete [i] 1`: Deletes interview index 1 from the interview list
+    * `clear [i]`: Clear all interviews
+    * `exit`: Exits the app
 6. Refer to [Features](#features) section directly below for details on each command.
 
+<div style="page-break-after: always;"></div>
 
 # Features
 
@@ -58,7 +67,7 @@ the progress of each applicant during the application process.
 
 **:information_source: Notes about the command format regarding General Features:**<br>
 
-* Extraneous parameters for commands that do not take in parameters (such as help and exit) will be ignored.<br>
+* Extraneous parameters for commands that do not take in parameters (e.g. `help` and `exit`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
@@ -94,13 +103,15 @@ Adds a new job applicant to the HRConnect.
 
 Format: `add [p] n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS j/JOB_POSITION s/STAGE`
 
-* Duplicate applicants **cannot** be added. Applicants are considered to be duplicates if they share the **same name (case-insensitive)**.
+* Duplicate applicants **cannot** be added. Applicants are considered to be duplicates if they share the **same name (case-insensitive)**. <br>
 e.g. `Alex Tan` and `alex tan` are duplicate applicants.
-* If the `NAME` input contain empty spaces, it will be trimmed and each applicant will be considered as a duplicate even if their names differ in the amount of empty spaces.
-e.g. `Alex Tan` and `Alex      Tan` are duplicate applicants.
-e.g. `Alex Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces.
+* If the `NAME` input contain empty spaces, it will be trimmed and each applicant will be considered as a duplicate even if their names differ in the amount of empty spaces. Let `(space)` denote an empty space. <br>
+e.g. `Alex(space)Tan` and `Alex(space)(space)Tan` are duplicate applicants. <br>
+e.g. `Alex(space)Tan` and `AlexTan` are NOT duplicate applicants as `AlexTan` does not have any empty spaces.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+
+<div style="page-break-after: always;"></div>
 
 Example:<br>
 `add [p] n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 j/Software Developer s/INPROGRESS`
@@ -113,13 +124,14 @@ Edits an existing job applicant in the HRConnect
 
 :exclamation: **Take note: Cannot edit an applicant if he/she has an interview scheduled.**
 
-Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>` <br><br>
+Format: `edit [p] INDEX <n/NAME> <p/PHONE_NUMBER> <e/EMAIL> <a/ADDRESS> <j/JOB_POSITION> <s/STAGE>`
 
 * Edits the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * At least **one** of the optional fields must be provided.
 * Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+<div style="page-break-after: always;"></div>
 
 Example:<br>
 `edit [p] 2 n/Amanda Tan j/Software Developer s/INPROGRESS` <br><br>
@@ -142,7 +154,7 @@ Format: `delete [p] INDEX`
 * Deletes the applicant at the specified `INDEX`. `INDEX` refers to the numerical position of the **applicant in the applicant list**.`INDEX` **must** be a positive integer 1, 2, 3, …​
 
 Example:<br>
-`delete [p] 1` <br><br>
+`delete [p] 1`
 
 &nbsp;
 ### Listing all job applicants: `list [p]`
@@ -182,17 +194,14 @@ Examples:<br>
 `find [p] g/s/ACCEPTED g/n/John Doe` is logically equivalent to <br>
 `find [p] s/ACCEPTED OR n/John Doe`  <br> <br>
 ![find](images/find-applicant-OR-example.png) <br> <br>
+<div style="page-break-after: always;"></div>
 
 `find [p] g/j/Software Developer s/REJECTED` is logically equivalent to <br>
 `find [p] j/Software Developer AND s/REJECTED` <br> <br>
-![find](images/find-applicant-AND-example.png)
-
+![find](images/find-applicant-AND-example.png) <br> <br>
 `find [p] g/j/Software Developer s/REJECTED g/n/John Doe` is logically equivalent to <br>
 `find [p] (j/Software Developer AND s/REJECTED) OR n/John Doe` <br> <br>
-![find](images/find-applicant-AND-OR-example.png)
-
-
-&nbsp;
+![find](images/find-applicant-AND-OR-example.png) <br> <br>
 
 <div style="page-break-after: always;"></div>
 
@@ -207,8 +216,8 @@ Examples:<br>
   e.g An interview scheduled on 29 March 2020 is listed before an interview scheduled on 2 April 2020.
 * Interview list can contain interviews with date and time before the current date and time. <br>
   e.g. If current date time is 4 April 2022, interview list can still contain interview with date 30 March 2022.
-* Interview list can contain interviews with applicants in any stages
-  e.g. A rejected applicant can still be scheduled for an interview
+* Interview list can contain interviews with applicants in any stages. <br>
+  e.g. A rejected applicant can still be scheduled for an interview.
 
 </div>
 
@@ -217,13 +226,13 @@ Adds a new job interview slot to the HRConnect.
 
 :exclamation: **Take note: Only can add an interview for an applicant that is present in applicant list.**
 
-Format: `add [i] INDEX d/DATE t/TIME` <br><br>
+Format: `add [i] INDEX d/DATE t/TIME`
 
-* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br><br>
+* `INDEX` refers to the numerical position of the **applicant in the applicant list**. `INDEX` **must** be a positive integer 1, 2, 3, …​<br>
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
-* Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**.
-e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews.
-e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 1 d/2021-06-30 t/12:30` are **NOT** adding duplicate interviews as the same applicant can have more than 1 interview.
+* Duplicate interviews **cannot** be added. Interviews are considered to be duplicates if they share the **same date AND time**. <br>
+e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 2 d/2021-06-25 t/17:30` are adding duplicate interviews. <br>
+e.g. `add [i] 1 d/2021-06-25 t/17:30` and `add [i] 1 d/2021-06-30 t/12:30` are **NOT** adding duplicate interviews as the same applicant can have more than 1 interview as long as it is not the same date and time.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
@@ -236,7 +245,7 @@ Example:<br>
 ### Editing an existing interview slot: `edit [i]`
 Edits an existing interview slot in the HRConnect
 
-Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
+Format: `edit [i] INDEX <d/DATE> <t/TIME>`
 
 * Edits the interview at the specified `INDEX`. `INDEX` refers to the numerical position of the **interview in the interview list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
 * `TIME` refers to the start time of the interview. Duration of each interview is not fixed so a minute time gap between interviews is also allowed.
@@ -244,6 +253,7 @@ Format: `edit [i] INDEX <d/DATE> <t/TIME>` <br>
 * Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+<div style="page-break-after: always;"></div>
 
 Example: <br>
 `edit [i] 1 d/2021-12-30 t/10:30` <br><br>
@@ -272,7 +282,6 @@ Shows a list of all scheduled interviews in the HRConnect.
 
 Format: `list [i]`
 
-
 &nbsp;
 ### Clearing all interviews: `clear [i]`
 Clears all interviews from the HRConnect.
@@ -293,18 +302,23 @@ Use `g/` flags to find interview slot(s) with data containing **all** the search
 Format: `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`
 
 * `find [i]` **is required** to start with a `g/` flag.
-* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/`, flags.
+* Finding interviews `[i]` **only** accepts `g/`, `n/`, `d/`, `t/`, and `j/` flags.
 * If a SEARCH_TERM without a flag (e.g. `find [i] g/alex`) is used, an error will be raised.
 * SEARCH_TERMs are still required to follow the format as defined as by their respective flags.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
-`find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to `find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br><br>
+`find [i] g/n/Amanda Tan g/j/Software Developer g/t/10:10` is logically equivalent to <br>
+`find [i] n/Amanda Tan OR j/Software Developer OR t/10:10` <br> <br>
 ![find](images/find-interview-OR-example.PNG) <br> <br>
-`find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to `find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br><br>
+<div style="page-break-after: always;"></div>
+
+`find [i] g/n/Amanda Tan j/Software Developer t/10:10` is logically equivalent to <br>
+`find [i] n/Amanda Tan AND j/Software Developer AND t/10:10` <br> <br>
 ![find](images/find-interview-AND-example.PNG) <br> <br>
-`find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to `find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br><br>
+`find [i] g/n/Amanda Tan j/Software Developer g/t/10:10` is logically equivalent to 
+`find [i] (n/Amanda Tan AND g/j/Software Developer) OR t/10:10` <br> <br>
 ![find](images/find-interview-AND-OR-example.PNG) <br> <br>
 
 <div style="page-break-after: always;"></div>
@@ -326,16 +340,19 @@ Examples:<br>
 ### Adding a new task to the miscellaneous task list: `add [t]`
 Adds a new task to the HRConnect.
 
-Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` <br><br>
+Format: `add [t] h/HEADER d/DATE t/TIME i/INFORMATION` 
 
 * `DATE` and `TIME` refers to the due date and time of the task.
-* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**.
+* Duplicate tasks **cannot** be added. Tasks are considered to be duplicates if they share the **same header (case-insensitive) AND date AND time**. <br>
 e.g. `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update half of the interview list` and `add [t] h/Update interview list d/2021-06-25 t/17:30 i/Update the entire interview list` are adding duplicate interviews.
-* If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces.
-e.g. `Update interview list` and `Update         interview list` are duplicate headers.
-e.g. `Update interview list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
+* If the `HEADER` input contain empty spaces, it will be trimmed and each header will be considered as a duplicate even if their header differ in the amount of empty spaces. Let `(space)` denote an empty space. <br>
+e.g. `Update(space)interview(space)list` and <br>
+`Update(space)(space)interview(space)list` are duplicate headers. <br>
+e.g. `Update(space)interview(space)list` and `Updateinterviewlist` are NOT duplicate headers as `Updateinterviewlist` does not have any empty spaces.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+
+<div style="page-break-after: always;"></div>
 
 Example:<br>
 `add [t] h/Add interview slots d/2022-04-01 t/17:30 i/Add all interviews happening in the following week`
@@ -346,7 +363,7 @@ Example:<br>
 ### Editing an existing task: `edit [t]`
 Edits an existing task in the HRConnect
 
-Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
+Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` 
 
 * `DATE` and `TIME` refers to the due date and time of the task.
 * Edits the task at the specified `INDEX`. `INDEX` refers to the numerical position of the **task in the task list**. `INDEX` **must** be a positive integer 1, 2, 3, …​
@@ -354,6 +371,7 @@ Format: `edit [t] INDEX <h/HEADER> <d/DATE> <t/TIME> <i/INFORMATION>` <br>
 * Existing values will be updated to the input values. If input value is same as existing value, success message will still be shown.
 
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
+<div style="page-break-after: always;"></div>
 
 Example: <br>
 `edit [t] 1 d/2021-12-30 t/10:30` <br><br>
@@ -382,7 +400,6 @@ Shows a list of all tasks in the HRConnect.
 
 Format: `list [t]`
 
-
 &nbsp;
 ### Clearing all tasks: `clear [t]`
 Clears all tasks from the HRConnect.
@@ -410,15 +427,17 @@ Format: `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...
 :bulb: View constraints on flags and parameters [here](#flags-and-parameters-format-constraints)
 
 Examples:<br>
-`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to `find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br><br><br>
-![find](images/find-task-OR-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to `find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br><br><br>
-![find](images/find-task-AND-example.PNG)
-`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to `find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br><br><br>
-![find](images/find-task-AND-OR-example.PNG)
+`find [t] g/d/2022-03-04 g/h/Update interview list g/t/10:10` is logically equivalent to <br>
+`find [t] d/2022-03-04 OR h/Update interview list OR t/10:10` <br> <br>
+![find](images/find-task-OR-example.PNG) <br> <br>
+<div style="page-break-after: always;"></div>
 
-
-&nbsp;
+`find [t] g/d/2022-03-06 h/Update interview list t/09:00` is logically equivalent to <br>
+`find [t] d/2022-03-06 AND h/Update interview list AND t/09:00` <br> <br>
+![find](images/find-task-AND-example.PNG) <br> <br>
+`find [t] g/d/2022-03-06 h/Update interview list g/t/10:10` is logically equivalent to <br>
+`find [t] (d/2022-03-06 AND h/Update interview list) OR t/10:10` <br> <br>
+![find](images/find-task-AND-OR-example.PNG) <br> <br>
 
 <div style="page-break-after: always;"></div>
 
@@ -436,6 +455,8 @@ HRConnect data are saved as a JSON file `PATH_TO_JAR_FILE/data/HRConnect.json`. 
 Example: Manually editing the `NAME` of applicant in the applicant list of the data file but not on interview list will lead to inconsistent data vice versa and any unusual behaviour caused by this should **NOT** be seen as a bug.
 
 &nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Importing the data file: `import`
 
 Imports all **job applicants** data from a *csv* save file generated from this HRConnect.
@@ -449,7 +470,8 @@ Notes:
 2. No duplicates are allowed to be imported into the HRConnect.
    1. Data in the HRConnect has a higher priority than data in the save file.
 3. Save files needs to end with `.csv` in order for the HRConnect to recognise the save file.
-4. If any error is found, **none** of the data in the save file will be imported into the HRConnect.
+4. The csv save file can have at most 1 newline at the end of file for it to be considered valid.
+5. If any error is found, **none** of the data in the save file will be imported into the HRConnect.
 
 Format: `import FILEPATH`
 
@@ -457,6 +479,8 @@ Example:<br>
 `import C:\Users\YOUR_USERNAME\Desktop\data.csv`
 
 &nbsp;
+<div style="page-break-after: always;"></div>
+
 ### Exporting to a csv data file: `export`
 
 Exports all **job applicants** data from the HRConnect into a *csv* save file.
@@ -491,22 +515,22 @@ file even though the data is seperated by tabs.
 # Summary
 ## Flags and Parameters Format Constraints
 
-| Flags | Parameters   | Format Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|------:|--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|    d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|    e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
-|    g/ | SEARCH_TERM  | Only used in the `find` command. Used in combination with the other flags on this list.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|    h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|    i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|    j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|    n/ | NAME         | Names should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|    p/ | PHONE_NUMBER | Phone numbers should only contain numbers, and it should be at least 3 digits long                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|    s/ | STAGE        | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|    t/ | TIME         | Time should be in the format HH:MM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Flags | Parameters   | Format Constraints                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|------:|--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    a/ | ADDRESS      | Addresses can take any values, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|    d/ | DATE         | Date should be in the format YYYY-MM-dd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|    e/ | EMAIL        | Emails should be of the format local-part@domain and adhere to the following constraints: <br/> <br/> 1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters. <br/> <br/> 2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. <br/> <br/> The domain name must: <br/> - end with a domain label at least 2 characters long <br/> - have each domain label start and end with alphanumeric characters <br/> - have each domain label consist of alphanumeric characters, separated only by hyphens, if any. |
+|    g/ | SEARCH_TERM  | Only used in the `find` command. Used in combination with the other flags on this list.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|    h/ | HEADER       | Header should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|    i/ | INFORMATION  | Information should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|    j/ | JOB_POSITION | Job should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|    n/ | NAME         | Names should only contain alphanumeric characters and spaces, and it should not be blank                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|    p/ | PHONE_NUMBER | Phone numbers should only contain numbers, and it should be at least 3 digits long                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|    s/ | STAGE        | Stage should be only INPROGRESS or ACCEPTED or REJECTED (case-sensitive)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|    t/ | TIME         | Time should be in the format HH:MM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 
-## List Types
+## Section Types
 
 | Type | Format                                            |
 |-----:|:--------------------------------------------------|
@@ -518,14 +542,16 @@ file even though the data is seperated by tabs.
 
 ## Command Summary
 
-### General Command Summary
+**General Command Summary** <br><br>
 
 | Action | Format |
-|-------:|:-------|
-|   Help | `help` |
-|   Exit | `exit` |
+|:------:|:------:|
+|  Help  | `help` |
+|  Exit  | `exit` |
 
-### Applicant Command Summary
+<br>
+
+**Applicant Command Summary** <br><br>
 
 |                Action | Format                                                                                                                                                            |
 |----------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -536,7 +562,9 @@ file even though the data is seperated by tabs.
 |  Clear Job Applicants | `clear [p]`                                                                                                                                                       |
 | Find Job Applicant(s) | `find [p] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                                                                     |
 
-### Interview Command Summary
+<div style="page-break-after: always;"></div>
+
+**Interview Command Summary** <br><br>
 
 |            Action | Format                                                                                                   |
 |------------------:|:---------------------------------------------------------------------------------------------------------|
@@ -547,7 +575,9 @@ file even though the data is seperated by tabs.
 |  Clear Interviews | `clear [i]`                                                                                              |
 | Find Interview(s) | `find [i] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                            |
 
-### Task Command Summary
+<div style="page-break-after: always;"></div>
+
+**Task Command Summary** <br><br>
 
 |       Action | Format                                                                                                                    |
 |-------------:|:--------------------------------------------------------------------------------------------------------------------------|
@@ -558,9 +588,11 @@ file even though the data is seperated by tabs.
 |  Clear Tasks | `clear [t]`                                                                                                               |
 | Find Task(s) | `find [t] g/SEARCH_TERM <SEARCH_TERM>... <g/SEARCH_TERM <SEARCH_TERM>...>...`                                             |
 
-### Storage Command Summary
+<br>
 
-|               Action | Format                                                                                                                                                                                                                                                                                                                      |
-|---------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|               Import | `import FILEPATH`                                                                                                                                                                                                                                                                                                           |
-|               Export | `export FILEPATH`                                                                                                                                                                                                                                                                                                           |
+**Storage Command Summary** <br><br>
+
+|        Action        |                                                                                                                                                           Format                                                                                                                                                            |
+|:--------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|        Import        |                                                                                                                                                      `import FILEPATH`                                                                                                                                                      |
+|        Export        |                                                                                                                                                      `export FILEPATH`                                                                                                                                                      |

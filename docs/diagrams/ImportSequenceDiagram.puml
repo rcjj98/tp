@@ -14,9 +14,20 @@ end box
 [-> ImportCommandParser : parse("../mydata.csv")
 activate ImportCommandParser
 
+ImportCommandParser -> ImportCommandParser : checkFilePath()
+activate ImportCommandParser
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
+
+ImportCommandParser -> ImportCommandParser : readCsv()
+activate ImportCommandParser
+
 ref over ImportCommandParser
 perform necessary checks
 end ref
+
+ImportCommandParser --> ImportCommandParser
+deactivate ImportCommandParser
 
 create ImportCommand
 ImportCommandParser -> ImportCommand
