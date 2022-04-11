@@ -52,7 +52,6 @@ e.g. BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
 
 - Reviewed and approved some team members PRs with some comments and suggestions
 - Helped to solve bugs in other team members features
-- Helped teammates when they faced issues or need help with their parts
 
 ## Contributions beyond team-projects
 
