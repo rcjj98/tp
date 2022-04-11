@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-HRConnect is a desktop application for managing the contacts of job applicants. <br>
+HRConnect is a desktop application for managing the contacts of job applicants. <br> <br>
 It can also be used to keep track of: <br>
 * stage progress of each applicant during the application process
 * interviews with each applicant
