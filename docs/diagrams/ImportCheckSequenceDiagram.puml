@@ -37,7 +37,7 @@ deactivate Person
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
 
-ImportCommandParser -> ImportCommandParser : updatePersons(applicant)
+ImportCommandParser -> ImportCommandParser : updatePersons(person)
 activate ImportCommandParser
 ImportCommandParser --> ImportCommandParser
 deactivate ImportCommandParser
