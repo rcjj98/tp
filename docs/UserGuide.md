@@ -506,6 +506,7 @@ Relative filepath example for WindowsOS: `export .\myData.csv` <br><br>
 Absolute filepath example for MacOS: `export  /Users/YOUR_USERNAME/Downloads/myDataFile.csv` <br>
 Relative filepath example for MacOS: `export  ./myDataFile.csv`
 
+:exclamation: **Important:** Some file paths might be recognised as valid/invalid depending on the OS.  
 
 :exclamation: **Important:** Data in exported csv file will look different depending on the application used to view the
 file even though the data is seperated by tabs. 
