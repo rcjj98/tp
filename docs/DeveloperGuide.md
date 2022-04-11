@@ -18,6 +18,7 @@ title: Developer Guide
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
@@ -26,7 +27,6 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
-<div style="page-break-after: always;"></div>
 
 ### Architecture
 
@@ -62,6 +62,8 @@ Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
 * implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+
+<div style="page-break-after: always;"></div>
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -897,6 +899,8 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
+<div style="page-break-after: always;"></div>
+
 ### Adding a Task
 
 1. Adding a Task into the task list. <br>
@@ -926,7 +930,8 @@ testers are expected to do more *exploratory* testing.
    
     4. Test case: `edit [i] 1 d/2021-05-06` <br>
        Expected: No task is added. Error details shown in the status message  <br><br>
-    
+
+<div style="page-break-after: always;"></div>
 
 ### Deleting a job applicant with a scheduled interview
 
@@ -962,7 +967,9 @@ testers are expected to do more *exploratory* testing.
 
     2a. Test case: `clear [p]` <br> 
     Expected: No applicants cleared from HRConnect. Error details shown in the status message  <br><br>
-    
+
+<div style="page-break-after: always;"></div>
+
 ### Finding a Job Applicant
 
 1. Finding all applicants in the ACCEPTED stage. <br><br>
