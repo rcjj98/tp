@@ -470,7 +470,8 @@ Notes:
 2. No duplicates are allowed to be imported into the HRConnect.
    1. Data in the HRConnect has a higher priority than data in the save file.
 3. Save files needs to end with `.csv` in order for the HRConnect to recognise the save file.
-4. If any error is found, **none** of the data in the save file will be imported into the HRConnect.
+4. The csv save file can have at most 1 newline at the end of file for it to be considered valid.
+5. If any error is found, **none** of the data in the save file will be imported into the HRConnect.
 
 Format: `import FILEPATH`
 
