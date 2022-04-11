@@ -34,7 +34,7 @@ e.g. Adding tabs feature and adding different colors to represent different stag
 e.g. Clearing applicant list and Adding interview
 - Add notes for Interview and Task features <br>
 e.g. Listed in chronological date time order
-- Solve some UG bugs highlighted from PE-D
+- Solve some UG bugs highlighted from PED
 - Helped to format the UG by adding appropriate page breaks for PDF submission
 
 ## Contributions to the DG
@@ -51,10 +51,9 @@ e.g. BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
 ## Review/mentoring contributions
 
 - Reviewed and approved some team members PRs with some comments and suggestions
-- Helped to solve bugs in other team members features
+- Helped to solve bugs and issues in other team members features
 
 ## Contributions beyond team-projects
 
-- Bugs reported in other team products during PE-D <br>
-Link: <a href="https://github.com/brigittesantoso/ped/issues">PE-D Issues</a>
-- Some forum contribution
+- Bugs reported in other team products during PED <br>
+Link: <a href="https://github.com/brigittesantoso/ped/issues">PED Issues</a>

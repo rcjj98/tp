@@ -3,7 +3,7 @@ layout: page
 title: Emmanuel Mok's Project Portfolio Page
 ---
 
-## Project: HRConnect
+### Project: HRConnect
 
 This product is for tech HR recruiters who prefer to use CLI to store contacts of job applicants and their respective interviews as well as keep track of the status of each applicant through the application process.
 
@@ -14,14 +14,13 @@ Given below are my contributions to the project.
   * What it does: Allows users to search of any data in their respective sections (Task/Interview/Applicant)
   using the flags as defined in the app. It also simulates 'AND' and 'OR' statements through the use of
   the `g/` flag.
-  * Justification: The previous `find` command was too simplistic in the sense that
-  it can only search for names. With more data fields being added to HRConnect, a
-  stronger search function is required to enable users to effectively
-  look for data that they are looking for. Furthermore, the simulation of 'AND' and 'OR' commands
-  gives users more flexibility and control over their search criteria, leading to a better experience for the user.
-  * Highlights: This enhancement improves upon the original `find` command. Hence, it requires some analysis into other design
-  considerations to ensure that the enhancement is intuitive and useful to the user. It was also challenging to implement
-  a custom `g/` flag for the `find` command as it requires custom validity checks which builds upon the 
+  * Justification: The previous `find` command was too simplistic in the sense that it can only search for names. With 
+  more data fields being added to HRConnect, a stronger search function is required to enable users to effectively
+  look for data that they are searching for. Furthermore, the simulation of 'AND' and 'OR' commands gives users more 
+  flexibility and control over their search criteria, leading to a better experience for the user.
+  * Highlights: This enhancement improves upon the original `find` command. Hence, it requires some analysis into other 
+  design considerations to ensure that the enhancement is both intuitive and useful to the user. It was also challenging to 
+  implement a custom `g/` flag for the `find` command as it requires custom validity checks which builds upon the 
   ArgumentTokenizer and ArgumentMultiMap.
 
 * **New Feature:** Added an `import` feature to allow job applicants data to be transferred into the address book.
@@ -29,10 +28,10 @@ Given below are my contributions to the project.
   exported out by the `export` command.
   * Justification: This feature is complementary to the `export` command it allows previously exported data to be
   reintegrated back into the address book.
-  * Highlights: This enhancement was challenging because of the fact that the csv save file can be 
-  subjected to a lot of other changes by the user. A lot of checks is needed to ensure that the contents of the csv save file 
-  contents adhere to the flag formats as defined in the HRConnect app. Furthermore, there is also a check for any duplicates
-  within both the csv save file and the app itself before adding all the job applicants to the app.
+  * Highlights: This enhancement was challenging because the csv save file can be subjected to a lot of other changes by 
+  the user. A lot of checks are needed to ensure that the contents of the csv save file contents adhere to the flag 
+  formats as defined in the HRConnect app. Furthermore, there is also a check for any duplicates for both within the csv save 
+  file and the app itself before adding all the job applicants to the app.
   
 
 * **Code Contributed:** 
@@ -46,7 +45,7 @@ Given below are my contributions to the project.
 
 
 * **Enhancement to existing features:**
-  * Updated the help page in the address book (Pull Request: [#78](https://github.com/AY2122S2-CS2103T-W11-2/tp/pull/78))
+  * Updated the help page in the address book (Pull Request: [#78](https://github.com/AY2122S2-CS2103T-W11-2/tp/pull/78/files))
   * Changed the application name of the address book (Pull Request: [#94](https://github.com/AY2122S2-CS2103T-W11-2/tp/pull/94/files))
   
 

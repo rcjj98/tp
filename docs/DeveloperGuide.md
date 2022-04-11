@@ -18,6 +18,7 @@ title: Developer Guide
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Design**
 
@@ -25,6 +26,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
+
 
 ### Architecture
 
@@ -61,11 +63,15 @@ Each of the four main components (also shown in the diagram above),
 * defines its *API* in an `interface` with the same name as the Component.
 * implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
 
+<div style="page-break-after: always;"></div>
+
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
 <img src="images/ComponentManagers.png" width="300" />
 
 The sections below give more details of each component.
+
+<div style="page-break-after: always;"></div>
 
 ### UI component
 
@@ -83,6 +89,8 @@ The `UI` component,
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person`, `Interview`, `Task` objects residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -115,6 +123,8 @@ How the parsing works:
 * All `XYZTYPECommandParser` classes (`XYZ` refers to the specific command, and `TYPE` refers to either `Person`, `Task` or `Interview` objects e.g., `AddTaskCommandParser`, `DeletePersonCommandParser`, ...) are created by the `XYZCommandParser` classes, which return an `XYZTYPECommand` (`XYZTYPECommand` referring to the specific command e.g. `AddPersonCommand`, `DeleteTaskCommand`, ...).
 * `XYZCommand` like `AddCommand` and `DeleteCommand` are abstract classes, which inherits from the abstract `Command` class, so they may be treated similarly where possible. However `XYZCommand` like `HelpCommand` and `ExitCommand` are non-abstract classes but also inherits from abstract class Command.
 
+<div style="page-break-after: always;"></div>
+
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
@@ -136,6 +146,7 @@ The `Model` component,
 
 </div>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -153,6 +164,8 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -199,6 +212,8 @@ The following sequence diagram summarises how `export ./mydata.csv` works.
   <img src="images/ExportSequenceDiagram.png" alt="Interactions for Export Command"/>
 </p>
 
+<div style="page-break-after: always;"></div>
+
 ### Import Feature
 
 The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the HRConnect.
@@ -242,6 +257,8 @@ The following sequence diagram summarises how `import ./mydata.csv` works.
 <p align="center">
   <img src="images/ImportCheckSequenceDiagram.png" alt="Interactions for Import checking Command"/>
 </p>
+
+<div style="page-break-after: always;"></div>
 
 ### Find Feature
 
@@ -290,6 +307,7 @@ The following sequence diagram summarises how `find [t] g/i/update` works
   * Cons: Lacks the flexibility provided by AND and OR operators.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -320,6 +338,8 @@ The following sequence diagram summarises how `find [t] g/i/update` works
 * Keep track of applicant's upcoming and past interviews.
 * A task list to keep track of miscellaneous tasks.
 
+<div style="page-break-after: always;"></div>
+
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
@@ -348,6 +368,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | Tech HR Recruiter | import details of applicants                     | easily transfer applicant details into my HRConnect |
 
 
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 For all use cases below, the **System** is the `HRConnect` and the **Actor** is the `Tech HR Recruiter`, unless specified otherwise.
@@ -386,6 +407,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 2. HRConnect adds the interview to interview list.
 
    Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Extensions**
 
@@ -428,6 +451,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC4 - Delete an applicant**
 
 **MSS**
@@ -468,6 +493,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 2. AddressBook deletes the interview from the interview list.
 
    Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Extensions**
 
@@ -510,6 +537,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the INDEX entered is valid. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
 
 **Use case: UC7 - List applicant list**
 
@@ -546,6 +574,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1a2. User enters new type. <br>
       Steps 1a1-1a2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC9 - List task list**
 
@@ -590,6 +620,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1c1-1c2 are repeated until the interview list has been cleared. <br>
       Use case resumes from step 2.<br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC11 - Clear interview list**
 
 **MSS**
@@ -627,6 +659,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1a1-1a2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC13 - Edit an applicant's particulars**
 
 **MSS**
@@ -659,6 +693,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1c1-1c2 are repeated until the correct interview has been deleted. <br>
       Use case resumes from step 2.<br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC14 - Edit an interview**
 
 **MSS**
@@ -684,6 +720,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC15 - Edit a task**
 
 **MSS**
@@ -708,6 +746,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b2. User enters new details for field(s). <br>
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC16 - Find an applicant**
 
@@ -742,6 +782,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 2.  HRConnect shows interview with the specified details
 
     Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Extensions**
 
@@ -784,6 +826,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC19 - Export data from HRConnect**
 
 **MSS**
@@ -809,6 +853,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the filename entered is valid. <br>
       Use case resumes from step 2. <br><br>
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC20 - Import data to HRConnect**
 
 **MSS**
@@ -833,6 +879,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
     * 1b1. User deletes applicant from HRConnect. (UC4)
       Use case resumes from step 1. <br><br>
 
+<div style="page-break-after: always;"></div>
 
 ### Non-Functional Requirements
 
@@ -851,6 +898,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
@@ -876,6 +924,8 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
+<div style="page-break-after: always;"></div>
+
 ### Adding a Task
 
 1. Adding a Task into the task list. <br>
@@ -891,6 +941,8 @@ testers are expected to do more *exploratory* testing.
    4. Test case: `add [t] h/Update applicant statuses d/2021-05-06 t/10:10`
       Expected: No task is added. Error details shown in the status message  <br><br>
 
+<div style="page-break-after: always;"></div>
+
 ### Editing an Interview
 
 1. Editing an Interview in the interview list. <br>
@@ -905,7 +957,8 @@ testers are expected to do more *exploratory* testing.
    
     4. Test case: `edit [i] 1 d/2021-05-06` <br>
        Expected: No task is added. Error details shown in the status message  <br><br>
-    
+
+<div style="page-break-after: always;"></div>
 
 ### Deleting a job applicant with a scheduled interview
 
@@ -941,7 +994,9 @@ testers are expected to do more *exploratory* testing.
 
     2a. Test case: `clear [p]` <br> 
     Expected: No applicants cleared from HRConnect. Error details shown in the status message  <br><br>
-    
+
+<div style="page-break-after: always;"></div>
+
 ### Finding a Job Applicant
 
 1. Finding all applicants in the ACCEPTED stage. <br><br>
