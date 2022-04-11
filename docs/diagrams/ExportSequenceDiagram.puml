@@ -19,7 +19,7 @@ end box
 activate ExportCommandParser
 
 
-ExportCommandParser -> ExportCommandParser : checkFilePath()
+ExportCommandParser -> ExportCommandParser : checkFilePath("../mydata.csv")
 activate ExportCommandParser
 
 ExportCommandParser --> ExportCommandParser
@@ -53,7 +53,7 @@ Model --> ExportCommand : filteredPersonsList
 deactivate Model
 
 loop until end of filteredPersonsList
-ExportCommand -> PrintWriter : printf()
+ExportCommand -> PrintWriter : printf(applicant)
 activate PrintWriter
 PrintWriter --> ExportCommand
 deactivate PrintWriter
