@@ -20,26 +20,26 @@ Link: <a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigit
 
 ## Enhancements implemented
 
-- Implemented several object/field classes <br>
+- Implemented several object/field classes
 e.g. Job, Stage, Interview, Date, Time, Header, Information
-- Added some interview commands and parsers <br>
+- Added some interview commands and parsers
 e.g. Add, Delete, List, Edit, Clear
-- Added some task commands and parsers <br>
+- Added some task commands and parsers 
 e.g. List, Edit, Clear
-- Introduced types into code to distinguish between applicant, interview and task <br>
+- Introduced types into code to distinguish between applicant, interview and task 
 e.g. `[p]`, `[i]`, `[t]`
-- Used OOP principles to make some commands abstract to reduce repetition of code <br>
+- Used OOP principles to make some commands abstract to reduce repetition of code 
 e.g. `AddCommand` for `AddPersonCommand`, `AddInterviewCommand` and `AddTaskCommand`)
-- Enhanced UI of the application <br>
+- Enhanced UI of the application
 e.g. Adding tabs feature and adding different colors to represent different stages of progress
 
 ## Contributions to the UG
 
 - Add all task commands to the UG with clear formatting
 - Add all task commands to the command summary table in UG
-- Add constraint pointers to some commands <br>
+- Add constraint pointers to some commands
 e.g. Clearing applicant list and Adding interview
-- Add notes for Interview and Task features <br>
+- Add notes for Interview and Task features
 e.g. Listed in chronological date time order
 - Solve some UG bugs highlighted from PE-D
 - Helped to format the UG by adding appropriate page breaks for PDF submission
