@@ -23,7 +23,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-W11-2/tp/tree/master/docs/diagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
 ### Architecture
@@ -36,7 +36,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -69,13 +69,13 @@ The sections below give more details of each component.
 
 ### UI component
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+The **API** of this component is specified in [`Ui.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `InterviewListPanel`, `TaskListPanel`,`StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -86,7 +86,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2122S2-CS2103T-W11-2/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -123,7 +123,7 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object), all `Interview` objects (which are contained in a `UniqueInterviewList` object), all `Task` objects (which are contained in a `UniqueTaskList` object).
+* stores the HRConnect data i.e., all `Person` objects (which are contained in a `UniquePersonList` object), all `Interview` objects (which are contained in a `UniqueInterviewList` object), all `Task` objects (which are contained in a `UniqueTaskList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores the currently 'selected' `Interview` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Interview>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores the currently 'selected' `Task` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Task>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
@@ -144,13 +144,13 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in json format, and read them back into corresponding objects.
+* can save both HRConnect data and user preference data in json format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -160,7 +160,7 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Export Feature
 
-The export feature takes the current address book data stored in memory and exports the job applicants data into a user-specified
+The export feature takes the current HRConnect data stored in memory and exports the job applicants data into a user-specified
 csv file that is tab-delimited.
 
 The structure for the csv file is defined as follows:
@@ -204,7 +204,7 @@ The following sequence diagram summarises how `export ./mydata.csv` works.
 
 ### Import Feature
 
-The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the address book.
+The import feature takes in a csv file and adds all the job applicants stored in the csv file back into the HRConnect.
 
 The csv file structure needs to follow the file structure as defined by the [export feature](#export-feature).
 
@@ -231,7 +231,7 @@ Step 5. The newly created person is added to a temporary list.
 
 Step 6. A new `ImportCommand` object is created with the aforementioned temporary list as its parameter.
 
-Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current address book before adding each person into the current address book.
+Step 7. The `ImportCommand#execute()` method is called. It checks that there are no persons in the temporary list that already exists in the current HRConnect before adding each person into the current HRConnect.
 
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
@@ -270,7 +270,7 @@ Step 5. A new `TaskContainsKeywordsPredicate` predicate object is created using 
 
 Step 6. A new `FindTaskCommand` object is created with the aforementioned predicate object as its parameter.
 
-Step 7. The `FindTaskCommand#execute()` method is called. It filters the current address book such that it satisfies the predicate object and displays it on the screen.
+Step 7. The `FindTaskCommand#execute()` method is called. It filters the current HRConnect such that it satisfies the predicate object and displays it on the screen.
 
 Step 8. A new `CommandResult` object is returned signifying that the command has executed successfully.
 
@@ -319,7 +319,7 @@ The following sequence diagram summarises how `find [t] g/i/update` works
 **Value proposition**:
 * Manage contacts more efficiently using CLI as compared to a typical mouse/GUI driven app.
 * Find applicants based on their details, e.g. name, position applied, stage of application.
-* Archive/Retrieve applicants' details for long term storage/ easy transfer of data into address book.
+* Archive/Retrieve applicants' details for long term storage/ easy transfer of data into HRConnect.
 * Keep track of applicant's upcoming and past interviews.
 * A task list to keep track of miscellaneous tasks.
 
@@ -327,28 +327,28 @@ The following sequence diagram summarises how `find [t] g/i/update` works
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​           | I want to …​                                     | So that I can…​                                        |
-|----------|-------------------|--------------------------------------------------|--------------------------------------------------------|
-| `* * *`  | Tech HR Recruiter | add applicants to my address book                | record their details                                   |
-| `* * *`  | Tech HR Recruiter | take note of scheduled interviews for applicants | keep track of their interview dates                    |
-| `* * *`  | Tech HR Recruiter | record miscellaneous task                        | keep track of any important details                    |
-| `* * *`  | Tech HR Recruiter | view the details of all contacts                 | see all my contacts at a glance                        |
-| `* * *`  | Tech HR Recruiter | view all scheduled interviews                    | see all upcoming and past interviews                   |
-| `* * *`  | Tech HR Recruiter | view all recorded miscellaneous task             | see all important tasks at a glance                    |
-| `* * *`  | Tech HR Recruiter | remove any applicant from my contact list        | delete any applicant that is no longer of interest     |
-| `* * *`  | Tech HR Recruiter | remove a scheduled interview                     | delete any interview that is cancelled                 |
-| `* * *`  | Tech HR Recruiter | remove any recorded tasks                        | delete tasks off my task list                          |
-| `* * *`  | Tech HR Recruiter | update any applicant's details                   | edit any mistakes in the applicant's detail            |
-| `* * *`  | Tech HR Recruiter | update the details of a scheduled interview      | edit any mistakes in the scheduled interview           |
-| `* * *`  | Tech HR Recruiter | update any task details                          | edit any mistakes in the miscellaneous tasks           |
-| `* *`    | Tech HR Recruiter | find an applicant in my address book             | locate them easily                                     |
-| `* *`    | Tech HR Recruiter | find a scheduled interview                       | locate a specific interview                            |
-| `* *`    | Tech HR Recruiter | find specific tasks I recorded                   | locate the quickly                                     |
-| `* * *`  | Tech HR Recruiter | clear all applicants from my addressbook         | easily empty my address book                           |
-| `* * *`  | Tech HR Recruiter | clear all schedule interviews                    | easily remove all schedule interviews                  |
-| `* * *`  | Tech HR Recruiter | clear all recorded miscellaneous task            | easily remove all recorded tasks                       |
-| `* *`    | Tech HR Recruiter | export details of all applicants                 | archive the data for future reference                  |
-| `* *`    | Tech HR Recruiter | import details of applicants                     | easily transfer applicant details into my address book |
+| Priority | As a …​           | I want to …​                                     | So that I can…​                                     |
+|----------|-------------------|--------------------------------------------------|-----------------------------------------------------|
+| `* * *`  | Tech HR Recruiter | add applicants to my HRConnect                   | record their details                                |
+| `* * *`  | Tech HR Recruiter | take note of scheduled interviews for applicants | keep track of their interview dates                 |
+| `* * *`  | Tech HR Recruiter | record miscellaneous task                        | keep track of any important details                 |
+| `* * *`  | Tech HR Recruiter | view the details of all contacts                 | see all my contacts at a glance                     |
+| `* * *`  | Tech HR Recruiter | view all scheduled interviews                    | see all upcoming and past interviews                |
+| `* * *`  | Tech HR Recruiter | view all recorded miscellaneous task             | see all important tasks at a glance                 |
+| `* * *`  | Tech HR Recruiter | remove any applicant from my contact list        | delete any applicant that is no longer of interest  |
+| `* * *`  | Tech HR Recruiter | remove a scheduled interview                     | delete any interview that is cancelled              |
+| `* * *`  | Tech HR Recruiter | remove any recorded tasks                        | delete tasks off my task list                       |
+| `* * *`  | Tech HR Recruiter | update any applicant's details                   | edit any mistakes in the applicant's detail         |
+| `* * *`  | Tech HR Recruiter | update the details of a scheduled interview      | edit any mistakes in the scheduled interview        |
+| `* * *`  | Tech HR Recruiter | update any task details                          | edit any mistakes in the miscellaneous tasks        |
+| `* *`    | Tech HR Recruiter | find an applicant in my HRConnect                | locate them easily                                  |
+| `* *`    | Tech HR Recruiter | find a scheduled interview                       | locate a specific interview                         |
+| `* *`    | Tech HR Recruiter | find specific tasks I recorded                   | locate the quickly                                  |
+| `* * *`  | Tech HR Recruiter | clear all applicants from my HRConnect           | easily empty my HRConnect                           |
+| `* * *`  | Tech HR Recruiter | clear all schedule interviews                    | easily remove all schedule interviews               |
+| `* * *`  | Tech HR Recruiter | clear all recorded miscellaneous task            | easily remove all recorded tasks                    |
+| `* *`    | Tech HR Recruiter | export details of all applicants                 | archive the data for future reference               |
+| `* *`    | Tech HR Recruiter | import details of applicants                     | easily transfer applicant details into my HRConnect |
 
 
 
@@ -360,7 +360,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to add an applicant in the address book.
+1. User requests to add an applicant in the HRConnect.
 2. HRConnect adds the applicant to applicant list.
 
     Use case ends.
@@ -435,7 +435,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to delete an applicant from the address book.
+1. User requests to delete an applicant from the HRConnect.
 2. HRConnect deletes the applicant from the applicant list.
 
    Use case ends.
@@ -467,7 +467,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to delete a interview in the address book.
+1. User requests to delete a interview in the HRConnect.
 2. AddressBook deletes the interview from the interview list.
 
    Use case ends.
@@ -518,7 +518,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to list all applicants in the address book.
+1. User requests to list all applicants in the HRConnect.
 2. HRConnect displays list of applicants.
 
    Use case ends.
@@ -536,7 +536,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to see all scheduled interviews in the address book.
+1. User requests to see all scheduled interviews in the HRConnect.
 2. HRConnect displays list of interviews.
 
    Use case ends.
@@ -554,7 +554,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to see all tasks in the address book.
+1. User requests to see all tasks in the HRConnect.
 2. HRConnect displays list of tasks.
 
    Use case ends.
@@ -572,7 +572,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to clear all applicants in the address book.
+1. User requests to clear all applicants in the HRConnect.
 2. HRConnect clears all applicants from applicant list.
 
    Use case ends.
@@ -597,7 +597,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 
 **MSS**
 
-1. User requests to clear all scheduled interviews in the address book.
+1. User requests to clear all scheduled interviews in the HRConnect.
 2. HRConnect clears all interviews from interview list.
 
    Use case ends.
@@ -787,7 +787,7 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the data entered are correct. <br>
       Use case resumes from step 2. <br><br>
 
-**Use case: UC19 - Export data from address book**
+**Use case: UC19 - Export data from HRConnect**
 
 **MSS**
 
@@ -812,12 +812,12 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1b1-1b2 are repeated until the filename entered is valid. <br>
       Use case resumes from step 2. <br><br>
 
-**Use case: UC20 - Import data to address book**
+**Use case: UC20 - Import data to HRConnect**
 
 **MSS**
 
 1.  User requests to import data.
-2.  HRConnect shows all applicants imported into the address book.
+2.  HRConnect shows all applicants imported into the HRConnect.
 
     Use case ends.
 
@@ -830,10 +830,10 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
       Steps 1a1-1a2 are repeated until the filepath entered is valid. <br>
       Use case resumes from step 2. <br><br>
 
-* 1b. Duplicate applicant found in address book
+* 1b. Duplicate applicant found in HRConnect
 
-    * 1a1. HRConnect alerts user that applicant is already in address book and aborts the import.
-    * 1b1. User deletes applicant from address book. (UC4)
+    * 1a1. HRConnect alerts user that applicant is already in HRConnect and aborts the import.
+    * 1b1. User deletes applicant from HRConnect. (UC4)
       Use case resumes from step 1. <br><br>
 
 
@@ -910,7 +910,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Deleting a job applicant with a scheduled interview
 
-1. Add an applicant to an empty address book
+1. Add an applicant to an empty HRConnect
 
     1a. `add [p] n/John Doe p/01234567 e/johnd@example.com a/Pasir Ris BLK121 j/Software Engineer s/INPROGRESS`
     <br><br>
@@ -920,28 +920,28 @@ testers are expected to do more *exploratory* testing.
    2a. `add [i] 1 d/2021-05-06 t/10:30`
     <br><br>
     
-3. Delete John Doe from address book
+3. Delete John Doe from HRConnect
 
    3a. Test case: Do 3a1 then 3a2 <br>
        3a1. `delete [i] 1` <br>
        3a2.`delete [p] 1` <br>
-       Expected: John Doe removed from address book. Details of deleted applicant shown in the status message.  
+       Expected: John Doe removed from HRConnect. Details of deleted applicant shown in the status message.  
        <br>
    3b. Test case:`delete [p] 1` <br> 
-    Expected: No applicant deleted from address book. Error details shown in the status message  <br><br>
+    Expected: No applicant deleted from HRConnect. Error details shown in the status message  <br><br>
 
 ### Clearing all Job Applicants 
 
-1. Clear all applicants in address book with 0 scheduled interviews in interview list.
+1. Clear all applicants in HRConnect with 0 scheduled interviews in interview list.
 
     1a. Test case: `clear [p]`  <br>
-    Expected: All applicants cleared from address book. Message indicating successful clearing of all applicants shown in status window
+    Expected: All applicants cleared from HRConnect. Message indicating successful clearing of all applicants shown in status window
        <br><br>
     
-2. Clear all applicants in address book with 1 or more interview(s) in interview list.
+2. Clear all applicants in HRConnect with 1 or more interview(s) in interview list.
 
     2a. Test case: `clear [p]` <br> 
-    Expected: No applicants cleared from address book. Error details shown in the status message  <br><br>
+    Expected: No applicants cleared from HRConnect. Error details shown in the status message  <br><br>
     
 ### Finding a Job Applicant
 
