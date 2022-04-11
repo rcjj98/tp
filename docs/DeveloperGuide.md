@@ -845,6 +845,8 @@ For all use cases below, the **System** is the `HRConnect` and the **Actor** is 
 * **Applicant**: A person who is applying for a job position in the company.
 * **Tech HR Recruiters**: A Human Resource employee that assists in the proper staffing of technical positions within an organization.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
+* **CLI**: Command Line Interface, a text interface for your computer device
+* **GUI**: Graphic User Interface
 
 
 
