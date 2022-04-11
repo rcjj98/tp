@@ -30,7 +30,6 @@ e.g. Adding tabs feature and adding different colors to represent different stag
 ## Contributions to the UG
 
 - Add all task commands to the UG with clear formatting
-- Add all task commands to the command summary table in UG
 - Add constraint pointers to some commands <br>
 e.g. Clearing applicant list and Adding interview
 - Add notes for Interview and Task features <br>
