@@ -5,11 +5,11 @@ title: Brigitte Santoso's Project Portfolio Page
 
 ## Project: HRConnect
 
-HRConnect is a desktop application for managing the contacts of job applicants, interviews and miscellaneous tasks. <br>
+HRConnect is an application for managing job applicants, interviews and miscellaneous tasks. <br>
 
 Given below are my contributions to the project.
 
-## Enhancements implemented
+### Enhancements implemented
 * **Job and Stage fields**: Added `Job` and `Stage` attributes to `Person` class
     * What it does: Clearly indicate which job position an applicant is applying to and which stage progress they are currently at
     * Justification: This feature improves the product significantly as the main aim of our application for HR recruiters to manage the job applicants and their stage progress easily.
@@ -24,21 +24,19 @@ Given below are my contributions to the project.
     * Highlights: This enhancement was difficult as it requires abstraction of code such as creating an abstract class `AddCommand` which `AddPersonCommand`, `AddInterviewCommand` and `AddTaskCommand` extends from to reduce the amount of duplicate code and ensure that OOP principles are adhered to.
 
 
-## Code Contribution
+### Code Contribution
 Link: <a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other">Code Contributed</a>
 
-## Contributions to the UG
-
+### Contributions to the UG and DG
+**UG** <br>
 * Add all task commands to the UG with clear formatting
 * Add constraint pointers to some commands 
   * Clearing applicant list and Adding interview
 * Add notes for Interview and Task features
   * Listed in chronological date time order
 * Solve some UG bugs highlighted from PED
-* Helped to format the UG by adding appropriate page breaks for PDF submission
-
-## Contributions to the DG
-
+* Helped to format the UG by adding appropriate page breaks for PDF submission <br> <br>
+**DG** <br>
 * Edited Model and Storage sections of DG along with their elaboration
 * Edited UML diagrams for Model and Storage section 
   * BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
