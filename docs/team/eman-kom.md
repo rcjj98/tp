@@ -1,5 +1,3 @@
-## Emmanuel Mok Project Portfolio Page
-
 ### Project: HRConnect
 
 This product is for tech HR recruiters who prefer to use CLI to store contacts of job applicants and their respective interviews as well as keep track of the status of each applicant through the application process.
