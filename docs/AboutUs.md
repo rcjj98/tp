@@ -18,7 +18,7 @@ You can reach us at the email `e0544350@comp.nus.edu.sg`
 [[portfolio](team/brigittesantoso.md)]
 
 * Role: Developer
-* Responsibilities: Some interview and task features
+* Responsibilities: Job and Stage fields, Interview features and Type features
 
 ### Ryan Chang
 
