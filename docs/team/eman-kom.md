@@ -1,3 +1,8 @@
+---
+layout: page
+title: Emmanuel Mok's Project Portfolio Page
+---
+
 ### Project: HRConnect
 
 This product is for tech HR recruiters who prefer to use CLI to store contacts of job applicants and their respective interviews as well as keep track of the status of each applicant through the application process.
@@ -28,7 +33,7 @@ Given below are my contributions to the project.
   subjected to a lot of other changes by the user. A lot of checks is needed to ensure that the contents of the csv save file 
   contents adhere to the flag formats as defined in the HRConnect app. Furthermore, there is also a check for any duplicates
   within both the csv save file and the app itself before adding all the job applicants to the app.
-
+  
 
 * **Code Contributed:** [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=eman-kom&breakdown=true)
 
