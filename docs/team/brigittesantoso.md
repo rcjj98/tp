@@ -1,22 +1,16 @@
 ---
 layout: page
-title: Brigitte Puteri Santoso's Project Portfolio Page
+title: Brigitte Santoso's Project Portfolio Page
 ---
 
 # Project: HRConnect
 
-HRConnect is a desktop application for managing the contacts of job applicants. <br>
-It can also be used to keep track of: <br>
-* stage progress of each applicant during the application process
-* interviews with each applicant
-* miscellaneous tasks that need to be completed
-
-Given below are my contributions to the project.
+HRConnect is a desktop application for managing the contacts of job applicants, interviews and miscellaneous tasks. <br>
 
 # Summary of Contributions
 ## Code contributed
 
-Link: <a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other">https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other</a>
+Link: <a href="https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=brigittesantoso&breakdown=true&sort=groupTitle&sortWithin=title&since=2022-02-18&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other">Code Contributed</a>
 
 ## Enhancements implemented
 
@@ -29,14 +23,13 @@ e.g. List, Edit, Clear
 - Introduced types into code to distinguish between applicant, interview and task <br>
 e.g. `[p]`, `[i]`, `[t]`
 - Used OOP principles to make some commands abstract to reduce repetition of code <br>
-e.g. `AddCommand` for `AddPersonCommand`, `AddInterviewCommand` and `AddTaskCommand`)
+e.g. `AddCommand` for `AddPersonCommand`, `AddInterviewCommand` and `AddTaskCommand`
 - Enhanced UI of the application <br>
 e.g. Adding tabs feature and adding different colors to represent different stages of progress
 
 ## Contributions to the UG
 
 - Add all task commands to the UG with clear formatting
-- Add all task commands to the command summary table in UG
 - Add constraint pointers to some commands <br>
 e.g. Clearing applicant list and Adding interview
 - Add notes for Interview and Task features <br>
@@ -46,7 +39,7 @@ e.g. Listed in chronological date time order
 
 ## Contributions to the DG
 
-- Edited Model and Storage section of DG by elaborating how the components in these sections worked
+- Edited Model and Storage sections of DG along with their elaboration
 - Edited UML diagrams for Model and Storage section <br>
 e.g. BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
 
@@ -59,10 +52,9 @@ e.g. BetterModelClassDiagram, ModelClassDiagram and StorageClassDiagram
 
 - Reviewed and approved some team members PRs with some comments and suggestions
 - Helped to solve bugs in other team members features
-- Helped teammates when they faced issues or need help with their parts
 
 ## Contributions beyond team-projects
 
 - Bugs reported in other team products during PE-D <br>
-Link: <a href="https://github.com/brigittesantoso/ped/issues">https://github.com/brigittesantoso/ped/issues</a>
+Link: <a href="https://github.com/brigittesantoso/ped/issues">PE-D Issues</a>
 - Some forum contribution
